@@ -24,7 +24,7 @@ Publications
 
 [3] Non-convex Learning via Replica Exchange Stochastic Gradient MCMC. 
 
-    **W. Deng**, Q. Feng*, L. Gao*, F. Liang, G. Lin 
+    W. Deng, Q. Feng*, L. Gao*, F. Liang, G. Lin 
 
     The 37th International Conference on Machine Learning (ICML 2020).
 
