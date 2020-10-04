@@ -19,7 +19,15 @@ Publications
 ======
 
 
-[4] W. Deng, G. Lin, F. Liang. \A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions". NeurIPS 2020 (in press)
-[3] W. Deng, Q. Feng?, L. Gao?, F. Liang, G. Lin. \Non-convex Learning via Replica Exchange Stochastic Gradient MCMC". The 37th International Conference on Machine Learning (ICML 2020).
-[2] W. Deng, X. Zhang, F. Liang, G. Lin. \An Adaptive Empirical Bayesian Method for Sparse Deep Learning". The 33rd Conference on Neural Information Processing Systems (NeurIPS 2019), Vancouver, Canada
-[1] R. Zhang,W. Deng, M. Zhu.  “Using Deep Neural Networks to Automate Large Scale Statistical Analysis”.Asian Conference on Machine Learning (ACML 2017), Seoul, Korea
+[4] W. Deng, G. Lin, F. Liang. A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions. NeurIPS 2020 (in press)
+
+
+[3] W. Deng, Q. Feng*, L. Gao*, F. Liang, G. Lin. Non-convex Learning via Replica Exchange Stochastic Gradient MCMC. The 37th International Conference on Machine Learning (ICML 2020).
+
+
+[2] W. Deng, X. Zhang, F. Liang, G. Lin. An Adaptive Empirical Bayesian Method for Sparse Deep Learning. The 33rd Conference on Neural Information Processing Systems (NeurIPS 2019), Vancouver, Canada
+
+
+[1] R. Zhang,W. Deng, M. Zhu. Using Deep Neural Networks to Automate Large Scale Statistical Analysis. Asian Conference on Machine Learning (ACML 2017), Seoul, Korea
+
+
