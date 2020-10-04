@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a final year Ph.D. candidate in the Department of Applied Mathematics at [Purdue University](https://www.purdue.edu/science/) working with [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). Prior to my graduate study, I was a senior software engineer at [Baidu](https://www.baidu.com/), Beijing (2012-2015) and got my bachelor degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.
+I am a final year Ph.D. candidate in the Department of Applied Mathematics at [Purdue University](https://www.purdue.edu/science/) working with [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). I was a research intern at [Yahoo research](https://research.yahoo.com/) (Sunnyvale, Summer 2019) and was a senior software engineer at [Baidu](https://www.baidu.com/), Beijing (2012-2015). I got my bachelor degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.
 
 My research focuses on scalable Monte Carlo methods and Bayesian inference for problems arising in deep learning. My interests include robust uncertainty quantification, non-convex optimization, enhanced ensemble, and sparse deep learning with theoretical analysis.
 
