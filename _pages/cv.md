@@ -18,7 +18,7 @@ Education
 Work experience
 ======
 * Summer 2019: Research Intern
-  * Yahoo Research / Verizon Media. Sunnyvale, CA
+  * Yahoo Research. Sunnyvale, CA
   * Designed  a  sparse  deep  factorization  machine  for  click-through  rate  (CTR)  prediction  in  display  advertisingwith 46X speed-ups.  This work won a splotlight presentation at the company conference (5% acceptance rate) and a compact version waspushed into productionwith more than 2% improvement on the clicks.
 
 * 2012-2015: Senior Software Engineer
