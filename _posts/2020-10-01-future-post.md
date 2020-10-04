@@ -7,10 +7,11 @@ tags:
   - weighted ensemble
   - uncertainty quantification
   - mean field
+  - flattened distribution
 ---
 
 
-
+We propose the contour stochastic gradient Langevin dynamics for Bayesian learning in big data statistics. The proposed algorithm is essentially a \emph{scalable dynamic importance sampler}, which automatically \emph{flattens} the target distribution such that the simulation for a multi-modal distribution can be greatly facilitated. Theoretically, we prove a stability condition and establish the asymptotic convergence of the self-adapting parameter to a {\it unique fixed-point}; we also present an error analysis for the weighted averaging estimators. 
 
 
 
