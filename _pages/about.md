@@ -22,7 +22,7 @@ Publications
 [4] **W. Deng**, G. Lin, F. Liang. A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions. NeurIPS 2020 (in press)
 
 
-[3] **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (ICML 2020).
+[3] **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (ICML 2020). [code](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC)
 
 
 [2] **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). The 33rd Conference on Neural Information Processing Systems (NeurIPS 2019), Vancouver, Canada
@@ -35,6 +35,6 @@ Preprints
 
 [2] **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. 2020
 
-[1] **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). arXiv:2002.06987v2. 2020
+[1] **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). arXiv:2002.06987v2. 2020 [code](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
 
 (*) denotes equal contribution.
