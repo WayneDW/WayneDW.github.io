@@ -30,8 +30,9 @@ Work experience
 
 Publications
 ======
-  <ul>{% W. Deng, X. Zhang, F. Liang, G. Lin An Adaptive Empirical Bayesian Method for Sparse Deep Learning. NeurIPS 2019. %}
-    {% https://arxiv.org/pdf/1910.10791.pdf %}
+
+<ul>{% for post in site.publications %}
+    {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
 <!-- 
