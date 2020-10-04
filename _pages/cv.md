@@ -11,37 +11,30 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. in Information and Computing Science, Beijing Jiaotong University, 2012
+* M.S. in Computational Finance, Purdue University, 2017
+* Ph.D in Applied Mathematics, Purdue University, 2021 (expected)
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
+* Summer 2015: Research Intern
+  * Yahoo Research / Verizon Media
+  * Designed  a  sparse  deep  factorization  machine  for  click-through  rate  (CTR)  prediction  in  display  advertisingwith 46X speed-ups.  This work won a splotlight presentation at the company conference (5% acceptance rate)and a compact version waspushed into productionwith more than 2% improvement on the clicks.
   * Supervisor: Professor Git
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 2012-2015: Senior Software Engineer
+  * Baidu
+  * Managed automated market-share computations of search engines; Conducted the daily user-behavior analysisfrom 3TB data (MapReduce); Applied time series models and outlier-detection methods to detect hot words.
+  * Supervisor: Huaiting Zhang, Baohua Jin
   
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
 
 Publications
 ======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
+  <ul>{% W. Deng, X. Zhang, F. Liang, G. Lin An Adaptive Empirical Bayesian Method for Sparse Deep Learning. NeurIPS 2019. %}
+    {% https://arxiv.org/pdf/1910.10791.pdf %}
   {% endfor %}</ul>
-  
+
+<!-- 
 Talks
 ======
   <ul>{% for post in site.talks %}
@@ -57,3 +50,5 @@ Teaching
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams
+
+-->
