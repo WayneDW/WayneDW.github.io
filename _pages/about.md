@@ -33,7 +33,9 @@ Preprints
 ======
 
 
-[2] **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. 2020
+[3] **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. 2020
+
+[2] **W. Deng**, G. Lin, F. Liang. An Adaptively Weighted SGMCMC Algorithm for Global Optimization in Deep Learning. 2020
 
 [1] **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). arXiv:2002.06987v2. 2020 [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
 
