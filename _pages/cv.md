@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+#title: "CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -18,38 +18,11 @@ Education
 Work experience
 ======
 * Summer 2015: Research Intern
-  * Yahoo Research / Verizon Media
-  * Designed  a  sparse  deep  factorization  machine  for  click-through  rate  (CTR)  prediction  in  display  advertisingwith 46X speed-ups.  This work won a splotlight presentation at the company conference (5% acceptance rate)and a compact version waspushed into productionwith more than 2% improvement on the clicks.
-  * Supervisor: Professor Git
+  * Yahoo Research / Verizon Media. Sunnyvale, CA
+  * Designed  a  sparse  deep  factorization  machine  for  click-through  rate  (CTR)  prediction  in  display  advertisingwith 46X speed-ups.  This work won a splotlight presentation at the company conference (5% acceptance rate) and a compact version waspushed into productionwith more than 2% improvement on the clicks.
 
 * 2012-2015: Senior Software Engineer
-  * Baidu
+  * Baidu, Inc. Beijing
   * Managed automated market-share computations of search engines; Conducted the daily user-behavior analysisfrom 3TB data (MapReduce); Applied time series models and outlier-detection methods to detect hot words.
-  * Supervisor: Huaiting Zhang, Baohua Jin
   
 
-Publications
-======
-
-<ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-
-<!-- 
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
-
--->
