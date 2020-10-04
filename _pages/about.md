@@ -19,7 +19,7 @@ Publications
 ======
 
 
-[4] W. Deng, G. Lin, F. Liang. A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions. NeurIPS 2020 (in press)
+[4] **W. Deng**, G. Lin, F. Liang. A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions. NeurIPS 2020 (in press)
 
 
 [3] Non-convex Learning via Replica Exchange Stochastic Gradient MCMC. 
