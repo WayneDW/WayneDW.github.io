@@ -33,7 +33,7 @@ Preprints
 ======
 
 
-[3] **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. 2020
+[3] **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). 2020
 
 [2] **W. Deng**, G. Lin, F. Liang. An Adaptively Weighted SGMCMC Algorithm for Global Optimization in Deep Learning. 2020
 
