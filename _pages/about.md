@@ -18,7 +18,7 @@ My research focuses on scalable Monte Carlo methods and Bayesian inference for p
 Publications
 ======
 
-[5] **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). The 14th ACM International WSDM Conference (WSDM 2021) [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
+[5] **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). The 14th ACM International WSDM Conference (**WSDM 2021**) [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
 
 [4] **W. Deng**, G. Lin, F. Liang. A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions. **NeurIPS** 2020 (in press)
 
