@@ -13,6 +13,7 @@ I am a final year Ph.D. candidate in the Department of Applied Mathematics at [P
 My research focuses on Monte Carlo methods and Bayesian inference for problems arising in deep learning. My interests include uncertainty quantification, non-convex optimization, and sparse deep learning with theoretical analysis. My research finds applications in computer vision, natural language processing, recommendation system, and quantitative finance.
 
 
+<img src="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD.gif"/>
 
 
 Publications
