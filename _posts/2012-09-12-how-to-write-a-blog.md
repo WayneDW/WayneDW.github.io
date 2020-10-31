@@ -10,12 +10,10 @@ title:  "Welcome to Jekyll!"
 I hope you like it!
 
 
-... which is shown in the screenshot below:
-#![My helpful screenshot](/images/CSGLD.gif)
+It doesn't support GIF right now. I will fix it later.
+![My helpful screenshot](/images/CSGLD.gif)
 
 
-#![My helpful screenshot](/images/profile4.png)
 
 
-I tried to include GIFs but failed. I will try it later.
 https://flipdazed.github.io/blog/website/add-video-to-github-README
