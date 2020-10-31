@@ -11,7 +11,7 @@ I hope you like it!
 
 
 ... which is shown in the screenshot below:
-![My helpful screenshot](/images/profile4.png)
+![My helpful screenshot](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD.gif)
 
 
 ... you can [get the PDF](/images/profile4.png) directly. v1
