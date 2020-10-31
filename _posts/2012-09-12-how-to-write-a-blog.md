@@ -11,6 +11,6 @@ I hope you like it!
 
 
 ... which is shown in the screenshot below:
-![My helpful screenshot](/images/profile4.png)
+![My helpful screenshot](/images/CSGLD.gif)
 
 
