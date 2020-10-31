@@ -11,10 +11,10 @@ I hope you like it!
 
 
 ... which is shown in the screenshot below:
-![My helpful screenshot](/assets/screenshot.jpg)
+![My helpful screenshot](/assets/profile4.png)
 
 
-... you can [get the PDF](/assets/mydoc.pdf) directly.
+... you can [get the PDF](/assets/profile4.png) directly.
 
 
 
