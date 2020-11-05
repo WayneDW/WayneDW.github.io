@@ -17,13 +17,13 @@ My research focuses on Monte Carlo methods and Bayesian inference for problems a
 Publications
 ======
 
-[5] **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). The 14th ACM International Conference on Web Search and Data Mining (**WSDM 2021**) [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
-
-[4] **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[介绍\]](https://zhuanlan.zhihu.com/p/267633636)
+[5] **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[介绍\]](https://zhuanlan.zhihu.com/p/267633636)
 
 
-[3] **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (**ICML 2020**). [\[code\]](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC) [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
+[4] **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (**ICML 2020**). [\[code\]](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC) [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
 
+
+[3] **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). The 14th ACM International Conference on Web Search and Data Mining (**WSDM 2021**) [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
 
 [2] **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). The 33rd Conference on Neural Information Processing Systems (**NeurIPS 2019**), Vancouver, Canada [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
 
