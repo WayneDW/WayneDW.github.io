@@ -17,7 +17,7 @@ My research focuses on Monte Carlo methods and Bayesian inference for problems a
 Publications
 ======
 
-[5] **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[介绍\]](https://zhuanlan.zhihu.com/p/267633636)
+[5] **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[介绍\]](https://zhuanlan.zhihu.com/p/267633636) [\[Blog\]](https://waynedw.github.io/posts/CSGLD/)
 
 
 [4] **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (**ICML 2020**). [\[code\]](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC) [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
