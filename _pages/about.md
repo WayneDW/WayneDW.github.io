@@ -10,7 +10,7 @@ redirect_from:
 
 I am a Ph.D. candidate at [Purdue University](https://www.purdue.edu/science/) working with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). I was a research intern at [Yahoo research](https://research.yahoo.com/), Sunnyvale (Summer 2019) and a senior research developer at [Baidu](https://www.baidu.com/) (2012-2015). I got my B.S. degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.
 
-My research focuses on Monte Carlo methods and Bayesian inference for problems arising in deep learning. My interests include uncertainty quantification, non-convex optimization, and sparse deep learning with theoretical analysis.
+My research focuses on Monte Carlo methods and Bayesian inference for problems arising in deep learning. My interests include uncertainty quantification, non-convex optimization, sparse deep learning, and reinforcement learning with theoretical analysis and empirical performance.
 
 <!---  I got my bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.  -->
 
