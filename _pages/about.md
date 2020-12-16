@@ -19,7 +19,9 @@ Before that, I was a research intern at [Yahoo research](https://research.yahoo.
 Publications
 ======
 
-[5] **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf) [\[知乎\]](https://zhuanlan.zhihu.com/p/267633636)
+[5] **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf) 
+
+<!---  [\[知乎\]](https://zhuanlan.zhihu.com/p/267633636) -->
 
 <!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
 
