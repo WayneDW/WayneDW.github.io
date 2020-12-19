@@ -45,7 +45,7 @@ Preprints
 
 <!--- [1] Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. arXiv:2006.16376. 2020 -->
 
-[1] Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. arXiv:2006.16376. 2020 (Under minor revision by JCP)
+[1] Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. Under minor revision by JCP.
 
 
 
