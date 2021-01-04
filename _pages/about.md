@@ -8,7 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-I am a final-year Ph.D. candidate at [Purdue University](https://www.purdue.edu/science/) working with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). My research focuses on Monte Carlo methods and Bayesian inference for problems arising in deep learning. 
+I am a final-year Ph.D. candidate at [Purdue University](https://www.purdue.edu/science/) working with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). 
+
+My research area is in Monte Carlo methods and Bayesian inference for problems arising in deep learning. 
 
 <!--- My interests include uncertainty quantification, non-convex optimization, feature selection, and reinforcement learning with theory and applications. -->
 
