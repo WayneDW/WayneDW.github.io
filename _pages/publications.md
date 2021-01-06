@@ -41,11 +41,11 @@ Preprints
 ======
 
 
-[3] **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). 2020. Under review
+[4] **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). 2020. Under review
 
-[2] **W. Deng**, G. Lin, F. Liang. An Adaptively Weighted SGMCMC Algorithm for Global Optimization in Deep Learning. 2020. Under review by JASA
+[3] **W. Deng**, G. Lin, F. Liang. An Adaptively Weighted SGMCMC Algorithm for Global Optimization in Deep Learning. 2020. Under review by JASA
 
-<!--- [1] Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. arXiv:2006.16376. 2020 -->
+[2] Y. Wang, **W. Deng**, G. Lin. An adaptive Hessian approximated stochastic gradient MCMC method. Under minor revision by Journal of Computational Physics. 2020
 
-[1] Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. Under minor revision by JCOMP.
+[1] Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. Under minor revision by Journal of Computational Physics. 2020
 
