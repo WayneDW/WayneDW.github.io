@@ -15,6 +15,8 @@ I am a final-year Ph.D. candidate in the department of Mathematics at [Purdue Un
 Before that, I was a research intern at [Yahoo research](https://research.yahoo.com/), Sunnyvale (Summer 2019) and a senior research engineer at [Baidu](https://www.baidu.com/) (2012-2015). I got a bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.
 
 
+Contact: deng106 at purdue dot edu
+
 <!---  I got my bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.  -->
 
 
