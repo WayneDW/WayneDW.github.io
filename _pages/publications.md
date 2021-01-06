@@ -8,6 +8,16 @@ redirect_from:
 ---
 
 
+Methodologies
+======
+<p float="left">
+  <img src="/images/CSGLD/SGLD.gif" width="185" title="SGLD"/>
+  <img src="/images/CSGLD/reSGLD.gif" width="185" alt="hello!" title="adam solomon's hello"/>
+  <img src="/images/CSGLD/CSGLD.gif" width="185" />
+</p>
+
+
+
 [5] **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf)
 
 <!---  [\[知乎\]](https://zhuanlan.zhihu.com/p/267633636) -->
