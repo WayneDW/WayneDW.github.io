@@ -28,9 +28,6 @@ Selected Publications
 
 * **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). 2021.
 
-(*) denotes equal contribution.
-
-
 
 Services
 ======

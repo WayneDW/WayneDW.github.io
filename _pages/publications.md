@@ -48,3 +48,6 @@ Preprints
 * Y. Wang, **W. Deng**, G. Lin. An adaptive Hessian approximated stochastic gradient MCMC method. Under minor revision by Journal of Computational Physics. 2020
 
 <!--- * Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. Under minor revision by Journal of Computational Physics. 2020 -->
+
+(*) denotes equal contribution.
+
