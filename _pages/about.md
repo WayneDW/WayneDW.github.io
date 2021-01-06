@@ -21,11 +21,11 @@ Before that, I was a research intern at [Yahoo research](https://research.yahoo.
 Selected Publications
 ======
 
-**W. Deng**, G. Lin, F. Liang. **A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions**. The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[arXiv\]](https://arxiv.org/pdf/2010.09800.pdf)  [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf) 
+**W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf) 
 
 
-**W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. **Non-convex Learning via Replica Exchange Stochastic Gradient MCMC**. The 37th International Conference on Machine Learning (**ICML 2020**). [\[arXiv\]](https://arxiv.org/pdf/2008.05367.pdf) [\[code\]](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC) [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
+**W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (**ICML 2020**). [\[code\]](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC) [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
 
-**W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. **Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction**. 2021. [\[arxiv\]](https://arxiv.org/pdf/2010.01084.pdf)
+**W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). 2021.
 
 (*) denotes equal contribution.
