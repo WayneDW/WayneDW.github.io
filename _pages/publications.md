@@ -8,15 +8,6 @@ redirect_from:
 ---
 
 
-Methodologies
-======
-<p float="left">
-  <img src="/images/CSGLD/SGLD.gif" width="185" title="SGLD"/>
-  <img src="/images/CSGLD/reSGLD.gif" width="185" alt="hello!" title="adam solomon's hello"/>
-  <img src="/images/CSGLD/CSGLD.gif" width="185" />
-</p>
-
-
 
 [5] **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf)
 
@@ -33,6 +24,18 @@ Methodologies
 [2] **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). The 33rd Conference on Neural Information Processing Systems (**NeurIPS 2019**), Vancouver, Canada [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
 
 [1] R. Zhang, **W. Deng**, M. Zhu. [Using Deep Neural Networks to Automate Large Scale Statistical Analysis](https://arxiv.org/pdf/1708.03027.pdf). Asian Conference on Machine Learning (**ACML 2017**), Seoul, Korea
+
+
+Methodologies
+======
+<p float="left">
+  <img src="/images/CSGLD/SGLD.gif" width="185" title="SGLD"/>
+  <img src="/images/CSGLD/cycSGLD.gif" width="185" alt="Made with Angular" title="Angular" />
+  <img src="/images/CSGLD/reSGLD.gif" width="185" alt="hello!" title="adam solomon's hello"/>
+  <img src="/images/CSGLD/CSGLD.gif" width="185" />
+</p>
+
+
 
 Preprints
 ======
