@@ -30,6 +30,14 @@ Selected Publications
 
 (*) denotes equal contribution.
 
+Methodologies
+======
+<p float="left">
+  <img src="/images/CSGLD/SGLD.gif" width="185" title="SGLD"/>
+  <img src="/images/CSGLD/reSGLD.gif" width="185" alt="hello!" title="adam solomon's hello"/>
+  <img src="/images/CSGLD/CSGLD.gif" width="185" />
+</p>
+
 
 Services
 ======
