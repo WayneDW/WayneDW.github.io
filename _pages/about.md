@@ -34,4 +34,5 @@ Selected Publications
 Services
 ======
 
-Conference reviewer: ICML, IJCAI
+Program Committee: IJCAI
+Conference reviewer: ICML
