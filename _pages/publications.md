@@ -21,6 +21,8 @@ redirect_from:
 
 * **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). The 14th ACM International Conference on Web Search and Data Mining (**WSDM 2021**) [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
 
+* Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. Journal of Computational Physics. To appear.
+
 * **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). The 33rd Conference on Neural Information Processing Systems (**NeurIPS 2019**), Vancouver, Canada [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
 
 * R. Zhang, **W. Deng**, M. Zhu. [Using Deep Neural Networks to Automate Large Scale Statistical Analysis](https://arxiv.org/pdf/1708.03027.pdf). Asian Conference on Machine Learning (**ACML 2017**), Seoul, Korea
@@ -46,8 +48,6 @@ Preprints
 * **W. Deng**, G. Lin, F. Liang. An Adaptively Weighted SGMCMC Algorithm for Global Optimization in Deep Learning. 2020. Under review
 
 * Y. Wang, **W. Deng**, G. Lin. An adaptive Hessian approximated stochastic gradient MCMC method. Under minor revision by Journal of Computational Physics. 2020
-
-<!--- * Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. Under minor revision by Journal of Computational Physics. 2020 -->
 
 (*) denotes equal contribution.
 
