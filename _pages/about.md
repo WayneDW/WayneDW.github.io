@@ -31,14 +31,14 @@ Selected Publications
 * **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). The 9th International Conference on Learning Representations (**ICLR 2021**).
 
 
-Research Talks & Presentations
+Research Talks
 ======
 
-* Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *School of Statistics, Renmin University of China*. Jan, 2021
+* Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. School of Statistics, Renmin University of China. Jan, 2021
 
-* Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X, Brown university* & *Alexa AI, Amazon*. Oct, 2020
+* Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. Machine Learning + X, Brown University & Alexa AI, Amazon. Oct, 2020
 
-* Dynamic Importance Sampling for Global Optimizations. *Yahoo Research*. Jul, 2019
+* Dynamic Importance Sampling for Global Optimizations. Yahoo Research. Jul, 2019
 
 Services
 ======
