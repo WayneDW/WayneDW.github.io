@@ -36,7 +36,7 @@ Research Talks & Presentations
 
 * Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *School of Statistics, Renmin University of China*. Jan, 2021
 
-* Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X seminars, Brown university* & *Alexa AI, Amazon*. Oct, 2020
+* Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X, Brown university* & *Alexa AI, Amazon*. Oct, 2020
 
 * Dynamic Importance Sampling for Global Optimizations. *Yahoo Research*. Jul, 2019
 
