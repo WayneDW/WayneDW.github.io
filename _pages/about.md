@@ -23,10 +23,10 @@ Contact: deng106 at purdue dot edu
 Selected Publications
 ======
 
-* **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf)[\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions)
+* **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions)
 
 
-* **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (**ICML 2020**). [\[code\]](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC) [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
+* **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (**ICML 2020**). [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
 
 * **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). The 9th International Conference on Learning Representations (**ICLR 2021**).
 
