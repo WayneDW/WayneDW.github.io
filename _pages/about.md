@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a final-year Ph.D. candidate at [Purdue University](https://www.purdue.edu/science/). I work with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/) and my research focuses on **scalable Monte Carlo methods** and **Bayesian Inference** for problems arising in deep learning. 
+I am a final-year Ph.D. candidate in Applied Mathematics at [Purdue University](https://www.purdue.edu/science/). I work with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/) and my research focuses on **scalable Monte Carlo methods** and **Bayesian Inference** for problems arising in deep learning. 
 
 <!--- My interests include uncertainty quantification, non-convex optimization, feature selection, and reinforcement learning with theory and applications. -->
 
@@ -36,9 +36,7 @@ Research Talks
 
 * Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *School of Statistics, Renmin University of China*. Jan, 2021
 
-* Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X, Brown University & Alexa AI, Amazon*. Oct, 2020
-
-* Dynamic Importance Sampling for Global Optimizations. *Yahoo Research*. Jul, 2019
+* Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X seminar, Department of Applied Mathematics, Brown University & Alexa AI, Amazon*. Oct, 2020
 
 Services
 ======
