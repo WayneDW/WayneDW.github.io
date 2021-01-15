@@ -27,16 +27,6 @@ redirect_from:
 * R. Zhang, **W. Deng**, M. Zhu. [Using Deep Neural Networks to Automate Large Scale Statistical Analysis](https://arxiv.org/pdf/1708.03027.pdf). Asian Conference on Machine Learning (**ACML 2017**), Seoul, Korea
 
 
-Methodologies
-======
-<p float="left">
-  <img src="/images/CSGLD/SGLD.gif" width="185" title="SGLD"/>
-  <img src="/images/CSGLD/cycSGLD.gif" width="185" alt="Made with Angular" title="Angular" />
-  <img src="/images/CSGLD/reSGLD.gif" width="185" alt="hello!" title="adam solomon's hello"/>
-  <img src="/images/CSGLD/CSGLD.gif" width="185" />
-</p>
-
-
 
 Preprints
 ======
