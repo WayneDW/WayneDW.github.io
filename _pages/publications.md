@@ -8,6 +8,8 @@ redirect_from:
 ---
 
 
+Conference Publications
+======
 * **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). The 9th International Conference on Learning Representations (**ICLR 2021**).
 
 * **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (**ICML 2020**). [\[code\]](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC) [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
@@ -22,16 +24,16 @@ redirect_from:
 
 * **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). The 33rd Conference on Neural Information Processing Systems (**NeurIPS 2019**), Vancouver, Canada [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
 
-* Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. **Journal of Computational Physics**. 2021. To appear.
-
-* Y. Wang, **W. Deng**, G. Lin. An adaptive Hessian approximated stochastic gradient MCMC method. **Journal of Computational Physics**. 2021. To appear.
-
 * R. Zhang, **W. Deng**, M. Zhu. [Using Deep Neural Networks to Automate Large Scale Statistical Analysis](https://arxiv.org/pdf/1708.03027.pdf). Asian Conference on Machine Learning (**ACML 2017**), Seoul, Korea
 
 
 
-Preprints
+Journal Publications
 ======
+
+* Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. **Journal of Computational Physics**. 2021. To appear.
+
+* Y. Wang, **W. Deng**, G. Lin. An adaptive Hessian approximated stochastic gradient MCMC method. **Journal of Computational Physics**. 2021. To appear.
 
 * **W. Deng**, G. Lin, F. Liang. An Adaptively Weighted SGMCMC Algorithm for Global Optimization in Deep Learning. 2020. Under review
 
