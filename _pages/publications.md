@@ -28,12 +28,11 @@ Conference Publications
 
 
 
-Journal Publications
-======
+# Journal Publications
 
 ### Journal Publications
 
-#### Journal Publications
+## Journal Publications
 
 * Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. **Journal of Computational Physics**. 2021. To appear.
 
