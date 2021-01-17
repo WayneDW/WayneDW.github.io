@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-## Conference Publications
+## Conference Papers
 
 * **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). The 9th International Conference on Learning Representations (**ICLR 2021**).
 
@@ -28,7 +28,7 @@ redirect_from:
 
 
 
-## Journal Publications
+## Journal Papers
 
 * Y. Wang, **W. Deng**, G. Lin. Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications. **Journal of Computational Physics**. 2021. To appear.
 
