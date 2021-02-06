@@ -25,7 +25,6 @@ Selected Publications
 My research interests include uncertainty estimation, non-convex optimization, feature selection, and reinforcement learning with theory and applications.
 
 ### Monte Carlo and Uncertainty Estimation
-======
 
 * **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions)
 
@@ -35,7 +34,6 @@ My research interests include uncertainty estimation, non-convex optimization, f
 * **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). The 9th International Conference on Learning Representations (**ICLR 2021**).
 
 ### Sparse Deep Learning
-======
 
 * **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). The 33rd Conference on Neural Information Processing Systems (**NeurIPS 2019**), Vancouver, Canada [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
 
