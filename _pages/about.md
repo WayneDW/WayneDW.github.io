@@ -37,9 +37,11 @@ My research interests include uncertainty estimation, non-convex optimization, f
 
 * **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). NeurIPS 2019, Vancouver, Canada [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
 
+### Applications
+
 * **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). WSDM 2021 [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
 
-* Y. Wang, **W. Deng**, G. Lin. [An adaptive Hessian approximated stochastic gradient MCMC method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). Journal of Computational Physics. Vol 432, 2021.
+* Y. Wang, **W. Deng**, G. Lin. [An Adaptive Hessian Approximated Stochastic Gradient MCMC Method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). Journal of Computational Physics. Vol 432, 2021.
 
 
 Research Talks
