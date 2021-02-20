@@ -8,11 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-I am a final-year Ph.D. candidate at [Purdue University](https://www.purdue.edu/science/). I work with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/) and my research focuses on **scalable Monte Carlo methods** for efficient statistical inference in large-scale complex systems, in particular for problems arising in deep learning and big data.
+I am a final-year Ph.D. candidate at [Purdue University](https://www.purdue.edu/science/). I work with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/) and my research focuses on **scalable Monte Carlo methods** for efficient statistical inference in large-scale complex systems, in particular for problems arising in deep learning.
 
 <!--- My interests include uncertainty quantification, non-convex optimization, feature selection, and reinforcement learning with theory and applications. -->
 
-Before that, I was a research intern at [Yahoo research](https://research.yahoo.com/), Sunnyvale (Summer 2019) and a senior research engineer at [Baidu](https://www.baidu.com/) (2012-2015). I got a bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.
+Before that, I was a research intern at [Yahoo research](https://research.yahoo.com/), Sunnyvale (Summer 2019) and a senior research engineer at [Baidu](https://www.baidu.com/) (2012-2015). I got a bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012 and a M.S. in Mathematics with specialization in Computational Finance in 2017.
 
 
 Contact: lastname106 purdue dot edu
