@@ -23,7 +23,7 @@ redirect_from:
 
 * **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). The 33rd Conference on Neural Information Processing Systems (**NeurIPS 2019**), Vancouver, Canada [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
 
-* Y. Wang, **W. Deng**, G. Lin. [An adaptive Hessian approximated stochastic gradient MCMC method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). **Journal of Computational Physics**. Vol 432, 2021.
+* Y. Wang, **W. Deng**, G. Lin. [An Adaptive Hessian Approximated Stochastic Gradient MCMC Method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). **Journal of Computational Physics**. Vol 432, 2021.
 
 
 ### Applications
