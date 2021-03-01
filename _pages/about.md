@@ -37,7 +37,7 @@ My research interests include uncertainty estimation, non-convex optimization, f
 
 * **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). NeurIPS 2019, Vancouver, Canada [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
 
-### Applications
+### Applications: Recommendation systems
 
 * **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). WSDM 2021 [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
 
