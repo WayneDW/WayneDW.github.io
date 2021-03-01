@@ -41,7 +41,7 @@ My research interests include uncertainty estimation, non-convex optimization, f
 
 * **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). WSDM 2021 [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
 
-* Y. Wang, **W. Deng**, G. Lin. [An Adaptive Hessian Approximated Stochastic Gradient MCMC Method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). Journal of Computational Physics. Vol 432, 2021.
+<!---   * Y. Wang, **W. Deng**, G. Lin. [An Adaptive Hessian Approximated Stochastic Gradient MCMC Method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). Journal of Computational Physics. Vol 432, 2021. -->
 
 
 Research Talks
