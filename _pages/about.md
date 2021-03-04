@@ -31,7 +31,7 @@ My research interests include uncertainty estimation, non-convex optimization, f
 
 * **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). ICML 2020. [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
 
-* **W. Deng**, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). ICLR 2021.
+* **W. Deng**<sup>*</sup>, Q. Feng<sup>*</sup>, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://arxiv.org/pdf/2010.01084.pdf). ICLR 2021.
 
 ### Sparse Deep Learning
 
