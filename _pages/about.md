@@ -26,12 +26,11 @@ My research interests include uncertainty estimation, non-convex optimization, f
 
 ### Monte Carlo and Uncertainty Estimation
 
-* **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). NeurIPS 2020 [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions)
-
+* **W. Deng**<sup>*</sup>, Q. Feng<sup>*</sup>, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://openreview.net/pdf?id=iOnhIy-a-0n). ICLR 2021.
 
 * **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). ICML 2020. [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
 
-* **W. Deng**<sup>*</sup>, Q. Feng<sup>*</sup>, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://openreview.net/pdf?id=iOnhIy-a-0n). ICLR 2021.
+* **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). NeurIPS 2020 [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions)
 
 ### Sparse Deep Learning
 
