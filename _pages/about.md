@@ -53,6 +53,4 @@ Research Talks
 Services
 ======
 
-Program Committee: IJCAI'21
-
-Conference reviewer: ICML'21
+Reviewers: ICML, NeurIPS, IJCAI
