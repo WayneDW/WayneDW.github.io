@@ -125,7 +125,7 @@ In other words, the Poincare inequality has a crude constant $C_p=\frac{1}{\lamb
 
 Suppose we require one tail condition of the energy function $U(x)$, i.e. there exist $\alpha >0$ and $R\geq 0$ such that for $\|x\|\leq R$,
 
-$\langle x, \nabla U(x)\rangle \geq \alpha \|x\|$ (C1)
+### Assumption $\langle x, \nabla U(x)\rangle \geq \alpha \|x\|$      (C1)
 
 Now it is sufficient to build a Lyapunov function $V(x)=e^{\gamma \|x\|}$, where $\|x\|=\sqrt{\sum_{i=1}^n x_i^2}$.
 
