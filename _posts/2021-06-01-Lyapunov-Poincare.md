@@ -21,7 +21,7 @@ Despite the appealing formulation, identifying the best constant $C>0$ is in gen
 
 
 
-Let $\mu(dx)=e^{-U(x)}dx$ be a probability measure on $R^n$, where $U(x)$ is known as the energy function. Let $L=\Delta - \langle\nabla U, \nabla,\rangle$ be the $\mu$ symmetric natural operator.
+Let $\mu(dx)=e^{-U(x)}dx$ be a probability measure on $R^n$, where $U(x)$ is known as the energy function. Let $L=\Delta - \langle\nabla U, \nabla\rangle$ be the $\mu$ symmetric natural operator.
 
 
 We denote a Lyapunov function by $V$ if $V\geq 1$ and if there exist $\lambda>0, b\geq 0$ and some $R > 0$ such that for all $x$, the following drift condition holds
