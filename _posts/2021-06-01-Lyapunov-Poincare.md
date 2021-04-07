@@ -71,7 +71,7 @@ This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integra
 
 $\nabla (\Lambda(t) e^{\frac{2t}{C}})=\Lambda_t(t) e^{\frac{2t}{C}} + \Lambda(t) \frac{2}{C} e^{\frac{2t}{C}}\leq 0$
 
-Hence $\Lambda_t(t) e^{\frac{2t}{C}} \leq \Lambda_t(0)$. In other words,
+Hence $\Lambda(t) e^{\frac{2t}{C}} \leq \Lambda(0)$. In other words,
 
 $Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$.
 
