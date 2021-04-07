@@ -19,7 +19,7 @@ Suppose we are interested in the convergence of the stochastic differential equa
 
 $dx_t = -\nabla U(x_t)dt + \sqrt{2}dW_t$,
 
-where $\nabla U(\cdot)$ denotes the gradient of a energy function $U$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under some conditions on $U(\cdot)$, $x$ converges to a stationary measure $\mu(x)\propto e^{-U(x)}$.
+where $\nabla U(\cdot)$ denotes the gradient of a energy function $U$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under mild growth conditions on $U(\cdot)$, $x$ converges to a stationary measure $\mu(x)\propto e^{-U(x)}$.
 
 
 Define a family of operators $(P_t)_{t\geq 0}$ as follows
