@@ -3,6 +3,7 @@ title: 'The Lyapunov Function Method for Poincare Inequality'
 date: 2021-06-01
 permalink: /posts/Lyapunov_Poincare/
 tags:
+  - Langevin diffusion
   - Lyapunov function
   - Drift condition
   - Poincare Inequality
@@ -12,9 +13,24 @@ tags:
 Poincare Inequality or spectral gap inequality is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
 
 
-\DeclareMathOperator{\Var}
+## Langevin diffusion
 
-### Variance Decay
+Suppose we are interested in the convergence of the following stochastic differential equation
+
+$dx_t = -\nabla U(x_t)dt + \sqrt{2}dW_t$,
+where $\nabla U(\cdot)$ denotes the gradient of the energy function $U(\cdot)$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under weak smoothness conditions on $U(\cdot)$, $x$ is known to converge to a stationary distribution proportion to $e^{-U(x)}$.
+
+For a smooth test function $f(x)$, Ito formula implies that
+
+$d f(x_t) = \sqrt{2} \nabla f(x_t) dB_t + Lf(x_t)dt$,
+
+where $L$ is a $\mu$ symmetric natural operator such that
+
+$Lf=\Delta f - \langle\nabla U, \nabla f\rangle$.
+
+
+
+## Variance Decay
 If a Markov Triple satisfies a Poincare equality P(C), 
 $Var_{\mu}(f)\leq C \xi(f)$
 
