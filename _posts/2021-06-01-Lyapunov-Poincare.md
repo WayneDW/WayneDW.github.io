@@ -13,7 +13,7 @@ Poincare Inequality or spectral gap inequality is the first important family of 
 
 If a Markov Triple satisfies a Poincare equality P(C), we can expect an exponential decay of the variance for any function f
 
-$Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$, 
+$\text{Var}_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$, 
 
 where $P_t$ is a Markov semigroup with the unique invariant distribution $\mu$.
 
