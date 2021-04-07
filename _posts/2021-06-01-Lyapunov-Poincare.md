@@ -11,7 +11,17 @@ tags:
 
 Poincare Inequality or spectral gap inequality is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
 
-If a Markov Triple satisfies a Poincare equality P(C), we can expect an exponential decay of the variance for any function f
+If a Markov Triple satisfies a Poincare equality P(C), 
+$Var_{\mu}(f)\leq C \Epsilon(f)$
+
+
+$Var_{\mu}(P_t f)= C \Epsilon(P_t f)^2d\mu$
+
+By the heat equation and integration by parats, 
+
+$2\int P_t f L P_t f d\mu = -2 \epsilon(f)$
+
+we can expect an exponential decay of the variance for any function f
 
 $Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$, 
 
