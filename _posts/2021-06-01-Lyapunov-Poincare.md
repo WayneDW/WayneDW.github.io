@@ -145,7 +145,7 @@ Hence $V(x)$ is a Lyapunov function provided
 
 $\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})>0$.
 
-This suggests that as long as we choose the radius R large enough and (C1) condition is satisfied, we have the desired result.
+This suggests that as long as we choose a large R, a small $\gamma$ and (C1) condition is satisfied, we have the desired result.
  
 ## Discussions
 
