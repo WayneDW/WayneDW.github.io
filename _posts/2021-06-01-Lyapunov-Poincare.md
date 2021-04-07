@@ -16,18 +16,18 @@ Poincare Inequality or spectral gap inequality is the first important family of 
 
 ### Variance Decay
 If a Markov Triple satisfies a Poincare equality P(C), 
-$Var_{\mu}(f)\leq C \varepsilon(f)$
+$Var_{\mu}(f)\leq C \xi(f)$
 
 
 $\Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu$
 
 By the heat equation and integration by parats, 
 
-$\Lambda_t(t)=2\int P_t f L P_t f d\mu = -2 \varepsilon(P_t f)$
+$\Lambda_t(t)=2\int P_t f L P_t f d\mu = -2 \xi(P_t f)$
 
 Combining the Poincare equality, we have that
 
-$\Lambda(t)=Var_{\mu}(P_t f)\leq C \varepsilon(P_t f)=-\frac{C}{2}\Lambda_t(t)$
+$\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)$
 
 we can expect an exponential decay of the variance for any function f
 
