@@ -61,7 +61,7 @@ Combining the Poincare equality, we have that
 
 $\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)$
 
-By $\Lambda(t)\leq -\frac{C}{2}\Lambda_t(t)$, we can expect an exponential decay of the variance for any function f
+This means that $\Lambda_t(t)\leq \frac{2}{C} \Lambda(t)$, which implies an exponential decay of the variance for any function f
 
 $Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$.
 
@@ -116,7 +116,7 @@ In other words, the Poincare inequality has a crude constant $C_p=\frac{1}{\lamb
 
 Suppose we require one tail condition of the energy function $U(x)$, i.e. there exist $\alpha >0$ and $R\geq 0$ such that for $\|x\|\leq R$,
 
-$\langle x, \nabla U(x)\rangle \geq \alpha \|x\|$. (C1)
+$\langle x, \nabla U(x)\rangle \geq \alpha \|x\|$ (C1)
 
 Now it is sufficient to build a Lyapunov function $V(x)=e^{\gamma \|x\|}$, where $\|x\|=\sqrt{\sum_{i=1}^n x_i^2}$.
 
