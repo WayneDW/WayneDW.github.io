@@ -63,6 +63,9 @@ $Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$,
 
 where $P_t$ is a Markov semigroup with the unique invariant distribution $\mu$.
 
+
+## How to identify the Poincare constant
+
 Despite the appealing formulation, identifying the best constant $C>0$ is in general not easy. In this blog, we will show a popular method for determining a crude estimate of such a constant.
 
 
