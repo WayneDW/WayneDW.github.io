@@ -32,7 +32,9 @@ $d f(x_t) = \sqrt{2} \nabla f(x_t) dB_t + Lf(x_t)dt$,
 
 where $L$ is the infinitesimal generator of the symmetric Markov Semigroup $P_t$ 
 
-$Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla f\rangle$.
+$Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla f\rangle$,
+
+where $\Delta f = Div(\nabla F)$
 
 ## Poincare Inequality
 
