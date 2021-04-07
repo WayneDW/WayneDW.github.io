@@ -19,7 +19,7 @@ Suppose we are interested in the convergence of the following stochastic differe
 
 $dx_t = -\nabla U(x_t)dt + \sqrt{2}dW_t$,
 
-where $\nabla U(\cdot)$ denotes the gradient of the energy function $U(\cdot)$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under weak smoothness conditions on $U(\cdot)$, $x$ is known to converge to a stationary Gibbs measure $\mu(x)\propto e^{-U(x)}$.
+where $\nabla U(\cdot)$ denotes the gradient of the energy function $U(\cdot)$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under smoothness conditions on $U(\cdot)$, $x$ converges to a stationary measure $\mu(x)\propto e^{-U(x)}$.
 
 For a smooth test function $f(x)$, Ito formula implies that
 
