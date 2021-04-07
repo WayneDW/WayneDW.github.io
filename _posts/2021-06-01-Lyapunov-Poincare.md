@@ -1,5 +1,5 @@
 ---
-title: 'The Lyapunov Function Method for Poincar\`e Inequality'
+title: 'The Lyapunov Function Method for Poincar\`{e} Inequality'
 date: 2021-04-08
 permalink: /posts/Lyapunov_Poincare/
 tags:
