@@ -24,7 +24,7 @@ where $\nabla U(\cdot)$ denotes the gradient of the energy function $U(\cdot)$ a
 
 Define a family of operators $(P_t)_{t\geq 0}$ as follows
 
-$P_t(f(x))=E(f(x_t)|x_0=x)$
+$P_t(f(x))=E[f(x_t)|x_0=x]$
 
 For a smooth test function $f(x)$, Ito formula implies that
 
@@ -36,12 +36,11 @@ $Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla
 
 ## Poincare Inequality
 
-We say the Gibbs measure $\mu$ satisfies a Poincare equality with a constant $C$, if the following equality holds
+We say the Gibbs measure $\mu$ satisfies a Poincare equality with a constant $C$ if
 
 $Var_{\mu}(f)\leq C \xi(f)$,
 
-where $\xi(f)=\int \Gamma(f)d\mu$ and  $\Gamma$ is called Carre du Champ operator that satisfies $\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f) f)$.
-
+where $\xi$ is the Dirichlet form defined as $\xi(f)=\int \Gamma(f)d\mu$ and $\Gamma$ is the Carre du Champ operator satisfying $\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f) f)$.
 
 $\Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu$
 
