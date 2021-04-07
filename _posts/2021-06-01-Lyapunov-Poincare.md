@@ -41,10 +41,7 @@ $\int f^2 d\mu \leq \int \frac{-LV}{\lambda V} f^2 d\mu + \int f^2 \frac{b}{\lam
 
 Since $L$ is $\mu$-symmetric, by integration by parts, we get
 
-$\int \frac{-LV}{V}f^2d \mu= \int \nabla\left(\frac{f^2}{V}\right) \nabla V d\mu=2\int \frac{f}{V} \nabla f \nabla V d\mu  - \int \frac{f^2}{V^2} \|\nabla V\|^2 d\mu$
-
-
-$\int \frac{-LV}{V}f^2d \mu = \int \nabla\left(\frac{f^2}{V}) \nabla V d\mu\right=2\int \frac{f}{V} \nabla f \nabla V d\mu - \int \frac{f^2}{V^2} |\nabla V|^2 d\mu$
+$\int \frac{-LV}{V}f^2d \mu= \int \nabla\left(\frac{f^2}{V}\right) \nabla V d\mu=2\int \frac{f}{V} \nabla f \nabla V d\mu  - \int \frac{f^2}{V^2} \|\nabla V\|^2 d\mu= =\int \|\nabla f\|^2 d\mu - \int \|\nabla f - \frac{f}{V} \nabla V\|^2 d\mu\leq \int \|\nabla f\|^2 d\mu$
 
 
 $\int \frac{-LV}{V}f^2d \mu = \int \nabla\left(\frac{f^2}{V}) \nabla V d\mu\right$
