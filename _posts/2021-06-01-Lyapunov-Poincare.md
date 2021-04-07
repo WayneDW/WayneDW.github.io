@@ -147,6 +147,12 @@ $\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})>0$.
 
 This suggests that as long as we choose the radius R large enough and (C1) condition is satisfied, we have the desired result.
  
+## Discussions
+
+[1] The construction of Lyapunov function implies a tail concentration for the distribution $\mu\propto e^{-U(x)}$.
+
+[2] Obtaining a sharper estimate of Poincare constant may require isoperimetric inequality.
+
 
 ## References:
 
