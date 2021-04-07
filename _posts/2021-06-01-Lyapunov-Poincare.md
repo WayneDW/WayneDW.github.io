@@ -47,6 +47,8 @@ where $\xi$ is the Dirichlet form defined as $\xi(f)=\int \Gamma(f)d\mu$ and $\G
 $\xi(f)=-\int f L(f) f d\mu$.
 
 
+## Variance Decay
+
 $\Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu$
 
 By the heat equation and integration by parats, 
