@@ -15,7 +15,7 @@ Poincare Inequality or spectral gap inequality is the first important family of 
 
 ## Langevin diffusion
 
-Suppose we are interested in the convergence of the following stochastic differential equation
+Suppose we are interested in the convergence of the stochastic differential equation
 
 $dx_t = -\nabla U(x_t)dt + \sqrt{2}dW_t$,
 
