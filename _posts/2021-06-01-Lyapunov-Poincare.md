@@ -114,7 +114,30 @@ In other words, the Poincare inequality has a crude constant $C_p=\frac{1}{\lamb
 
 ## Construction of the Lypunov function
 
-Coming soon
+Suppose we require one tail condition of the energy function $U(x)$, i.e. there exist $\alpha >0$ and $R\geq 0$ such that for $\|x\|\leq R$,
+
+$\langle x, \nabla U(x)\rangle \leq \alpha \|x\|$. (C1)
+
+Now it is sufficient to build an ad-hoc Lyapunov function $V(x)=e^{\gamma \|x\|}$, where $\|x\|=\sqrt{\sum_{i=1}^n x_i^2}$.
+
+Note that $\frac{\partial V(x)}{\partial x_i}= \gamma \frac{x_i}{\|x\|} V(x)$. In the sequel, we have
+
+$\frac{\partial^2 V(x)}{\partial x_i^2}=\frac{\gamma}{\|x\|} V(x)+ \gamma^2 \frac{x_i^2}{\|x\|^2} V(x) - \gamma \frac{x_i^2}{\|x\|^3}V(x)$.
+
+This means that 
+
+$LV(x)=\gamma\left(\frac{n-1}{\|x\|}+\gamma-\frac{x}{\|x\|} \nabla V(x)\right) V(x)$
+
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \gamma\left(\frac{n-1}{\|x\|} + \gamma -\alpha \right) V(x)$
+
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq -\gamma(\alpha-\gamma-\frac{n-1}{R}) V(x) + b 1_{B(0, R)}(x)$.
+
+Hence $V(x)$ is a Lyapunov function provided
+
+$\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})>0$.
+
+This suggests that as long as we choose the radius R large enough and (C1) condition is satisfied, we have the desired result.
+ 
 
 ## References:
 
