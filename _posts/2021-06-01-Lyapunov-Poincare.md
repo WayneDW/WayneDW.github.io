@@ -61,7 +61,11 @@ Combining the Poincare equality, we have that
 
 $\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)$
 
-This means that $\Lambda_t(t)\leq \frac{2}{C} \Lambda(t)$, which implies an exponential decay of the variance
+This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integration factor $e^{\frac{2t}{C}}$, we habe
+
+$(\Lambda_t(t) e^{\frac{2t}{C}})^{'}=\Lambda_t(t)^{'} e^{\frac{2t}{C}} + \Lambda_t(t) \frac{2}{C} e^{\frac{2t}{C}}\leq 0$
+
+Hence \Lambda_t(t) e^{\frac{2t}{C}} \leq \Lambda_t(0). In other words,
 
 $Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$.
 
