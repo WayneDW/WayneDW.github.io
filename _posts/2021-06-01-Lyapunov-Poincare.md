@@ -149,7 +149,7 @@ This suggests that as long as we choose the radius R large enough and (C1) condi
  
 ## Discussions
 
-[1] The construction of Lyapunov function implies a tail concentration for the distribution $\mu\propto e^{-U(x)}$ outside the ball $B(0, R)$.
+[1] The construction of Lyapunov function implies a tail decay for the distribution $\mu\propto e^{-U(x)}$ outside the ball $B(0, R)$.
 
 [2] Obtaining a sharper estimate of Poincare constant may require isoperimetric inequality.
 
