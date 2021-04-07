@@ -126,7 +126,7 @@ $\frac{\partial^2 V(x)}{\partial x_i^2}=\frac{\gamma}{\|x\|} V(x)+ \gamma^2 \fra
 
 This means that 
 
-$LV(x)=\gamma\left(\frac{n-1}{\|x\|}+\gamma-\frac{x}{\|x\|} \nabla V(x)\right) V(x)$
+$LV(x)=\gamma\left(\frac{n-1}{\|x\|}+\gamma-\frac{x}{\|x\|} \nabla U(x)\right) V(x)$
 
 $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \gamma\left(\frac{n-1}{\|x\|} + \gamma -\alpha \right) V(x)$
 
