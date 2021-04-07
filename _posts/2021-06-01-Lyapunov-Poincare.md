@@ -46,11 +46,11 @@ $\xi(f)=\int \Gamma(f)d\mu$.
 
 $\Gamma$ is the Carre du Champ operator satisfying 
 
-$\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f) f)$. 
+$\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f))$. 
 
 Since $\mu$ is reversible for $P_t$, we have the invariance property $\int L(f)=0$ for all f in the Dirichlet domain. In other words, for symmetric $\mu$, we have 
 
-$\xi(f)=\int \Gamma(f)d\mu=-\int f L(f) f d\mu=? \int \nabla f^2 d\mu$.
+$\xi(f)=\int \Gamma(f)d\mu=-\int f L(f) d\mu= \int \nabla f^2 d\mu$.
 
 
 ## Variance Decay
