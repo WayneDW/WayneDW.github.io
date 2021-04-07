@@ -1,6 +1,6 @@
 ---
 title: 'The Lyapunov Function Method for Poincare Inequality'
-date: 2021-04-08
+date: 2021-06-01
 permalink: /posts/Lyapunov_Poincare/
 tags:
   - Lyapunov function
@@ -39,7 +39,8 @@ Next, we reformulating the drift condition as follows:
 $\int f^2 d\mu \leq \int \frac{-LV}{\lambda V} f^2 d\mu + \int f^2 \frac{b}{\lambda V}1_{B(0, R)}d \mu$
 
 
-
+Since $L$ is $\mu$-symmetric, by integration by parts, we get
+$\int \frac{-LV}{V}f^2d \mu = \int \nabla\left(\frac{f^2}{V} \nabla V d\mu\right)$
 
 
 
