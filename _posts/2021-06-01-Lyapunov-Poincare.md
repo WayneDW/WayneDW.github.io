@@ -80,7 +80,7 @@ $LV(x) ≤ -\lambda V(x) + b 1_{B(0, R)}(x)$
 
 Given a smooth function $g$, we know that $Var_{\{\mu}}(g)\leq \int (g-c)^2 d\mu$ for all $c$. In what follows, we set $f=g-c$, where $c$ is a constant to be selected later.
 
-Next, we reformulate the drift condition and take an integral with respect to $\mu$:
+Next, we reformulate the drift condition and take an integral for $f^2$ with respect to $\mu$:
 
 $\int f^2 d\mu \leq \int \frac{-LV}{\lambda V} f^2 d\mu + \int f^2 \frac{b}{\lambda V}1_{B(0, R)}d \mu$
 
