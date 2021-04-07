@@ -43,12 +43,23 @@ Since $L$ is $\mu$-symmetric, by integration by parts, we get
 
 $\int \frac{-LV}{V}f^2d \mu= \int \nabla\left(\frac{f^2}{V}\right) \nabla V d\mu$
 
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  =2\int \frac{f}{V} \nabla f \nabla V d\mu  - \int \frac{f^2}{V^2} \|\nabla V\|^2 d\mu$
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  =2\int \frac{f}{V} \nabla f \nabla V d\mu  - \int \frac{f^2}{V^2} \|\nabla V\|^2 d\mu$
 
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\int \|\nabla f\|^2 d\mu - \int \|\nabla f - \frac{f}{V} \nabla V\|^2 d\mu$
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\int \|\nabla f\|^2 d\mu - \int \|\nabla f - \frac{f}{V} \nabla V\|^2 d\mu$
 
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \int \|\nabla f\|^2 d\mu$
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \int \|\nabla f\|^2 d\mu$
 
+Now for the second term $\int f^2 \frac{b}{\lambda V}1_{B(0, R)} d\mu$. Since $\mu$ satisfies a Poincare inequality on $B(0, R)$ with a constant $\kappa_R$, we have
+
+$\int_{B(0, R)} f^2 d\mu\leq \kappa_R \int_{B(0, R)} \|\nabla f\|^2 d\mu + (1/\mu(B(0, R))) \left(\int_{B(0, R)} fd\mu\right)^2$.
+
+Fix $c=\int_{B(0, R)} gd\mu$. We have
+$\int_{B(0, R)} \frac{f^2}{V}d\mu\leq \int_{B(0, R)} f^2 d\mu\leq \kappa_{R}\int_{B(0, R)} \|\nabla f\|^2d\mu$.
+
+Eventually, we have
+$Var_{\mu}(f)=\int f^2 d\mu \leq \frac{1}{\lambda} (1+b\kappa_R) \int \|\nabla f\|^2 d\mu$.
+
+In other words, the Poincare inequality has a crude constant $C_p=\frac{1}{\lambda} (1+b \kappa_R)$.
 
 Coming soon
 
