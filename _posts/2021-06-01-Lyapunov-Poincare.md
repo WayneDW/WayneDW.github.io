@@ -30,7 +30,7 @@ For a smooth test function $f(x)$, Ito formula implies that
 
 $d f(x_t) = \sqrt{2} \nabla f(x_t) dB_t + Lf(x_t)dt$,
 
-where $L$ is the infinitesimal generator of Markov Semigroup $P_t$ that is $\mu$  symmetric operator such that
+where $L$ is the infinitesimal generator of the symmetric Markov Semigroup $P_t$ 
 
 $Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla f\rangle$.
 
@@ -40,12 +40,12 @@ We say the Gibbs measure $\mu$ satisfies a Poincare equality with a constant $C$
 
 $Var_{\mu}(f)\leq C \xi(f)$,
 
-where $\xi$ is the Dirichlet form defined as $\xi(f)=\int \Gamma(f)d\mu$ and $\Gamma$ is the Carre du Champ operator satisfying $\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f) f)$. Since $\mu$ is reversible for $P_t$, we have the invariance property $\int L(f)=0$ for ``any'' f. In other words,
-
-$\xi(f)=-\int f L(f) f d\mu$.
+where $\xi$ is the Dirichlet form defined as $\xi(f)=\int \Gamma(f)d\mu$ and $\Gamma$ is the Carre du Champ operator satisfying $\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f) f)$. Since $\mu$ is reversible for $P_t$, we have the invariance property $\int L(f)=0$ for almost any f. In other words, $\xi(f)=-\int f L(f) f d\mu$.
 
 
 ## Variance Decay
+
+Now we study the decay of variance
 
 $\Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu$
 
