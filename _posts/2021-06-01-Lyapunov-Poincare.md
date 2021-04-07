@@ -24,14 +24,17 @@ Despite the appealing formulation, identifying the best constant $C>0$ is in gen
 Let $\mu(dx)=e^{-U(x)}dx$ be a probability measure on $R^n$, where $U(x)$ is known as the energy function. Let $L=\Delta - \langle\nabla U, \nabla,\rangle$ be the $\mu$ symmetric natural operator.
 
 
-We denote a Lyapunov function by $V$ if $V\geq 1$ and if there exist $\lambda>0, b\geq 0$ and some $R > 0$ such that for all $x$
+We denote a Lyapunov function by $V$ if $V\geq 1$ and if there exist $\lambda>0, b\geq 0$ and some $R > 0$ such that for all $x$, the following drift condition holds
 
 $LV(x) ≤ -\lambda V(x) + b 1_{B(0, R)}(x)$
 
-The above inequality implies a fast convergence towards the centered Ball of radius $R$ and a certain convergence overall.
+\textbf{By Theorem 1.4 [1], we show that if there exists a Lyapunov function $V(x)$ satisfying the drift condition, then $\mu $ satisfies a $L^2$ Poincare inequality with constant $C_P=\frac{1}{\lambda}(1+b\kappa_R)$, where $\kappa_R$ is the L2 Poincare constant of $\mu$ restricted to the ball B(0,R).}
 
-By Theorem 1.4 [1], we show that if there exists a Lyapunov function $V(x)$ satisfying the above inequality, then $\mu $ satisfies a $L^2$ Poincare inequality with constant $C_P=\frac{1}{\lambda}(1+b\kappa_R)$, where $\kappa_R$ is the L2 Poincare constant
-of $\mu$ restricted to the ball B(0,R).
+
+
+
+
+
 
 
 
