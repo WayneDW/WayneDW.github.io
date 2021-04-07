@@ -85,6 +85,8 @@ Next, we reformulate the drift condition and take an integral for $f^2$ with res
 $\int f^2 d\mu \leq \int \frac{-LV}{\lambda V} f^2 d\mu + \int f^2 \frac{b}{\lambda V}1_{B(0, R)}d \mu$
 
 
+#### First term $\int \frac{-LV}{\lambda V} f^2 d\mu$
+
 Since $L$ is $\mu$-symmetric, by integration by parts, we get
 
 $\int \frac{-LV}{V}f^2d \mu= \int \nabla\left(\frac{f^2}{V}\right) \nabla V d\mu$
@@ -95,7 +97,9 @@ $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\int \|\nabla f\|^2 d\mu - \int \|\nab
 
 $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \int \|\nabla f\|^2 d\mu$
 
-Now for the second term $\int f^2 \frac{b}{\lambda V}1_{B(0, R)} d\mu$. Since $\mu$ satisfies a Poincare inequality on $B(0, R)$ with a constant $\kappa_R$, we have
+#### Second term $\int f^2 \frac{b}{\lambda V}1_{B(0, R)} d\mu$
+
+Since $\mu$ satisfies a Poincare inequality on $B(0, R)$ with a constant $\kappa_R$, we have
 
 $\int_{B(0, R)} f^2 d\mu\leq \kappa_R \int_{B(0, R)} \|\nabla f\|^2 d\mu + (1/\mu(B(0, R))) \left(\int_{B(0, R)} fd\mu\right)^2$.
 
