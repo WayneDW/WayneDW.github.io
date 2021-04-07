@@ -95,7 +95,7 @@ Next, we reformulate the drift condition and take an integral for $f^2$ with res
 $\int f^2 d\mu \leq \int \frac{-LV}{\lambda V} f^2 d\mu + \int f^2 \frac{b}{\lambda V}1_{B(0, R)}d \mu$
 
 
-#### Control the first term $\int \frac{-LV}{\lambda V} f^2 d\mu$
+### Control the first term $\int \frac{-LV}{\lambda V} f^2 d\mu$
 
 Since $L$ is $\mu$-symmetric, by integration by parts, we get
 
