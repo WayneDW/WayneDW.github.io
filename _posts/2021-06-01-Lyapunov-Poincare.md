@@ -147,9 +147,9 @@ $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq -\gamma(\alpha-\gamma-\frac{n-1}{R}) V(x) + b 
 
 Hence $V(x)$ is a Lyapunov function provided
 
-$\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})>0$.
+$\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})>0$,
 
-This suggests that as long as we choose a large R, a small $\gamma$ and (C1) condition is satisfied, we have the desired result.
+which suffices to choose $\gamma<\alpha$, a large $R$ and assume the (C1) condition.
  
 ## Discussions
 
