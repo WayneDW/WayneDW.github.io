@@ -15,13 +15,15 @@ If a Markov Triple satisfies a Poincare equality P(C),
 $Var_{\mu}(f)\leq C \varepsilon(f)$
 
 
-$\Gamma(t)=Var_{\mu}(P_t f)= C \varepsilon(P_t f)^2d\mu$
+$\Gamma(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu$
 
 By the heat equation and integration by parats, 
 
-$\Gamma^'(t)=2\int P_t f L P_t f d\mu = -2 \varepsilon(f)$
+$\Gamma_t(t)=2\int P_t f L P_t f d\mu = -2 \varepsilon(P_t f)$
 
+Combining the Poincare equality, we have that
 
+$\Gamma(t)=Var_{\mu}(P_t f)\leq C \varepsilon(P_t f)=-\frac{C}{2}\Gamma_t(t)$
 
 we can expect an exponential decay of the variance for any function f
 
