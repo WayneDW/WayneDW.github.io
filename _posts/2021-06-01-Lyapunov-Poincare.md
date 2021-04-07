@@ -21,19 +21,26 @@ $dx_t = -\nabla U(x_t)dt + \sqrt{2}dW_t$,
 
 where $\nabla U(\cdot)$ denotes the gradient of the energy function $U(\cdot)$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under smoothness conditions on $U(\cdot)$, $x$ converges to a stationary measure $\mu(x)\propto e^{-U(x)}$.
 
+
+Define a family of operators $(P_t)_{t\geq 0}$ as follows
+
+$P_t(f(x))=E(f(x_t)|x_0=x)$
+
 For a smooth test function $f(x)$, Ito formula implies that
 
 $d f(x_t) = \sqrt{2} \nabla f(x_t) dB_t + Lf(x_t)dt$,
 
-where $L$ is the infinitesimal generator of Markov Semigroup that is $\mu$  symmetric operator such that
+where $L$ is the infinitesimal generator of Markov Semigroup $P_t$ that is $\mu$  symmetric operator such that
 
 $Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla f\rangle$.
 
 ## Poincare Inequality
 
+We say the Gibbs measure $\mu$ satisfies a Poincare equality with a constant $C$, if the following equality holds
 
-We say the Gibbs measure $\mu$ satisfies a Poincare equality with a constant $C$, 
-$Var_{\mu}(f)\leq C \xi(f)$
+$Var_{\mu}(f)\leq C \xi(f)$,
+
+where $\xi(f)=\int \Gamma(f)d\mu$ and  $\Gamma$ is called Carre du Champ operator that satisfies $\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f) f)$.
 
 
 $\Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu$
