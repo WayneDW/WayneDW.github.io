@@ -24,9 +24,7 @@ where $\nabla U(\cdot)$ denotes the gradient of the energy function $U(\cdot)$ a
 
 Define a family of operators $(P_t)_{t\geq 0}$ as follows
 
-$P_t(f(x)) = E[xxx]$
-
-## =E[f(x_t)|x_0=x]
+$P_t(f(x)) = E[f(x_t)\|x_0=x]$
 
 For a smooth test function $f(x)$, Ito formula implies that
 
