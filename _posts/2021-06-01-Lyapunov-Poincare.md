@@ -61,11 +61,9 @@ Combining the Poincare equality, we have that
 
 $\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)$
 
-we can expect an exponential decay of the variance for any function f
+By $\Lambda(t)\leq -\frac{C}{2}\Lambda_t(t)$, we can expect an exponential decay of the variance for any function f
 
-$Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$, 
-
-where $P_t$ is a Markov semigroup with the unique invariant distribution $\mu$.
+$Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$.
 
 
 ## How to identify the Poincare constant
