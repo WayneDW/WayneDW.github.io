@@ -10,7 +10,7 @@ tags:
 ---
 
 
-Poincare Inequality or spectral gap inequality is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
+Poincare (spectral gap) inequality is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
 
 
 ## Langevin diffusion
