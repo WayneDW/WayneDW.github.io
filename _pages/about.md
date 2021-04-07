@@ -22,7 +22,7 @@ Contact: lastname106 purdue dot edu
 
 Selected Publications
 ======
-My interests mainly focus on scalable Monte Carlo methods. The research finds extensive applications in uncertainty estimation, feature selection, and reinforcement learning.
+<!--- My interests mainly focus on scalable Monte Carlo methods. The research finds extensive applications in uncertainty estimation, feature selection, and reinforcement learning. -->
 
 ### Monte Carlo and Uncertainty Estimation
 
