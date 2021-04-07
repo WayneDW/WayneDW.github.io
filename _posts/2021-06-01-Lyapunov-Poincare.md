@@ -21,7 +21,7 @@ Despite the appealing formulation, identifying the best constant $C>0$ is in gen
 
 
 
-Let $\mu(dx)=e^{-U(x)}dx$ be a probability measure on $R^n$ and $L=\Delta - \langle\nabla U, \nabla,\rangle$ be the $\mu$ symmetric natural operator.
+Let $\mu(dx)=e^{-U(x)}dx$ be a probability measure on $R^n$, where $U(x)$ is known as the energy function. Let $L=\Delta - \langle\nabla U, \nabla,\rangle$ be the $\mu$ symmetric natural operator.
 
 
 We denote a Lyapunov function by $V$ if $V\geq 1$ and if there exist $\lambda>0, b\geq 0$ and some $R > 0$ such that for all $x$
@@ -30,6 +30,9 @@ $LV(x) ≤ -\lambda V(x) + b 1_{B(0, R)}(x)$
 
 The above inequality implies a fast convergence towards the centered Ball of radius $R$ and a certain convergence overall.
 
+By Theorem 1.4 [1], we show that if there exists a Lyapunov function $V(x)$ satisfying the above inequality, then $\mu $ satisfies a $L^2$ Poincare inequality with constant $C_P=\frac{1}{\lambda}(1+b\kappa_R)$, where $\kappa_R$ is the L2 Poincare constant
+of $\mu$ restricted to the ball B(0,R).
+
 
 
 
@@ -37,6 +40,6 @@ Coming soon
 
 ## References:
 
-D. Bakry, F. Barthe, P. Cattiaux, and A. Guillin. A simple proof of the Poincaré inequality for a large class of probability measures including the log-concave case. Electron. Comm. Probab., 13:60–66, 2008.
+[1] D. Bakry, F. Barthe, P. Cattiaux, and A. Guillin. A simple proof of the Poincaré inequality for a large class of probability measures including the log-concave case. Electron. Comm. Probab., 13:60–66, 2008.
 
-D. Bakry, I. Gentil, and M. Ledoux. Analysis and Geometry of Markov Diffusion Operators. Springer, 2014.
+[2] D. Bakry, I. Gentil, and M. Ledoux. Analysis and Geometry of Markov Diffusion Operators. Springer, 2014.
