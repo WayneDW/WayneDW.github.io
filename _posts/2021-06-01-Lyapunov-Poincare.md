@@ -13,7 +13,7 @@ Poincare Inequality or spectral gap inequality is the first important family of 
 
 If a Markov Triple satisfies a Poincare equality P(C), we can expect an exponential decay of the variance for any function f
 
-$\text{Var}_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$, 
+$Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$, 
 
 where $P_t$ is a Markov semigroup with the unique invariant distribution $\mu$.
 
@@ -21,7 +21,7 @@ Despite the appealing formulation, identifying the best constant $C>0$ is in gen
 
 
 
-Let $\mu(dx)=e^{-V(x)}dx$ be a probability measure on $R^n$ and $L=\delta - \nabla \nabla$ be the $\mu$ symmetric natural operator.
+Let $\mu(dx)=e^{-U(x)}dx$ be a probability measure on $R^n$ and $L=\Delta - \langle\nabla U, \nabla,\rangle$ be the $\mu$ symmetric natural operator.
 
 
 Let $W$ be a $C^2$ function. We shall say that $W$ is a Lyapunov function if $W\geq 1$ and if there exist µ > 0, b ≥ 0 and some R > 0 such that for all x,
