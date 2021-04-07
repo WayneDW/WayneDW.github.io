@@ -67,7 +67,7 @@ Combining the Poincare equality, we have that
 
 $\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)$
 
-This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integration factor $e^{\frac{2t}{C}}$, we habe
+This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integration factor $e^{\frac{2t}{C}}$, we have
 
 $\nabla (\Lambda_t(t) e^{\frac{2t}{C}})=\nabla \Lambda_t(t) e^{\frac{2t}{C}} + \Lambda_t(t) \frac{2}{C} e^{\frac{2t}{C}}\leq 0$
 
