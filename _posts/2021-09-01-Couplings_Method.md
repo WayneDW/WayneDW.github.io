@@ -6,11 +6,9 @@ tags:
   - comming soon
 ---
 
-
 In the coming year, I will use my spare time to learn Couplings for Monte Carlo methods, underdamped Langevin diffusion/ dynamics, and isoperimetric inequalities.
 
 The blog will come soon.
-
 
 ## References:
 
