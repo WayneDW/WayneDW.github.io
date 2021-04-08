@@ -67,7 +67,7 @@ Now we study the decay of variance
 
 $\Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu$
 
-Taking the derivative
+Reacll $\xi(f)=-\int f L(f) d\mu$. Taking the derivative
 
 $\Lambda_t(t)=2\int P_t f L P_t f d\mu = -2 \xi(P_t f)$
 
