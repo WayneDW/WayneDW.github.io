@@ -1,12 +1,14 @@
 ---
-title: 'The Lyapunov Function Method for Poincare Inequality'
+title: 'The Lyapunov Function Method for Poincaré Inequality'
 date: 2021-06-01
 permalink: /posts/Lyapunov_Poincare/
 tags:
   - Langevin diffusion
   - Lyapunov function
   - Drift condition
-  - Poincare Inequality
+  - Poincaré Inequality
+  - Carré du Champ operator
+  - Dirichlet form
 ---
 
 
@@ -47,7 +49,7 @@ where $\xi$ is the Dirichlet form defined as
 $\xi(f)=\int \Gamma(f)d\mu$.
 
 
-$\Gamma$ is the Carre du Champ operator satisfying 
+$\Gamma$ is the Carré du Champ operator satisfying 
 
 $\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f))$. 
 
