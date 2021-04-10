@@ -1,7 +1,7 @@
 ---
 title: 'The Lyapunov Function Method for Poincaré Inequality'
 date: 2021-06-01
-permalink: /posts/Lyapunov_Poincaré/
+permalink: /posts/Lyapunov_Poincare/
 tags:
   - Langevin diffusion
   - Lyapunov function
