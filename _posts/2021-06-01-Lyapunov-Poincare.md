@@ -1,7 +1,7 @@
 ---
 title: 'The Lyapunov Function Method for Poincaré Inequality'
 date: 2021-06-01
-permalink: /posts/Lyapunov_Poincare/
+permalink: /posts/Lyapunov_Poincaré/
 tags:
   - Langevin diffusion
   - Lyapunov function
@@ -12,7 +12,7 @@ tags:
 ---
 
 
-Poincare (spectral gap) inequality is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
+Poincaré (spectral gap) inequality is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
 
 
 ## Langevin diffusion
@@ -38,7 +38,7 @@ $Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla
 
 where $\Delta$ denotes the Laplace operator.
 
-## Poincare Inequality
+## Poincaré Inequality
 
 We say the Gibbs measure $\mu$ satisfies a Poincaré equality with a constant $C$ if
 
@@ -71,7 +71,7 @@ Reacll $\xi(f)=-\int f L(f) d\mu$. Taking the derivative
 
 $\Lambda_t(t)=2\int P_t f L P_t f d\mu = -2 \xi(P_t f)$
 
-Combining the Poincare equality, we have that
+Combining the Poincaré equality, we have that
 
 $\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)$
 
@@ -84,7 +84,7 @@ This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integra
 $Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$.
 
 
-## How to identify the Poincare constant
+## How to identify the Poincaré constant
 
 Despite the appealing formulation, identifying the best constant $C>0$ is in general not easy. In this blog, we will show a method for determining a crude estimate of such a constant.
 
@@ -92,7 +92,7 @@ We denote a Lyapunov function by $V$ if $V\geq 1$ and if there exist $\lambda>0,
 
 $LV(x) ≤ -\lambda V(x) + b 1_{B(0, R)}(x)$
 
-### By Theorem 1.4 [1], we show that if there exists a Lyapunov function $V(x)$ satisfying the drift condition, then $\mu $ satisfies a $L^2$ Poincare inequality with constant $C_P=\frac{1}{\lambda}(1+b\kappa_R)$, where $\kappa_R$ is the L2 Poincare constant of $\mu$ restricted to the ball B(0,R).
+### By Theorem 1.4 [1], we show that if there exists a Lyapunov function $V(x)$ satisfying the drift condition, then $\mu $ satisfies a $L^2$ Poincaré inequality with constant $C_P=\frac{1}{\lambda}(1+b\kappa_R)$, where $\kappa_R$ is the L2 Poincaré constant of $\mu$ restricted to the ball B(0,R).
 
 
 
@@ -117,7 +117,7 @@ $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \int \|\nabla f\|^2 d\mu$
 
 ### Control the second term $\int f^2 \frac{b}{\lambda V}1_{B(0, R)} d\mu$
 
-Since $\mu$ satisfies a Poincare inequality on $B(0, R)$ with a constant $\kappa_R$, we have
+Since $\mu$ satisfies a Poincaré inequality on $B(0, R)$ with a constant $\kappa_R$, we have
 
 $\int_{B(0, R)} f^2 d\mu\leq \kappa_R \int_{B(0, R)} \|\nabla f\|^2 d\mu + (1/\mu(B(0, R))) \left(\int_{B(0, R)} fd\mu\right)^2$.
 
@@ -127,7 +127,7 @@ $\int_{B(0, R)} \frac{f^2}{V}d\mu\leq \int_{B(0, R)} f^2 d\mu\leq \kappa_{R}\int
 Eventually, we have
 $Var_{\mu}(f)=\int f^2 d\mu \leq \frac{1}{\lambda} (1+b\kappa_R) \int \|\nabla f\|^2 d\mu$.
 
-In other words, the Poincare inequality has a crude constant $C_p=\frac{1}{\lambda} (1+b \kappa_R)$.
+In other words, the Poincaré inequality has a crude constant $C_p=\frac{1}{\lambda} (1+b \kappa_R)$.
 
 ## Construction of the Lypunov function
 
@@ -157,7 +157,7 @@ which suffices to choose $\gamma<\alpha$, a large $R$ and assume the (C1) condit
 
 [1] The construction of Lyapunov function implies a tail decay for the distribution $\mu\propto e^{-U(x)}$ outside the ball $B(0, R)$.
 
-[2] Obtaining a sharper estimate of Poincare constant may require isoperimetric inequality.
+[2] Obtaining a sharper estimate of Poincaré constant may require isoperimetric inequality.
 
 
 ## References:
