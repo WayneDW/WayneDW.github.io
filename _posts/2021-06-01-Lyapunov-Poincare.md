@@ -28,7 +28,7 @@ Define a family of operators $(P_t)_{t\geq 0}$ as follows
 
 $P_t(f(x)) = E[f(x_t)\|x_0=x]$
 
-For a smooth test function $f(x)$, Ito formula implies that
+For a smooth test function $f(x)$, Itô's formula implies that
 
 $d f(x_t) = \sqrt{2} \nabla f(x_t) dB_t + Lf(x_t)dt$,
 
@@ -40,7 +40,7 @@ where $\Delta$ denotes the Laplace operator.
 
 ## Poincare Inequality
 
-We say the Gibbs measure $\mu$ satisfies a Poincare equality with a constant $C$ if
+We say the Gibbs measure $\mu$ satisfies a Poincaré equality with a constant $C$ if
 
 $Var_{\mu}(f)=\int f^2 d\mu -(\int f d\mu)^2 \leq C \xi(f)$,
 
