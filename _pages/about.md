@@ -47,3 +47,6 @@ Services
 ======
 
 Reviewers: ICML, NeurIPS, IJCAI
+
+
+La pensée n'est qu'un écliar au milieu d'une longue nuit. Mais c'est cet éclair qui est tout.
