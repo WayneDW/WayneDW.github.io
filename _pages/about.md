@@ -24,7 +24,7 @@ Selected Publications
 ======
 <!--- My interests mainly focus on scalable Monte Carlo methods. The research finds extensive applications in uncertainty estimation, feature selection, and reinforcement learning. -->
 
-### Monte Carlo and Uncertainty Estimation
+<!--- ### Monte Carlo and Uncertainty Estimation -->
 
 * **W. Deng**<sup>*</sup>, Q. Feng<sup>*</sup>, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://openreview.net/pdf?id=iOnhIy-a-0n). ICLR 2021. [\[video\]](https://studio.slideslive.com/web_recorder/share/34145?s=9a76d5cb-b294-40a1-8987-bc44fa80d61e)
 
