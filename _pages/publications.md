@@ -20,7 +20,7 @@ redirect_from:
 
 * **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Particle Importance Samplers. 2021. Under review
 
-* **W. Deng**, Q. Zhang. User-friendly Parallel Tempering for Deep Learning. 2021. On progress.
+* **W. Deng**, Q. Zhang. User-friendly Some Anonymous sampling for Deep Learning. 2021. On progress.
 
 * **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of Some Distributed Sampling Algorithms. 2021. On progress
 
