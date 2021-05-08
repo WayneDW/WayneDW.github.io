@@ -22,7 +22,7 @@ redirect_from:
 
 * **W. Deng**, Q. Zhang. User-friendly Parallel Tempering for Deep Learning. 2021. On progress.
 
-* **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of some distributed sampling algorithms. 2021. On progress
+* **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of Some Distributed Sampling Algorithms. 2021. On progress
 
 <!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
 
