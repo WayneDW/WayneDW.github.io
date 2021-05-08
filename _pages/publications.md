@@ -18,7 +18,7 @@ redirect_from:
 
 * **W. Deng**, G. Lin, F. Liang. An Adaptively Weighted SGMCMC Algorithm for Monte Carlo simulation and Global Optimization. 2021. Under review
 
-* **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Parcile Importance Samplers. 2021. Under review
+* **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Particle Importance Samplers. 2021. Under review
 
 
 <!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
