@@ -20,9 +20,9 @@ redirect_from:
 
 * **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Particle Importance Samplers. 2021. Under review
 
-* **W. Deng**, Q. Zhang. User-friendly (Some Secret) Sampling Algorithms for Deep Learning. 2021. On progress.
+<!--- * **W. Deng**, Q. Zhang. User-friendly (Some Secret) Sampling Algorithms for Deep Learning. 2021. On progress. -->
 
-* **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of Some Distributed Sampling Algorithms. 2021. On progress
+<!--- * **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of Some Distributed Sampling Algorithms. 2021. On progress -->
 
 <!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
 
