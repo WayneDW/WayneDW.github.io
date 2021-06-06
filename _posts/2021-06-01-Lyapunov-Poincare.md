@@ -26,7 +26,9 @@ where $\nabla U(\cdot)$ denotes the gradient of a energy function $U$ and $(W_t)
 
 Define a family of operators $(P_t)_{t\geq 0}$ as follows
 
-$P_t(f(x)) = E[f(x_t)\|x_0=x]$
+$P_t(f(x)) = E[f(x_t)\|x_0=x]$,
+
+where the expectation is taken over a particular set to denote the conditional density.
 
 For a smooth test function $f(x)$, Itô's formula implies that
 
@@ -57,9 +59,7 @@ Since $\mu$ is reversible for $P_t$, we have the invariance property $\int L(f)=
 
 $\xi(f)=\int \Gamma(f)d\mu=-\int f L(f) d\mu =\int (\nabla f)^2 d\mu$.
 
-where the last inequality follows by integration by parts.
-
-<!---  How it is derived: -\int f L(f) d\mu=-\int f\nabla (e^{-U(x)}\nabla f)dx=-\int f d(e^{-U(x)} \nabla f)=\f (e^{-U(x)} \nabla f)\|_{some boundary} + \int (\nabla f)^2 d\mu  -->
+where the last inequality follows by integration by parts: $-\int f L(f) d\mu=-\int f\nabla (e^{-U(x)}\nabla f)dx=-\int f d(e^{-U(x)} \nabla f)=\f (e^{-U(x)} \nabla f)\|_{some boundary} + \int (\nabla f)^2 d\mu$.
 
 ## Variance Decay
 
@@ -77,9 +77,9 @@ $\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)$
 
 This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integration factor $e^{\frac{2t}{C}}$, we have
 
-<!---  $\nabla (\Lambda(t) e^{\frac{2t}{C}})=\Lambda_t(t) e^{\frac{2t}{C}} + \Lambda(t) \frac{2}{C} e^{\frac{2t}{C}}\leq 0$  -->
+$\nabla (\Lambda(t) e^{\frac{2t}{C}})=\Lambda_t(t) e^{\frac{2t}{C}} + \Lambda(t) \frac{2}{C} e^{\frac{2t}{C}}\leq 0$
 
-<!---  Hence $\Lambda(t) e^{\frac{2t}{C}} \leq \Lambda(0)$. In other words,  -->
+Hence $\Lambda(t) e^{\frac{2t}{C}} \leq \Lambda(0)$. In other words,
 
 $Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$.
 
