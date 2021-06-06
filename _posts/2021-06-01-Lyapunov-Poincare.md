@@ -59,7 +59,7 @@ Since $\mu$ is reversible for $P_t$, we have the invariance property $\int L(f)=
 
 $\xi(f)=\int \Gamma(f)d\mu=-\int f L(f) d\mu =\int (\nabla f)^2 d\mu$.
 
-where the last inequality follows by integration by parts such that: $-\int f L(f) d\mu=-\int f\nabla (e^{-U(x)}\nabla f)dx=-\int f d(e^{-U(x)} \nabla f)=f e^{-U(x)} \nabla f\|_{some boundary} + \int (\nabla f)^2 d\mu$.
+where the last inequality follows by integration by parts such that: $-\int f L(f) d\mu=-\int f\nabla (e^{-U(x)}\nabla f)dx=-\int f d(e^{-U(x)} \nabla f)=f e^{-U(x)} \nabla f\|_{boundary} + \int (\nabla f)^2 d\mu$.
 
 ## Variance Decay
 
