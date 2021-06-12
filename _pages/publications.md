@@ -20,6 +20,9 @@ redirect_from:
 
 * **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Particle Importance Samplers. 2021. Under review
 
+* **W. Deng**, Y. Ma, Z. Song, Q. Zhang, G. Lin. On the Convergence of a Certain Centralized Langevin Dynamics. 2021. Under review
+
+
 <!--- * **W. Deng**, Q. Zhang. User-friendly (Some Secret) Sampling Algorithms for Deep Learning. 2021. On progress. -->
 
 <!--- * **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of Some Distributed Sampling Algorithms. 2021. On progress -->
@@ -29,7 +32,7 @@ redirect_from:
 
 ### Reinforcement Learning
 
-Botao Hao, Tor Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). Under review
+B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). Under review
 
 ### Sparse Deep Learning
 
