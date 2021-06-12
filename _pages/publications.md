@@ -27,16 +27,20 @@ redirect_from:
 <!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
 
 
+### Reinforcement Learning
+
+Botao Hao, Tor Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). Under review
+
 ### Sparse Deep Learning
 
 * **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). The 33rd Conference on Neural Information Processing Systems (**NeurIPS 2019**), Vancouver, Canada [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
+
+* Y. Wang, **W. Deng**, G. Lin. [Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications](https://www.sciencedirect.com/science/article/pii/S0021999121000267?dgcid=coauthor). **Journal of Computational Physics**. Vol 432, 2021.
 
 
 ### Applications
 
 * **W. Deng**<sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). The 14th ACM International Conference on Web Search and Data Mining (**WSDM 2021**) [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions)
-
-* Y. Wang, **W. Deng**, G. Lin. [Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications](https://www.sciencedirect.com/science/article/pii/S0021999121000267?dgcid=coauthor). **Journal of Computational Physics**. Vol 432, 2021.
 
 * Y. Wang, **W. Deng**, G. Lin. [An Adaptive Hessian Approximated Stochastic Gradient MCMC Method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). **Journal of Computational Physics**. Vol 432, 2021.
 
