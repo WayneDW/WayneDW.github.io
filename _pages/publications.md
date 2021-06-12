@@ -32,7 +32,7 @@ redirect_from:
 
 ### Reinforcement Learning
 
-B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). Under review
+* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). Under review
 
 ### Sparse Deep Learning
 
