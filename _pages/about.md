@@ -36,6 +36,8 @@ Selected Publications
 Research Talks
 ======
 
+* Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *Machine Learning Research, Morgan Stanley*. Jun, 2021
+
 * Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *Department of Machine Intelligence, Peking University & School of Statistics, Renmin University of China*. Jan, 2021
 
 * Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X seminar, Department of Applied Mathematics, Brown University & Alexa AI, Amazon*. Oct, 2020
