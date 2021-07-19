@@ -18,14 +18,6 @@ redirect_from:
 
 * **W. Deng**<sup>*</sup>, Q. Zhang<sup>*</sup>, Q. Feng, F. Liang, G. Lin. An Approximate Parallel Tempering for Uncertainty Quantification in Deep Learning. Workshop on [Distribution-Free Uncertainty Quantification](https://sites.google.com/berkeley.edu/dfuq21/home?authuser=0) at ICML 2021
 
-* **W. Deng**, G. Lin, F. Liang. An Adaptive Monte Carlo Algorithm for Uncertainty Estimation and Optimization. 2021. Under reivew
-
-
-* **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Particle Importance Samplers. 2021. Under review
-
-* **W. Deng**, Y. Ma, Z. Song, Q. Zhang, G. Lin. On the Convergence of a Certain Centralized Langevin Dynamics. 2021. Under review
-
-
 <!--- * **W. Deng**, Q. Zhang. User-friendly (Some Secret) Sampling Algorithms for Deep Learning. 2021. On progress. -->
 
 <!--- * **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of Some Distributed Sampling Algorithms. 2021. On progress -->
@@ -50,6 +42,16 @@ redirect_from:
 ### Others
 
 * R. Zhang, **W. Deng**, M. Zhu. [Using Deep Neural Networks to Automate Large Scale Statistical Analysis](https://arxiv.org/pdf/1708.03027.pdf). Asian Conference on Machine Learning (**ACML 2017**), Seoul, Korea
+
+
+### Submitted
+
+* **W. Deng**, G. Lin, F. Liang. An Adaptive Monte Carlo Algorithm for Uncertainty Estimation and Optimization. 2021. Under reivew
+
+* **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Particle Importance Samplers. 2021. Under review
+
+* **W. Deng**, Y. Ma, Z. Song, Q. Zhang, G. Lin. On the Convergence of a Certain Centralized Langevin Dynamics. 2021. Under review
+
 
 
 (*) denotes equal contribution.
