@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-### Monte Carlo, Uncertainty Estimation, Optimization
+### Monte Carlo and Uncertainty Estimation
 
 * **W. Deng**<sup>*</sup>, Q. Feng<sup>*</sup>, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://openreview.net/pdf?id=iOnhIy-a-0n). The 9th International Conference on Learning Representations (**ICLR 2021**). [\[code\]](https://github.com/WayneDW/Variance_Reduced_Replica_Exchange_SGMCMC) [\[video\]](https://slideslive.com/38954013/accelerating-convergence-of-replica-exchange-stochastic-gradient-mcmc-via-variance-reduction?ref=speaker-30773-latest)
 
