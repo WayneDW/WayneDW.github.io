@@ -50,7 +50,7 @@ redirect_from:
 
 * **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Particle Importance Samplers. 2021. Under review
 
-* **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song, Q. Zhang, G. Lin. On the Convergence of a Certain Centralized Langevin Dynamics. 2021. Under review
+* **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song, Q. Zhang, G. Lin. On the Convergence of a Certain Decentralized Langevin Dynamics. 2021. Under review
 
 
 
