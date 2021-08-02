@@ -10,6 +10,8 @@ redirect_from:
 
 I am a final-year Ph.D. candidate in applied mathematics at [Purdue University](https://www.purdue.edu/science/). I work with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/) and my research focuses on **scalable Monte Carlo methods** for efficient statistical inference in large-scale complex systems.
 
+Current Interests: Monte Carlo methods for high-dimensional discrete data, SDE-based flows for generative models, and Q-learning.
+
 <!--- My interests include uncertainty quantification, non-convex optimization, feature selection, and reinforcement learning with theory and applications. -->
 
 Before that, I was a research intern at [Yahoo research](https://research.yahoo.com/), Sunnyvale (Summer 2019) and a senior research engineer at [Baidu](https://www.baidu.com/) (2012-2015). I got a bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012 and a M.S. in Computational Finance at Purdue in 2017.
