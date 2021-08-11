@@ -17,8 +17,8 @@ plot(y2)
 # 
 # Plot Gaussian density and beta density
 plot(x, y1, type = "l", xlab="x-axis label",
-     ylim = c(0, 3), xaxt='n', ann=FALSE, yaxt='n', bty="n")
-title("Gaussian and Beta densities", line = -2)
+     ylim = c(0, 4), xaxt='n', ann=FALSE, yaxt='n', bty="n")
+title("Gaussian and Beta densities", line = -7, cex.main=2)
 lines(x, y3, type = "l", col = 2)
 
 # Fill area between lines
@@ -33,8 +33,8 @@ polygon(c(x, rev(x)), c(y3, rev(y2)),
 
 # Plot difference between the two densities
 plot(x, y1-y2, type = "l",
-     ylim = c(-2, 2), ylab = "y", xaxt='n', ann=FALSE, yaxt='n', bty="n")
-title("Total variation distance", line = 0)
+     ylim = c(-3, 3), ylab = "y", xaxt='n', ann=FALSE, yaxt='n', bty="n")
+title("Total variation (Gaussian-Beta)", line = -3, cex.main=2)
 
 
 truncate_up = function(x) {
