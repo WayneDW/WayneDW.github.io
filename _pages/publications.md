@@ -14,7 +14,7 @@ redirect_from:
 
 * **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (**ICML 2020**). [\[code\]](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC) [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
 
-* **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34rd Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf)[\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions) [\[知乎\]](https://zhuanlan.zhihu.com/p/267633636)
+* **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). The 34th Conference on Neural Information Processing Systems (**NeurIPS 2020**) [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf)[\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions) [\[知乎\]](https://zhuanlan.zhihu.com/p/267633636)
 
 * **W. Deng**<sup>*</sup>, Q. Zhang<sup>*</sup>, Q. Feng, F. Liang, G. Lin. [An Approximate Parallel Tempering for Uncertainty Quantification in Deep Learning](https://icml.cc/virtual/2021/workshop/8373). Workshop on [Distribution-Free Uncertainty Quantification](https://sites.google.com/berkeley.edu/dfuq21/home?authuser=0) at ICML 2021
 
@@ -27,7 +27,7 @@ redirect_from:
 
 ### Reinforcement Learning
 
-* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). Under review
+* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). The 35th Conference on Neural Information Processing Systems (NeurIPS 2021) **Spotlight (<3% acceptance rate)**
 
 ### Sparse Deep Learning and Applications
 
