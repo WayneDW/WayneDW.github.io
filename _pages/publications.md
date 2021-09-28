@@ -27,7 +27,7 @@ redirect_from:
 
 ### Reinforcement Learning
 
-* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). The 35th Conference on Neural Information Processing Systems (NeurIPS 2021) **Spotlight (<3% acceptance rate)**
+* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). The 35th Conference on Neural Information Processing Systems (**NeurIPS 2021**) **Spotlight** (<3% acceptance rate)
 
 ### Sparse Deep Learning and Applications
 
