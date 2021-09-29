@@ -22,6 +22,12 @@ Contact: lastname106 purdue dot edu
 <!---  I got my bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.  -->
 
 
+News
+======
+I will defend my thesis "Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo" at 1 PM-2:30 PM, Oct.26, 2021.
+
+
+
 Selected Publications
 ======
 <!--- My interests mainly focus on scalable Monte Carlo methods. The research finds extensive applications in uncertainty estimation, feature selection, and reinforcement learning. -->
