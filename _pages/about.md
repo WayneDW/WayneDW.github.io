@@ -52,7 +52,7 @@ Research Talks
 Services
 ======
 
-Reviewers: ICML, NeurIPS, ICLR, IJCAI
+Reviewers: ICML, NeurIPS, ICLR, IJCAI, Machine Learning Journal.
 
 
 La pensée n'est qu'un écliar au milieu d'une longue nuit. Mais c'est cet éclair qui est tout.
