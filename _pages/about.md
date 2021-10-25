@@ -10,7 +10,7 @@ redirect_from:
 
 I am a final-year Ph.D. candidate in applied mathematics at [Purdue University](https://www.purdue.edu/science/). I work with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/) and my research focuses on **scalable Monte Carlo methods** for efficient statistical inference in large-scale complex systems.
 
-Interests: Non-reversibility, Discrete-data and flows, bandits, and Q-learning.
+Interests: Non-reversibility, discrete-data and flows, bandits, and Q-learning.
 
 <!--- My interests include uncertainty quantification, non-convex optimization, feature selection, and reinforcement learning with theory and applications. -->
 
