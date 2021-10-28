@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a final-year Ph.D. candidate in applied mathematics at [Purdue University](https://www.purdue.edu/science/). I work with Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/) and my research focuses on **scalable Monte Carlo methods** for efficient statistical inference in large-scale complex systems.
+I will be a Machine Learning Researcher at Morgan Stanley, NY. I (will) got my Ph.D. in in applied mathematics at [Purdue University](https://www.purdue.edu/science/). I work with Dr. [Lin, G.](https://www.math.purdue.edu/~lin491/) and [Liang, F.](https://www.stat.purdue.edu/~fmliang/) and my research focuses on **scalable Monte Carlo methods** for efficient statistical inference in large-scale complex systems.
 
 Interests: Non-reversibility, discrete-data and flows, bandits, and Q-learning.
 
@@ -24,7 +24,7 @@ Contact: lastname106 purdue dot edu
 
 News
 ======
-I will defend my thesis "Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo" at 1 PM-2:30 PM, Oct.26, 2021.
+I have defended my thesis "Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo".
 
 
 
@@ -44,6 +44,8 @@ Selected Publications
 Research Talks
 ======
 
+
+* Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo. *Ph.D. Oral Defense*. Oct.26, 2021. [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68)
 
 * Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *Department of Machine Intelligence, Peking University & School of Statistics, Renmin University of China & Machine Learning Research, Morgan Stanley*. 2021
 
