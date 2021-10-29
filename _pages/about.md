@@ -30,7 +30,7 @@ I have defended my thesis "Non-convex Bayesian Learning via Stochastic Gradient 
 
 
 <!--- Selected Publications -->
-======
+<!---  ====== -->
 <!--- My interests mainly focus on scalable Monte Carlo methods. The research finds extensive applications in uncertainty estimation, feature selection, and reinforcement learning. -->
 
 <!--- ### Monte Carlo and Uncertainty Estimation -->
