@@ -8,16 +8,16 @@ redirect_from:
   - /about.html
 ---
 
-I will be a Machine Learning Researcher at Morgan Stanley, NY. I (will) got my Ph.D. in in applied mathematics at [Purdue University](https://www.purdue.edu/science/). I work with Dr. [Lin, G.](https://www.math.purdue.edu/~lin491/) and [Liang, F.](https://www.stat.purdue.edu/~fmliang/) and my research focuses on **scalable Monte Carlo methods** for efficient statistical inference in large-scale complex systems.
+I will be a Machine Learning Researcher at Morgan Stanley, NY. I got my Ph.D. in applied mathematics at [Purdue University](https://www.purdue.edu/science/). I work with Dr. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). My dissertation thesis is *Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo* [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68).
 
-Interests: Non-reversibility, discrete-data and flows, bandits, and Q-learning.
+Current interests: Non-reversible Monte Carlo, bandits, and computational aspects of reinforcement learning.
 
 <!--- My interests include uncertainty quantification, non-convex optimization, feature selection, and reinforcement learning with theory and applications. -->
 
 <!--- Before that, I was a research intern at [Yahoo research](https://research.yahoo.com/), Sunnyvale (Summer 2019) and a senior research engineer at [Baidu](https://www.baidu.com/) (2012-2015). I got a bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012 and a M.S. in Computational Finance at Purdue in 2017. -->
 
 
-Contact: lastname106 purdue dot edu
+Contact: weideng056  at gmail dot com
 
 <!---  I got my bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.  -->
 
@@ -42,15 +42,15 @@ I have defended my thesis "Non-convex Bayesian Learning via Stochastic Gradient 
 <!--- * **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). NeurIPS 2020 [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions) -->
 
 
-Research Talks
-======
+<!--- Research Talks -->
+<!--- ====== -->
 
 
-* Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo. *Ph.D. Oral Defense*. Purdue University. Oct.26, 2021. [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68)
+<!--- * Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo. *Ph.D. Oral Defense*. Purdue University. Oct.26, 2021. [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68) -->
 
-* Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *Department of Machine Intelligence, Peking University & School of Statistics, Renmin University of China & Machine Learning Research, Morgan Stanley*. 2021
+<!--- * Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *Department of Machine Intelligence, Peking University & School of Statistics, Renmin University of China & Machine Learning Research, Morgan Stanley*. 2021 -->
 
-* Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X seminar, Department of Applied Mathematics, Brown University & Alexa AI, Amazon*. Oct, 2020
+<!--- * Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X seminar, Department of Applied Mathematics, Brown University & Alexa AI, Amazon*. Oct, 2020 -->
 
 Services
 ======
