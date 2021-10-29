@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I will be a Machine Learning Researcher at Morgan Stanley, NY. I got my Ph.D. in applied mathematics at [Purdue University](https://www.purdue.edu/science/). I work with Dr. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). My thesis is *Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo* [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68).
+I will be a Machine Learning Researcher at Morgan Stanley, NY. I got my Ph.D. in applied mathematics at [Purdue University](https://www.purdue.edu/science/). I work with Dr. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/) and my thesis is about *Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo* [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68).
 
 Current interests: Non-reversible Monte Carlo, bandits, and computational aspects of reinforcement learning.
 
