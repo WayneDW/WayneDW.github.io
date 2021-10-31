@@ -25,7 +25,7 @@ Contact: weideng056  at gmail dot com
 News
 ======
 
-I have defended my thesis "Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo" [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68). Oct, 2021.
+Oct, 2021. I have defended my thesis "Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo" [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68). 
 
 
 
