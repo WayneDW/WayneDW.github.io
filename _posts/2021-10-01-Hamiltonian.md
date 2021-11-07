@@ -50,7 +50,7 @@ $x'(t)=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t)$
 $v'(t)=-\nabla f(x(t))     \quad\qquad\qquad\ \  u'(t)=-\nabla f(y(t))$
 where the initial velocities follow $u(0)=v(0)$. Taking the second derivative of $\frac{1}{2}\|x-y\|^2$, we have
 
-$\frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)&=\frac{d}{dt}\langle v-u, x-y \rangle$
+$\frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)=\frac{d}{dt}\langle v-u, x-y \rangle$
 $\quad=\langle v'-u', x-y \rangle + \langle v-u, x'-y' \rangle$
 $\quad=-\rho \|x-y\|^2 + \|v-u\|^2,$
 
@@ -61,7 +61,7 @@ $$\frac{d}{dt}\|v-u\|=\frac{1}{\|v-u\|}\langle v'-u', v-u\rangle =-\frac{\langle
 
 In particular for the upper bound of $\frac{d}{dt}\|v-u\|$, we have
 
-$\left|\frac{d}{dt}\|v-u\|\right|&\leq \|\nabla f(x)-\nabla f(y)\|$
+$\left|\frac{d}{dt}\|v-u\|\right|\leq \|\nabla f(x)-\nabla f(y)\|$
 $\leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle}$
 $= \sqrt{L\rho \|x-y\|^2}$
 $\leq \sqrt{2L\rho \|x_0-y_0\|^2},$
@@ -70,7 +70,7 @@ where the first inequality follows by Cauchy–Schwarz inequality, the second in
 
 Eventually, we can upper bound $\|v-u\|^2$ as follows
 
-$\|v-u\|^2 &\leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2$
+$\|v-u\|^2 \leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2$
 $\leq \left(\int_0^t \sqrt{2 L\rho} \|x_0-y_0\| ds\right)^2$
 $\leq 2L t \left(\int_0^t \rho ds\right) \|x_0 - y_0\|^2.$
 
