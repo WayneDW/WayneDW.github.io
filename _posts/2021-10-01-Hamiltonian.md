@@ -63,7 +63,7 @@ $$\qquad\qquad\qquad\qquad v'(t)=-\nabla f(x(t))     \quad\qquad\qquad\ \ \  u'(
 
 where the initial velocities follow $u(0)=v(0)$. 
 
-Taking the second derivative of $\frac{1}{2}\|\|x-y\|\|^2$, we have
+Taking the second derivative of $$\frac{1}{2}\|x-y\|^2$$, we have
 
 $$\frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)=\frac{d}{dt}\langle v-u, x-y \rangle\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\qquad\quad=\langle v'-u', x-y \rangle + \langle v-u, x'-y' \rangle\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
