@@ -141,7 +141,7 @@ $$\nabla^2 f(x) v \approx \frac{\nabla f(\hat x_{\eta}) - \nabla f(x)}{\eta},$$
 
 Now, the numerical integrator follows that
 
-$$\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad\qquad \hat v_{\eta}(x, v)=v-\frac{1}{2}\eta (\nabla f(x) - \nabla f(\hat x_{\eta})).$$
+$$\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad \hat v_{\eta}(x, v)=v-\frac{1}{2}\eta (\nabla f(x) - \nabla f(\hat x_{\eta})).$$
 
 It can be shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions [MV18].
 
