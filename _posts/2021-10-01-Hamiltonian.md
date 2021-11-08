@@ -118,6 +118,16 @@ Eventually, we have the desired result such that
 
 $$\alpha(t)=\alpha(0)+\int_0^t \alpha'(s) d s \leq \alpha(0) \left(1-\frac{\mu}{4} t^2\right).$$
 
+
+Setting $t=T=1/(c\sqrt{L})$ for some constant $c\geq 2$, we get
+
+$$\|x(T)-y(T)\|^2 \leq \left(1-\frac{1}{4c^2 \kappa}\right)\|x(0)-y(0)\|^2.$$
+
+Eventually, we can achieve the convergence in Wasserstein distance such that 
+
+$$W^2_2(\nu_k, \pi)\leq E\left[\|x_k-y_k\|^2\right]\leq \left(1-\frac{1}{4c^2 \kappa}\right)^k O(1).$$
+
+
 ## Conclusions
 
 Tuning the number of leapfrog steps is important for controlling the convergence.
