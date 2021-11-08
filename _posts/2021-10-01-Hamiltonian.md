@@ -71,20 +71,20 @@ $$\qquad\qquad\qquad\quad=-\rho \|x-y\|^2 + \|v-u\|^2,\qquad\qquad\qquad\qquad\q
 
 where $\rho=\rho(t)=\frac{\langle \nabla f(x) - \nabla f(y), x-y \rangle}{\|x-y\|^2}$.
 
-To upper bound $||v-u||^2$, recall that $\frac{d}{dt} ||x||=\frac{d}{dx} ||x|| \cdot \frac{d}{dt} x=\frac{\langle x, \dot{x} \rangle}{||x||}$. In what follows, we have
+To upper bound $$\|v-u\|^2$$, recall that $$\frac{d}{dt} \|x\|=\frac{d}{dx} \|x\| \cdot \frac{d}{dt} x=\frac{\langle x, \dot{x} \rangle}{\|x\|}$. In what follows, we have
 
 $$\frac{d}{dt}\|v-u\|=\frac{1}{\|v-u\|}\langle v'-u', v-u\rangle =-\frac{\langle \nabla f(x)-\nabla f(y), v-u\rangle}{\|v-u\|}.$$
 
-In particular for the upper bound of $\frac{d}{dt}||v-u||$, we have
+In particular for the upper bound of $$\frac{d}{dt}\|v-u\|$$, we have
 
 $$\left|\frac{d}{dt}\|v-u\|\right|\leq \|\nabla f(x)-\nabla f(y)\|\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\quad\leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle}\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\quad= \sqrt{L\rho \|x-y\|^2}\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\quad\leq \sqrt{2L\rho ||x_0-y_0||^2},\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\quad\leq \sqrt{2L\rho \|\|x_0-y_0\|\|^2},\qquad\qquad\qquad\qquad\qquad$$
 
 where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in [CV19].
 
-Now, we can upper bound $||v-u||^2$ as follows
+Now, we can upper bound $$\|v-u\|^2$$ as follows
 
 $$\|v-u\|^2 \leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\leq \left(\int_0^t \sqrt{2 L\rho} \|x_0-y_0\| ds\right)^2\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
