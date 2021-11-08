@@ -56,8 +56,8 @@ $$\|x(t)-y(t)\|^2 \leq (1-\frac{\mu}{4}t^2) \|x(0)-y(0)\|^2.$$
 **Proof**
 Consider two ODEs for HMCs: 
 
-$$\qquad\qquad x'(t)=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t)$$
-$$\qquad\qquad v'(t)=-\nabla f(x(t))     \quad\qquad\qquad\ \ \  u'(t)=-\nabla f(y(t)),$$
+$$\qquad\qquad\qquad\qquad x'(t)=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t)$$
+$$\qquad\qquad\qquad\qquad v'(t)=-\nabla f(x(t))     \quad\qquad\qquad\ \ \  u'(t)=-\nabla f(y(t)),$$
 
 where the initial velocities follow $u(0)=v(0)$. 
 
