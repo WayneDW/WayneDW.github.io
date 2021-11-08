@@ -44,7 +44,7 @@ The convergence analysis hinges on the coupling of two Markov chains such that t
 Denote by $x(t)$ and $y(t)$ solutions of HMC (\ref{Hamiltonian}) and denote by $x(0)$ and $y(0)$ the initial positions of two ODEs for HMC. To faciliate the analysis of coupling techniques, we adopt the same initial velocity $v(0)=u(0)$. We first try to prove the contraction bound as follows
 
 <p align="center">
-    <img src="/images/HMC_coupling2.png" width="600" />
+    <img src="/images/HMC_coupling2.png" width="400" />
 </p>
 
 
