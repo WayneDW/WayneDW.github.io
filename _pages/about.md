@@ -50,11 +50,6 @@ Oct, 2021. I have defended my thesis "Non-convex Bayesian Learning via Stochasti
 
 <!--- * Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *Department of Machine Intelligence, Peking University & School of Statistics, Renmin University of China & Machine Learning Research, Morgan Stanley*. 2021 -->
 
-<<<<<<< HEAD
-* Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X seminar, Department of Applied Mathematics, Brown University*. Oct, 2020
-=======
-<!--- * Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. *Machine Learning + X seminar, Department of Applied Mathematics, Brown University & Alexa AI, Amazon*. Oct, 2020 -->
->>>>>>> ab793e066f1fee95b9a08d783e6df7248197fdc4
 
 Services
 ======
