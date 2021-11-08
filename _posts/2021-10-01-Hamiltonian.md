@@ -6,13 +6,14 @@ tags:
   - Hamiltonian Monte Caro
 ---
 
-Hamiltonian Monte Carlo [Nea11] (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and aims to simulate particles according to the laws of Hamiltonian dynamics. HMC algorithms converse Hamiltonian and the volume in the phase space and are generally believed to be faster than the Metropolis Hasting algorithms [MRRT53] and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes. In this blog, I will introduce a paper called Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions [CV19]. 
+Hamiltonian Monte Carlo [Nea11] (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and are generally believed to be faster than the Metropolis Hasting algorithms [MRRT53] and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes. In this blog, I will introduce a paper called Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions [CV19]. 
 
 ## Hamiltonian Dynamics
 
-Consider a Hamiltonian function $H(x, v)$ defined as follows
+HMC algorithms conserves Hamiltonian and the volume in the phase space and enjoy the reversibility condition. It aims to simulate particles according to the laws of Hamiltonian dynamics. Consider a Hamiltonian function $H(x, v)$ defined as follows
 
 $$H(x, v)=f(x)+\|v\|^2,$$
+
 where $f$ is the potential energy function, $x$ is the position, and $v$ is the velocity variable. In each step, the update of the particles $(x, v)$ follows the system of (ordinary) differential equations as follows
 
 \begin{equation}
@@ -30,13 +31,11 @@ After a time interval $t$, the solutions follow a ``Hamiltonian flow'' $\varphi_
 
 To prove the convergence of the ideal HMC algorithms, we first assume standard assumptions.
 
-**Strong convexity**
+**Strong convexity** We say $f$ is $\mu$-strongly convex if for all $x, y\in R^d$, we have
 
 $$f(y)\geq f(x)+\langle \nabla f(x), y-x\rangle + \frac{\mu}{2} \|y-x\|^2.$$
 
-**Smoothness**
-
-We also assume $f$ is $L$-smooth in the sense that
+**Smoothness** We also assume $f$ is $L$-smooth in the sense that
 
 $$f(y)\leq f(x)+\langle \nabla f(x), y-x\rangle + \frac{L}{2} \|y-x\|^2.$$
 
@@ -53,7 +52,7 @@ $$\|x(t)-y(t)\|^2 \leq (1-\frac{\mu}{4}t^2) \|x(0)-y(0)\|^2.$$
 Consider two ODEs for HMCs: 
 
 $$x'(t)=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t)$$
-$$v'(t)=-\nabla f(x(t))     \quad\qquad\qquad\ \  u'(t)=-\nabla f(y(t)),$$
+$$v'(t)=-\nabla f(x(t))     \quad\qquad\qquad\ \ \  u'(t)=-\nabla f(y(t)),$$
 
 where the initial velocities follow $u(0)=v(0)$. 
 
