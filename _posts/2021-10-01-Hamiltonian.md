@@ -135,7 +135,7 @@ MV18 proposed to approximate the Hamiltonian trajectory with a second-order Eule
 
 $$\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \quad \hat v_{\eta}(x, v)=v-\eta \nabla f(x) - \frac{1}{2} \eta^2 \nabla^2 f(x) v.$$
 
-Since Hessian is expensive to computate and store, an approximation is conducted through
+Since Hessian is expensive to compute and store, an approximation is conducted through
 
 $$\nabla^2 f(x) v \approx \frac{\nabla f(\hat x_{\eta}) - \nabla f(x)}{\eta},$$
 
