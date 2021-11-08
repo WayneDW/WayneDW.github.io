@@ -56,16 +56,16 @@ $$\|x(t)-y(t)\|^2 \leq (1-\frac{\mu}{4}t^2) \|x(0)-y(0)\|^2.$$
 **Proof**
 Consider two ODEs for HMCs: 
 
-$$x'(t)=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t)$$
-$$v'(t)=-\nabla f(x(t))     \quad\qquad\qquad\ \ \  u'(t)=-\nabla f(y(t)),$$
+$$\qquad\qquad x'(t)=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t)$$
+$$\qquad\qquad v'(t)=-\nabla f(x(t))     \quad\qquad\qquad\ \ \  u'(t)=-\nabla f(y(t)),$$
 
 where the initial velocities follow $u(0)=v(0)$. 
 
 Taking the second derivative of $\frac{1}{2}\|x-y\|^2$, we have
 
-$$\frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)=\frac{d}{dt}\langle v-u, x-y \rangle$$
-$$\quad=\langle v'-u', x-y \rangle + \langle v-u, x'-y' \rangle$$
-$$\quad=-\rho \|x-y\|^2 + \|v-u\|^2,$$
+$$\frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)=\frac{d}{dt}\langle v-u, x-y \rangle\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\qquad\quad=\langle v'-u', x-y \rangle + \langle v-u, x'-y' \rangle\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\qquad\quad=-\rho \|x-y\|^2 + \|v-u\|^2,\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
 
 where $\rho=\rho(t)=\frac{\langle \nabla f(x) - \nabla f(y), x-y \rangle}{\|x-y\|^2}$.
 
@@ -76,9 +76,9 @@ $$\frac{d}{dt}\|v-u\|=\frac{1}{\|v-u\|}\langle v'-u', v-u\rangle =-\frac{\langle
 In particular for the upper bound of $\frac{d}{dt}\|v-u\|$, we have
 
 $$\left|\frac{d}{dt}\|v-u\|\right|\leq \|\nabla f(x)-\nabla f(y)\|\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\quad\ \leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle}\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\quad\ = \sqrt{L\rho \|x-y\|^2}\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\quad\ \leq \sqrt{2L\rho \|x_0-y_0\|^2},\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\quad\leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle}\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\quad= \sqrt{L\rho \|x-y\|^2}\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\quad\leq \sqrt{2L\rho \|x_0-y_0\|^2},\qquad\qquad\qquad\qquad\qquad$$
 
 where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in [CV19].
 
@@ -107,9 +107,9 @@ $$\alpha''(t)\leq -\alpha(0) (\rho(t)-4L t P(t)).$$
 Integrating both sides and combining the fact that $\alpha'(0)=0$, we have
 
 $$ \alpha'(t)=\int_0^t \alpha' '(s) ds\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\leq -\int_0^t \alpha(0) (\rho(s)-4L t P(s))ds\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\leq -\alpha(t)\left(P(t) - 4LP(t) \int_0^t s ds\right)\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad=-\alpha(0)P(t)(1-2Lt^2).\qquad\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\ \leq -\int_0^t \alpha(0) (\rho(s)-4L t P(s))ds\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\ \leq -\alpha(t)\left(P(t) - 4LP(t) \int_0^t s ds\right)\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\ =-\alpha(0)P(t)(1-2Lt^2).\qquad\qquad\qquad\qquad\qquad\qquad$$
 
 Choose $t \in [0, \frac{1}{2\sqrt{L}}]$, then we can deduce that
 $$\alpha'(t)\leq -\alpha(0) \frac{\mu}{2} t.$$
