@@ -131,7 +131,7 @@ $$W^2_2(\nu_k, \pi)\leq E\left[\|x_k-y_k\|^2\right]\leq \left(1-\frac{1}{4c^2 \k
 
 MV18 proposed to approximate the Hamiltonian trajectory with a second-order Euler integrator such that
 
-$$\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad\qquad \hat v_{\eta}(x, v)=v-\eta \nabla f(x) - \frac{1}{2} \eta^2 \nabla^2 f(x) v.$$
+$$\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \quad \hat v_{\eta}(x, v)=v-\eta \nabla f(x) - \frac{1}{2} \eta^2 \nabla^2 f(x) v.$$
 
 Since Hessian is expensive to computate and store, we approximate it through
 
@@ -141,13 +141,13 @@ we have the following numerical integrator
 
 $$\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad\qquad \hat v_{\eta}(x, v)=v-\frac{1}{2}\eta (\nabla f(x) - \nabla f(\hat x_{\eta})).$$
 
-It is shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions.
+It is shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions [MV18].
 
 
 
 ## Conclusions
 
-Tuning the number of leapfrog steps is important for controlling the convergence.
+Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity [HG14]. 
 
 
 ## Reference
@@ -165,6 +165,9 @@ Tuning the number of leapfrog steps is important for controlling the convergence
 [CV19] Zongchen Chen, Santosh S. Vempala. Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions. Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques. 2019
 
 [Mal20] Alan Maloney. Hamiltonian Monte Carlo For Dummies. [Link](https://www.youtube.com/watch?v=ZGtezhDaSpM&list=PLJ7WITsfI1LDe6QQ3Uf07AvfxIfvcZ8uI&index=7&t=928s). 2020.
+
+[HG14] Matthew D. Hoffman, Andrew Gelman. The No-U-Turn Sampler: Adaptively Setting Path Lengths in Hamiltonian Monte Carlo. Journal of Machine Learning Research 15 (2014) 1593-1623. 
+
 
 
 
