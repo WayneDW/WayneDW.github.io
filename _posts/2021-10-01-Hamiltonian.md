@@ -76,9 +76,9 @@ $$\frac{d}{dt}\|v-u\|=\frac{1}{\|v-u\|}\langle v'-u', v-u\rangle =-\frac{\langle
 In particular for the upper bound of $\frac{d}{dt}\|v-u\|$, we have
 
 $$\left|\frac{d}{dt}\|v-u\|\right|\leq \|\nabla f(x)-\nabla f(y)\|\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle}\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad= \sqrt{L\rho \|x-y\|^2}\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\leq \sqrt{2L\rho \|x_0-y_0\|^2},\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\quad\leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle}\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\quad= \sqrt{L\rho \|x-y\|^2}\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\quad\leq \sqrt{2L\rho \|x_0-y_0\|^2},\qquad\qquad\qquad\qquad\qquad$$
 
 where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in [CV19].
 
@@ -105,9 +105,9 @@ $$\alpha''(t)\leq -\alpha(0) (\rho(t)-4L t P(t)).$$
 Integrating both sides and combining the fact that $\alpha'(0)=0$, we have
 
 $$ \alpha'(t)=\int_0^t \alpha' '(s) ds\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\leq -\int_0^t \alpha(0) (\rho(s)-4L t P(s))ds\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\leq -\alpha(t)\left(P(t) - 4LP(t) \int_0^t s ds\right)\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad=-\alpha(0)P(t)(1-2Lt^2).\qquad\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\ \leq -\int_0^t \alpha(0) (\rho(s)-4L t P(s))ds\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\ \leq -\alpha(t)\left(P(t) - 4LP(t) \int_0^t s ds\right)\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\ =-\alpha(0)P(t)(1-2Lt^2).\qquad\qquad\qquad\qquad\qquad\qquad$$
 
 Choose $t \in [0, \frac{1}{2\sqrt{L}}]$, then we can deduce that
 $$\alpha'(t)\leq -\alpha(0) \frac{\mu}{2} t.$$
