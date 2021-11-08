@@ -80,7 +80,7 @@ In particular for the upper bound of $\frac{d}{dt}\|\|v-u\|\|$, we have
 $$\left|\frac{d}{dt}\|v-u\|\right|\leq \|\nabla f(x)-\nabla f(y)\|\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\quad\leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle}\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\quad= \sqrt{L\rho \|x-y\|^2}\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\quad\leq \sqrt{2L\rho \|\|x_0-y_0\|\|^2},\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\quad\leq \sqrt{2L\rho \|x_0-y_0\|^2},\qquad\qquad\qquad\qquad\qquad$$
 
 where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in [CV19].
 
@@ -102,7 +102,7 @@ Combining the above upper bounds, we have
 
 $$\frac{d^2}{dt^2} \left(\frac{1}{2}\|x-y\|^2 \right)\leq -\rho \left(\frac{1}{2} \|x_0-y_0\|^2\right)+2Lt P \|x_0-y_0\|^2.$$
 
-Define $\alpha(t)=\frac{1}{2} \|x-y\|^2$, then we have
+Define $\alpha(t)=\frac{1}{2} \|\|x-y\|\|^2$, then we have
 
 $$\alpha''(t)\leq -\alpha(0) (\rho(t)-4L t P(t)).$$
 
