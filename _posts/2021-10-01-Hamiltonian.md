@@ -6,7 +6,9 @@ tags:
   - Hamiltonian Monte Caro
 ---
 
-Hamiltonian Monte Carlo [Nea11] (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and are generally believed to be faster than the Metropolis Hasting algorithms [MRRT53] and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes. In this blog, I will introduce a paper called Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions [CV19]. 
+Hamiltonian Monte Carlo [Nea11] (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm [MRRT53] and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes. 
+
+In this blog, I will introduce a paper called Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions [CV19]. 
 
 ## Hamiltonian Dynamics
 
@@ -41,7 +43,7 @@ $$f(y)\leq f(x)+\langle \nabla f(x), y-x\rangle + \frac{L}{2} \|y-x\|^2.$$
 
 The convergence analysis hinges on the coupling of two Markov chains such that the distance between the position variables $x_k$ and $y_k$ (the second Markov chain) contracts in each step.
 
-Denote by $x(t)$ and $y(t)$ solutions of HMC (\ref{Hamiltonian}) and denote by $x(0)$ and $y(0)$ the initial positions of two ODEs for HMC. To faciliate the analysis of coupling techniques, we adopt the same initial velocity $v(0)=u(0)$. We first try to prove the contraction bound as follows
+Denote by $x(t)$ and $y(t)$ solutions of HMC (\ref{Hamiltonian}) and denote by $x(0)$ and $y(0)$ the initial positions of two ODEs for HMC. To faciliate the analysis of coupling techniques, we adopt the same initial velocity $v(0)=u(0)$. The convergence study hinges on the contraction bound as follows
 
 <p align="center">
     <img src="/images/HMC_coupling2.png" width="400" />
@@ -61,7 +63,7 @@ $$\qquad\qquad\qquad\qquad v'(t)=-\nabla f(x(t))     \quad\qquad\qquad\ \ \  u'(
 
 where the initial velocities follow $u(0)=v(0)$. 
 
-Taking the second derivative of $\frac{1}{2}\|x-y\|^2$, we have
+Taking the second derivative of $\frac{1}{2}||x-y\||^2$, we have
 
 $$\frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)=\frac{d}{dt}\langle v-u, x-y \rangle\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\qquad\quad=\langle v'-u', x-y \rangle + \langle v-u, x'-y' \rangle\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
@@ -69,20 +71,20 @@ $$\qquad\qquad\qquad\quad=-\rho \|x-y\|^2 + \|v-u\|^2,\qquad\qquad\qquad\qquad\q
 
 where $\rho=\rho(t)=\frac{\langle \nabla f(x) - \nabla f(y), x-y \rangle}{\|x-y\|^2}$.
 
-To upper bound $\|v-u\|^2$, recall that $\frac{d}{dt} \|x\|=\frac{d}{dx} \|x\| \cdot \frac{d}{dt} x=\frac{\langle x, \dot{x} \rangle}{\|x\|}$. In what follows, we have
+To upper bound $||v-u||^2$, recall that $\frac{d}{dt} ||x||=\frac{d}{dx} ||x|| \cdot \frac{d}{dt} x=\frac{\langle x, \dot{x} \rangle}{||x||}$. In what follows, we have
 
 $$\frac{d}{dt}\|v-u\|=\frac{1}{\|v-u\|}\langle v'-u', v-u\rangle =-\frac{\langle \nabla f(x)-\nabla f(y), v-u\rangle}{\|v-u\|}.$$
 
-In particular for the upper bound of $\frac{d}{dt}\|v-u\|$, we have
+In particular for the upper bound of $\frac{d}{dt}||v-u||$, we have
 
 $$\left|\frac{d}{dt}\|v-u\|\right|\leq \|\nabla f(x)-\nabla f(y)\|\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\quad\leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle}\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\quad= \sqrt{L\rho \|x-y\|^2}\qquad\qquad\qquad\qquad\qquad$$
-$$\qquad\qquad\quad\leq \sqrt{2L\rho \|x_0-y_0\|^2},\qquad\qquad\qquad\qquad\qquad$$
+$$\qquad\qquad\quad\leq \sqrt{2L\rho ||x_0-y_0||^2},\qquad\qquad\qquad\qquad\qquad$$
 
 where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in [CV19].
 
-Eventually, we can upper bound $\|v-u\|^2$ as follows
+Now, we can upper bound $||v-u||^2$ as follows
 
 $$\|v-u\|^2 \leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
 $$\qquad\qquad\leq \left(\int_0^t \sqrt{2 L\rho} \|x_0-y_0\| ds\right)^2\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
