@@ -84,9 +84,7 @@ where the first inequality follows by Cauchy–Schwarz inequality, the second in
 
 Eventually, we can upper bound $\|v-u\|^2$ as follows
 
-$$\|v-u\|^2 \leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2$$
-$$\leq \left(\int_0^t \sqrt{2 L\rho} \|x_0-y_0\| ds\right)^2$$
-$$\leq 2L t \left(\int_0^t \rho ds\right) \|x_0 - y_0\|^2.$$
+$$\|v-u\|^2 \leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2\leq \left(\int_0^t \sqrt{2 L\rho} \|x_0-y_0\| ds\right)^2\leq 2L t \left(\int_0^t \rho ds\right) \|x_0 - y_0\|^2.$$
 
 
 Define the monotone increasing function
