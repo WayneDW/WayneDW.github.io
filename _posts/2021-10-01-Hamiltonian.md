@@ -127,6 +127,23 @@ Eventually, we can achieve the convergence in Wasserstein distance such that
 
 $$W^2_2(\nu_k, \pi)\leq E\left[\|x_k-y_k\|^2\right]\leq \left(1-\frac{1}{4c^2 \kappa}\right)^k O(1).$$
 
+## Discretized HMC
+
+MV18 proposed to approximate the Hamiltonian trajectory with a second-order Euler integrator such that
+
+$$\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad\qquad \hat v_{\eta}(x, v)=v-\eta \nabla f(x) - \frac{1}{2} \eta^2 \nabla^2 f(x) v.$$
+
+Since Hessian is expensive to computate and store, we approximate it through
+
+$$\nabla^2 f(x) v \approx \frac{\nabla f(\hat x_{\eta}) - \nabla f(x)}{\eta},$$
+
+we have the following numerical integrator
+
+$$\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad\qquad \hat v_{\eta}(x, v)=v-\frac{1}{2}\eta (\nabla f(x) - \nabla f(\hat x_{\eta})).$$
+
+It is shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions.
+
+
 
 ## Conclusions
 
@@ -140,6 +157,8 @@ Tuning the number of leapfrog steps is important for controlling the convergence
 [MRRT53] N. Metropolis, et al. Equation of State Calculations by Fast Computing Machines. Journal of Chemical Physics, 21:1087–1091, 1953.
 
 [MS17] Oren Mangoubi and Aaron Smith. Rapid Mixing of Hamiltonian Monte Carlo on Strongly Log-concave Distributions. arXiv preprint arXiv:1708.07114, 2017.
+
+[MV18] Oren Mangoubi and Nisheeth K Vishnoi. Dimensionally tight running time bounds for second-order Hamiltonian Monte Carlo. In NeurIPS. 2018.
 
 [Vis21] Nisheeth K. Vishnoi. An Introduction to Hamiltonian Monte Carlo Method for Sampling. arXiv:2108.12107v1. 2021. [Link](https://www.youtube.com/watch?v=efqGwPDnlQY&list=PLJ7WITsfI1LDe6QQ3Uf07AvfxIfvcZ8uI&index=4&t=291s)
 
