@@ -8,7 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-I will join Morgan Stanley, NY as a Machine Learning Researcher. I got my Ph.D. in Mathematics at [Purdue University](https://www.purdue.edu/science/) under the supervision of Dr. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). My thesis is about *Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo*.
+I am a Machine Learning Researcher at Morgan Stanley, NY. I got my Ph.D. in Mathematics at [Purdue University](https://www.purdue.edu/science/) under the supervision of Dr. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). 
+
+Thesis: *Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo*.
 
 Current interests: Non-reversible Monte Carlo, bandits, and computational aspects of reinforcement learning.
 
@@ -17,7 +19,7 @@ Current interests: Non-reversible Monte Carlo, bandits, and computational aspect
 <!--- Before that, I was a research intern at [Yahoo research](https://research.yahoo.com/), Sunnyvale (Summer 2019) and a senior research engineer at [Baidu](https://www.baidu.com/) (2012-2015). I got a bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012 and a M.S. in Computational Finance at Purdue in 2017. -->
 
 
-Contact: weideng056  at gmail dot com
+Contact: weideng056  at gmail dooot com
 
 <!---  I got my bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.  -->
 
