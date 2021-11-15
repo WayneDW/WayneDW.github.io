@@ -10,7 +10,7 @@ redirect_from:
 
 I am a Machine Learning Researcher at Morgan Stanley, NY. I got my Ph.D. in Mathematics at [Purdue University](https://www.purdue.edu/science/) under the supervision of Dr. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). 
 
-Thesis: *Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo* [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68).
+Thesis: <sup>*Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo*</sup> [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68).
 
 Current interests: Non-reversible Monte Carlo, bandits, and computational aspects of reinforcement learning.
 
@@ -27,7 +27,8 @@ Contact: weideng056  at gmail dooot com
 News
 ======
 
-Oct, 2021. I have defended my thesis "Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo" [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68). 
+
+Oct, 2021. I have defended my thesis.
 
 
 
