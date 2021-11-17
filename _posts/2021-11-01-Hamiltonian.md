@@ -143,7 +143,7 @@ Now, the numerical integrator follows that
 
 $$\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad \hat v_{\eta}(x, v)=v-\frac{1}{2}\eta (\nabla f(x) - \nabla f(\hat x_{\eta})).$$
 
-It can be shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions [MV18].
+It can be shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions [MV18]. Other interesting persepectives can be seen in Che20.
 
 
 
@@ -165,6 +165,8 @@ Properly tuning the number of leapfrog steps is important for maximizing the con
 [Vis21] Nisheeth K. Vishnoi. An Introduction to Hamiltonian Monte Carlo Method for Sampling. arXiv:2108.12107v1. 2021. [Link](https://www.youtube.com/watch?v=efqGwPDnlQY&list=PLJ7WITsfI1LDe6QQ3Uf07AvfxIfvcZ8uI&index=4&t=291s)
 
 [CV19] Zongchen Chen, Santosh S. Vempala. Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions. Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques. 2019
+
+[Che20] Yuansi Chen, Raaz Dwivedi, Martin Wainwright, Bin Yu. Fast mixing of Metropolized Hamiltonian Monte Carlo: Benefits of multi-step gradients. JMLR'20.
 
 [Mal20] Alan Maloney. Hamiltonian Monte Carlo For Dummies. [Link](https://www.youtube.com/watch?v=ZGtezhDaSpM&list=PLJ7WITsfI1LDe6QQ3Uf07AvfxIfvcZ8uI&index=7&t=928s). 2020.
 
