@@ -26,8 +26,9 @@ News
 ======
 
 
+Nov, 2021. Joined Morgan Stanley as a Machine Learning Researcher!
 Oct, 2021. I have defended my thesis!
-
+Sep, 2021. One NeurIPS (*Spotlight*) paper accepted!
 
 
 
