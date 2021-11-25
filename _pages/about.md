@@ -26,7 +26,8 @@ News
 ======
 
 
-Oct, 2021. I have defended my thesis.
+Oct, 2021. I have defended my thesis!
+
 
 
 
