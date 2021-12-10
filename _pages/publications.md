@@ -18,7 +18,7 @@ redirect_from:
 
 * **W. Deng**<sup>*</sup>, Q. Zhang<sup>*</sup>, Q. Feng, F. Liang, G. Lin. [An Approximate Parallel Tempering for Uncertainty Quantification in Deep Learning](https://icml.cc/virtual/2021/workshop/8373). Workshop on [Distribution-Free Uncertainty Quantification](https://sites.google.com/berkeley.edu/dfuq21/home?authuser=0) at ICML 2021
 
-**W. Deng**, Y. Ma, Z. Song, Q. Zhang, G. Lin. [On Convergence of Federated Averaging Langevin Dynamics](https://arxiv.org/pdf/2112.05120.pdf). arXiv 2112.05120.
+* **W. Deng**, Y. Ma, Z. Song, Q. Zhang, G. Lin. [On Convergence of Federated Averaging Langevin Dynamics](https://arxiv.org/pdf/2112.05120.pdf). arXiv 2112.05120.
 
 <!--- * **W. Deng**, Q. Zhang. User-friendly (Some Secret) Sampling Algorithms for Deep Learning. 2021. On progress. -->
 
