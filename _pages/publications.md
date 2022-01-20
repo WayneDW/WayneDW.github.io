@@ -53,7 +53,6 @@ redirect_from:
 
 * **W. Deng**, G. Lin, F. Liang. An Adaptive Monte Carlo Algorithm for Uncertainty Estimation and Optimization. 2021. Under reivew
 
-* **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Particle Importance Samplers. 2021. Under review
 
 
 (*) denotes equal contribution.
