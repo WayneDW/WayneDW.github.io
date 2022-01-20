@@ -10,6 +10,9 @@ redirect_from:
 
 ### Monte Carlo and Uncertainty Estimation
 
+* **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Contour Stochastic Gradient Langevin Dynamics. The 10th International Conference on Learning Representations (**ICLR 2022**) to appear.
+
+
 * **W. Deng**<sup>*</sup>, Q. Feng<sup>*</sup>, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://openreview.net/pdf?id=iOnhIy-a-0n). The 9th International Conference on Learning Representations (**ICLR 2021**). [\[code\]](https://github.com/WayneDW/Variance_Reduced_Replica_Exchange_SGMCMC) [\[video\]](https://slideslive.com/38954013/accelerating-convergence-of-replica-exchange-stochastic-gradient-mcmc-via-variance-reduction?ref=speaker-30773-latest)
 
 * **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). The 37th International Conference on Machine Learning (**ICML 2020**). [\[code\]](https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC) [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf)
