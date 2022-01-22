@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-### Monte Carlo and Uncertainty Estimation
+### Monte Carlo Methods
 
 * **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. Interacting Contour Stochastic Gradient Langevin Dynamics. The 10th International Conference on Learning Representations (**ICLR 2022**) to appear.
 
