@@ -10,7 +10,7 @@ redirect_from:
 
 ### Monte Carlo Methods
 
-* **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. [Interacting Contour Stochastic Gradient Langevin Dynamics](https://openreview.net/forum?id=IK9ap6nxXr2). The 10th International Conference on Learning Representations (**ICLR 2022**)
+* **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. [Interacting Contour Stochastic Gradient Langevin Dynamics](https://openreview.net/forum?id=IK9ap6nxXr2). The 10th International Conference on Learning Representations (**ICLR 2022**) [\[code\]](https://github.com/WayneDW/Interacting-Contour-Stochastic-Gradient-Langevin-Dynamics)
 
 
 * **W. Deng**<sup>*</sup>, Q. Feng<sup>*</sup>, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://openreview.net/pdf?id=iOnhIy-a-0n). The 9th International Conference on Learning Representations (**ICLR 2021**). [\[code\]](https://github.com/WayneDW/Variance_Reduced_Replica_Exchange_SGMCMC) [\[video\]](https://slideslive.com/38954013/accelerating-convergence-of-replica-exchange-stochastic-gradient-mcmc-via-variance-reduction?ref=speaker-30773-latest)
