@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Wei Deng"
-  avatar           : "profile5.JPG" #  "profile5.JPG" # "profile4.png"
+  avatar           : "profile4.png" # "profile5.JPG" #  "profile5.JPG" # "profile4.png"
   bio              : "Machine Learning Researcher"
   location         : "Weehawken, NJ"
   employer         :
