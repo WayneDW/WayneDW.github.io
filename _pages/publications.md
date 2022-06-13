@@ -10,7 +10,7 @@ redirect_from:
 
 ### Monte Carlo Methods
 
-* **W. Deng**, G. Lin, F. Liang. An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization. 2022. **Statistics and Computing**
+* **W. Deng**, G. Lin, F. Liang. [An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization](https://openreview.net/forum?id=IK9ap6nxXr2). **Statistics and Computing** 2022 (in press).
 
 
 * **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. [Interacting Contour Stochastic Gradient Langevin Dynamics](https://openreview.net/forum?id=IK9ap6nxXr2). The 10th International Conference on Learning Representations (**ICLR 2022**) [\[code\]](https://github.com/WayneDW/Interacting-Contour-Stochastic-Gradient-Langevin-Dynamics) [\[video\]](https://recorder-v3.slideslive.com/#/share?share=62539&s=f9dd1749-50cd-4bf3-a1d8-d0ebe752bf37)
