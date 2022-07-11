@@ -32,8 +32,11 @@ redirect_from:
 
 <!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
 
+### Energy Based Models / Diffusion Models
 
-### Reinforcement Learning
+TBD
+
+### Bandits and Reinforcement Learning
 
 * B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). The 35th Conference on Neural Information Processing Systems (**NeurIPS 2021**) **Spotlight** (<3% acceptance rate)
 
