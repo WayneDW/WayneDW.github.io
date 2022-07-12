@@ -32,7 +32,7 @@ redirect_from:
 
 <!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
 
-### Energy Based Models / Diffusion Models
+### Diffusion Models and Schrödinger Bridge
 
 TBD
 
