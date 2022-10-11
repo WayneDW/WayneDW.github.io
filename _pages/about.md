@@ -56,7 +56,7 @@ Oct, 2021. I have defended my thesis!
 Services
 ======
 
-Reviewers: ICML, NeurIPS, ICLR, AAAI, IJCAI, Machine Learning Journal.
+Reviewers: ICML, NeurIPS, ICLR, AISTAT, AAAI, IJCAI, Machine Learning Journal.
 
 
 La pensée n'est qu'un écliar au milieu d'une longue nuit. Mais c'est cet éclair qui est tout.
