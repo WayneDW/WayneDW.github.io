@@ -34,7 +34,7 @@ redirect_from:
 
 ### Denoising Diffusion Models
 
-* Y. Chen*, **W. Deng***, S. Fang. Conditional Schrodinger Bridge for Spatial-Temporal Imputation. submitted.
+* Y. Chen<sup>*</sup>, **W. Deng** <sup>*</sup>, S. Fang<sup>*</sup>, etc. Conditional Schrodinger Bridge for Spatial-Temporal Imputation. submitted.
 
 ### Bandits and Reinforcement Learning
 
