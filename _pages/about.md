@@ -27,7 +27,8 @@ News
 ======
 
 
-Dec, 2022. The Contour Sampler is implemented in the [BlackJax](https://github.com/blackjax-devs/blackjax) sampling library!
+Dec, 2022. The Contour Sampler is implemented in [BlackJAX](https://github.com/blackjax-devs/blackjax)!
+
 Oct, 2021. I have defended my thesis!
 
 
