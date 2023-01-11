@@ -10,7 +10,7 @@ redirect_from:
 
 ### Monte Carlo Methods
 
-* **W. Deng**<sup>*</sup>, Q. Zhang<sup>*</sup>, Q. Feng<sup>*</sup>, F. Liang, G. Lin. [Non-reversible Parallel Tempering for Deep Posterior Approximation](https://arxiv.org/pdf/2211.10837.pdf). Thirty-Seventh AAAI Conference on Artificial Intelligence (**AAAI-23**)
+* **W. Deng**<sup>*</sup>, Q. Zhang<sup>*</sup>, Q. Feng<sup>*</sup>, F. Liang, G. Lin. [Non-reversible Parallel Tempering for Deep Posterior Approximation](https://arxiv.org/pdf/2211.10837.pdf). Thirty-Seventh AAAI Conference on Artificial Intelligence (**AAAI-23**) (**Oral Presentation**)
 
 * **W. Deng**, G. Lin, F. Liang. [An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization](https://link.springer.com/epdf/10.1007/s11222-022-10120-3?sharing_token=3D38cUKCcTFwSnC9tCumefe4RwlQNchNByi7wbcMAY5wU6YiY0TlM_GKKke2kamOPjMBvVXx8MgkcpmS8OGmuzOCh2eHt8iYVjbUfb8rmQwWWTeCWeZPq4aH8jFXlvv6zduuChKpiW0iM9BB02fHctPD5gZFj3jBGqfPzBAyIIE%3D). **Statistics and Computing**, (2022) 32:58 [\[code\]](https://github.com/WayneDW/Global-optimization-via-an-adaptively-weighted-stochastic-gradient-MCMC)
 
