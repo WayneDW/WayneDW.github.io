@@ -35,7 +35,7 @@ redirect_from:
 
 ### Denoising Diffusion Models
 
-* Y. Chen<sup>*</sup>, **W. Deng** <sup>*</sup>, S. Fang<sup>*</sup>, etc. Some Schrödinger Bridge Approach for Spatial-Temporal Imputation. submitted.
+* Y. Chen<sup>*</sup>, **W. Deng** <sup>*</sup>, S. Fang<sup>*</sup>, Fengpei Li<sup>*</sup>, etc. Some Schrödinger Bridge Approach for Spatial-Temporal Imputation. submitted.
 
 ### Bandits and Reinforcement Learning
 
