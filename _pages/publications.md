@@ -35,7 +35,7 @@ redirect_from:
 
 ### Denoising Diffusion Models
 
-*  Y. Chen, W. Deng<sup>#</sup>, S. Fang, Fengpei Li, etc. [Provably Convergent Schr"{o}dinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2211.10837.pdf). International Conference on Machine Learning (**ICML 2023**) (alphabetical order)
+*  Y. Chen, **W. Deng**<sup>#</sup>, S. Fang, Fengpei Li, etc. [Provably Convergent Schr"{o}dinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2211.10837.pdf). International Conference on Machine Learning (**ICML 2023**) (alphabetical order)
 
 ### Bandits and Reinforcement Learning
 
