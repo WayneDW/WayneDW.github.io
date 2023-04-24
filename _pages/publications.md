@@ -35,11 +35,11 @@ redirect_from:
 
 ### Denoising Diffusion Models
 
-* (*&#945*) &alpha &#945    Y. Chen, W. Deng<sup>#</sup>, S. Fang, Fengpei Li, etc. [Provably Convergent Schr"{o}dinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2211.10837.pdf). The 40th International Conference on Machine Learning (**ICML 2023**)
+*  Y. Chen, W. Deng<sup>#</sup>, S. Fang, Fengpei Li, etc. [Provably Convergent Schr"{o}dinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2211.10837.pdf). International Conference on Machine Learning (**ICML 2023**) (alphabetical order)
 
 ### Bandits and Reinforcement Learning
 
-* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). The 35th Conference on Neural Information Processing Systems (**NeurIPS 2021**) **Spotlight** (<3% acceptance rate)
+* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). Neural Information Processing Systems (**NeurIPS 2021**) **Spotlight** (<3% acceptance rate)
 
 ### Sparse Deep Learning and Applications
 
@@ -56,6 +56,6 @@ redirect_from:
 <!---  * R. Zhang, **W. Deng**, M. Zhu. [Using Deep Neural Networks to Automate Large Scale Statistical Analysis](https://arxiv.org/pdf/1708.03027.pdf). Asian Conference on Machine Learning (**ACML 2017**), Seoul, Korea -->
 
 
-(alpha) denotes alphabetical order.
 (*) denotes equal contribution.
+
 (#) denotes correspondence.
