@@ -35,7 +35,7 @@ redirect_from:
 
 ### Denoising Diffusion Models
 
-* (&alpha - &beta) Y. Chen, W. Deng<sup>#</sup>, S. Fang, Fengpei Li, etc. Provably Convergent Schr"{o}dinger Bridge with Applications to Probabilistic Time Series Imputation. The 40th International Conference on Machine Learning (**ICML 2023**)
+* (alpha) Y. Chen, W. Deng<sup>#</sup>, S. Fang, Fengpei Li, etc. [Provably Convergent Schr"{o}dinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2211.10837.pdf). The 40th International Conference on Machine Learning (**ICML 2023**)
 
 ### Bandits and Reinforcement Learning
 
@@ -56,6 +56,6 @@ redirect_from:
 <!---  * R. Zhang, **W. Deng**, M. Zhu. [Using Deep Neural Networks to Automate Large Scale Statistical Analysis](https://arxiv.org/pdf/1708.03027.pdf). Asian Conference on Machine Learning (**ACML 2017**), Seoul, Korea -->
 
 
-
+(alpha) denotes alphabetical order.
 (*) denotes equal contribution.
 (#) denotes correspondence.
