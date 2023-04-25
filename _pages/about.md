@@ -26,6 +26,7 @@ Contact: weideng056  at gmail dooot com
 News
 ======
 
+Apr, 2023. One ICML is accepted! My first paper after Ph.D.
 
 Dec, 2022. The [Contour Sampler](https://proceedings.neurips.cc/paper/2020/file/b5b8c484824d8a06f4f3d570bc420313-Paper.pdf) is implemented in [BlackJAX](https://blackjax-devs.github.io/sampling-book/algorithms/contour_sgld.html)! 
 
