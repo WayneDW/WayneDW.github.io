@@ -1,10 +1,8 @@
 ---
-layout: archive
+# layout: archive
 permalink: /publications/
 title: "Selected Publications"
 author_profile: true
-redirect_from:
-  - /wordpress/blog-posts/
 ---
 
 
