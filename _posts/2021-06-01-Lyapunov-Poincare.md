@@ -26,7 +26,7 @@ where $\nabla U(\cdot)$ denotes the gradient of a energy function $U$ and $(W_t)
 
 Define a family of operators $(P_t)_{t\geq 0}$ as follows
 
-$P_t(f(x)) = E[f(x_t)\|x_0=x]$,
+$P_t(f(x)) = E[f(x_t)\|$=x]$,
 
 where the expectation is taken over a particular set to denote the conditional density.
 
