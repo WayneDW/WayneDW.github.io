@@ -15,7 +15,7 @@ Current interests: Monte Carlo, diffusion models, bandits, filtering, and ML in 
 <!--- Before that, I was a research intern at [Yahoo research](https://research.yahoo.com/), Sunnyvale (Summer 2019) and a senior research engineer at [Baidu](https://www.baidu.com/) (2012-2015). I got a bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012 and a M.S. in Computational Finance at Purdue in 2017. -->
 
 
-Contact: weideng056  at gmail dooot com
+Contact: firstnamelastname056@gmail.com
 
 <!---  I got my bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.  -->
 
