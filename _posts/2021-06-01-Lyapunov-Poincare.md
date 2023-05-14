@@ -19,70 +19,85 @@ Poincaré (spectral gap) inequality is the first important family of functional 
 
 Suppose we are interested in the convergence of the stochastic differential equation
 
-$dx_t = -\nabla U(x_t)dt + \sqrt{2}dW_t$,
+\begin{equation}
+dx_t = -\nabla U(x_t)dt + \sqrt{2}dW_t,
+\end{equation}
 
 where $\nabla U(\cdot)$ denotes the gradient of a energy function $U$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under mild growth conditions on $U(\cdot)$, $x$ converges to a stationary measure $\mu(x)\propto e^{-U(x)}$.
 
 
 Define a family of operators $(P_t)_{t\geq 0}$ as follows
 
-$P_t(f(x)) = E[f(x_t)\|$=x]$,
-
+\begin{equation}
+P_t(f(x)) = E[f(x_t)\|$=x],
+\end{equation}
 where the expectation is taken over a particular set to denote the conditional density.
 
 For a smooth test function $f(x)$, Itô's formula implies that
 
-$d f(x_t) = \sqrt{2} \nabla f(x_t) dB_t + Lf(x_t)dt$,
-
+\begin{equation}
+d f(x_t) = \sqrt{2} \nabla f(x_t) dB_t + Lf(x_t)dt,
+\end{equation}
 where $L$ is the infinitesimal generator of the symmetric Markov Semigroup $P_t$ 
 
-$Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla f\rangle$,
-
+\begin{equation}
+Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla f\rangle,
+\end{equation}
 where $\Delta$ denotes the Laplace operator.
 
 ## Poincaré Inequality
 
 We say the Gibbs measure $\mu$ satisfies a Poincaré equality with a constant $C$ if
 
-$Var_{\mu}(f)=\int f^2 d\mu -(\int f d\mu)^2 \leq C \xi(f)$,
-
+\begin{equation}
+Var_{\mu}(f)=\int f^2 d\mu -(\int f d\mu)^2 \leq C \xi(f),
+\end{equation}
 where $\xi$ is the Dirichlet form defined as 
 
-$\xi(f)=\int \Gamma(f)d\mu$.
-
+\begin{equation}
+\xi(f)=\int \Gamma(f)d\mu.
+\end{equation}
 
 $\Gamma$ is the Carré du Champ operator satisfying 
 
-$\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f))$. 
-
+\begin{equation}
+\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f)). 
+\end{equation}
 Since $\mu$ is reversible for $P_t$, we have the invariance property $\int L(f)=0$ for all f in the Dirichlet domain. In other words, for symmetric $\mu$, we have 
 
-$\xi(f)=\int \Gamma(f)d\mu=-\int f L(f) d\mu =\int (\nabla f)^2 d\mu$.
-
+\begin{equation}
+\xi(f)=\int \Gamma(f)d\mu=-\int f L(f) d\mu =\int (\nabla f)^2 d\mu.
+\end{equation}
 where the last inequality follows by integration by parts such that: $-\int f L(f) d\mu=-\int f\nabla (e^{-U(x)}\nabla f)dx=-\int f d(e^{-U(x)} \nabla f)=f e^{-U(x)} \nabla f\|_{boundary} + \int (\nabla f)^2 d\mu.$
 
 ## Variance Decay
 
 Now we study the decay of variance
 
-$\Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu$
-
+\begin{equation}
+\Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu.
+\end{equation}
 Reacll $\xi(f)=-\int f L(f) d\mu$. Taking the derivative
 
-$\Lambda_t(t)=2\int P_t f L P_t f d\mu = -2 \xi(P_t f)$
+\begin{equation}
+\Lambda_t(t)=2\int P_t f L P_t f d\mu = -2 \xi(P_t f).
+\end{equation}
 
 Combining the Poincaré equality, we have that
 
-$\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)$
-
+\begin{equation}
+\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)
+\end{equation}
 This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integration factor $e^{\frac{2t}{C}}$, we have
 
-$\nabla (\Lambda(t) e^{\frac{2t}{C}})=\Lambda_t(t) e^{\frac{2t}{C}} + \Lambda(t) \frac{2}{C} e^{\frac{2t}{C}}\leq 0$
-
+\begin{equation}
+\nabla (\Lambda(t) e^{\frac{2t}{C}})=\Lambda_t(t) e^{\frac{2t}{C}} + \Lambda(t) \frac{2}{C} e^{\frac{2t}{C}}\leq 0.
+\end{equation}
 Hence $\Lambda(t) e^{\frac{2t}{C}} \leq \Lambda(0)$. In other words,
 
-$Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f)$.
-
+\begin{equation}
+Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f).
+\end{equation}
 
 ## How to identify the Poincaré constant
 
@@ -90,7 +105,9 @@ Despite the appealing formulation, identifying the best constant $C>0$ is in gen
 
 We denote a Lyapunov function by $V$ if $V\geq 1$ and if there exist $\lambda>0, b\geq 0$ and some $R > 0$ such that for all $x$, the following drift condition holds
 
-$LV(x) ≤ -\lambda V(x) + b 1_{B(0, R)}(x)$
+\begin{equation}
+LV(x) ≤ -\lambda V(x) + b 1_{B(0, R)}(x).
+\end{equation}
 
 ### By Theorem 1.4 [1], we show that if there exists a Lyapunov function $V(x)$ satisfying the drift condition, then $\mu $ satisfies a $L^2$ Poincaré inequality with constant $C_P=\frac{1}{\lambda}(1+b\kappa_R)$, where $\kappa_R$ is the L2 Poincaré constant of $\mu$ restricted to the ball B(0,R).
 
@@ -100,8 +117,9 @@ Given a smooth function $g$, we know that $Var_{\{\mu}}(g)\leq \int (g-c)^2 d\mu
 
 Next, we reformulate the drift condition and take an integral for $f^2$ with respect to $\mu$:
 
-$\int f^2 d\mu \leq \int \frac{-LV}{\lambda V} f^2 d\mu + \int f^2 \frac{b}{\lambda V}1_{B(0, R)}d \mu$
-
+\begin{equation}
+\int f^2 d\mu \leq \int \frac{-LV}{\lambda V} f^2 d\mu + \int f^2 \frac{b}{\lambda V}1_{B(0, R)}d \mu.
+\end{equation}
 
 ### Control the first term $\int \frac{-LV}{\lambda V} f^2 d\mu$
 
@@ -119,14 +137,19 @@ $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \int \|\nabla f\|^2 d\mu$
 
 Since $\mu$ satisfies a Poincaré inequality on $B(0, R)$ with a constant $\kappa_R$, we have
 
-$\int_{B(0, R)} f^2 d\mu\leq \kappa_R \int_{B(0, R)} \|\nabla f\|^2 d\mu + (1/\mu(B(0, R))) \left(\int_{B(0, R)} fd\mu\right)^2$.
+\begin{equation}
+\int_{B(0, R)} f^2 d\mu\leq \kappa_R \int_{B(0, R)} \|\nabla f\|^2 d\mu + (1/\mu(B(0, R))) \left(\int_{B(0, R)} fd\mu\right)^2.
+\end{equation}
 
 Fix $c=\int_{B(0, R)} gd\mu$. We have
-$\int_{B(0, R)} \frac{f^2}{V}d\mu\leq \int_{B(0, R)} f^2 d\mu\leq \kappa_{R}\int_{B(0, R)} \|\nabla f\|^2d\mu$.
-
+\begin{equation}
+\int_{B(0, R)} \frac{f^2}{V}d\mu\leq \int_{B(0, R)} f^2 d\mu\leq \kappa_{R}\int_{B(0, R)} \|\nabla f\|^2d\mu.
+\end{equation}
 Eventually, we have
-$Var_{\mu}(f)=\int f^2 d\mu \leq \frac{1}{\lambda} (1+b\kappa_R) \int \|\nabla f\|^2 d\mu$.
 
+\begin{equation}
+Var_{\mu}(f)=\int f^2 d\mu \leq \frac{1}{\lambda} (1+b\kappa_R) \int \|\nabla f\|^2 d\mu.
+\end{equation}
 In other words, the Poincaré inequality has a crude constant $C_p=\frac{1}{\lambda} (1+b \kappa_R)$.
 
 ## Construction of the Lypunov function
@@ -149,7 +172,9 @@ $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq -\gamma(\alpha-\gamma-\frac{n-1}{R}) V(x) + b 
 
 Hence $V(x)$ is a Lyapunov function provided
 
-$\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})>0$,
+\begin{equation}
+\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})>0,
+\end{equation}
 
 which suffices to choose $\gamma<\alpha$, a large $R$ and assume the (C1) condition.
  
