@@ -85,7 +85,7 @@ $\qquad\qquad\quad\leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle}\q
 $\qquad\qquad\quad= \sqrt{L\rho \|x-y\|^2}\qquad\qquad\qquad\qquad\qquad$
 $\qquad\qquad\quad\leq \sqrt{2L\rho \|x_0-y_0\|^2},\qquad\qquad\qquad\qquad\qquad$
 
-where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in [CV19].
+where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in [CV19] {% cite CV19 %}.
 
 Now, we can upper bound $\|\|v-u\|\|^2$ as follows
 
@@ -146,13 +146,13 @@ Now, the numerical integrator follows that
 
 $\hat x_{\eta}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad \hat v_{\eta}(x, v)=v-\frac{1}{2}\eta (\nabla f(x) - \nabla f(\hat x_{\eta})).$
 
-It can be shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions [MV18]. Other interesting persepectives can be seen in Che20.
+It can be shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions [MV18]. Other interesting persepectives can be seen in {% cite Che20 %}.
 
 
 
 ## Conclusions
 
-Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity [HG14]. 
+Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity {% cite HG14%}. 
 
 
 ## Reference
@@ -177,4 +177,6 @@ Properly tuning the number of leapfrog steps is important for maximizing the con
 
 
 
-
+References
+----------
+{% bibliography --cited %}
