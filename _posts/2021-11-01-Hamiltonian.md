@@ -82,7 +82,7 @@ $$\begin{align}
 						  &=-\rho \|x-y\|^2 + \|v-u\|^2,
 \end{align}$$
 
-where $\rho=\rho(t)=\frac{\langle \nabla f(x) - \nabla f(y), x-y \rangle}{\|x-y\|^2}$.
+where $\rho=\rho(t)=\frac{\langle \nabla f(x) - \nabla f(y), x-y \rangle}{\\|x-y\\|^2}$.
 
 To upper bound $\\|v-u\\|^2$, recall that 
 \begin{equation}
