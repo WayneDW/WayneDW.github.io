@@ -5,6 +5,11 @@ title: "Selected Publications"
 author_profile: true
 ---
 
+### Denoising Diffusion Models
+
+*  Y. Chen, **W. Deng**<sup>#</sup>, S. Fang, F. Li, etc. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/abs/2305.07247). International Conference on Machine Learning (**ICML 2023**) (alphabetical order)
+
+
 
 ### Monte Carlo Methods
 
@@ -30,10 +35,6 @@ author_profile: true
 <!--- * **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of Some Distributed Sampling Algorithms. 2021. On progress -->
 
 <!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
-
-### Denoising Diffusion Models
-
-*  Y. Chen, **W. Deng**<sup>#</sup>, S. Fang, F. Li, etc. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2211.10837.pdf). International Conference on Machine Learning (**ICML 2023**) (alphabetical order)
 
 ### Bandits and Reinforcement Learning
 
