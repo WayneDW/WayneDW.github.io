@@ -7,7 +7,7 @@ author_profile: true
 
 ### Denoising Diffusion Models
 
-*  Y. Chen, **W. Deng**<sup>#</sup>, S. Fang, F. Li, etc. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/abs/2305.07247). International Conference on Machine Learning (**ICML 2023**) (alphabetical order)
+*  Y. Chen, **W. Deng**<sup>#</sup>, S. Fang, F. Li, etc. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2305.07247). International Conference on Machine Learning (**ICML 2023**) (alphabetical order)
 
 
 
