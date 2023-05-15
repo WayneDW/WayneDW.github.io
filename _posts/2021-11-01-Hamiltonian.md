@@ -15,7 +15,7 @@ In this blog, I will introduce a paper called Optimal Convergence Rate of Hamilt
 HMC algorithms conserves Hamiltonian and the volume in the phase space and enjoy the reversibility condition. It aims to simulate particles according to the laws of Hamiltonian dynamics. Consider a Hamiltonian function $H(x, v)$ defined as follows
 
 \begin{equation}
-H(x, v)=f(x)+\|v\|^2,
+H(x, v)=f(x)+\\|v\\|^2,
 \end{equation}
 
 where $f$ is the potential energy function, $x$ is the position, and $v$ is the velocity variable. In each step, the update of the particles $(x, v)$ follows the system of (ordinary) differential equations as follows
@@ -39,13 +39,13 @@ To prove the convergence of the ideal HMC algorithms, we first assume standard a
 **Strong convexity** We say $f$ is $\mu$-strongly convex if for all $x, y\in R^d$, we have
 
 \begin{equation}
-f(y)\geq f(x)+\langle \nabla f(x), y-x\rangle + \frac{\mu}{2} \|y-x\|^2.
+f(y)\geq f(x)+\langle \nabla f(x), y-x\rangle + \frac{\mu}{2} \\|y-x\\|^2.
 \end{equation}
 
 **Smoothness** We also assume $f$ is $L$-smooth in the sense that
 
 \begin{equation}
-f(y)\leq f(x)+\langle \nabla f(x), y-x\rangle + \frac{L}{2} \|y-x\|^2.
+f(y)\leq f(x)+\langle \nabla f(x), y-x\rangle + \frac{L}{2} \\|y-x\\|^2.
 \end{equation}
 
 The convergence analysis hinges on the coupling of two Markov chains such that the distance between the position variables $x_k$ and $y_k$ (the second Markov chain) contracts in each step.
@@ -60,7 +60,7 @@ Denote by $x(t)$ and $y(t)$ solutions of HMC (1) and denote by $x(0)$ and $y(0)$
 **Lemma** Assume the potential function $f$ satisfies the convexity and smoothness assumptions. Then for $0\leq t \leq \frac{1}{2\sqrt{L}}$, we have
 
 \begin{equation}
-\|x(t)-y(t)\|^2 \leq (1-\frac{\mu}{4}t^2) \|x(0)-y(0)\|^2.
+\\|x(t)-y(t)\\|^2 \leq (1-\frac{\mu}{4}t^2) \\|x(0)-y(0)\\|^2.
 \end{equation}
 
 
@@ -74,7 +74,7 @@ $$\begin{align}
 
 where the initial velocities follow $u(0)=v(0)$. 
 
-Taking the second derivative of $\frac{1}{2}\|x-y\|^2$, we have
+Taking the second derivative of $\frac{1}{2}\\|x-y\\|^2$, we have
 
 $$\begin{align}
 \frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)&=\frac{d}{dt}\langle v-u, x-y \rangle\\
@@ -84,18 +84,18 @@ $$\begin{align}
 
 where $\rho=\rho(t)=\frac{\langle \nabla f(x) - \nabla f(y), x-y \rangle}{\|x-y\|^2}$.
 
-To upper bound $\|\|v-u\|\|^2$, recall that 
+To upper bound $\\|v-u\\|^2$, recall that 
 \begin{equation}
-\frac{d}{dt} \|\|x\|\|=\frac{d}{dx} \|\|x\|\| \cdot \frac{d}{dt} x=\frac{\langle x, \dot{x} \rangle}{\|\|x\|\|}.
+\frac{d}{dt} \\|x\\|=\frac{d}{dx} \\|x\\| \cdot \frac{d}{dt} x=\frac{\langle x, \dot{x} \rangle}{\\|x\\|}.
 \end{equation}
 
 In what follows, we have
 
 \begin{equation}
-\frac{d}{dt}\|v-u\|=\frac{1}{\|v-u\|}\langle v'-u', v-u\rangle =-\frac{\langle \nabla f(x)-\nabla f(y), v-u\rangle}{\|v-u\|}.
+\frac{d}{dt}\\|v-u\\|=\frac{1}{\\|v-u\\|}\langle v'-u', v-u\rangle =-\frac{\langle \nabla f(x)-\nabla f(y), v-u\rangle}{\\|v-u\\|}.
 \end{equation}
 
-In particular for the upper bound of $\frac{d}{dt}\|\|v-u\|\|$, we have
+In particular for the upper bound of $\frac{d}{dt}\\|v-u\\|$, we have
 
 $$\begin{align}
 \left|\frac{d}{dt}\|v-u\|\right| &\leq \|\nabla f(x)-\nabla f(y)\| \\
@@ -105,7 +105,7 @@ $$\begin{align}
 \end{align}$$
 where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in {% cite CV19 %}.
 
-Now, we can upper bound $\|\|v-u\|\|^2$ as follows
+Now, we can upper bound $\\|v-u\\|^2$ as follows
 
 $$\begin{align}
 \|v-u\|^2 &\leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2 \\
@@ -128,10 +128,10 @@ where $P(0)=0$ and $\mu t \leq P(t)\leq L t$ for all $t\geq 0$. Then
 Combining the above upper bounds, we have
 
 \begin{equation}
-\frac{d^2}{dt^2} \left(\frac{1}{2}\|x-y\|^2 \right)\leq -\rho \left(\frac{1}{2} \|x_0-y_0\|^2\right)+2Lt P \|x_0-y_0\|^2.
+\frac{d^2}{dt^2} \left(\frac{1}{2}\\|x-y\\|^2 \right)\leq -\rho \left(\frac{1}{2} \\|x_0-y_0\\|^2\right)+2Lt P \\|x_0-y_0\\|^2.
 \end{equation}
 
-Define $\alpha(t)=\frac{1}{2} \|\|x-y\|\|^2$, then we have
+Define $\alpha(t)=\frac{1}{2} \\|x-y\\|^2$, then we have
 
 \begin{equation}
 \alpha'(t)\leq -\alpha(0) (\rho(t)-4L t P(t)).
