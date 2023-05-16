@@ -2,7 +2,7 @@
 title: 'Hamiltonian Monte Caro'
 date: 2021-11-01
 permalink: /posts/Hamiltonian/
-tags:
+keywords:
   - Hamiltonian Monte Caro
 ---
 
