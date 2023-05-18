@@ -1,43 +1,11 @@
-<!-- <script type='text/x-mathjax-config'>
-MathJax.Hub.Config({
-  jax: ['input/TeX', 'output/HTML-CSS'],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-    extensions: ['color.js']
-  },
-  messageStyle: 'none',
-  'HTML-CSS': { preferredFont: 'TeX', availableFonts: ['STIX','TeX'] }
-});
-</script> -->
+
 <script>
   MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [ ['$$', '$$']],
-      tags: 'ams',
-      tagformat: {
-      number: (n) => MathJax.config.section + '.' + n,
-      id: (tag) => 'eq:' + tag
+      tags: 'ams'
     }
-    },
-    startup: {
-    ready() {
-      MathJax.startup.defaultReady();
-      MathJax.startup.input[0].preFilters.add(({math}) => {
-        if (math.inputData.recompile) {
-          MathJax.config.section = math.inputData.recompile.section;
-        }
-      });
-      MathJax.startup.input[0].postFilters.add(({math}) => {
-        if (math.inputData.recompile) {
-          math.inputData.recompile.section = MathJax.config.section;
-        }
-      });
-    }
-  }
   };
   </script>
   <script id="MathJax-script" async
