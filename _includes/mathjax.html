@@ -1,4 +1,4 @@
-<script type='text/x-mathjax-config'>
+<!-- <script type='text/x-mathjax-config'>
 MathJax.Hub.Config({
   jax: ['input/TeX', 'output/HTML-CSS'],
   tex2jax: {
@@ -11,7 +11,35 @@ MathJax.Hub.Config({
   messageStyle: 'none',
   'HTML-CSS': { preferredFont: 'TeX', availableFonts: ['STIX','TeX'] }
 });
-</script>
-
-<script src='//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML' type='text/javascript'></script>
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous"> -->
+</script> -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$']],
+      tags: 'ams',
+      tagformat: {
+      number: (n) => MathJax.config.section + '.' + n,
+      id: (tag) => 'eq:' + tag
+    }
+    },
+    startup: {
+    ready() {
+      MathJax.startup.defaultReady();
+      MathJax.startup.input[0].preFilters.add(({math}) => {
+        if (math.inputData.recompile) {
+          MathJax.config.section = math.inputData.recompile.section;
+        }
+      });
+      MathJax.startup.input[0].postFilters.add(({math}) => {
+        if (math.inputData.recompile) {
+          math.inputData.recompile.section = MathJax.config.section;
+        }
+      });
+    }
+  }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
