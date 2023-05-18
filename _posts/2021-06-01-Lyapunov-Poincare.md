@@ -1,5 +1,6 @@
 ---
 title: 'The Lyapunov Function Method for Poincaré Inequality'
+subtitle: An elegant functional inequality that unifies ODEs, PDEs, SDEs, functional analysis, and Riemannian geometry.
 date: 2021-06-01
 permalink: /posts/Lyapunov_Poincare/
 tags:

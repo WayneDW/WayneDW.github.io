@@ -1,5 +1,6 @@
 ---
 title: 'Hamiltonian Monte Caro'
+subtitle: An elegant sampler that utilizes Hamiltonian dynamics to propose new states in a Markov chain Monte Carlo simulation.
 date: 2021-11-01
 permalink: /posts/Hamiltonian/
 keywords:
