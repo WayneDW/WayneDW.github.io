@@ -2,14 +2,9 @@
 title: 'The Lyapunov Function Method for Poincaré Inequality'
 subtitle: An elegant functional inequality that unifies ODEs, PDEs, SDEs, functional analysis, and Riemannian geometry.
 date: 2021-06-01
+layout: default
 permalink: /posts/Lyapunov_Poincare/
-tags:
-  - Langevin diffusion
-  - Lyapunov function
-  - Drift condition
-  - Poincaré Inequality
-  - Carré du Champ operator
-  - Dirichlet form
+keywords: Langevin diffusion, Lyapunov function, Drift condition, Poincaré Inequality, Carré du Champ operator, Dirichlet form
 ---
 
 
