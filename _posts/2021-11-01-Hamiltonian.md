@@ -3,7 +3,7 @@ title: 'Hamiltonian Monte Caro'
 subtitle: An elegant sampler that utilizes Hamiltonian dynamics to propose new states in simulations.
 date: 2021-11-01
 layout: default
-tags: Hamiltonian Dynamics, hamiltonian_dynamics
+keywords: hamiltonian_dynamics
 permalink: /posts/Hamiltonian/
 ---
 

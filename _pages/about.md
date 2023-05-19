@@ -5,27 +5,25 @@ excerpt: "what is this?"
 author_profile: true
 ---
 
-I am a Machine Learning Researcher and Applied Mathematician. I got my Ph.D. in Applied Mathematics at Purdue University, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and [Faming Liang](https://www.stat.purdue.edu/~fmliang/). 
+I am a Machine Learning Researcher and Applied Mathematician. I got my Ph.D. in Applied Mathematics at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. 
 
-My thesis is: Non-convex Bayesian Learning via Stochastic Gradient MCMC [\[Link\]](https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718)
+My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>
+
 
 
 Current interests: Monte Carlo, diffusion models, bandits, filtering, and ML in finance.
 
-<!--- My interests include uncertainty quantification, non-convex optimization, feature selection, and reinforcement learning with theory and applications. -->
-
-<!--- Before that, I was a research intern at [Yahoo research](https://research.yahoo.com/), Sunnyvale (Summer 2019) and a senior research engineer at [Baidu](https://www.baidu.com/) (2012-2015). I got a bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012 and a M.S. in Computational Finance at Purdue in 2017. -->
 
 
 Contact: firstnamelastname056@gmail.com
 
-<!---  I got my bachelor's degree in Information and Computing Science at [BJTU](https://www.bjtu.edu.cn/) in 2012.  -->
 
+<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li>  </ul>
 
 News
-======
+=====
 
-Apr, 2023. One ICML on diffusion models [link](https://arxiv.org/pdf/2305.07247) is accepted!
+Apr, 2023. One ICML on [diffusion models](https://arxiv.org/pdf/2305.07247) is accepted!
 
 Dec, 2022. The [Contour Sampler](https://proceedings.neurips.cc/paper/2020/file/b5b8c484824d8a06f4f3d570bc420313-Paper.pdf) is implemented in [BlackJAX](https://blackjax-devs.github.io/sampling-book/algorithms/contour_sgld.html)! 
 
