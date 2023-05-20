@@ -2,7 +2,7 @@
 title: 'Reflection Couplings (II)'
 subtitle: A general coupling technique for characterizing a broad range of diffusions.
 date: 2023-05-20 
-permalink: /posts/Couplings2/
+permalink: /posts/reflection_coupling/
 ---
 
 ### Limitations of Synchronous Coupling
