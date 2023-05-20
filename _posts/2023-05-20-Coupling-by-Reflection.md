@@ -7,12 +7,7 @@ permalink: /posts/coupling_by_reflection/
 
 ### Limitations of Synchronous Coupling
 
-Consider the diffusion process
-\begin{align}
-  \mathrm{d}X_t = U(X_t)\mathrm{d}t+\mathrm{d}W_t.\notag
-\end{align}
-
-If the drift $U$ is $\kappa$-strongly convex, one can apply the simple synchronous coupling 
+Given a $\kappa$-strongly convex drift $U$, we can apply the synchronous coupling for the diffusion process
 
 $$\begin{align}
   \mathrm{d}X_t = U(X_t)\mathrm{d}t+\mathrm{d}W_t\notag\\
@@ -29,30 +24,27 @@ However, we cannot easily obtain the desired contraction when $U$ is not strongl
 
 ### Reflection Coupling
 
-When the drift term $U$ is zero, we observe that $\\|X_t-Y_t\\|$ remains fixed for any $t$ and synchronous coupling doesn't induce any contraction. Let's explore an alternative coupling where the Brownian motion moves in the opposite direction. We anticipate that, with some probability, the processes will eventually merge.
+When the drift term $U$ is zero, we observe that $\\|X_t-Y_t\\|$ remains fixed for any $t$ and synchronous coupling doesn't induce any contraction. Let's explore an alternative coupling where the Brownian motion moves in the opposite direction. We anticipate with some probability the processes will merge [Why?].
 
 $$\begin{align}
   \mathrm{d}X_t &= U(X_t)\mathrm{d}t+\mathrm{d}W_t\notag\\
-  \mathrm{d}Y_t &= U(Y_t)\mathrm{d}t+R_{X,Y}\mathrm{d}W_t,\notag\\
+  \mathrm{d}Y_t &= U(Y_t)\mathrm{d}t+(\mathrm{I} - 2\cdot e_t e_t^{\intercal})\mathrm{d}W_t,\notag\\
 \end{align}$$
 
-where 
+where $e_t=\mathbb{I}\_{[X_t\neq Y_t]}\cdot \frac{X_t-Y_t}{\\|X_t-Y_t\\|}$ and one can identify that $\widetilde W_t=\int_0^t \big[\mathrm{I} - 2\cdot e_s e_s^{\intercal} \big]\mathrm{d} s$ is also a Brownian motion. In addition, $e_t e_t^{\intercal}$ is the orthogonal projection onto the unit vector $e_t$ [\[Hint\]](https://textbooks.math.gatech.edu/ila/projections.html).
 
-$$\begin{align}
-  R_{X,Y}&=(\mathrm{I}d - 2\cdot e_{X, Y}e_{X, Y}^{\intercal})\notag \\
-  e_{X, Y}&=\mathbb{I}[X\neq Y]\cdot \frac{X-Y}{\|X-Y\|}\notag\\
-\end{align}$$
+Define the coupling time $T_c=\inf \\{ t\geq 0  \| X_t =Y_t \\}$. By definition of $e_t$, we know that $X_t=Y_t$ for $t\geq T_c$ {% cite mufa_chen %} {% cite reflection_coupling %} {% cite reflection_coupling_2 %}  {% cite coupling_hmc %} .
 
-Add intuition for this ???
+
 
 ### Supermartingales 
 
 We first show $\exp(c\cdot t)f(G_t)$ is a supermartingale, where $G_t=\\|X_t-Y_t\\|$.
 
-Apply Ito's lemma to $f(G_t)$, where $f$ is some concave function to be defined later
+Apply Ito's lemma to $f(G_t)$, where $f$ is a concave function to induce a new distance metric $d_f(X, Y)=f(\\|X-Y\\|)$ {% cite reflection_coupling %}.
 
 $$\begin{align}
-  \mathrm{d} f(G_t)=2f'(R_t)\mathrm{d}W_t+\bigg\{-\frac{1}{2}f'(G_t)\cdot \bigg\langle U(X_t)-U(Y_t), \frac{X_t-Y_t}{\|X_t-Y_t\|}\bigg\rangle +2f''(G_t)\bigg\}\cdot \mathrm{d}t.\notag
+  \mathrm{d} f(G_t)=2f'(R_t)\mathrm{d}W_t+\bigg\{f'(G_t)\cdot \bigg\langle U(X_t)-U(Y_t), \frac{X_t-Y_t}{\|X_t-Y_t\|}\bigg\rangle +2f''(G_t)\bigg\} \mathrm{d}t.\notag
 \end{align}$$
 
 Assume $\langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq -\kappa(r) \frac{\\|X_t-Y_t\\|^2}{2}$, where $\kappa(r)$ is not necessarily positive
@@ -61,31 +53,45 @@ $$\begin{align}
   \bigg\langle U(X_t)-U(Y_t), \frac{X_t-Y_t}{\|X_t-Y_t\|}\bigg\rangle \leq -\frac{1}{2} \cdot G_t \cdot\kappa(G_t). \notag
 \end{align}$$
 
-It follows that
+Further including the integration factor $\exp(c\cdot t)$, we have
 
 $$\begin{align}
-  \frac{1}{4} G_t \cdot\kappa(G_t) f'(G_t)+2f''(G_t)+c \cdot f(G_t)\leq 0. \notag
+  \dfrac{\mathrm{d} \bigg[\exp(c\cdot t)f(G_t)\bigg]}{\exp(c\cdot t)}\leq 2f'(R_t) \mathrm{d}W_t + \bigg[-\frac{1}{2} G_t \cdot\kappa(G_t) f'(G_t)+2f''(G_t)+c \cdot f(G_t)\bigg]\mathrm{d}t. \notag
 \end{align}$$
 
-It implies that a proper $f$ helps us obtain the desired result
+In other words, it induces a supermartingale when we have
+
+$$\begin{align}
+-\frac{1}{2} G_t \cdot\kappa(G_t) f'(G_t)+2f''(G_t)+c \cdot f(G_t)\leq 0.\notag
+\end{align}$$
+
+
+It implies that a proper $f$ may help us obtain the desired result
 
 $$\begin{align}
   \mathrm{E}[f(\|X_t-Y_t\|)] \leq f(\|X_0-Y_0\|)\cdot \exp(-c\cdot t).\notag
 \end{align}$$
 
 
-Computational issues?
 
 ### How to build such as $f$
 
-TBD
+#### A simple case when $c = 0$
 
+We propose to find a $f$ that satisfies 
 
+$$\begin{align}
+f''(G_t)\leq \frac{1}{4} G_t \cdot\kappa(G_t) f'(G_t).\notag
+\end{align}$$
 
+The worst case is given by $f(R)=\int_0^{R} f'(s) \mathrm{d}s$, where $f'$ is solved by Growall inequality
 
-{% cite reflection_coupling_2 %}
-{% cite reflection_coupling %}
-{% cite durmus_moulines %}
-{% cite coupling_hmc %}
-{% cite mufa_chen %}
+$$\begin{align}
+f'(R)&=\exp\bigg\{\int_0^R\frac{1}{4} s \cdot\kappa(G_t) \mathrm{d}s\bigg\}\notag
+\end{align}$$
 
+#### Extention to $c>0$
+
+We aim to obtain the following dimension-independent bound in $R, L\in [0, \infty)$ {% cite reflection_coupling %}.
+
+$-\mathbb{I}\_{[\\|X_t-Y_t\\|< R]} L{\\|X_t-Y_t\\|^2}\leq \langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq \mathbb{I}\_{[\\|X_t-Y_t\\|\geq R]} K{\\|X_t-Y_t\\|^2}$
