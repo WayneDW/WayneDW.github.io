@@ -1,6 +1,6 @@
 ---
 title: 'Girsanov, KL and MLE'
-date: 2023-06-01
+date: 2023-05-20
 permalink: /posts/Girsanov/
 tags:
   - Girsanov theorem
