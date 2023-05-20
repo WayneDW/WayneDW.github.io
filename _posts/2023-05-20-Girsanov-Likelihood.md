@@ -1,6 +1,6 @@
 ---
 title: 'Girsanov and MLE'
-subtitle: A application of Girsanov theorem in parameter estimation
+subtitle: An application of Girsanov theorem in parameter estimation.
 date: 2023-05-20
 permalink: /posts/Girsanov_MLE/
 tags:
