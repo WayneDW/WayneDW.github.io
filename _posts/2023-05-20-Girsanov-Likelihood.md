@@ -59,7 +59,7 @@ Remark: While the Girsanov theorem is commonly employed, it is prone to mistakes
 
 ### Applications
 
-Given a stationary Ornstein0Uhlenbeck process, how do you estimate the parameters using MLE.
+Given a stationary Ornstein0Uhlenbeck process, how do you estimate the parameters using MLE {% cite Grigorios_14 %}..
 
 $$\begin{align}
 \mathrm{d}X_t = -\alpha X_t \mathrm{d}t+\sigma\mathrm{d}W_t.\notag
@@ -67,20 +67,3 @@ $$\begin{align}
 
 Hint: 1) write the likelihood; 2) take the gradient.
 
-
-<!-- $$\begin{align}
-
-\end{align}$$
-
-
-$$\begin{align}
-
-\end{align}$$
-
-$$\begin{align}
-
-\end{align}$$
-
-$$\begin{align}
-
-\end{align}$$ -->
