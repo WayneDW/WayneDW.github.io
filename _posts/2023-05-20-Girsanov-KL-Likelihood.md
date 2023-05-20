@@ -1,5 +1,6 @@
 ---
 title: 'Girsanov and MLE'
+subtitle: A application of Girsanov theorem in parameter estimation
 date: 2023-05-20
 permalink: /posts/Girsanov_MLE/
 tags:
@@ -51,7 +52,9 @@ $$\begin{align}\label{girsanov}
 
 
 
-We can observe a close connection between Eq.\eqref{MLE} and a discrete variant of Eq.\eqref{girsanov}.
+We can observe a close connection between Eq.\eqref{MLE} and a discrete variant of Eq.\eqref{girsanov} 
+
+Remark: While the Girsanov theorem is commonly employed, it is prone to mistakes that can be easily made. Have I made any such errors?
 
 
 ### Applications
@@ -62,6 +65,7 @@ $$\begin{align}
 \mathrm{d}X_t = -\alpha X_t \mathrm{d}t+\sigma\mathrm{d}W_t.\notag
 \end{align}$$
 
+Hint: 1) write the likelihood; 2) take the gradient.
 
 
 <!-- $$\begin{align}
