@@ -18,7 +18,7 @@ Current interests: Monte Carlo, diffusion models, bandits, filtering, and ML in 
 Contact: firstnamelastname056@gmail.com
 
 
-<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li>  </ul>
+<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li>  <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li>  </ul>
 
 News
 =====
