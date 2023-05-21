@@ -13,7 +13,7 @@ In this blog, I will introduce a paper called Optimal Convergence Rate of Hamilt
 
 ## Hamiltonian Dynamics
 
-HMC algorithms conserves Hamiltonian and the volume in the phase space and enjoy the reversibility condition. It aims to simulate particles according to the laws of Hamiltonian dynamics. Consider a Hamiltonian function $H(x, v)$ defined as follows
+HMC algorithms conserves Hamiltonian and the volume in the phase space and enjoy the reversibility condition (by flipping a sign). It aims to simulate particles according to the laws of Hamiltonian dynamics. Consider a Hamiltonian function $H(x, v)$ defined as follows
 
 \begin{equation}\notag
 H(x, v)=f(x)+\\|v\\|^2,
@@ -69,7 +69,7 @@ Consider two ODEs for HMCs:
 
 $$\begin{align}\notag
 \qquad\qquad\qquad\qquad x'(t)&=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t) \notag\\\\
-\qquad\qquad\qquad\qquad v'(t)&=-\nabla f(x(t))     \quad\qquad\qquad\quad\   u'(t)=-\nabla f(y(t)),\notag
+\qquad\qquad\qquad\qquad v'(t)&=-\nabla f(x(t))     \quad\qquad\qquad\ \   u'(t)=-\nabla f(y(t)),\notag
 \end{align}$$
 
 where the initial velocities follow $u(0)=v(0)$. 
@@ -103,6 +103,7 @@ $$\begin{align}
                                  & = \sqrt{L\rho \|x-y\|^2} \notag\\
 				 & \leq \sqrt{2L\rho \|x_0-y_0\|^2}, \notag\\
 \end{align}$$
+
 where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in {% cite CV19 %}.
 
 Now, we can upper bound $\\|v-u\\|^2$ as follows

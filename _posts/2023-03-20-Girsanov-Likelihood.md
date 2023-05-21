@@ -43,10 +43,10 @@ $$\begin{align}
 \mathrm{d}X_t = b(X_t;\theta)\mathrm{d}t+\sigma\mathrm{d}W_t.\notag
 \end{align}$$
 
-We observe the whole path of the process $X\_t$. Denote by $\mathbb{P}\_X$ the law of the process on the path space, which is absolutely continuous w.r.t. the Wiener measure. The density of $\mathbb{P}\_X$ w.r.t. the Wiener measure is determined by the Radon-Nikodym derivative 
+We observe the whole path of the process $X\_t$ from time $[0, T]$. Denote by $\mathbb{P}\_X$ the law of the process on the path space, which is absolutely continuous w.r.t. the Wiener measure. The density of $\mathbb{P}\_X$ w.r.t. the Wiener measure is determined by the Radon-Nikodym derivative 
 
 $$\begin{align}\label{girsanov}
-\frac{\mathrm{d}\mathbb{P}\_X}{\mathrm{d}\mathbb{P}\_W}=\exp\bigg(\frac{1}{\sigma}\int\_0^T b(X\_s; \theta)\mathrm{d}W\_s-\int\_0^T \frac{b^2(X\_s;\theta)}{2\sigma^2}\mathrm{d}s \bigg).
+\frac{\mathrm{d}\mathbb{P}_X}{\mathrm{d}\mathbb{P}_W}=\exp\bigg(\frac{1}{\sigma}\int_0^T b(X_s; \theta)\mathrm{d}W_s-\int_0^T \frac{b^2(X_s;\theta)}{2\sigma^2}\mathrm{d}s \bigg).
 \end{align}$$
 
 
@@ -59,10 +59,10 @@ Remark: While the Girsanov theorem is commonly employed, it is prone to mistakes
 
 ### Applications
 
-Given a stationary Ornstein0Uhlenbeck process, how do you estimate the parameters using MLE {% cite Grigorios_14 %}..
+Given a stationary Ornstein-Uhlenbeck process, how do you estimate the parameters using MLE {% cite Grigorios_14 %}..
 
 $$\begin{align}
-\mathrm{d}X\_t = -\alpha X\_t \mathrm{d}t+\sigma\mathrm{d}W\_t.\notag
+\mathrm{d}X_t = -\alpha X_t \mathrm{d}t+\sigma\mathrm{d}W_t.\notag
 \end{align}$$
 
 Hint: 1) write the likelihood; 2) take the gradient.

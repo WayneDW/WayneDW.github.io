@@ -15,7 +15,7 @@ author_profile: true
 
 * **W. Deng**<sup>*</sup>, Q. Zhang<sup>*</sup>, Q. Feng<sup>*</sup>, F. Liang, G. Lin. [Non-reversible Parallel Tempering for Deep Posterior Approximation](https://arxiv.org/pdf/2211.10837.pdf). AAAI-23 (**Oral Presentation**)
 
-* **W. Deng**, G. Lin, F. Liang. [An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization](https://link.springer.com/epdf/10.1007/s11222-022-10120-3?sharing_token=3D38cUKCcTFwSnC9tCumefe4RwlQNchNByi7wbcMAY5wU6YiY0TlM_GKKke2kamOPjMBvVXx8MgkcpmS8OGmuzOCh2eHt8iYVjbUfb8rmQwWWTeCWeZPq4aH8jFXlvv6zduuChKpiW0iM9BB02fHctPD5gZFj3jBGqfPzBAyIIE%3D). **Statistics and Computing**, (2022) 32:58 [\[code\]](https://github.com/WayneDW/Global-optimization-via-an-adaptively-weighted-stochastic-gradient-MCMC)
+* **W. Deng**, G. Lin, F. Liang. [An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization](https://link.springer.com/epdf/10.1007/s11222-022-10120-3?sharing_token=3D38cUKCcTFwSnC9tCumefe4RwlQNchNByi7wbcMAY5wU6YiY0TlM_GKKke2kamOPjMBvVXx8MgkcpmS8OGmuzOCh2eHt8iYVjbUfb8rmQwWWTeCWeZPq4aH8jFXlvv6zduuChKpiW0iM9BB02fHctPD5gZFj3jBGqfPzBAyIIE%3D). Statistics and Computing, (2022) 32:58 [\[code\]](https://github.com/WayneDW/Global-optimization-via-an-adaptively-weighted-stochastic-gradient-MCMC)
 
 
 * **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. [Interacting Contour Stochastic Gradient Langevin Dynamics](https://openreview.net/forum?id=IK9ap6nxXr2). ICLR 2022 [\[code\]](https://github.com/WayneDW/Interacting-Contour-Stochastic-Gradient-Langevin-Dynamics) [\[video\]](https://recorder-v3.slideslive.com/#/share?share=62539&s=f9dd1749-50cd-4bf3-a1d8-d0ebe752bf37)
@@ -48,7 +48,7 @@ author_profile: true
 
 <!---  * Y. Wang, **W. Deng**, G. Lin. [Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications](https://www.sciencedirect.com/science/article/pii/S0021999121000267?dgcid=coauthor). **Journal of Computational Physics**. Vol 432, 2021. -->
 
-* Y. Wang, **W. Deng**, G. Lin. [An Adaptive Hessian Approximated Stochastic Gradient MCMC Method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). **Journal of Computational Physics**. Vol 432, 2021.
+* Y. Wang, **W. Deng**, G. Lin. [An Adaptive Hessian Approximated Stochastic Gradient MCMC Method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). Journal of Computational Physics. Vol 432, 2021.
 
 <!---  ### Others -->
 

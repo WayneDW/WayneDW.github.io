@@ -87,11 +87,11 @@ f''(G_t)\leq \frac{1}{4} G_t \cdot\kappa(G_t) f'(G_t).\notag
 The worst case is given by $f(R)=\int_0^{R} f'(s) \mathrm{d}s$, where $f'$ is solved by Growall inequality
 
 $$\begin{align}
-f'(R)&=\exp\bigg\{\int_0^R\frac{1}{4} s \cdot\kappa(G_t) \mathrm{d}s\bigg\}\notag
+f'(R)&=\exp\bigg\{\int_0^R\frac{1}{4} s \cdot\kappa(G_t) \mathrm{d}s\bigg\}.\notag
 \end{align}$$
 
 #### Extention to $c>0$
 
 We aim to obtain the following dimension-independent bound in $R, L\in [0, \infty)$ {% cite reflection_coupling %}.
 
-$-\mathbb{I}\_{[\\|X_t-Y_t\\|< R]} L{\\|X_t-Y_t\\|^2}\leq \langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq \mathbb{I}\_{[\\|X_t-Y_t\\|\geq R]} K{\\|X_t-Y_t\\|^2}$
+$-\mathbb{I}\_{[\\|X_t-Y_t\\|< R]} L{\\|X_t-Y_t\\|^2}\leq \langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq \mathbb{I}\_{[\\|X_t-Y_t\\|\geq R]} K{\\|X_t-Y_t\\|^2}.$
