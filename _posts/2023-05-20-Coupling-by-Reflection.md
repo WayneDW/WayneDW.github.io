@@ -24,7 +24,7 @@ However, we cannot easily obtain the desired contraction when $U$ is not strongl
 
 ### Reflection Coupling
 
-When the drift term $U$ is zero, we observe that $\\|X_t-Y_t\\|$ remains fixed for any $t$ and synchronous coupling doesn't induce any contraction. Let's explore an alternative coupling where the Brownian motion moves in the opposite direction. We anticipate with some probability the processes will merge [Why?].
+Define the coupling time $T_c=\inf \\{ t\geq 0  \| X_t =Y_t \\}$. By definition, we know that $X_t=Y_t$ for $t\geq T_c$ {% cite mufa_chen %} {% cite reflection_coupling %} {% cite reflection_coupling_2 %}  {% cite coupling_hmc %}. When the drift term $U$ is zero, we observe that $\\|X_t-Y_t\\|$ remains fixed for any $t$ and synchronous coupling doesn't induce any contraction. Let's explore an alternative coupling where the Brownian motion moves in the opposite direction. We anticipate with some probability the processes will merge [Why?].
 
 $$\begin{align}
   \mathrm{d}X_t &= U(X_t)\mathrm{d}t+\mathrm{d}W_t\notag\\
@@ -32,9 +32,6 @@ $$\begin{align}
 \end{align}$$
 
 where $e_t=\mathbb{I}\_{[X_t\neq Y_t]}\cdot \frac{X_t-Y_t}{\\|X_t-Y_t\\|}$ and one can identify that $\widetilde W_t=\int_0^t \big[\mathrm{I} - 2\cdot e_s e_s^{\intercal} \big]\mathrm{d} s$ is also a Brownian motion. In addition, $e_t e_t^{\intercal}$ is the orthogonal projection onto the unit vector $e_t$ [\[Hint\]](https://textbooks.math.gatech.edu/ila/projections.html).
-
-Define the coupling time $T_c=\inf \\{ t\geq 0  \| X_t =Y_t \\}$. By definition of $e_t$, we know that $X_t=Y_t$ for $t\geq T_c$ {% cite mufa_chen %} {% cite reflection_coupling %} {% cite reflection_coupling_2 %}  {% cite coupling_hmc %} .
-
 
 
 ### Supermartingales 
@@ -74,7 +71,7 @@ $$\begin{align}
 
 
 
-### How to build such as $f$
+### How to build such an $f$
 
 #### A simple case when $c = 0$
 

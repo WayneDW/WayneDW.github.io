@@ -1,0 +1,71 @@
+I"$<h3 id="denoising-diffusion-models">Denoising Diffusion Models</h3>
+
+<ul>
+  <li>Y. Chen, <strong>W. Deng</strong><sup>#</sup>, S. Fang<sup>&amp;</sup>, F. Li, etc. <a href="https://arxiv.org/pdf/2305.07247">Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation</a>. ICML 2023 (alphabetical order)</li>
+</ul>
+
+<h3 id="monte-carlo-methods">Monte Carlo Methods</h3>
+
+<ul>
+  <li>
+    <p><strong>W. Deng</strong><sup>*</sup>, Q. Zhang<sup>*</sup>, Q. Feng<sup>*</sup>, F. Liang, G. Lin. <a href="https://arxiv.org/pdf/2211.10837.pdf">Non-reversible Parallel Tempering for Deep Posterior Approximation</a>. AAAI-23 (<strong>Oral Presentation</strong>)</p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, G. Lin, F. Liang. <a href="https://link.springer.com/epdf/10.1007/s11222-022-10120-3?sharing_token=3D38cUKCcTFwSnC9tCumefe4RwlQNchNByi7wbcMAY5wU6YiY0TlM_GKKke2kamOPjMBvVXx8MgkcpmS8OGmuzOCh2eHt8iYVjbUfb8rmQwWWTeCWeZPq4aH8jFXlvv6zduuChKpiW0iM9BB02fHctPD5gZFj3jBGqfPzBAyIIE%3D">An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization</a>. <strong>Statistics and Computing</strong>, (2022) 32:58 <a href="https://github.com/WayneDW/Global-optimization-via-an-adaptively-weighted-stochastic-gradient-MCMC">[code]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, S. Liang, B. Hao, G. Lin, F. Liang. <a href="https://openreview.net/forum?id=IK9ap6nxXr2">Interacting Contour Stochastic Gradient Langevin Dynamics</a>. ICLR 2022 <a href="https://github.com/WayneDW/Interacting-Contour-Stochastic-Gradient-Langevin-Dynamics">[code]</a> <a href="https://recorder-v3.slideslive.com/#/share?share=62539&amp;s=f9dd1749-50cd-4bf3-a1d8-d0ebe752bf37">[video]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong><sup>*</sup>, Q. Feng<sup>*</sup>, G. Karagiannis, G. Lin, F. Liang. <a href="https://openreview.net/pdf?id=iOnhIy-a-0n">Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction</a>. ICLR 2021. <a href="https://github.com/WayneDW/Variance_Reduced_Replica_Exchange_SGMCMC">[code]</a> <a href="https://slideslive.com/38954013/accelerating-convergence-of-replica-exchange-stochastic-gradient-mcmc-via-variance-reduction?ref=speaker-30773-latest">[video]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. <a href="https://arxiv.org/pdf/2008.05367.pdf">Non-convex Learning via Replica Exchange Stochastic Gradient MCMC</a>. ICML 2020. <a href="https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC">[code]</a> <a href="https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf">[slides]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, G. Lin, F. Liang. <a href="https://arxiv.org/pdf/2010.09800.pdf">A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions</a>. NeurIPS 2020 <a href="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics">[code]</a> <a href="https://waynedw.github.io/posts/CSGLD/">[blog]</a> <a href="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf">[slides]</a> <a href="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf">[poster]</a><a href="https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions">[video]</a> <a href="https://zhuanlan.zhihu.com/p/267633636">[知乎]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, Y.-A. Ma, Z. Song, Q. Zhang, G. Lin. <a href="https://arxiv.org/pdf/2112.05120.pdf">On Convergence of Federated Averaging Langevin Dynamics</a>. arXiv 2112.05120.</p>
+  </li>
+</ul>
+
+<!--- * **W. Deng**, Q. Zhang. User-friendly (Some Secret) Sampling Algorithms for Deep Learning. 2021. On progress. -->
+
+<!--- * **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of Some Distributed Sampling Algorithms. 2021. On progress -->
+
+<!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
+
+<h3 id="bandits-and-reinforcement-learning">Bandits and Reinforcement Learning</h3>
+
+<ul>
+  <li>B. Hao, T. Lattimore, <strong>W. Deng</strong>. <a href="https://arxiv.org/abs/2105.14267">Information Directed Sampling for Sparse Linear Bandits</a>. NeurIPS 2021 <strong>Spotlight</strong> (&lt;3% acceptance rate)</li>
+</ul>
+
+<h3 id="sparse-deep-learning-and-applications">Sparse Deep Learning and Applications</h3>
+
+<ul>
+  <li>
+    <p><strong>W. Deng</strong>, X. Zhang, F. Liang, G. Lin. <a href="https://arxiv.org/pdf/1910.10791.pdf">An Adaptive Empirical Bayesian Method for Sparse Deep Learning</a>. NeurIPS 2019 <a href="https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning">[code]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong><sup>*</sup>, J. Pan<sup>*</sup>, T. Zhou, D. Kong, A. Flores, G. Lin. <a href="https://arxiv.org/pdf/2002.06987.pdf">DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving</a>. WSDM 2021 <a href="https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions">[code]</a> <img src="https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/a-sparse-deep-factorization-machine-for/click-through-rate-prediction-on-criteo" alt="PWC" /></p>
+  </li>
+</ul>
+
+<!---  * Y. Wang, **W. Deng**, G. Lin. [Bayesian Sparse Learning with Preconditioned Stochastic Gradient MCMC and its Applications](https://www.sciencedirect.com/science/article/pii/S0021999121000267?dgcid=coauthor). **Journal of Computational Physics**. Vol 432, 2021. -->
+
+<ul>
+  <li>Y. Wang, <strong>W. Deng</strong>, G. Lin. <a href="https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor">An Adaptive Hessian Approximated Stochastic Gradient MCMC Method</a>. <strong>Journal of Computational Physics</strong>. Vol 432, 2021.</li>
+</ul>
+
+<!---  ### Others -->
+
+<!---  * R. Zhang, **W. Deng**, M. Zhu. [Using Deep Neural Networks to Automate Large Scale Statistical Analysis](https://arxiv.org/pdf/1708.03027.pdf). Asian Conference on Machine Learning (**ACML 2017**), Seoul, Korea -->
+
+<p>(*) denotes equal contribution.</p>
+
+<p>(#) denotes correspondence.</p>
+
+<p>(&amp;) denotes intern supervised.</p>
+:ET
