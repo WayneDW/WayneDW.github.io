@@ -20,11 +20,13 @@ $$\begin{align}
   \|X_t-Y_t\|\leq \|X_0-Y_0\|^2 \exp(-\kappa t).\notag
 \end{align}$$
 
-However, we cannot easily obtain the desired contraction when $U$ is not strongly convex. To address this issue, one should consider a more general coupling method. The diffusions may not contract almost surely, but rather in the average sense.
+However, we cannot easily obtain the desired contraction when $U$ is not strongly convex. To address this issue, one should consider a more general coupling method based on a specic metric instead of the standard Euclidean metric. The diffusions may not contract almost surely, but rather in the average sense.
 
 ### Reflection Coupling
 
-Define the coupling time $T_c=\inf \\{ t\geq 0  \| X_t =Y_t \\}$. By definition, we know that $X_t=Y_t$ for $t\geq T_c$ {% cite mufa_chen %} {% cite reflection_coupling %} {% cite reflection_coupling_2 %}  {% cite coupling_hmc %}. When the drift term $U$ is zero, we observe that $\\|X_t-Y_t\\|$ remains fixed for any $t$ and synchronous coupling doesn't induce any contraction. Let's explore an alternative coupling where the Brownian motion moves in the opposite direction. We anticipate with some probability the processes will merge [Why?].
+Define the coupling time $T_c=\inf \\{ t\geq 0  \| X_t =Y_t \\}$. By definition, we know that $X_t=Y_t$ for $t\geq T_c$ {% cite mufa_chen %} {% cite reflection_coupling %} {% cite reflection_coupling_2 %}  {% cite coupling_hmc %}. When the drift term $U$ is zero, we observe that $\\|X_t-Y_t\\|$ remains fixed for any $t$ and synchronous coupling doesn't induce any contraction. 
+
+Let's explore an alternative coupling where the Brownian motion moves in the opposite direction. We anticipate with some probability the processes will merge [Why?].
 
 $$\begin{align}
   \mathrm{d}X_t &= U(X_t)\mathrm{d}t+\mathrm{d}W_t\notag\\
