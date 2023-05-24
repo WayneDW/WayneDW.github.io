@@ -7,7 +7,7 @@ keywords: Langevin diffusion, Lyapunov function, Drift condition, Poincaré Ineq
 ---
 
 
-Poincaré (spectral gap) inequality is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
+Poincaré (spectral gap) inequality {% cite Bakry08 %} is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
 
 
 ## Langevin diffusion
@@ -178,9 +178,4 @@ which suffices to choose $\gamma<\alpha$, a large $R$ and assume the (C1) condit
 [1] The construction of Lyapunov function implies a tail decay for the distribution $\mu\propto e^{-U(x)}$ outside the ball $B(0, R)$.
 
 [2] Obtaining a sharper estimate of Poincaré constant may require isoperimetric inequality.
-
-
-## References:
-
-[1] D. Bakry, F. Barthe, P. Cattiaux, and A. Guillin. A simple proof of the Poincaré inequality for a large class of probability measures including the log-concave case. Electron. Comm. Probab., 13:60–66, 2008.
 
