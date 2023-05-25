@@ -33,7 +33,7 @@ $$\begin{align}
   \mathrm{d}Y_t &= U(Y_t)\mathrm{d}t+(\mathrm{I} - 2\cdot e_t e_t^{\intercal})\mathrm{d}W_t,\notag\\
 \end{align}$$
 
-where $e_t=\mathbb{I}\_{[X_t\neq Y_t]}\cdot \frac{X_t-Y_t}{\\|X_t-Y_t\\|}$ and one can identify that $\widetilde W_t=\int_0^t \big[\mathrm{I} - 2\cdot e_s e_s^{\intercal} \big]\mathrm{d} s$ is also a Brownian motion. In addition, $e_t e_t^{\intercal}$ is the orthogonal projection onto the unit vector $e_t$ [\[Hint\]](https://textbooks.math.gatech.edu/ila/projections.html) and you can easily check that $e_t$ is the eigenvector of $\mathrm{I} - 2\cdot e_t e_t^{\intercal}$.
+where $e_t=\mathbb{I}\_{[X_t\neq Y_t]}\cdot \frac{X_t-Y_t}{\\|X_t-Y_t\\|}$ and one can identify that $\widetilde W_t=\int_0^t \big[\mathrm{I} - 2\cdot e_s e_s^{\intercal} \big]\mathrm{d} s$ is also a Brownian motion. In addition, $e_t e_t^{\intercal}$ is the orthogonal projection onto the unit vector $e_t$ [\[Hint\]](https://textbooks.math.gatech.edu/ila/projections.html) and you can easily check that $e_t$ is the eigenvector of $\mathrm{I} - 2\cdot e_t e_t^{\intercal}$ with one eigenvalue $-1$.
 
 
 ### Supermartingales 
@@ -92,5 +92,7 @@ f'(R)&=\exp\bigg\{\int_0^R\frac{1}{4} s \cdot\kappa(G_t) \mathrm{d}s\bigg\}.\not
 #### Extention to $c>0$
 
 We aim to obtain the following dimension-independent bound in $R, L\in [0, \infty)$ {% cite reflection_coupling %}.
+
+The general idea is to permit strong convexity outside of a ball with a given radius, within which local non-convexity is allowed.
 
 $-\mathbb{I}\_{[\\|X_t-Y_t\\|< R]} L{\\|X_t-Y_t\\|^2}\leq \langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq \mathbb{I}\_{[\\|X_t-Y_t\\|\geq R]} K{\\|X_t-Y_t\\|^2}.$
