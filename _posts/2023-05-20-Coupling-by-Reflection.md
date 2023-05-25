@@ -33,7 +33,7 @@ $$\begin{align}
   \mathrm{d}Y_t &= U(Y_t)\mathrm{d}t+(\mathrm{I} - 2\cdot e_t e_t^{\intercal})\mathrm{d}W_t,\notag\\
 \end{align}$$
 
-where $e_t=\mathbb{I}\_{[X_t\neq Y_t]}\cdot \frac{X_t-Y_t}{\\|X_t-Y_t\\|}$ and one can identify that $\widetilde W_t=\int_0^t \big[\mathrm{I} - 2\cdot e_s e_s^{\intercal} \big]\mathrm{d} s$ is also a Brownian motion. In addition, $e_t e_t^{\intercal}$ is the orthogonal projection onto the unit vector $e_t$ [\[Hint\]](https://textbooks.math.gatech.edu/ila/projections.html).
+where $e_t=\mathbb{I}\_{[X_t\neq Y_t]}\cdot \frac{X_t-Y_t}{\\|X_t-Y_t\\|}$ and one can identify that $\widetilde W_t=\int_0^t \big[\mathrm{I} - 2\cdot e_s e_s^{\intercal} \big]\mathrm{d} s$ is also a Brownian motion. In addition, $e_t e_t^{\intercal}$ is the orthogonal projection onto the unit vector $e_t$ [\[Hint\]](https://textbooks.math.gatech.edu/ila/projections.html) and you can easily check that $e_t$ is the eigenvector of $\mathrm{I} - 2\cdot e_t e_t^{\intercal}$.
 
 
 ### Supermartingales 
