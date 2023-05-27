@@ -11,7 +11,7 @@ My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Baye
 
 
 
-Current interests: Monte Carlo, diffusion models, bandits, non-linear filtering, and ML in finance.
+Current interests: Monte Carlo, diffusion models, non-linear filtering, bandits, and ML in finance.
 
 
 
