@@ -7,7 +7,11 @@ author_profile: true
 
 ### Denoising Diffusion Models
 
-*  Y. Chen, **W. Deng**<sup>#</sup>, S. Fang<sup>&</sup>, F. Li, etc. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023 (alphabetical order)
+
+* **W. Deng**, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. On Convergence of Approximate Schrödinger Bridge with Bounded Cost. Submitted.
+
+
+* Y. Chen<sup>α</sup>, **W. Deng**<sup>α</sup><sup>#</sup>, S. Fang<sup>α</sup>, F. Li<sup>α</sup>, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023 (α: alphabetical order, #: Correspondence)
 
 
 
@@ -56,7 +60,3 @@ author_profile: true
 
 
 (*) denotes equal contribution.
-
-(#) denotes correspondence.
-
-(&) denotes intern supervised.
