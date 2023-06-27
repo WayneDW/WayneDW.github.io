@@ -1,7 +1,7 @@
 ---
 title: 'The Conjoined Triangle of Flows, Diffusions, and PDEs'
 subtitle: A General Framework for Flows, Diffusions, and PDEs.
-date: 2023-06-12
+date: 2023-07-01
 permalink: /posts/flow_diffusion_PDE/
 ---
 
