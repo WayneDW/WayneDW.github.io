@@ -1,5 +1,5 @@
 ---
-title: 'The conjoined triangle of Flows, Diffusions, and PDEs'
+title: 'The Conjoined Triangle of Flows, Diffusions, and PDEs'
 subtitle: A General Framework for Flows, Diffusions, and PDEs.
 date: 2023-06-12
 permalink: /posts/flow_diffusion_PDE/
@@ -21,9 +21,10 @@ Probability flux / vector field?
 
 
 
- {% cite stochastic_process_applications %}
+  {% cite stochastic_process_applications %}
 
   {% cite Variational_score_matching %}
 
   {% cite Albergo_unified_framework %}
 
+  {% score_sde %}
