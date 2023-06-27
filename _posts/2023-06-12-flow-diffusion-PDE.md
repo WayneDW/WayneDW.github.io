@@ -18,13 +18,13 @@ Probability flux / vector field?
 
 
 
-
+<!-- 
 
 
   {% cite stochastic_process_applications %}
 
-  {% cite Variational_score_matching %}
+  <!-- {% cite Variational_score_matching %}
 
   {% cite Albergo_unified_framework %}
 
-  {% score_sde %}
+  {% cite score_sde %} --> -->
