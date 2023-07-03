@@ -1,0 +1,114 @@
+<html>
+<head>
+    <title>The Conjoined Triangle of Flows, Diffusions, and PDEs</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+	<li><a href='/blog/'>Blog</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>The Conjoined Triangle of Flows, Diffusions, and PDEs</h1>
+            <h4>A General Framework for Flows, Diffusions, and PDEs.</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>01 July 2025</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>Consider a diffusion process that solves the Itô’s SDE:</p>
+
+\[\begin{align}
+\mathrm{d} X=-\bm{b}(X) \mathrm{d} t + \sqrt{2\tau} \mathrm{d} B_t.\notag
+\end{align}\]
+
+<p>The generator of the diffusion follows that
+\(\begin{align}
+\mathcal{L}=-\mu(X) \cdot \nabla +\tau \Delta.
+\end{align}\)</p>
+
+<p>The probability density function $\rho(X,t)$ of $X_t$ is the solution of the Fokker-Planck PDE.
+\(\begin{align}
+\frac{\partial \rho}{\partial t}=\nabla \cdot (\nabla V \rho) + \tau \Delta \rho. \notag \\
+\end{align}\)</p>
+
+<p>Rewrite the Laplacian term, the Fokker Planck PDE is also euivalent to the flow as follows:
+\(\begin{align}
+xxx
+\end{align}\)</p>
+
+<p>Ricky’s divergence flow.</p>
+
+<p>[JKO98] Wasserstein gradient flow of the KL divergence functional</p>
+
+<p>Chin-Wei Huang’s score matching and divergence loss/ Hutchinson.</p>
+
+<p>infinitesimal … 
+SDE pg. 110</p>
+
+<p>FPK</p>
+
+<p>Probability flux / vector field?</p>
+
+<!-- 
+
+
+  <a class="citation" href="#stochastic_process_applications">(Pavliotis, 2014)</a>
+
+  <!-- <a class="citation" href="#Variational_score_matching">(Huang et al., 2021)</a>
+
+  <a class="citation" href="#Albergo_unified_framework">(Albergo et al., 2023)</a>
+
+  <a class="citation" href="#score_sde">(Song et al., 2021)</a> -->
+<p>–&gt;</p>
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="stochastic_process_applications">Pavliotis, G. A. (2014). <i>Stochastic Processes and Applications: Diffusion Processes, the Fokker-Planck and Langevin Equations</i>. Springer.</span></li>
+<li><span id="Variational_score_matching">Huang, C.-W., Lim, J. H., &amp; Courville, A. (2021). A Variational Perspective on Diffusion-Based
+Generative Models and Score Matching. <i>NeurIPS</i>.</span></li>
+<li><span id="Albergo_unified_framework">Albergo, M. S., Bof, N. M., &amp; Vanden-Eijnden, E. (2023). Stochastic Interpolants: A Unifying Framework for Flows and Diffusions. <i>ArXiv:2303.08797v1</i>, 1–48.</span></li>
+<li><span id="score_sde">Song, Y., Sohl-Dickstein, J., Kingma, D. P., Kumar, A., Ermon, S., &amp; Poole, B. (2021). Score-Based Generative Modeling through Stochastic Differential Equations
+. <i>ICLR</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<html>
+<head>
+    <title>Gaussian Process and Kalman Filter</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+	<li><a href='/blog/'>Blog</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Gaussian Process and Kalman Filter</h1>
+            <h4></h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>01 December 2023</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>ongoing</p>
+
+<h3 id="recursive-linear-regression">Recursive linear regression</h3>
+
+<p>Suppose we are interested in solving a linear regression problem</p>
+
+<p>\begin{align}\notag
+Y_n=X_n^\intercal \beta + \epsilon,
+\end{align}</p>
+
+<p>where $\epsilon$ is a Gaussian noise with mean $0$. Together with a prior $\mathbb{N}(0, \frac{1}{2}\lambda I_n)$, we have</p>
+
+<p>\begin{align}\label{ori_linear_reg}
+\widehat \beta_n=\big(X_n^\intercal X_n + \lambda I_n\big)^{-1} X_n^\intercal Y_n.
+\end{align}</p>
+
+<p>It is worth noting that X and Y often comes as a streaming set of data. As such, it is expensive to solve \eqref{ori_linear_reg} everytime new data comes in. Instead, we consider an recursive algorithm</p>
+
+<p>Given an existing posterior conditioned on measurements $1,2,\cdots, k-1$.</p>
+
+<p>\begin{align}\notag
+p(\theta|y_{1:k-1})=\mathbb{N}(m_{k-1}, P_{k-1}).
+\end{align}</p>
+
+<p>Now when a new measurement comes, the likelihood follows
+\begin{align}\notag
+p(y_k|\theta)=\mathbb{N}(H_k \theta, \sigma^2).
+\end{align}</p>
+
+<p>Using Bayes rule, we have</p>
+
+\[\begin{align}\notag
+p(\theta|y_{1:k})&amp;\propto p(y_k|\theta) p(\theta|y_{1:k-1})\\\notag
+                 &amp;\propto \mathbb{N}(\theta|m_k, P_k),\\\notag
+\end{align}\]
+
+<p>where the parameters follow</p>
+
+\[\begin{align}\notag
+m_k&amp;=\bigg[P_{k-1}^{-1} +\frac{1}{\sigma^2} H_k^\intercal H_k\bigg]^{-1}\bigg[\frac{1}{\sigma^2} H_k^\intercal y_k + P_{k-1}^{-1} m_{k-1}\bigg],\\
+P_k&amp;=\bigg[P_{k-1}^{-1} +\frac{1}{\sigma^2} H_k^\intercal H_k\bigg]^{-1}.\notag\\
+\end{align}\]
+
+<p>\begin{align}\notag
+\end{align}</p>
+
+<p>Recall that the matrix inversion formula follows that</p>
+
+\[\begin{align}\notag
+(A+BD)^{-1}=A^{-1} - A^{-1} B(I+DA^{-1}B)^{-1}DA^{-1}.
+\end{align}\]
+
+<p>The covariance update follows that</p>
+
+\[\begin{align}\notag
+P_k=P_{k-1}-P_{k-1}H_k^\intercal \big[H_k P_{k-1} H_k^\intercal +\sigma^2 I\big]^{-1} H_k P_{k-1}.
+\end{align}\]
+
+<p>Now including auxiliary variables $S_k$ and $K_k$, the updates follow that</p>
+
+\[\begin{align}
+S_k &amp;= H_k P_{k-1} H_k^\intercal +\sigma^2 I \notag\\
+K_k &amp;= P_{k-1} H_k^\intercal S_k^{-1} \notag\\
+m_k &amp;= m_{k-1} + K_k \bigg[y_k-H_k m_{k-1}\bigg] \notag\\
+P_k &amp;= P_{k-1}-K_k S_k K_k^\intercal \notag\\
+\end{align}\]
+
+<p>where the update resembles the update equestions of the Kalman filter.</p>
+<h3 id="kalman-filter">Kalman Filter</h3>
+
+<h3 id="gaussian-processes">Gaussian Processes</h3>
+<p>An Introduction to Gaussian Processes for the Kalman Filter
+Expert</p>
+
+<p>KALMAN FILTERING AND SMOOTHING SOLUTIONS TO TEMPORAL GAUSSIAN
+PROCESS REGRESSION MODELS.</p>
+
+<p>TBD</p>
+
+<p><a class="citation" href="#bayes_filtering">(Särkkä, 2023)</a>
+<a class="citation" href="#GP_ML">(Rasmussen &amp; Williams, 2006)</a></p>
+
+<p><a class="citation" href="#GP_KF">(Reece &amp; Roberts, 2010)</a></p>
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="bayes_filtering">Särkkä, S. (2023). <i>Bayesian Filtering and Smoothing</i>. Cambridge University Press.</span></li>
+<li><span id="GP_ML">Rasmussen, C. E., &amp; Williams, C. K. I. (2006). <i>Gaussian Processes for Machine Learning</i>. MIT Press.</span></li>
+<li><span id="GP_KF">Reece, S., &amp; Roberts, S. (2010). An Introduction to Gaussian Processes for the Kalman Filter Expert. <i>International Conference on Information Fusion</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>Schrödinger Bridge Problem</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+	<li><a href='/blog/'>Blog</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Schrödinger Bridge Problem</h1>
+            <h4>A framework that unifies optimal transport, FB-SDEs, fluid dynamics, and stochastic control.</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>19 June 2022</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models <a class="citation" href="#Nea11">(Neal, 2011)</a>, <a class="citation" href="#forward_backward_SDE">(Chen et al., 2022)</a>, <a class="citation" href="#DSB">(De Bortoli et al., 2021)</a> and financial mathematics <a class="citation" href="#nutz_trading">(Nutz, 2022)</a> <a class="citation" href="#nutz_portfolio">(Nutz, 2022)</a> <a class="citation" href="#schrodinger_vol_model">(Henry-Labordere, 2019)</a>. The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods <a href="https://paperswithcode.com/sota/image-generation-on-cifar-10">[Image Generation]</a>.</p>
+
+<p>The most striking feature of this algorithm is its deep mathematical connections to stochastic optimal control, optimal transport, fluid dynamics <a class="citation" href="#siam_review_Sinkhorn_liaisons">(Chen, 2021)</a>, and DNN approximations. As such, we have sufficient tools to understand the underlying theories. We refer interested readers to the Appendix A of <a class="citation" href="#provably_schrodinger_bridge">(Chen et al., 2023)</a>.</p>
+
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="Nea11">Neal, R. M. (2011). MCMC using Hamiltonian dynamics. <i>Handbook of Markov Chain Monte Carlo</i>.</span></li>
+<li><span id="forward_backward_SDE">Chen, T., Liu, G.-H., &amp; Theodorou, E. A. (2022). Likelihood Training of Schrödinger Bridge using Forward-Backward SDEs Theory. <i>ICLR</i>.</span></li>
+<li><span id="DSB">De Bortoli, V., Thornton, J., Heng, J., &amp; Doucet, A. (2021). Diffusion Schrödinger Bridge with Applications to Score-Based Generative Modeling. <i>NeurIPS</i>.</span></li>
+<li><span id="nutz_trading">Nutz, Z., Wiesel. (2022). <i>Limits of Semistatic Trading Strategies</i>.</span></li>
+<li><span id="nutz_portfolio">Nutz, Z., Wiesel. (2022). <i>Martingale Schrödinger Bridges and Optimal Semistatic Portfolios</i>.</span></li>
+<li><span id="schrodinger_vol_model">Henry-Labordere, P. (2019). <i>From (martingale) Schrödinger bridges to a new class of stochastic volatility model</i>.</span></li>
+<li><span id="siam_review_Sinkhorn_liaisons">Chen, P., Georgiou. (2021). Stochastic control liaisons: Richard Sinkhorn meets Gaspard Monge on a Schroedinger bridge. <i>SIAM Review</i>.</span></li>
+<li><span id="provably_schrodinger_bridge">Chen, Y., Deng, W., Fang, S., Li, F., Yang, N., Zhang, Y., Rasul, K., Zhe, S., Schneider, A., &amp; Nevmyvaka, Y. (2023). Provably Convergent  Schrödinger Bridge with Applications to Probabilistic Time Series Imputation. <i>ICML</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

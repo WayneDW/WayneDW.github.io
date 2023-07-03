@@ -4,7 +4,7 @@ title: "Wei Deng"
 excerpt: "what is this?"
 author_profile: true
 ---
-<p align="center"> <img class="img-circle img-200" width="33%" src="images/profile3.png"></p>
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/lake_tahoe.png"></p>
 
 I am a Machine Learning Researcher and Applied Mathematician. I got my Ph.D. in Applied Mathematics at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. 
 

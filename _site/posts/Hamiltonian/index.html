@@ -1,0 +1,251 @@
+<html>
+<head>
+    <title>Hamiltonian Monte Caro</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+	<li><a href='/blog/'>Blog</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Hamiltonian Monte Caro</h1>
+            <h4>An elegant sampler that utilizes Hamiltonian dynamics to propose new states in simulations.</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>01 November 2021</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>Hamiltonian Monte Carlo <a class="citation" href="#Nea11">(Neal, 2011)</a> (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm <a class="citation" href="#MRRT53">(Metropolis, 1953)</a> and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes.</p>
+
+<p>In this blog, I will introduce a paper called Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions <a class="citation" href="#CV19">(Zongchen Chen, 2019)</a>.</p>
+
+<h2 id="hamiltonian-dynamics">Hamiltonian Dynamics</h2>
+
+<p>HMC algorithms conserves Hamiltonian and the volume in the phase space and enjoy the reversibility condition (by flipping a sign). It aims to simulate particles according to the laws of Hamiltonian dynamics. Consider a Hamiltonian function $H(x, v)$ defined as follows</p>
+
+<p>\begin{equation}\notag
+H(x, v)=f(x)+\|v\|^2,
+\end{equation}</p>
+
+<p>where $f$ is the potential energy function, $x$ is the position, and $v$ is the velocity variable. In each step, the update of the particles $(x, v)$ follows the system of (ordinary) differential equations as follows</p>
+
+<p>\begin{equation}\label{hmc_eq}
+\frac{d x}{d t}=\frac{\partial H}{\partial v}=v(t) \ \ \text{and} \ \ \frac{d v}{d t}=-\frac{\partial H}{\partial x}=-\nabla f(x).
+\end{equation}</p>
+
+<p>After a time interval $t$, the solutions follow a ``Hamiltonian flow’’ $\varphi_t$ that maps $(x,v)$ to $(x_t(x,v), v_t(x, v))$.</p>
+
+<h2 id="convergence-of-ideal-hmc">Convergence of Ideal HMC</h2>
+
+<p>To prove the convergence of the ideal HMC algorithms, we first assume standard assumptions.</p>
+
+<p><strong>Strong convexity</strong> We say $f$ is $\mu$-strongly convex if for all $x, y\in R^d$, we have</p>
+
+<p>\begin{equation}\notag
+f(y)\geq f(x)+\langle \nabla f(x), y-x\rangle + \frac{\mu}{2} \|y-x\|^2.
+\end{equation}</p>
+
+<p><strong>Smoothness</strong> We also assume $f$ is $L$-smooth in the sense that</p>
+
+<p>\begin{equation}\notag
+f(y)\leq f(x)+\langle \nabla f(x), y-x\rangle + \frac{L}{2} \|y-x\|^2.
+\end{equation}</p>
+
+<p>The convergence analysis hinges on the coupling of two Markov chains such that the distance between the position variables $x_k$ and $y_k$ (the second Markov chain) contracts in each step.</p>
+
+<p>Denote by $x(t)$ and $y(t)$ solutions of HMC (\ref{hmc_eq}) and denote by $x(0)$ and $y(0)$ the initial positions of two ODEs for HMC. To faciliate the analysis of coupling techniques, we adopt the same initial velocity $v(0)=u(0)$. The convergence study hinges on the contraction bound as follows</p>
+
+<p align="center">
+    <img src="/images/HMC_coupling2.png" width="400" />
+</p>
+
+<p><strong>Lemma</strong> Assume the potential function $f$ satisfies the convexity and smoothness assumptions. Then for $0\leq t \leq \frac{1}{2\sqrt{L}}$, we have</p>
+
+<p>\begin{equation}\notag
+\|x(t)-y(t)\|^2 \leq (1-\frac{\mu}{4}t^2) \|x(0)-y(0)\|^2.
+\end{equation}</p>
+
+<p><strong>Proof</strong>
+Consider two ODEs for HMCs:</p>
+
+\[\begin{align}\notag
+\qquad\qquad\qquad\qquad x'(t)&amp;=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t) \notag\\\\
+\qquad\qquad\qquad\qquad v'(t)&amp;=-\nabla f(x(t))     \quad\qquad\qquad\ \   u'(t)=-\nabla f(y(t)),\notag
+\end{align}\]
+
+<p>where the initial velocities follow $u(0)=v(0)$.</p>
+
+<p>Taking the second derivative of $\frac{1}{2}\|x-y\|^2$, we have</p>
+
+\[\begin{align}\notag
+\frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)&amp;=\frac{d}{dt}\langle v-u, x-y \rangle\notag\\
+						  &amp;=\langle v'-u', x-y \rangle + \langle v-u, x'-y' \rangle \notag\\
+						  &amp;=-\rho \|x-y\|^2 + \|v-u\|^2,\notag
+\end{align}\]
+
+<p>where $\rho=\rho(t)=\frac{\langle \nabla f(x) - \nabla f(y), x-y \rangle}{\|x-y\|^2}$.</p>
+
+<p>To upper bound $\|v-u\|^2$, recall that 
+\begin{equation}\notag
+\frac{d}{dt} \|x\|=\frac{d}{dx} \|x\| \cdot \frac{d}{dt} x=\frac{\langle x, \dot{x} \rangle}{\|x\|}.
+\end{equation}</p>
+
+<p>In what follows, we have</p>
+
+<p>\begin{equation}\notag
+\frac{d}{dt}\|v-u\|=\frac{1}{\|v-u\|}\langle v’-u’, v-u\rangle =-\frac{\langle \nabla f(x)-\nabla f(y), v-u\rangle}{\|v-u\|}.
+\end{equation}</p>
+
+<p>In particular for the upper bound of $\frac{d}{dt}\|v-u\|$, we have</p>
+
+\[\begin{align}
+\left|\frac{d}{dt}\|v-u\|\right| &amp;\leq \|\nabla f(x)-\nabla f(y)\| \notag\\
+                                 &amp; \leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle} \notag\\
+                                 &amp; = \sqrt{L\rho \|x-y\|^2} \notag\\
+				 &amp; \leq \sqrt{2L\rho \|x_0-y_0\|^2}, \notag\\
+\end{align}\]
+
+<p>where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in <a class="citation" href="#CV19">(Zongchen Chen, 2019)</a>.</p>
+
+<p>Now, we can upper bound $\|v-u\|^2$ as follows</p>
+
+\[\begin{align}
+\|v-u\|^2 &amp;\leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2 \notag\\
+\qquad\qquad &amp; \leq \left(\int_0^t \sqrt{2 L\rho} \|x_0-y_0\| ds\right)^2 \notag\\
+\qquad\qquad &amp; \leq 2L t \left(\int_0^t \rho ds\right) \|x_0 - y_0\|^2. \notag\\
+\end{align}\]
+
+<p>Define the monotone increasing function</p>
+
+<p>\begin{equation}\notag
+P=P(t)=\int_0^t \rho dt,
+\end{equation}</p>
+
+<p>where $P(0)=0$ and $\mu t \leq P(t)\leq L t$ for all $t\geq 0$. Then</p>
+
+<p>\begin{equation}\notag
+|v-u|^2 \leq 2L t P|x_0-y_0|^2.
+\end{equation}</p>
+
+<p>Combining the above upper bounds, we have</p>
+
+<p>\begin{equation}\notag
+\frac{d^2}{dt^2} \left(\frac{1}{2}\|x-y\|^2 \right)\leq -\rho \left(\frac{1}{2} \|x_0-y_0\|^2\right)+2Lt P \|x_0-y_0\|^2.
+\end{equation}</p>
+
+<p>Define $\alpha(t)=\frac{1}{2} \|x-y\|^2$, then we have</p>
+
+<p>\begin{equation}\notag
+\alpha’(t)\leq -\alpha(0) (\rho(t)-4L t P(t)).
+\end{equation}</p>
+
+<p>Integrating both sides and combining the fact that $\alpha’(0)=0$, we have</p>
+
+\[\begin{align}
+\alpha'(t)&amp;=\int_0^t \alpha'(s) ds \notag\\
+\qquad\ &amp;\leq -\int_0^t \alpha(0) (\rho(s)-4L t P(s))ds \notag\\
+\qquad\ &amp;\leq -\alpha(t)\left(P(t) - 4LP(t) \int_0^t s ds\right) \notag\\
+\qquad\ &amp;=-\alpha(0)P(t)(1-2Lt^2). \notag
+\end{align}\]
+
+<p>Choose $t \in [0, \frac{1}{2\sqrt{L}}]$, then we can deduce that
+\begin{equation}\notag
+\alpha’(t)\leq -\alpha(0) \frac{\mu}{2} t.
+\end{equation}</p>
+
+<p>Eventually, we have the desired result such that</p>
+
+<p>\begin{equation}\notag
+\alpha(t)=\alpha(0)+\int_0^t \alpha’(s) d s \leq \alpha(0) \left(1-\frac{\mu}{4} t^2\right).
+\end{equation}</p>
+
+<p>Setting $t=T=1/(c\sqrt{L})$ for some constant $c\geq 2$, we get</p>
+
+<p>\begin{equation}\notag
+|x(T)-y(T)|^2 \leq \left(1-\frac{1}{4c^2 \kappa}\right)|x(0)-y(0)|^2.
+\end{equation}</p>
+
+<p>Eventually, we can achieve the convergence in Wasserstein distance such that</p>
+
+<p>\begin{equation}\notag
+W^2_2(\nu_k, \pi)\leq E\left[|x_k-y_k|^2\right]\leq \left(1-\frac{1}{4c^2 \kappa}\right)^k O(1).
+\end{equation}</p>
+
+<h2 id="discretized-hmc">Discretized HMC</h2>
+
+<p><a class="citation" href="#MV18">(Mangoubi &amp; Vishnoi, 2018)</a> proposed to approximate the Hamiltonian trajectory with a second-order Euler integrator such that</p>
+
+<p>\begin{equation}\notag
+\hat{x_{\eta}}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \quad \hat{v_{\eta}}(x, v)=v-\eta \nabla f(x) - \frac{1}{2} \eta^2 \nabla^2 f(x) v.
+\end{equation}</p>
+
+<p>Since Hessian is expensive to computate and store, an approximation is conducted through</p>
+
+<p>\begin{equation}\notag
+\nabla^2 f(x) v \approx \frac{\nabla f(\hat{x_{\eta}}) - \nabla f(x)}{\eta},
+\end{equation}</p>
+
+<p>Now, the numerical integrator follows that</p>
+
+<p>\begin{equation}\notag
+\hat{x_{\eta}}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad \hat{v_{\eta}}(x, v)=v-\frac{1}{2}\eta (\nabla f(x) - \nabla f(\hat{x_{\eta}})).
+\end{equation}</p>
+
+<p>It can be shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions <a class="citation" href="#MV18">(Mangoubi &amp; Vishnoi, 2018)</a>. Other interesting persepectives can be seen in <a class="citation" href="#Che20">(“Fast Mixing of Metropolized Hamiltonian Monte Carlo: Benefits of Multi-Step Gradients,” 2020)</a>.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity <a class="citation" href="#HG14">(Hoffman, 2014)</a>.</p>
+
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="Nea11">Neal, R. M. (2011). MCMC using Hamiltonian dynamics. <i>Handbook of Markov Chain Monte Carlo</i>.</span></li>
+<li><span id="MRRT53">Metropolis, et al. (1953). Equation of State Calculations by Fast Computing Machines. <i>Journal of Chemical Physics</i>.</span></li>
+<li><span id="CV19">Zongchen Chen, S. S. V. (2019). Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions. <i>Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques.</i></span></li>
+<li><span id="MV18">Mangoubi, O., &amp; Vishnoi, N. K. (2018). Dimensionally tight running time bounds for second-order Hamiltonian Monte Carlo. <i>NeurIPS</i>.</span></li>
+<li><span id="Che20">Fast mixing of Metropolized Hamiltonian Monte Carlo: Benefits of multi-step gradients. (2020). <i>Journal of Machine Learning Research</i>.</span></li>
+<li><span id="HG14">Hoffman, M. D. (2014). The No-U-Turn Sampler: Adaptively Setting Path Lengths in Hamiltonian Monte Carlo. <i>Journal of Machine Learning Research</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

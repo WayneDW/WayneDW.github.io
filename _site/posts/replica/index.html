@@ -1,0 +1,113 @@
+<html>
+<head>
+    <title>Replica Exchange and Variance Reduction</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+	<li><a href='/blog/'>Blog</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Replica Exchange and Variance Reduction</h1>
+            <h4>Running multiple MCMCs at different temperatures to explore the solution thoroughly.</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>01 May 2021</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>Variance-reduced sampling algorithms <a class="citation" href="#Dubey16">(Dubey et al., 2016)</a> <a class="citation" href="#Xu18">(Xu et al., 2018)</a> are not widely adopted in practice. Alternatively, we focus on the energy variance reduction to exploit exponential accelerations but no longer consider the gradient variance reduction.</p>
+
+<p>To this end, we consider a standard sampling algorithm, the stochastic gradient Langevin dynamics (SGLD), which is a mini-batch numerical discretization of a stochastic differential equation (SDE) as follows:</p>
+
+<p>\begin{equation}
+\beta_{k+1}=\beta_k - \eta \frac{N}{n}\nabla \sum_{i\in B} L(x_i|\beta_k) + \sqrt{2\eta\tau_1} \xi_k,
+\end{equation}</p>
+
+<p>where $\beta\in\mathbb{R}^d$, $L(x_i|\beta)$ is the energy function based on the i-th data point and B denotes a data set of size $n$ simulated from the whole data of size $N$. $\xi$ is a d-dimensional Gaussian vector. It is known that a non-convex $U(\cdot)$ often leads to an exponentially slow mixing rate.</p>
+
+<!--- Simulated annealing is adopted in almost every espect in deep learning, which proposes to anneal temperatures to concentrate the probability measures towards the global optima. Such a strategy, however, fails in uncertainty estimations for reliable predictions. -->
+
+<p>To accelerate the simulations, replica exchange proposes to run multiple stochastic processes with different temperatures, where interactions between different SGLD chains are conducted in a manner that encourages large jumps <a class="citation" href="#yin_zhu_10">(Yin &amp; Zhu, 2010)</a> <a class="citation" href="#chen2018accelerating">(Chen et al., 2019)</a> <a class="citation" href="#deng2020">(Deng et al., 2020)</a> <a class="citation" href="#deng_VR">(Deng et al., 2021)</a>.</p>
+
+<!--- The following is a figure that shows the trajectory of the algorithm, where the right path denotes a process driven by a high temperature and the blue one denotes a low-temperature process. -->
+
+<p align="center">
+    <img src="/images/reSGLD_exploitation_exploration.png" width="500" height="220" />
+</p>
+
+<p>In particular, the parameters swap the positions with a probability $1\wedge S(\beta^{(1)}, \beta^{(2)})$</p>
+
+<p>\begin{equation}
+S(\beta^{(1)}, \beta^{(2)})=e^{\left(\frac{1}{\tau_1}-\frac{1}{\tau_2}\right)\left(\frac{N}{n}\sum_{i\in B} L(x_i|\beta^{(1)})-\frac{N}{n}\sum_{i\in B} L(x_i|\beta^{(2)})-(\frac{1}{\tau_1}-\frac{1}{\tau_2})\sigma^2\right)},
+\end{equation}</p>
+
+<p>where $\sigma^2$ is the variance of the noisy estimators $\sum_{i\in B} L(x_i|\cdot)$. Under Normality assumptions, the above rule leads to an unbiased swapping probability, which satisfy the detailed balance in a stochastic sense. However, the efficiency of the swaps are significantly reduced due to the requirement of corrections to avoid biases.</p>
+
+<p>The desire to obtain more effective swaps drives us to design more efficient energy estimators. To reduce the variance of the noisy energy estimator $L(B|\beta^{(h)})=\frac{N}{n}\sum_{i\in B}L(x_i|\beta^{(h)})$ for $h\in{1,2}$, we consider an unbiased estimator $L(B|\widehat\beta^{(h)})$ for $\sum_{i=1}^N L(x_i|\widehat\beta^{(h)})$ and a constant $c$, we see that a new estimator $\widetilde L(B| \beta^{(h)})$, which follows
+\begin{equation}
+    \widetilde L(B|\beta^{(h)})= L(B|\beta^{(h)}) +c\left( L(B|\widehat\beta^{(h)}) -\sum_{i=1}^N L (x_i| \widehat \beta^{(h)})\right),
+\end{equation}
+is still the unbiased estimator for $\sum_{i=1}^N L(x_i| \beta^{(h)})$. Moreover, energy variance reduction potentially increases the swapping efficiency exponentially given a larger batch size $n$, a small learning rate $\eta$, and a more frequent update of control variate $\widehat \beta$, i.e. a small $m$</p>
+
+<p>\begin{equation}
+Var\left(\widetilde L(B|\beta^{(h)})\right)\leq O\left(\frac{m^2 \eta}{n}\right).
+\end{equation}</p>
+
+<p>The following shows a demo that explains how variance-reduced reSGLD works.</p>
+
+<p float="left" align="center">
+  <img src="/images/VR-reSGLD/SGLD.gif" width="185" title="SGLD" />
+  <img src="/images/VR-reSGLD/reSGLD_vs_VR_reSGLD.gif" width="340" alt="Made with Angular" title="reSGLD vs VR-reSGLD" />
+</p>
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="Dubey16">Dubey, A., Reddi, S. J., Póczos, B., Smola, A. J., Xing, E. P., &amp; Williamson, S. A. (2016). Variance Reduction in Stochastic Gradient Langevin Dynamics. <i>NeurIPS</i>.</span></li>
+<li><span id="Xu18">Xu, P., Chen, J., Zou, D., &amp; Gu, Q. (2018). Global Convergence of Langevin Dynamics Based Algorithms for Nonconvex Optimization. <i>NeurIPS</i>.</span></li>
+<li><span id="yin_zhu_10">Yin, G., &amp; Zhu, C. (2010). <i>Hybrid Switching Diffusions: Properties and Applications</i>. Springer.</span></li>
+<li><span id="chen2018accelerating">Chen, Y., Chen, J., Dong, J., Peng, J., &amp; Wang, Z. (2019). Accelerating Nonconvex Learning via Replica Exchange Langevin Diffusion. <i>ICLR</i>.</span></li>
+<li><span id="deng2020">Deng, W., Feng, Q., Gao, L., Liang, F., &amp; Lin, G. (2020). Non-Convex Learning via Replica Exchange Stochastic Gradient MCMC. <i>ICML</i>.</span></li>
+<li><span id="deng_VR">Deng, W., Feng, Q., Karagiannis, G., Lin, G., &amp; Liang, F. (2021). Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction. <i>ICLR</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>
