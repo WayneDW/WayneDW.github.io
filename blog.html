@@ -31,40 +31,53 @@ permalink: /blog/
                 <a href='https://en.wikipedia.org/wiki/Raymond_Poincar%C3%A9' target='_blank'>Raymond Poincaré</a>
             </div>
         </div>
+        <button id="All" onclick="filterUsingCategory('All')" style="border:none;background: none;">
+            <b> Show All </b>
+          </button>
+          {% assign categories = site.categories | sort %}
+          {% for category in categories %}
+            {% assign cat = category | first %}
+            <button id="{{ cat }}" onclick="filterUsingCategory(this.id)" style="border:none;background: none;">
+                <b> {{ cat }} </b>
+            </button>
+          {% endfor %}
+          <span class='hidden'></span>
 
-        <div id='tags'>
-            <ul id="tag-nav">
-                <li>
-                    <a href="/posts/tags/all">All</a>
-                    <a href="/posts/CSGLD/">Monte Carlo</a>
-                    <a href="/posts/replica/">Monte Carlo</a>
-                    <a href="/posts/Hamiltonian/">Monte Carlo</a>
-                    <a href="/posts/Couplings/">Coupling</a>
-                    <a href="/posts/coupling_by_reflection/">Coupling</a>
-                    <a href="/posts/Lyapunov_Poincare/">Functional Inequality</a>
-                    <a href="/posts/Bridge/">Diffusion Models</a>
-                </li>
-            </ul>
-        </div>
+          
+
+          <script type="text/javascript">
+            function filterUsingCategory(selectedCategory) {
+              var id = 0;
+              {% for post in site.posts %}
+                var cats = {{ post.categories | jsonify }}
+          
+                var postDiv = document.getElementById(++id);
+                postDiv.style.display =
+                  (selectedCategory == 'All' || cats.includes(selectedCategory)) 
+                    ? 'unset' 
+                    : 'none';
+              {% endfor %}
+            }
+          </script>
         <div id='posts' class='section'>
+            {% assign id = 0 %}
             {% for post in site.posts %}
+            {% assign id = id | plus:1 %}
+            <div class="post" id="{{id}}">
+                <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="{{ post.url }}">
-                            
-                            {{ post.title }}
-                        </a>
+                        <a href="{{ post.url }}">  {{ post.title }} </a>
                     </p>
-                    <p class='post-date'>
-                        {{ post.date | date_to_long_string }}
-                    </p>
+                    <p class='post-date'> {{ post.date | date_to_long_string }} </p>
                 </div>
-                <p class='post-subtitle'>
-                    {{ post.subtitle }}
-                </p>
+                <p class='post-subtitle'> {{ post.subtitle }} </p>
                 <span class='hidden'>{{ forloop.index }}</span>
+                </p>
+            </div>
             {% endfor %}
         </div>
     </div>
 </body>
+
 </html>

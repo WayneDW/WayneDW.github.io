@@ -6,6 +6,7 @@ permalink: /posts/Girsanov_MLE/
 tags:
   - Girsanov theorem
   - Maximum likelihood estimation
+category: likelihood
 ---
 
 ### Maximum likelihood estimation
