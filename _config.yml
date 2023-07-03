@@ -103,9 +103,6 @@ collections:
 
 # Defaults
 defaults:
-- scope:
-      path: "images"
-      type: images
   # _posts
   - scope:
       path: ""

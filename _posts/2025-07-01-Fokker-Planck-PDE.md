@@ -1,8 +1,8 @@
 ---
-title: 'The Conjoined Triangle of Flow, Diffusion, and PDE'
+title: 'The Conjoined Triangle of Flows, Diffusions, and PDEs'
 subtitle: A General Framework for Flows, Diffusions, and PDEs.
-date: 2023-07-01
-permalink: /posts/flow_diffusion_PDE/
+date: 2025-07-01
+permalink: /posts/FPK/
 category: Diffusion Model
 ---
 

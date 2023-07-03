@@ -3,10 +3,6 @@ title: 'Girsanov and MLE'
 subtitle: An application of Girsanov theorem in parameter estimation.
 date: 2023-03-20
 permalink: /posts/Girsanov_MLE/
-tags:
-  - Girsanov theorem
-  - Maximum likelihood estimation
-category: likelihood
 ---
 
 ### Maximum likelihood estimation
