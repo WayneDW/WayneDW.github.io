@@ -6,8 +6,9 @@ permalink: /posts/flow_diffusion_PDE/
 category: Diffusion Model
 ---
 
+TBD ongoing blog....
 
-Consider a diffusion process that solves the Itô's SDE:
+<!-- Consider a diffusion process that solves the Itô's SDE:
 
 $$\begin{align}
 \mathrm{d} X=-\bm{b}(X) \mathrm{d} t + \sqrt{2\tau} \mathrm{d} B_t.\notag
@@ -47,7 +48,7 @@ SDE pg. 110
 
 FPK
 
-Probability flux / vector field? 
+Probability flux / vector field?  -->
 
 
 
