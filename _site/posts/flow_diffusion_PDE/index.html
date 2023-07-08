@@ -41,7 +41,7 @@
     <div class='front-matter'>
         <div class='wrap'>
             <h1>The Conjoined Triangle of Flow, Diffusion, and PDE</h1>
-            <h4>A General Framework for Flows, Diffusions, and PDEs.</h4>
+            <h4>Connections between Probability Flows, Diffusions, and PDEs.</h4>
             <div class='bylines'>
                 <div class='byline'>
                     <!-- <h3>Published</h3> -->
@@ -52,71 +52,112 @@
         </div>
     </div>
     <div class='wrap article'>
-        <p>TBD ongoing blog….</p>
+        <!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
 
-<!-- Consider a diffusion process that solves the Itô's SDE:
+<h3 id="diffusion-process">Diffusion Process</h3>
 
-$$\begin{align}
-\mathrm{d} X=-\bm{b}(X) \mathrm{d} t + \sqrt{2\tau} \mathrm{d} B_t.\notag
-\end{align}$$
+<p>Consider a diffusion process that solves the Itô’s SDE <a class="citation" href="#oksendal2003stochastic">(Øksendal, 2003)</a>:</p>
 
+\[\begin{align}
+\mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}}(\mathrm{X}_t, t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\notag
+\end{align}\]
 
-The generator of the diffusion follows that
-$$\begin{align}
-\mathcal{L}=-\mu(X) \cdot \nabla +\tau \Delta.
-\end{align}$$
+<p>Denote by $\mathrm{P}_t$ the transition function of Markov process</p>
 
-The probability density function $\rho(X,t)$ of $X_t$ is the solution of the Fokker-Planck PDE.
-$$\begin{align}
-\frac{\partial \rho}{\partial t}=\nabla \cdot (\nabla V \rho) + \tau \Delta \rho. \notag \\
-\end{align}$$
+\[\begin{align}
+(\mathrm{P}_t f)(x)=\int f(y)\mathrm{P}(t, x, \mathrm{d} y)\notag.
+\end{align}\]
 
+<p>Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)|\mathrm{X}_s=x)$, we have the backward Kolmogorov equation</p>
 
-Rewrite the Laplacian term, the Fokker Planck PDE is also euivalent to the flow as follows:
-$$\begin{align}
-xxx
-\end{align}$$
+\[\begin{align}
+\mathscr{L}&amp;=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
+           &amp;=\sum_{j=1}^d \mathrm{v}_j\frac{\partial}{\partial x_j} + \frac{1}{2}\sum_{i,j=1}^d \Sigma_{ij}\frac{\partial^2}{\partial x_i \partial x_j}\notag.
+\end{align}\]
 
+<p>where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\mathbb{R}^d$, $\Sigma(x)=\sigma(x) \sigma(x)^\intercal$ and $D^2$ denotes the Hessian matrix.</p>
 
-Ricky's divergence flow.
+<!-- # https://openreview.net/pdf?id=x9tAJ3_N0k -->
 
+<h3 id="fokker-planck-equation">Fokker-Planck Equation</h3>
 
-[JKO98] Wasserstein gradient flow of the KL divergence functional
+<p>Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures</p>
 
+\[\begin{align}
+\mathrm{P}^{*}_t \mu(\Gamma)=\int \mathrm{P}(t, x, \Gamma)\mathrm{d} \mu(x)\notag.
+\end{align}\]
 
-Chin-Wei Huang's score matching and divergence loss/ Hutchinson.
+<p>The semigroup $\mathrm{P}_t$ and $\mathrm{P}_t^{*}$ are adjoint in $L^2$ such that</p>
 
+\[\begin{align}
+\int (\mathrm{P}_t f)\mathrm{d}\mu=\int f\mathrm{d}(\mathrm{P}_t^{*}\mu)\notag,
+\end{align}\]
 
- infinitesimal ... 
-SDE pg. 110
+<p>which yields</p>
 
+\[\begin{align}
+\int \mathscr{L} f h \mathrm{d} x = \int f \mathscr{L}^* h \mathrm{d}x, \text{ where } \mathrm{P}_t^*=e^{t {\mathscr{L}}^*}.\notag
+\end{align}\]
 
+<p>Let $p_t$ denote the law of the Markov process at time $t$. The law of $p_t$ follows that</p>
 
-FPK
+\[\begin{align}
+\frac{\partial p_t}{\partial t} =\mathscr{L}^* p_t,\notag
+\end{align}\]
 
-Probability flux / vector field?  -->
+<p>which is the Fokker-Planck equation. Analyzing the evolution of the probability densities, we have</p>
 
-<!-- 
+\[\begin{align}
+\mathscr{L}^{*} p_t&amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
+                &amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
+                &amp;=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \notag \\
+\end{align}\]
 
+<p>where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.</p>
 
-  <a class="citation" href="#stochastic_process_applications">(Pavliotis, 2014)</a>
+<h3 id="probability-flow">Probability Flow</h3>
 
-  <!-- <a class="citation" href="#Variational_score_matching">(Huang et al., 2021)</a>
+<p>Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation <a class="citation" href="#OT_applied_math">(Santambrogio, 2015)</a> or continuity equation in fluid dynamics <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>.</p>
 
-  <a class="citation" href="#Albergo_unified_framework">(Albergo et al., 2023)</a>
+\[\begin{align}
+\partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\notag
+\end{align}\]
 
-  <a class="citation" href="#score_sde">(Song et al., 2021)</a> -->
-<p>–&gt;</p>
+<p>Interestingly, it corresponds to the probability flow ODE <a class="citation" href="#score_sde">(Song et al., 2021)</a></p>
+
+\[\begin{align}
+\mathrm{d} X_t={\boldsymbol{\nu_t}}(X_t) \mathrm{d} t.\notag
+\end{align}\]
+
+<p>Apply the instantaneous change of variables <a class="citation" href="#neural_ode">(Chen et al., 2018)</a>, the <strong>log-likelihood</strong> of $p_0(x)$ follows that</p>
+
+\[\begin{align}
+\log p_0(x)=\log p_T(x) + \int_0^T \nabla \cdot {\boldsymbol{\nu_t}} \mathrm{d} t,\notag
+\end{align}\]
+
+<p>which provides an elegant way to compute the likelihood for diffusion models.</p>
+
+<p>In practice, it is expensive to evaluate the divergence $\nabla \cdot {\boldsymbol{\nu_t}}$. We can adopt the Hutchinson trace estimator <a class="citation" href="#Hutchinson89">(Hutchinson, 1989)</a>.</p>
+
+\[\begin{align}
+\nabla \cdot {\boldsymbol{\nu_t}} = \mathbb{E} \big[\epsilon^\intercal \nabla {\boldsymbol{\nu_t}} \epsilon \big],
+\end{align}\]
+
+<p>where $\nabla {\boldsymbol{\nu_t}}$ is the Jaconbian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.</p>
+
 
     </div>
     <div id='bibliography'>
         <div class='wrap'>
-            <ol class="bibliography"><li><span id="stochastic_process_applications">Pavliotis, G. A. (2014). <i>Stochastic Processes and Applications: Diffusion Processes, the Fokker-Planck and Langevin Equations</i>. Springer.</span></li>
-<li><span id="Variational_score_matching">Huang, C.-W., Lim, J. H., &amp; Courville, A. (2021). A Variational Perspective on Diffusion-Based
-Generative Models and Score Matching. <i>NeurIPS</i>.</span></li>
-<li><span id="Albergo_unified_framework">Albergo, M. S., Bof, N. M., &amp; Vanden-Eijnden, E. (2023). Stochastic Interpolants: A Unifying Framework for Flows and Diffusions. <i>ArXiv:2303.08797v1</i>, 1–48.</span></li>
+            <ol class="bibliography"><li><span id="oksendal2003stochastic">Øksendal, B. (2003). <i>Stochastic Differential Equations: An Introduction with Applications</i>. Springer.</span></li>
+<li><span id="OT_applied_math">Santambrogio, F. (2015). <i>Optimal Transport for Applied Mathematicians: 
+ Calculus of Variations, PDEs, and Modeling</i>. Springer.</span></li>
+<li><span id="log_concave_sampling">Chewi, S. (2023). <i>Log-Concave Sampling</i>. Online Draft.</span></li>
 <li><span id="score_sde">Song, Y., Sohl-Dickstein, J., Kingma, D. P., Kumar, A., Ermon, S., &amp; Poole, B. (2021). Score-Based Generative Modeling through Stochastic Differential Equations
-. <i>ICLR</i>.</span></li></ol>
+. <i>ICLR</i>.</span></li>
+<li><span id="neural_ode">Chen, R. T. Q., Rubanova, Y., Bettencourt, J., &amp; Duvenaud, D. (2018). Neural Ordinary Differential Equations. <i>NeurIPS</i>.</span></li>
+<li><span id="Hutchinson89">Hutchinson, M. F. (1989). A Stochastic Estimator of the Trace of the Influence Matrix for Laplacian
+Smoothing Splines. <i>Communications in Statistics-Simulation and Computation</i>, <i>18</i>(3), 1059–1076.</span></li></ol>
         </div>
     </div>
 </div>
