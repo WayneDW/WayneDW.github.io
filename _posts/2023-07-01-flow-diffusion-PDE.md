@@ -13,7 +13,7 @@ category: Diffusion Model
 Consider a diffusion process that solves the Itô's SDE {% cite oksendal2003stochastic %}:
 
 $$\begin{align}
-\mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}}(\mathrm{X}_t, t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\notag
+\mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\notag
 \end{align}$$
 
 Denote by $\mathrm{P}_t$ the transition function of Markov process
@@ -22,7 +22,9 @@ $$\begin{align}
 (\mathrm{P}_t f)(x)=\int f(y)\mathrm{P}(t, x, \mathrm{d} y)\notag.
 \end{align}$$
 
-Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)\|\mathrm{X}_s=x)$, we have the backward Kolmogorov equation
+We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.
+
+Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)\|\mathrm{X}_s=x)$ for a bounded function $f$, we have the *backward Kolmogorov equation*
 
 $$\begin{align}
 \mathscr{L}&=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
@@ -34,7 +36,7 @@ where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\ma
 
 <!-- # https://openreview.net/pdf?id=x9tAJ3_N0k -->
 
-### Fokker-Planck Equation
+### Fokker-Planck PDE
 
 Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures 
 
@@ -107,4 +109,11 @@ $$\begin{align}
 \end{align}$$
 
 where $\nabla {\boldsymbol{\nu_t}}$ is the Jaconbian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.
+
+
+The following is a demo that describes the connections:
+
+<p align="center">
+    <img src="/images/ODE_PDE_SDE.png" width="300" />
+</p>
 
