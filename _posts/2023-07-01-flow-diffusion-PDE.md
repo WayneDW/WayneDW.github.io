@@ -63,7 +63,7 @@ $$\begin{align}
 \frac{\partial p_t}{\partial t} =\mathscr{L}^* p_t,\notag
 \end{align}$$
 
-which is the Fokker-Planck equation. Analyzing the evolution of the probability densities, we have
+which is the Fokker-Planck equation (PDE), also known as *forward Kolmogorov equation*. Analyzing the evolution of the probability densities, we have
 
 $$\begin{align}
 \mathscr{L}^{*} p_t&=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
