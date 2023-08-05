@@ -13,7 +13,7 @@ category: Diffusion Model
 Consider a diffusion process that solves the Itô's SDE {% cite oksendal2003stochastic %}:
 
 $$\begin{align}
-\mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\notag
+\mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\label{SDE}
 \end{align}$$
 
 Denote by $\mathrm{P}_t$ the transition function of Markov process
@@ -68,7 +68,7 @@ which is the Fokker-Planck equation (PDE), also known as *forward Kolmogorov equ
 $$\begin{align}
 \mathscr{L}^{*} p_t&=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
                 &=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
-                &=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \notag \\
+                &=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
 \end{align}$$
 
 where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.
@@ -81,7 +81,7 @@ where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.
 Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation {% cite OT_applied_math %} or continuity equation in fluid dynamics {% cite log_concave_sampling %}.
 
 $$\begin{align}
-\partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\notag
+\partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\label{ODE}
 \end{align}$$
 
 Interestingly, it corresponds to the probability flow ODE {% cite score_sde %}
@@ -109,6 +109,37 @@ $$\begin{align}
 \end{align}$$
 
 where $\nabla {\boldsymbol{\nu_t}}$ is the Jaconbian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.
+
+
+
+#### Wasserstein Gradient Flow
+
+Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv\boldsymbol{\mathrm{v}}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the *tangent vector* for the curves of measures $t\rightarrow p_t$ {% cite JKO98 %} {% cite log_concave_sampling %}. Define a functional $\mathcal{F}=\text{KL}(\cdot\|\|\pi)$, where $\pi\propto \exp(-\mathrm{V})$ and $\boldsymbol{\mathrm{v}}=-\nabla \mathrm{V}$. We have
+
+$$\begin{align}
+\mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int \mathrm{V} \mathrm{d} p + \int p \log p.\notag
+\end{align}$$
+
+Taking the first variation of $\mathcal{F}$ at $p$, we have
+
+$$\begin{align}
+\delta \mathcal{F}(p)= \mathrm{V} + \log p+\text{constant}.\notag
+\end{align}$$
+
+The Wasserstein gradient at $p$ follows that
+
+$$\begin{align}
+\nabla_{\text{W}_2} \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p= -\boldsymbol{\mathrm{v}} + \nabla\log p=-\boldsymbol{\nu},\notag
+\end{align}$$
+
+where the last equality follows by Eq.\eqref{FPE}.
+
+Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$ 
+
+$$\begin{align}
+\partial_t p_t =\nabla \cdot \bigg(\nabla_{\text{W}_2} \mathcal{F}(p_t) p_t\bigg).\notag
+\end{align}$$
+
 
 
 The following is a demo that describes the connections:

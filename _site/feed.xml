@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-14T08:20:43-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">The Conjoined Triangle of Flow, Diffusion, and PDE</title><link href="http://localhost:4000/posts/flow_diffusion_PDE/" rel="alternate" type="text/html" title="The Conjoined Triangle of Flow, Diffusion, and PDE" /><published>2023-07-01T00:00:00-07:00</published><updated>2023-07-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/flow-diffusion-PDE</id><content type="html" xml:base="http://localhost:4000/posts/flow_diffusion_PDE/"><![CDATA[<!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-08-05T08:40:22-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">The Conjoined Triangle of Flow, Diffusion, and PDE</title><link href="http://localhost:4000/posts/flow_diffusion_PDE/" rel="alternate" type="text/html" title="The Conjoined Triangle of Flow, Diffusion, and PDE" /><published>2023-07-01T00:00:00-07:00</published><updated>2023-07-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/flow-diffusion-PDE</id><content type="html" xml:base="http://localhost:4000/posts/flow_diffusion_PDE/"><![CDATA[<!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
 
 <h3 id="diffusion-process">Diffusion Process</h3>
 
 <p>Consider a diffusion process that solves the Itô’s SDE <a class="citation" href="#oksendal2003stochastic">(Øksendal, 2003)</a>:</p>
 
 \[\begin{align}
-\mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\notag
+\mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\label{SDE}
 \end{align}\]
 
 <p>Denote by $\mathrm{P}_t$ the transition function of Markov process</p>
@@ -53,12 +53,12 @@
 \frac{\partial p_t}{\partial t} =\mathscr{L}^* p_t,\notag
 \end{align}\]
 
-<p>which is the Fokker-Planck equation. Analyzing the evolution of the probability densities, we have</p>
+<p>which is the Fokker-Planck equation (PDE), also known as <em>forward Kolmogorov equation</em>. Analyzing the evolution of the probability densities, we have</p>
 
 \[\begin{align}
 \mathscr{L}^{*} p_t&amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
                 &amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
-                &amp;=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \notag \\
+                &amp;=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
 \end{align}\]
 
 <p>where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.</p>
@@ -68,7 +68,7 @@
 <p>Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation <a class="citation" href="#OT_applied_math">(Santambrogio, 2015)</a> or continuity equation in fluid dynamics <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>.</p>
 
 \[\begin{align}
-\partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\notag
+\partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\label{ODE}
 \end{align}\]
 
 <p>Interestingly, it corresponds to the probability flow ODE <a class="citation" href="#score_sde">(Song et al., 2021)</a></p>
@@ -92,6 +92,34 @@
 \end{align}\]
 
 <p>where $\nabla {\boldsymbol{\nu_t}}$ is the Jaconbian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.</p>
+
+<h4 id="wasserstein-gradient-flow">Wasserstein Gradient Flow</h4>
+
+<p>Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv\boldsymbol{\mathrm{v}}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the <em>tangent vector</em> for the curves of measures $t\rightarrow p_t$ <a class="citation" href="#JKO98">(Richard Jordan, 1998)</a> <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>. Define a functional $\mathcal{F}=\text{KL}(\cdot||\pi)$, where $\pi\propto \exp(-\mathrm{V})$ and $\boldsymbol{\mathrm{v}}=-\nabla \mathrm{V}$. We have</p>
+
+\[\begin{align}
+\mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int \mathrm{V} \mathrm{d} p + \int p \log p.\notag
+\end{align}\]
+
+<p>Taking the first variation of $\mathcal{F}$ at $p$, we have</p>
+
+\[\begin{align}
+\delta \mathcal{F}(p)= \mathrm{V} + \log p+\text{constant}.\notag
+\end{align}\]
+
+<p>The Wasserstein gradient at $p$ follows that</p>
+
+\[\begin{align}
+\nabla_{\text{W}_2} \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p= -\boldsymbol{\mathrm{v}} + \nabla\log p=-\boldsymbol{\nu},\notag
+\end{align}\]
+
+<p>where the last equality follows by Eq.\eqref{FPE}.</p>
+
+<p>Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$</p>
+
+\[\begin{align}
+\partial_t p_t =\nabla \cdot \bigg(\nabla_{\text{W}_2} \mathcal{F}(p_t) p_t\bigg).\notag
+\end{align}\]
 
 <p>The following is a demo that describes the connections:</p>
 
