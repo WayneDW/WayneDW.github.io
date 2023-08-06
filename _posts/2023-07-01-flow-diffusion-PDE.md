@@ -117,7 +117,7 @@ where $\nabla {\boldsymbol{\nu_t}}$ is the Jaconbian of ${\boldsymbol{\nu_t}}$; 
 Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the *tangent vector* for the curves of measures $t\rightarrow p_t$ {% cite JKO98 %} {% cite log_concave_sampling %}. Define a functional $\mathcal{F}=\text{KL}(\cdot\|\|\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have
 
 $$\begin{align}
-\mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int \mathrm{V} \mathrm{d} p + \int p \log p.\notag
+\mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int \mathrm{V} p + \int p \log p.\notag
 \end{align}$$
 
 Taking the first variation of $\mathcal{F}$ at $p$, we have
