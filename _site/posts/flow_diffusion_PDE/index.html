@@ -149,7 +149,7 @@
 
 <h4 id="wasserstein-gradient-flow">Wasserstein Gradient Flow</h4>
 
-<p>Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv\boldsymbol{\mathrm{v}}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the <em>tangent vector</em> for the curves of measures $t\rightarrow p_t$ <a class="citation" href="#JKO98">(Richard Jordan, 1998)</a> <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>. Define a functional $\mathcal{F}=\text{KL}(\cdot||\pi)$, where $\pi\propto \exp(-\mathrm{V})$ and $\boldsymbol{\mathrm{v}}=-\nabla \mathrm{V}$. We have</p>
+<p>Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the <em>tangent vector</em> for the curves of measures $t\rightarrow p_t$ <a class="citation" href="#JKO98">(Richard Jordan, 1998)</a> <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>. Define a functional $\mathcal{F}=\text{KL}(\cdot||\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have</p>
 
 \[\begin{align}
 \mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int \mathrm{V} \mathrm{d} p + \int p \log p.\notag
@@ -164,7 +164,7 @@
 <p>The Wasserstein gradient at $p$ follows that</p>
 
 \[\begin{align}
-\nabla_{\text{W}_2} \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p= -\boldsymbol{\mathrm{v}} + \nabla\log p=-\boldsymbol{\nu},\notag
+\nabla_{\text{W}_2} \mathcal{F}(p):=\nabla \delta \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p=-\boldsymbol{\nu},\notag
 \end{align}\]
 
 <p>where the last equality follows by Eq.\eqref{FPE}.</p>

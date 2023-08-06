@@ -114,7 +114,7 @@ where $\nabla {\boldsymbol{\nu_t}}$ is the Jaconbian of ${\boldsymbol{\nu_t}}$; 
 
 #### Wasserstein Gradient Flow
 
-Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv\boldsymbol{\mathrm{v}}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the *tangent vector* for the curves of measures $t\rightarrow p_t$ {% cite JKO98 %} {% cite log_concave_sampling %}. Define a functional $\mathcal{F}=\text{KL}(\cdot\|\|\pi)$, where $\pi\propto \exp(-\mathrm{V})$ and $\boldsymbol{\mathrm{v}}=-\nabla \mathrm{V}$. We have
+Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the *tangent vector* for the curves of measures $t\rightarrow p_t$ {% cite JKO98 %} {% cite log_concave_sampling %}. Define a functional $\mathcal{F}=\text{KL}(\cdot\|\|\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have
 
 $$\begin{align}
 \mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int \mathrm{V} \mathrm{d} p + \int p \log p.\notag
@@ -129,7 +129,7 @@ $$\begin{align}
 The Wasserstein gradient at $p$ follows that
 
 $$\begin{align}
-\nabla_{\text{W}_2} \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p= -\boldsymbol{\mathrm{v}} + \nabla\log p=-\boldsymbol{\nu},\notag
+\nabla_{\text{W}_2} \mathcal{F}(p):=\nabla \delta \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p=-\boldsymbol{\nu},\notag
 \end{align}$$
 
 where the last equality follows by Eq.\eqref{FPE}.
