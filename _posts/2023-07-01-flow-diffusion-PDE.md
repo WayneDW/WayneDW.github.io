@@ -1,5 +1,5 @@
 ---
-title: 'The Conjoined Triangle of Flow, Diffusion, and PDE'
+title: 'The Triangle of Flow, Diffusion, and PDE'
 subtitle: Connections between Probability Flows, Diffusions, and PDEs.
 date: 2023-07-01
 permalink: /posts/flow_diffusion_PDE/
