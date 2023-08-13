@@ -1,8 +1,8 @@
 ---
-title: 'Neural ODE'
-subtitle: Continuous-time normalizing flows.
+title: 'Flow Matching and Stochastic Interpolant'
+subtitle: TBD
 date: 2023-08-10
-permalink: /posts/neural_ode/
+permalink: /posts/flow_match_stochastic_interpolant/
 category: Diffusion Model
 ---
 
