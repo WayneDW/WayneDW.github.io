@@ -24,7 +24,7 @@ $$\begin{align}
 
 We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.
 
-Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)\|\mathrm{X}_s=x)$ for a bounded function $f$, we have the *backward Kolmogorov equation*
+Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)\|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito's formula), where $s\leq t$, we have the *backward Kolmogorov equation*
 
 $$\begin{align}
 \mathscr{L}&=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
