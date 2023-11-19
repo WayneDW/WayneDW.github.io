@@ -19,7 +19,8 @@ Current interests: Monte Carlo, diffusion models, neural SDE and filtering (with
 Contact: firstnamelastname056@gmail.com
 
 
-<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li>  <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li>  </ul>  <li> <a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank">OpenReview</a> </li>  </ul>
+<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li>  <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li>   <li> <a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank">OpenReview</a> </li>   </ul>  
+
 
 News
 =====
