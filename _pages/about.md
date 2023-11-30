@@ -27,9 +27,13 @@ News
 
 Dec, 2023. Attending [Transport, Diffusion, and Sampling Workshop](https://events.simonsfoundation.org/event/335b8972-e63d-4672-82f3-4dd95868cb40/websitePage:5849ec81-d030-4248-b300-3290be94dbdf?_gl=1*28zgwu*_ga*MzkzMDg3OTI0LjE3MDA5MzkyMjM.*_ga_C1G2F4HXQL*MTcwMTI3NzMxNi4zLjEuMTcwMTI3Nzk1Ni4wLjAuMA..)
 
+Nov, 2023. [Financial Mathematics Seminar at FSU](https://www.math.fsu.edu/finmath/seminars.php)
+
 Apr, 2023. One ICML on [diffusion models](https://arxiv.org/pdf/2305.07247) is accepted!
 
 Dec, 2022. The [Contour Sampler](https://proceedings.neurips.cc/paper/2020/file/b5b8c484824d8a06f4f3d570bc420313-Paper.pdf) is implemented in [BlackJAX](https://blackjax-devs.github.io/sampling-book/algorithms/contour_sgld.html)! 
+
+Feb, 2022. [Machine Learning Seminar at HKU](https://hkumath.hku.hk/MathWWW/event/2022/OML-DENG_Wei.pdf)
 
 Oct, 2021. I have defended my thesis!
 
