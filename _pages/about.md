@@ -29,7 +29,7 @@ Dec, 2023. Pleasure to learn in [Transport, Diffusion, and Sampling Workshop](ht
 
 Nov, 2023. Talk at [Financial Mathematics Seminar at FSU](https://www.math.fsu.edu/finmath/seminars.php)
 
-Apr, 2023. One ICML on [diffusion models](https://arxiv.org/pdf/2305.07247) is accepted!
+Apr, 2023. One ICML on [diffusion models and Schrodinger bridge](https://arxiv.org/pdf/2305.07247) is accepted!
 
 Dec, 2022. The [Contour Sampler](https://proceedings.neurips.cc/paper/2020/file/b5b8c484824d8a06f4f3d570bc420313-Paper.pdf) is implemented in [BlackJAX](https://blackjax-devs.github.io/sampling-book/algorithms/contour_sgld.html)! 
 
