@@ -6,7 +6,7 @@ author_profile: true
 ---
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/lake_tahoe.png"></p>
 
-I am a Machine Learning Researcher at Morgan Stanley. My aim is to advance probabilistic methods for more reliable AI across supervised, generative, and time-series domains. I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. 
+I am a Machine Learning Researcher at Morgan Stanley. My aim is to advance probabilistic methods across supervised, generative, and time-series domains. I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. 
 
 My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>
 
