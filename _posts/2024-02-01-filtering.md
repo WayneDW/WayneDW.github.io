@@ -1,6 +1,6 @@
 ---
 title: 'Gaussian Process and Kalman Filter'
-date: 2023-12-01
+date: 2024-02-01
 permalink: /posts/filtering_gaussian_process/
 tags:
   - Online linear regression
