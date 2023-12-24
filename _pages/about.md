@@ -33,11 +33,11 @@ Apr, 2023. NewBeginnings: One ICML on [diffusion models and Schrodinger bridge](
 
 Dec, 2022. The [Contour Sampler](https://proceedings.neurips.cc/paper/2020/file/b5b8c484824d8a06f4f3d570bc420313-Paper.pdf) is implemented in [BlackJAX](https://blackjax-devs.github.io/sampling-book/algorithms/contour_sgld.html)! 
 
-Feb, 2022. Talk at [Machine Learning Seminar at HKU](https://hkumath.hku.hk/MathWWW/event/2022/OML-DENG_Wei.pdf)
+Feb, 2022. Talk at [Opt and ML Seminar at HKU](https://hkumath.hku.hk/MathWWW/event/2022/OML-DENG_Wei.pdf)
 
 Oct, 2021. I have defended my thesis!
 
-Oct, 2020. Talk at Machine Learning + X Seminar at Brown University
+Oct, 2020. Talk at ML + X Seminar at Brown University
 
 
 
