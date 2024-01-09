@@ -7,6 +7,7 @@ author_profile: true
 
 ### Denoising Diffusion Models
 
+* **W. Deng**, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). arXiv:2401.03228, 2024
 
 * **W. Deng**, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. [On Convergence of Approximate Schrödinger Bridge with Bounded Cost](https://openreview.net/pdf?id=WQNG9CLSk4). New Frontiers in Learning, Control, and Dynamical Systems Workshop (ICML 2023)
 
