@@ -7,7 +7,7 @@ author_profile: true
 
 ### Denoising Diffusion Models
 
-* **W. Deng**<sup>*</sup>, Y. Chen<sup>*</sup>, T. Yang<sup>*</sup>, H. Du<sup>*</sup>, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). arXiv:2401.03228, 2024 (short version accepted by Learning, Control, and Dynamical Systems [Workshop](https://openreview.net/pdf?id=WQNG9CLSk4) (ICML 2023))
+* **W. Deng**<sup>*</sup><sup>#</sup>, Y. Chen<sup>*</sup>, T. Yang<sup>*</sup>, H. Du<sup>*</sup>, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). arXiv:2401.03228, 2024. A short version accepted by Learning, Control, and Dynamical Systems [ICML'23 Workshop](https://openreview.net/pdf?id=WQNG9CLSk4)
 
 
 * Y. Chen<sup>α</sup>, **W. Deng**<sup>α</sup><sup>#</sup>, S. Fang<sup>α</sup>, F. Li<sup>α</sup>, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023 (α: alphabetical order, #: Correspondence)
