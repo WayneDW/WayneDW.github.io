@@ -7,14 +7,9 @@ category: Diffusion Model
 ---
 
 
-
-A few wonderful blogs:
-
-1. https://vaipatel.com/deriving-the-adjoint-equation-for-neural-odes-using-lagrange-multipliers/
-
-2. https://vaipatel.com/how-is-the-vector-jacobian-product-invoked-in-neural-odes/
-
-3. https://ilya.schurov.com/post/adjoint-method/
+DDPM paper: https://arxiv.org/pdf/2006.11239.pdf
+Score matching tutorial: https://drive.google.com/file/d/1DYHDbt1tSl9oqm3O333biRYzSCOtdtmn/view
+alpha blending: https://ggx-research.github.io/publication/2023/05/10/publication-iadb.html
 
 
-TBD
+learning sde can be converted to learning ode, in that case, will that resemble flow matching/ alpha blending?
