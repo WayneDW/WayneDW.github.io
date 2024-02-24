@@ -6,13 +6,10 @@ author_profile: true
 ---
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/lake_tahoe.png"></p>
 
-I am a ML Researcher at Morgan Stanley. My aim is to build scalable and reliable probabilistic methods across supervised, generative, and time-series domains. I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. 
 
-My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>
+I am an ML Researcher at Morgan Stanley. My interest is to leverage progress in GPU computing and DNN architectures to accelerate sampling, diffusion, filtering, and transport. The applications range from computer vision, time series (asset pricing in finance), and Bayesian inference. In addition to leading practical projects like [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction), I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax), supporting JAX implementations of popular sampling methods on both CPU and GPU platforms.
 
-
-
-Current interests: Monte Carlo, diffusion models, neural SDE, deep state-space/ filtering methods (applicable to finance), Thompson sampling.
+I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>
 
 
 
