@@ -7,7 +7,11 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/lake_tahoe.png"></p>
 
 
-I am an ML Researcher at Morgan Stanley. My interest is to leverage progress in GPU computing and DNN architectures to accelerate sampling, diffusion, filtering, and transport. The applications range from computer vision, time series (asset pricing in finance), and Bayesian inference. In addition to leading practical projects like [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction), I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax), supporting JAX implementations of popular sampling methods on both CPU and GPU platforms.
+I am an ML Researcher at Morgan Stanley. My interest is to leverage progress in GPU computing and DNN architectures to accelerate sampling, diffusion, filtering, and transport. The applications range from Bayesian inference, generative models, financial time series (e.g. asset pricing), and computer vision.
+
+
+Empirically, I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax), supporting JAX implementations of popular sampling methods on GPUs. I ever led [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction) in 2016, which has obtained over 700 :star: in Github. My [DeepLight](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions) model achieves the [SOTA](https://paperswithcode.com/sota/click-through-rate-prediction-on-criteo?p=a-sparse-deep-factorization-machine-for) in ad recommender system.
+
 
 I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>
 
