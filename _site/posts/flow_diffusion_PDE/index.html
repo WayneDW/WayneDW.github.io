@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>The Conjoined Triangle of Flow, Diffusion, and PDE</title>
+    <title>The Triangle of Flow, Diffusion, and PDE</title>
     <meta charset='UTF-8'>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
 
@@ -40,7 +40,7 @@
 
     <div class='front-matter'>
         <div class='wrap'>
-            <h1>The Conjoined Triangle of Flow, Diffusion, and PDE</h1>
+            <h1>The Triangle of Flow, Diffusion, and PDE</h1>
             <h4>Connections between Probability Flows, Diffusions, and PDEs.</h4>
             <div class='bylines'>
                 <div class='byline'>
@@ -70,7 +70,7 @@
 
 <p>We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.</p>
 
-<p>Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)|\mathrm{X}_s=x)$ for a bounded function $f$, we have the <em>backward Kolmogorov equation</em></p>
+<p>Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito’s formula), where $s\leq t$, we have the <em>backward Kolmogorov equation</em></p>
 
 \[\begin{align}
 \mathscr{L}&amp;=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
@@ -145,14 +145,14 @@
 \nabla \cdot {\boldsymbol{\nu_t}} = \mathbb{E} \big[\epsilon^\intercal \nabla {\boldsymbol{\nu_t}} \epsilon \big],\notag
 \end{align}\]
 
-<p>where $\nabla {\boldsymbol{\nu_t}}$ is the Jaconbian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.</p>
+<p>where $\nabla \cdot {\boldsymbol{\nu_t}}$ is the Jacobian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.</p>
 
 <h4 id="wasserstein-gradient-flow">Wasserstein Gradient Flow</h4>
 
 <p>Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the <em>tangent vector</em> for the curves of measures $t\rightarrow p_t$ <a class="citation" href="#JKO98">(Richard Jordan, 1998)</a> <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>. Define a functional $\mathcal{F}=\text{KL}(\cdot||\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have</p>
 
 \[\begin{align}
-\mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int \mathrm{V} \mathrm{d} p + \int p \log p.\notag
+\mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int p \mathrm{V} + \int p \log p.\notag
 \end{align}\]
 
 <p>Taking the first variation of $\mathcal{F}$ at $p$, we have</p>

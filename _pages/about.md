@@ -10,10 +10,10 @@ author_profile: true
 I am an ML Researcher at Morgan Stanley. My interest is to leverage progress in GPU computing and DNN architectures to accelerate sampling, diffusion, filtering, and transport. The applications include Bayesian inference, generative models, financial time series (e.g. asset pricing), and computer vision.
 
 
-Empirically, I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax), supporting JAX implementations of sampling methods on GPUs. I ever led [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction) in 2016 and [DeepLight](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions) in 2019, which has obtained over 800 stars $:star:$ in Github.
+I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax), supporting sampling methods on GPUs via JAX. I ever led [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction) in 2016 and [DeepLight](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions) in 2019.
 
 
-I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>
+I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [G. Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">F. Liang</a>. My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>
 
 
 
