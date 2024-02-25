@@ -7,7 +7,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/lake_tahoe.png"></p>
 
 
-I am an ML Researcher at Morgan Stanley. My interest is to leverage progress in GPU computing and DNN architectures to accelerate sampling, diffusion, filtering, and transport. The applications include Bayesian inference, generative models, financial time series (e.g. asset pricing), and computer vision.
+I am an ML Researcher at Morgan Stanley. My interest is to leverage the deep learning progress to accelerate sampling, diffusion, filtering, and transport. The applications include Bayesian inference, generative models, financial time series (e.g. asset pricing), and computer vision.
 
 
 I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax), supporting sampling methods on GPUs via JAX. I ever led [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction) in 2016 and [DeepLight](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions) in 2019.
