@@ -7,7 +7,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/lake_tahoe.png"></p>
 
 
-I am an ML Researcher at Morgan Stanley. My interest is to study GPU-friendly sampling, diffusion, filtering, and transport methods. The applications include Bayesian uncertainty, generative models, financial time series (e.g. asset pricing), and computer vision. I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax). I developed [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction), which inspired hundreds of fintech followers.
+I am an ML Researcher at Morgan Stanley. My interest is to study GPU-friendly sampling, diffusion, filtering, and transport methods. The applications include Bayesian uncertainty, generative models, financial time series, and computer vision. I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax). I ever developed [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction), which inspired hundreds of fintech followers.
 
 
 I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>
