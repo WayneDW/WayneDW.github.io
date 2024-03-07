@@ -1,7 +1,9 @@
 ---
 title: 'Implicit Ridge Regularization'
+subtitle: Optimal ridge penalty for real-world high-dimensional data can be zero or negative
 date: 2023-03-06
 permalink: /posts/implicit_ridge_regularization/
+category: Regression
 ---
 
 
