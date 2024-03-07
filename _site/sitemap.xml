@@ -37,7 +37,7 @@
 <lastmod>2023-05-20T00:00:00-07:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/posts/others/</loc>
+<loc>http://localhost:4000/posts/others_tmp/</loc>
 <lastmod>2023-06-20T00:00:00-07:00</lastmod>
 </url>
 <url>
@@ -76,7 +76,7 @@
 <loc>http://localhost:4000/posts/coupling_by_reflection/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/posts/others/</loc>
+<loc>http://localhost:4000/posts/others_tmp/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/posts/flow_diffusion_PDE/</loc>
