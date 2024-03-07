@@ -41,6 +41,10 @@
 <lastmod>2023-08-10T00:00:00-07:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/posts/implicit_ridge_regularization/</loc>
+<lastmod>2024-03-06T00:00:00-08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/posts/CSGLD/</loc>
 </url>
 <url>
@@ -71,7 +75,7 @@
 <loc>http://localhost:4000/posts/flow_match_stochastic_interpolant/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/posts/linear_regression/</loc>
+<loc>http://localhost:4000/posts/implicit_ridge_regularization/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/posts/log_sobolev_inequality/</loc>
