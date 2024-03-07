@@ -25,6 +25,10 @@
 <lastmod>2022-06-19T00:00:00-07:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/posts/implicit_ridge_regularization/</loc>
+<lastmod>2023-03-06T00:00:00-08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/posts/Girsanov_MLE/</loc>
 <lastmod>2023-03-20T00:00:00-07:00</lastmod>
 </url>
@@ -39,10 +43,6 @@
 <url>
 <loc>http://localhost:4000/posts/flow_match_stochastic_interpolant/</loc>
 <lastmod>2023-08-10T00:00:00-07:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/posts/implicit_ridge_regularization/</loc>
-<lastmod>2024-03-06T00:00:00-08:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/posts/CSGLD/</loc>
@@ -63,6 +63,9 @@
 <loc>http://localhost:4000/posts/Bridge/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/posts/implicit_ridge_regularization/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/posts/Girsanov_MLE/</loc>
 </url>
 <url>
@@ -73,9 +76,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/posts/flow_match_stochastic_interpolant/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/posts/implicit_ridge_regularization/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/posts/log_sobolev_inequality/</loc>
