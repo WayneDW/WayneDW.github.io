@@ -5,6 +5,14 @@ permalink: /posts/implicit_ridge_regularization/
 ---
 
 
+We discuss the ordinary least squares (OLS) linear regression
+
+$$\begin{align}
+  \mathcal{L}(y)= \|y-Ax\|^2.\notag\\
+\end{align}$$
+
+
+Ridge regularization is a popular technique in 
 
 Linear regression
 
