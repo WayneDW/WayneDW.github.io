@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-07T13:41:30-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Flow Matching and Stochastic Interpolant</title><link href="http://localhost:4000/posts/flow_match_stochastic_interpolant/" rel="alternate" type="text/html" title="Flow Matching and Stochastic Interpolant" /><published>2023-08-10T00:00:00-07:00</published><updated>2023-08-10T00:00:00-07:00</updated><id>http://localhost:4000/posts/neraul-ode</id><content type="html" xml:base="http://localhost:4000/posts/flow_match_stochastic_interpolant/"><![CDATA[DDPM paper: https://arxiv.org/pdf/2006.11239.pdf
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-07T13:54:20-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Flow Matching and Stochastic Interpolant</title><link href="http://localhost:4000/posts/flow_match_stochastic_interpolant/" rel="alternate" type="text/html" title="Flow Matching and Stochastic Interpolant" /><published>2023-08-10T00:00:00-07:00</published><updated>2023-08-10T00:00:00-07:00</updated><id>http://localhost:4000/posts/neraul-ode</id><content type="html" xml:base="http://localhost:4000/posts/flow_match_stochastic_interpolant/"><![CDATA[DDPM paper: https://arxiv.org/pdf/2006.11239.pdf
 Score matching tutorial: https://drive.google.com/file/d/1DYHDbt1tSl9oqm3O333biRYzSCOtdtmn/view
 alpha blending: https://ggx-research.github.io/publication/2023/05/10/publication-iadb.html
 
@@ -143,59 +143,64 @@ The following is a demo that describes the connections:
 
 <p align="center">
     <img src="/images/ODE_PDE_SDE.png" width="300" />
-</p>]]></content><author><name>Wei Deng</name></author><category term="Diffusion Model" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Others</title><link href="http://localhost:4000/posts/others_tmp/" rel="alternate" type="text/html" title="Others" /><published>2023-06-20T00:00:00-07:00</published><updated>2023-06-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/others</id><content type="html" xml:base="http://localhost:4000/posts/others_tmp/"><![CDATA[<h3 id="maximum-likelihood-estimation">Maximum likelihood estimation</h3>
+</p>]]></content><author><name>Wei Deng</name></author><category term="Diffusion Model" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Others</title><link href="http://localhost:4000/posts/others_tmp/" rel="alternate" type="text/html" title="Others" /><published>2023-06-20T00:00:00-07:00</published><updated>2023-06-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/others</id><content type="html" xml:base="http://localhost:4000/posts/others_tmp/"><![CDATA[### Maximum likelihood estimation
 
-<p>Given $N$ independent observations, the likelihood function given $\theta=(\mu, \sigma)$ follows that</p>
+Given $N$ independent observations, the likelihood function given $\theta=(\mu, \sigma)$ follows that
 
-\[\begin{align}
+$$\begin{align}
 \mathcal{L}(\{x_i\}_{i=1}^N|\theta)=\prod_{i=1}^N f(x_i|\theta),\notag
-\end{align}\]
+\end{align}$$
 
-<p>which models the density of the random variable $X$. The maximum likelihood estimator (MLE) is given by</p>
+which models the density of the random variable $X$. The maximum likelihood estimator (MLE) is given by
 
-\[\begin{align}
+$$\begin{align}
 \widehat\theta=\text{argmax} \mathcal{L}(\mathbf{x}|\theta),\notag
-\end{align}\]
+\end{align}$$
 
-<p>where $\mathbf{x}=\{x_i\}_{i=1}^N$. When $X$ is a Gaussian random variable that follows $X\sim \mathcal{N}(\mu, \sigma^2)$. The likelihood function is expressed as</p>
+where $\mathbf{x}=\\{x_i\\}_{i=1}^N$. When $X$ is a Gaussian random variable that follows $X\sim \mathcal{N}(\mu, \sigma^2)$. The likelihood function is expressed as
 
-\[\begin{align}\label{MLE}
+$$\begin{align}\label{MLE}
 \mathcal{L}(\{x_i\}_{i=1}^N|\theta)=\bigg(\frac{1}{\sqrt{2\pi \sigma^2}}\bigg)^{N/2} \exp\bigg(-\frac{\sum_{i=1}^N (x_i-\mu)^2}{2\sigma^2}\bigg).
-\end{align}\]
+\end{align}$$
 
-<p>Taking the gradient w.r.t. $\mu$ and $\sigma^2$, we have</p>
+Taking the gradient w.r.t. $\mu$ and $\sigma^2$, we have
 
-\[\begin{align}
+$$\begin{align}
 \widehat \mu=\frac{1}{N}\sum_{i=1}^N x_i, \quad \widehat\sigma^2=\frac{1}{N} \sum_{i=1}^N (x_i-\widehat \mu)^2.\notag
-\end{align}\]
+\end{align}$$
 
-<h3 id="girsanov-theorem">Girsanov theorem</h3>
 
-<p>Assume we have a diffusion process</p>
+### Girsanov theorem
 
-\[\begin{align}
+Assume we have a diffusion process
+
+$$\begin{align}
 \mathrm{d}X_t = b(X_t;\theta)\mathrm{d}t+\sigma\mathrm{d}W_t.\notag
-\end{align}\]
+\end{align}$$
 
-<p>We observe the whole path of the process $X_t$ from time $[0, T]$. Denote by $\mathbb{P}_X$ the law of the process on the path space, which is absolutely continuous w.r.t. the Wiener measure. The density of $\mathbb{P}_X$ w.r.t. the Wiener measure is determined by the Radon-Nikodym derivative</p>
+We observe the whole path of the process $X\_t$ from time $[0, T]$. Denote by $\mathbb{P}\_X$ the law of the process on the path space, which is absolutely continuous w.r.t. the Wiener measure. The density of $\mathbb{P}\_X$ w.r.t. the Wiener measure is determined by the Radon-Nikodym derivative 
 
-\[\begin{align}\label{girsanov}
+$$\begin{align}\label{girsanov}
 \frac{\mathrm{d}\mathbb{P}_X}{\mathrm{d}\mathbb{P}_W}=\exp\bigg(\frac{1}{\sigma}\int_0^T b(X_s; \theta)\mathrm{d}W_s-\int_0^T \frac{b^2(X_s;\theta)}{2\sigma^2}\mathrm{d}s \bigg).
-\end{align}\]
+\end{align}$$
 
-<p>We can observe a close connection between Eq.\eqref{MLE} and a discrete variant of Eq.\eqref{girsanov}</p>
 
-<p>Remark: While the Girsanov theorem is commonly employed, it is prone to mistakes that can be easily made. Have I made any such errors?</p>
 
-<h3 id="applications">Applications</h3>
 
-<p>Given a stationary Ornstein-Uhlenbeck process, how do you estimate the parameters using MLE <a class="citation" href="#Grigorios_14">(Pavliotis, 2014)</a>..</p>
+We can observe a close connection between Eq.\eqref{MLE} and a discrete variant of Eq.\eqref{girsanov} 
 
-\[\begin{align}
+Remark: While the Girsanov theorem is commonly employed, it is prone to mistakes that can be easily made. Have I made any such errors?
+
+
+### Applications
+
+Given a stationary Ornstein-Uhlenbeck process, how do you estimate the parameters using MLE {% cite Grigorios_14 %}..
+
+$$\begin{align}
 \mathrm{d}X_t = -\alpha X_t \mathrm{d}t+\sigma\mathrm{d}W_t.\notag
-\end{align}\]
+\end{align}$$
 
-<p>Hint: 1) write the likelihood; 2) take the gradient.</p>]]></content><author><name>Wei Deng</name></author><summary type="html"><![CDATA[Maximum likelihood estimation]]></summary></entry><entry><title type="html">Coupling by Reflection (II)</title><link href="http://localhost:4000/posts/coupling_by_reflection/" rel="alternate" type="text/html" title="Coupling by Reflection (II)" /><published>2023-05-20T00:00:00-07:00</published><updated>2023-05-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling-by-Reflection</id><content type="html" xml:base="http://localhost:4000/posts/coupling_by_reflection/"><![CDATA[### Limitations of Synchronous Coupling
+Hint: 1) write the likelihood; 2) take the gradient.]]></content><author><name>Wei Deng</name></author><summary type="html"><![CDATA[Maximum likelihood estimation]]></summary></entry><entry><title type="html">Coupling by Reflection (II)</title><link href="http://localhost:4000/posts/coupling_by_reflection/" rel="alternate" type="text/html" title="Coupling by Reflection (II)" /><published>2023-05-20T00:00:00-07:00</published><updated>2023-05-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling-by-Reflection</id><content type="html" xml:base="http://localhost:4000/posts/coupling_by_reflection/"><![CDATA[### Limitations of Synchronous Coupling
 
 Given a $\kappa$-strongly convex drift $U$, we can apply the synchronous coupling for the diffusion process
 
