@@ -75,4 +75,13 @@ $$\begin{align}
 \end{align}$$
 
 
-For extension to deep neural networks, we refer interested readers to the study in {% cite fit_without_fear %}.
+
+#### Extension to deep neural networks 
+
+Why does deep neural networks generalize so well? The following figure [credit to Belkin] tells us minimizing the smoothness might be the key. 
+
+<p align="center">
+    <img src="/images/fit_without_fear.png" width="600" />
+</p>
+
+For the details, we refer interested readers to the study in {% cite fit_without_fear %}.
