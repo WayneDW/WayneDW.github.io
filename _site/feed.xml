@@ -1,206 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-07T13:54:20-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Flow Matching and Stochastic Interpolant</title><link href="http://localhost:4000/posts/flow_match_stochastic_interpolant/" rel="alternate" type="text/html" title="Flow Matching and Stochastic Interpolant" /><published>2023-08-10T00:00:00-07:00</published><updated>2023-08-10T00:00:00-07:00</updated><id>http://localhost:4000/posts/neraul-ode</id><content type="html" xml:base="http://localhost:4000/posts/flow_match_stochastic_interpolant/"><![CDATA[DDPM paper: https://arxiv.org/pdf/2006.11239.pdf
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-07T18:57:51-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Flow Matching and Stochastic Interpolant</title><link href="http://localhost:4000/posts/flow_match_stochastic_interpolant/" rel="alternate" type="text/html" title="Flow Matching and Stochastic Interpolant" /><published>2023-08-10T00:00:00-07:00</published><updated>2023-08-10T00:00:00-07:00</updated><id>http://localhost:4000/posts/neraul-ode</id><content type="html" xml:base="http://localhost:4000/posts/flow_match_stochastic_interpolant/"><![CDATA[DDPM paper: https://arxiv.org/pdf/2006.11239.pdf
 Score matching tutorial: https://drive.google.com/file/d/1DYHDbt1tSl9oqm3O333biRYzSCOtdtmn/view
 alpha blending: https://ggx-research.github.io/publication/2023/05/10/publication-iadb.html
 
 
-learning sde can be converted to learning ode, in that case, will that resemble flow matching/ alpha blending?]]></content><author><name>Wei Deng</name></author><category term="Diffusion Model" /><summary type="html"><![CDATA[DDPM paper: https://arxiv.org/pdf/2006.11239.pdf Score matching tutorial: https://drive.google.com/file/d/1DYHDbt1tSl9oqm3O333biRYzSCOtdtmn/view alpha blending: https://ggx-research.github.io/publication/2023/05/10/publication-iadb.html]]></summary></entry><entry><title type="html">The Triangle of Flow, Diffusion, and PDE</title><link href="http://localhost:4000/posts/flow_diffusion_PDE/" rel="alternate" type="text/html" title="The Triangle of Flow, Diffusion, and PDE" /><published>2023-07-01T00:00:00-07:00</published><updated>2023-07-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/flow-diffusion-PDE</id><content type="html" xml:base="http://localhost:4000/posts/flow_diffusion_PDE/"><![CDATA[<!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
+learning sde can be converted to learning ode, in that case, will that resemble flow matching/ alpha blending?]]></content><author><name>Wei Deng</name></author><category term="Diffusion Model" /><summary type="html"><![CDATA[DDPM paper: https://arxiv.org/pdf/2006.11239.pdf Score matching tutorial: https://drive.google.com/file/d/1DYHDbt1tSl9oqm3O333biRYzSCOtdtmn/view alpha blending: https://ggx-research.github.io/publication/2023/05/10/publication-iadb.html]]></summary></entry><entry><title type="html">Implicit Ridge Regularization</title><link href="http://localhost:4000/posts/flow_diffusion_PDE/" rel="alternate" type="text/html" title="Implicit Ridge Regularization" /><published>2023-07-01T00:00:00-07:00</published><updated>2023-07-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/flow-diffusion-PDE</id><content type="html" xml:base="http://localhost:4000/posts/flow_diffusion_PDE/"><![CDATA[<h4 id="ridge-regression-with-ngg-d-bias-variance-trade-off">Ridge Regression with $n\gg d$: Bias-variance trade-off</h4>
 
-### Diffusion Process
+<p>We study the ordinary linear regression</p>
 
-Consider a diffusion process that solves the Itô's SDE {% cite oksendal2003stochastic %}:
+\[\begin{align}
+  \mathcal{L}=\|\mathrm{y}-\mathrm{X} {\beta}\|_2^2.\notag\\
+\end{align}\]
 
-$$\begin{align}
-\mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\label{SDE}
-\end{align}$$
+<p>where $\mathrm{X}\in \mathbb{R}^{n\times d}$ and is full rank. The solution follows that $\widehat \beta=(\mathrm{X}^\intercal \mathrm{X})^{-1} \mathrm{X} \mathrm{y}$.</p>
 
-Denote by $\mathrm{P}_t$ the transition function of Markov process
+<p>However, $(\mathrm{X}^\intercal \mathrm{X})^{-1}$ is often poorly conditioned, which leads to a large prediction variance. To solve this issue, a standard technique is to consider the Tikhonov regularization through a $l_2$ penalty.</p>
 
-$$\begin{align}
-(\mathrm{P}_t f)(x)=\int f(y)\mathrm{P}(t, x, \mathrm{d} y)\notag.
-\end{align}$$
+\[\begin{align}
+  \mathcal{L}_{\lambda}=\|\mathrm{y}-\mathrm{X} {\beta}\|_2^2 + \lambda \|\beta\|_2^2.\notag\\
+\end{align}\]
 
-We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.
+<p>The solution follows that</p>
 
-Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)\|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito's formula), where $s\leq t$, we have the *backward Kolmogorov equation*
+\[\begin{align}
+  \widehat \beta_{\lambda}=(\mathrm{X}^\intercal \mathrm{X} + \lambda \mathrm{I})^{-1} \mathrm{X} \mathrm{y} \label{ridge_solution}.
+\end{align}\]
 
-$$\begin{align}
-\mathscr{L}&=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
-           &=\sum_{j=1}^d \mathrm{v}_j\frac{\partial}{\partial x_j} + \frac{1}{2}\sum_{i,j=1}^d \Sigma_{ij}\frac{\partial^2}{\partial x_i \partial x_j}\notag.
-\end{align}$$
+<p>Increasing $\lambda$ leads to a larger bias but also yields a smaller prediction variance.</p>
 
-where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\mathbb{R}^d$, $\Sigma(x)=\sigma(x) \sigma(x)^\intercal$ and $D^2$ denotes the Hessian matrix. 
+<h4 id="ridge-regression-with-dgg-n-minimum-norm-estimator">Ridge Regression with $d\gg n$: Minimum-norm estimator</h4>
 
+<p>Taking the limit $\lambda \rightarrow 0$ in Eq.\eqref{ridge_solution}, we have</p>
 
-<!-- # https://openreview.net/pdf?id=x9tAJ3_N0k -->
+\[\begin{align}
+    \widehat \beta_{0} = \lim_{\lambda \rightarrow 0}\widehat \beta_{\lambda}= \lim_{\lambda \rightarrow 0} \mathrm{V}\left[\dfrac{\mathrm{S}}{\mathrm{S}^2 + \lambda} \right] \mathrm{U}^\intercal \mathrm{y}=\mathrm{V} \mathrm{S}^{-1}\mathrm{U}^\intercal \mathrm{y}=\mathrm{X}^{+}\mathrm{y}.\label{solution}
+\end{align}\]
 
-### Fokker-Planck PDE
+<p>where $\mathrm{X}=\mathrm{U} \mathrm{S} \mathrm{V}^\intercal$ by SVD decomposition, $\mathrm{U}$ and $\mathrm{V}$ are two orthogonal matrices. $\mathrm{X}^{+}=\mathrm{X}^\intercal (\mathrm{X} \mathrm{X}^\intercal)^{-1}$ is the pseudo-inverse of $\mathrm{X}$ (invertible since $\mathrm{X}$ is full rank).</p>
 
-Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures 
+<p>We can easily verify that $\widehat \beta_{0}$ is a solution of $\mathrm{y}-\mathrm{X} {\beta}=0$ because</p>
 
-$$\begin{align}
-\mathrm{P}^{*}_t \mu(\Gamma)=\int \mathrm{P}(t, x, \Gamma)\mathrm{d} \mu(x)\notag.
-\end{align}$$
+\[\begin{align}
+    \|\mathrm{y}-\mathrm{X} \widehat{\beta}_0 \|_2 = \| \mathrm{y}-\mathrm{X} \mathrm{X}^{+}\mathrm{y} \|_2=\| \mathrm{y}-\mathrm{y} \|_2=0.\notag
+\end{align}\]
 
-The semigroup $\mathrm{P}_t$ and $\mathrm{P}_t^{*}$ are adjoint in $L^2$ such that
+<p>Moreover, $\widehat \beta_{0}$ is the minimum-norm estimator in $l_2$</p>
 
-$$\begin{align}
-\int (\mathrm{P}_t f)\mathrm{d}\mu=\int f\mathrm{d}(\mathrm{P}_t^{*}\mu)\notag,
-\end{align}$$
+\[\begin{align}
+    \widehat \beta_{0} = \text{argmin}_{\beta} \big\{\|\beta\|_2^2 \ \ \big| \ \big\| \mathrm{y}-\mathrm{X} \beta \|_2^2=0 \big\}. \notag
+\end{align}\]
 
-which yields
+<p>Proof:</p>
 
-$$\begin{align}
-\int \mathscr{L} f h \mathrm{d} x = \int f \mathscr{L}^* h \mathrm{d}x, \text{ where } \mathrm{P}_t^*=e^{t {\mathscr{L}}^*}.\notag
-\end{align}$$
+<p>For any $\beta$ that solves $\mathrm{y}-\mathrm{X} {\beta}=0$, we have $\mathrm{X} \big(\widehat \beta_{0} - \beta \big) = 0.$</p>
 
+<p>Next, we proceed to show $(\widehat \beta_{0} - {\beta})\perp \widehat \beta_{0}$. By Eq.\eqref{solution}, we have</p>
 
-Let $p_t$ denote the law of the Markov process at time $t$. The law of $p_t$ follows that
+\[\begin{align}
+    \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \widehat \beta_{0} = \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \mathrm{X}^\intercal (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y} = \big(\mathrm{X}\big(\widehat \beta_{0} - {\beta} \big)\big)^{\intercal} (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y}=0.
+\end{align}\]
 
-$$\begin{align}
-\frac{\partial p_t}{\partial t} =\mathscr{L}^* p_t,\notag
-\end{align}$$
+<p>This implies that</p>
 
-which is the Fokker-Planck equation (PDE), also known as *forward Kolmogorov equation*. Analyzing the evolution of the probability densities, we have
-
-$$\begin{align}
-\mathscr{L}^{*} p_t&=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
-                &=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
-                &=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
-\end{align}$$
-
-where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.
-
-
-
-
-### Probability Flow
-
-Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation {% cite OT_applied_math %} or continuity equation in fluid dynamics {% cite log_concave_sampling %}.
-
-$$\begin{align}
-\partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\label{ODE}
-\end{align}$$
-
-Interestingly, it corresponds to the probability flow ODE {% cite score_sde %}
-
-$$\begin{align}
-\mathrm{d} X_t={\boldsymbol{\nu_t}}(X_t) \mathrm{d} t.\notag
-\end{align}$$
-
-
-
-
-Apply the instantaneous change of variables {% cite neural_ode %}, the **log-likelihood** of $p_0(x)$ follows that
-
-$$\begin{align}
-\log p_0(x)=\log p_T(x) + \int_0^T \nabla \cdot {\boldsymbol{\nu_t}} \mathrm{d} t,\notag
-\end{align}$$
-
-which provides an elegant way to compute the likelihood for diffusion models.
-
-
-In practice, it is expensive to evaluate the divergence $\nabla \cdot {\boldsymbol{\nu_t}}$. We can adopt the Hutchinson trace estimator {% cite Hutchinson89 %}.
-
-$$\begin{align}
-\nabla \cdot {\boldsymbol{\nu_t}} = \mathbb{E} \big[\epsilon^\intercal \nabla {\boldsymbol{\nu_t}} \epsilon \big],\notag
-\end{align}$$
-
-where $\nabla \cdot {\boldsymbol{\nu_t}}$ is the Jacobian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.
-
-
-
-#### Wasserstein Gradient Flow
-
-Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the *tangent vector* for the curves of measures $t\rightarrow p_t$ {% cite JKO98 %} {% cite log_concave_sampling %}. Define a functional $\mathcal{F}=\text{KL}(\cdot\|\|\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have
-
-$$\begin{align}
-\mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int p \mathrm{V} + \int p \log p.\notag
-\end{align}$$
-
-Taking the first variation of $\mathcal{F}$ at $p$, we have
-
-$$\begin{align}
-\delta \mathcal{F}(p)= \mathrm{V} + \log p+\text{constant}.\notag
-\end{align}$$
-
-The Wasserstein gradient at $p$ follows that
-
-$$\begin{align}
-\nabla_{\text{W}_2} \mathcal{F}(p):=\nabla \delta \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p=-\boldsymbol{\nu},\notag
-\end{align}$$
-
-where the last equality follows by Eq.\eqref{FPE}.
-
-Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$ 
-
-$$\begin{align}
-\partial_t p_t =\nabla \cdot \bigg(\nabla_{\text{W}_2} \mathcal{F}(p_t) p_t\bigg).\notag
-\end{align}$$
-
-
-
-The following is a demo that describes the connections:
-
-<p align="center">
-    <img src="/images/ODE_PDE_SDE.png" width="300" />
-</p>]]></content><author><name>Wei Deng</name></author><category term="Diffusion Model" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Others</title><link href="http://localhost:4000/posts/others_tmp/" rel="alternate" type="text/html" title="Others" /><published>2023-06-20T00:00:00-07:00</published><updated>2023-06-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/others</id><content type="html" xml:base="http://localhost:4000/posts/others_tmp/"><![CDATA[### Maximum likelihood estimation
-
-Given $N$ independent observations, the likelihood function given $\theta=(\mu, \sigma)$ follows that
-
-$$\begin{align}
-\mathcal{L}(\{x_i\}_{i=1}^N|\theta)=\prod_{i=1}^N f(x_i|\theta),\notag
-\end{align}$$
-
-which models the density of the random variable $X$. The maximum likelihood estimator (MLE) is given by
-
-$$\begin{align}
-\widehat\theta=\text{argmax} \mathcal{L}(\mathbf{x}|\theta),\notag
-\end{align}$$
-
-where $\mathbf{x}=\\{x_i\\}_{i=1}^N$. When $X$ is a Gaussian random variable that follows $X\sim \mathcal{N}(\mu, \sigma^2)$. The likelihood function is expressed as
-
-$$\begin{align}\label{MLE}
-\mathcal{L}(\{x_i\}_{i=1}^N|\theta)=\bigg(\frac{1}{\sqrt{2\pi \sigma^2}}\bigg)^{N/2} \exp\bigg(-\frac{\sum_{i=1}^N (x_i-\mu)^2}{2\sigma^2}\bigg).
-\end{align}$$
-
-Taking the gradient w.r.t. $\mu$ and $\sigma^2$, we have
-
-$$\begin{align}
-\widehat \mu=\frac{1}{N}\sum_{i=1}^N x_i, \quad \widehat\sigma^2=\frac{1}{N} \sum_{i=1}^N (x_i-\widehat \mu)^2.\notag
-\end{align}$$
-
-
-### Girsanov theorem
-
-Assume we have a diffusion process
-
-$$\begin{align}
-\mathrm{d}X_t = b(X_t;\theta)\mathrm{d}t+\sigma\mathrm{d}W_t.\notag
-\end{align}$$
-
-We observe the whole path of the process $X\_t$ from time $[0, T]$. Denote by $\mathbb{P}\_X$ the law of the process on the path space, which is absolutely continuous w.r.t. the Wiener measure. The density of $\mathbb{P}\_X$ w.r.t. the Wiener measure is determined by the Radon-Nikodym derivative 
-
-$$\begin{align}\label{girsanov}
-\frac{\mathrm{d}\mathbb{P}_X}{\mathrm{d}\mathbb{P}_W}=\exp\bigg(\frac{1}{\sigma}\int_0^T b(X_s; \theta)\mathrm{d}W_s-\int_0^T \frac{b^2(X_s;\theta)}{2\sigma^2}\mathrm{d}s \bigg).
-\end{align}$$
-
-
-
-
-We can observe a close connection between Eq.\eqref{MLE} and a discrete variant of Eq.\eqref{girsanov} 
-
-Remark: While the Girsanov theorem is commonly employed, it is prone to mistakes that can be easily made. Have I made any such errors?
-
-
-### Applications
-
-Given a stationary Ornstein-Uhlenbeck process, how do you estimate the parameters using MLE {% cite Grigorios_14 %}..
-
-$$\begin{align}
-\mathrm{d}X_t = -\alpha X_t \mathrm{d}t+\sigma\mathrm{d}W_t.\notag
-\end{align}$$
-
-Hint: 1) write the likelihood; 2) take the gradient.]]></content><author><name>Wei Deng</name></author><summary type="html"><![CDATA[Maximum likelihood estimation]]></summary></entry><entry><title type="html">Coupling by Reflection (II)</title><link href="http://localhost:4000/posts/coupling_by_reflection/" rel="alternate" type="text/html" title="Coupling by Reflection (II)" /><published>2023-05-20T00:00:00-07:00</published><updated>2023-05-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling-by-Reflection</id><content type="html" xml:base="http://localhost:4000/posts/coupling_by_reflection/"><![CDATA[### Limitations of Synchronous Coupling
+\[\begin{align}
+    \| \beta \|_2^2 = \|\beta - \widehat\beta_0 + \widehat \beta_0\|_2^2 = \|\beta - \widehat\beta_0\|_2^2 + \|\widehat \beta_0\|_2^2\geq  \|\widehat \beta_0\|_2^2.
+\end{align}\]]]></content><author><name>Wei Deng</name></author><category term="Regression" /><summary type="html"><![CDATA[Ridge Regression with $n\gg d$: Bias-variance trade-off]]></summary></entry><entry><title type="html">Coupling by Reflection (II)</title><link href="http://localhost:4000/posts/coupling_by_reflection/" rel="alternate" type="text/html" title="Coupling by Reflection (II)" /><published>2023-05-20T00:00:00-07:00</published><updated>2023-05-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling-by-Reflection</id><content type="html" xml:base="http://localhost:4000/posts/coupling_by_reflection/"><![CDATA[### Limitations of Synchronous Coupling
 
 Given a $\kappa$-strongly convex drift $U$, we can apply the synchronous coupling for the diffusion process
 
@@ -913,4 +776,47 @@ which suffices to choose $\gamma<\alpha$, a large $R$ and assume the (C1) condit
 
 [1] The construction of Lyapunov function implies a tail decay for the distribution $\mu\propto e^{-U(x)}$ outside the ball $B(0, R)$.
 
-[2] Obtaining a sharper estimate of Poincaré constant may require isoperimetric inequality.]]></content><author><name>Wei Deng</name></author><category term="Functional Inequality" /><summary type="html"><![CDATA[Poincaré (spectral gap) inequality (Bakry et al., 2008) is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.]]></summary></entry></feed>
+[2] Obtaining a sharper estimate of Poincaré constant may require isoperimetric inequality.]]></content><author><name>Wei Deng</name></author><category term="Functional Inequality" /><summary type="html"><![CDATA[Poincaré (spectral gap) inequality (Bakry et al., 2008) is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.]]></summary></entry><entry><title type="html">Replica Exchange and Variance Reduction</title><link href="http://localhost:4000/posts/replica/" rel="alternate" type="text/html" title="Replica Exchange and Variance Reduction" /><published>2021-05-01T00:00:00-07:00</published><updated>2021-05-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/VR-reSGLD</id><content type="html" xml:base="http://localhost:4000/posts/replica/"><![CDATA[Variance-reduced sampling algorithms {% cite Dubey16 %} {% cite Xu18 %} are not widely adopted in practice. Alternatively, we focus on the energy variance reduction to exploit exponential accelerations but no longer consider the gradient variance reduction. 
+
+To this end, we consider a standard sampling algorithm, the stochastic gradient Langevin dynamics (SGLD), which is a mini-batch numerical discretization of a stochastic differential equation (SDE) as follows:
+
+\begin{equation}
+\beta_{k+1}=\beta_k - \eta \frac{N}{n}\nabla \sum_{i\in B} L(x_i\|\beta_k) + \sqrt{2\eta\tau_1} \xi_k,
+\end{equation}
+
+where $\beta\in\mathbb{R}^d$, $L(x_i\|\beta)$ is the energy function based on the i-th data point and B denotes a data set of size $n$ simulated from the whole data of size $N$. $\xi$ is a d-dimensional Gaussian vector. It is known that a non-convex $U(\cdot)$ often leads to an exponentially slow mixing rate.
+
+<!--- Simulated annealing is adopted in almost every espect in deep learning, which proposes to anneal temperatures to concentrate the probability measures towards the global optima. Such a strategy, however, fails in uncertainty estimations for reliable predictions. -->
+
+To accelerate the simulations, replica exchange proposes to run multiple stochastic processes with different temperatures, where interactions between different SGLD chains are conducted in a manner that encourages large jumps {% cite yin_zhu_10 %} {% cite chen2018accelerating %} {% cite deng2020 %} {% cite deng_VR %}. 
+
+<!--- The following is a figure that shows the trajectory of the algorithm, where the right path denotes a process driven by a high temperature and the blue one denotes a low-temperature process. -->
+
+<p align="center">
+    <img src="/images/reSGLD_exploitation_exploration.png" width="500" height="220" />
+</p>
+
+In particular, the parameters swap the positions with a probability $1\wedge S(\beta^{(1)}, \beta^{(2)})$
+
+\begin{equation}
+S(\beta^{(1)}, \beta^{(2)})=e^{\left(\frac{1}{\tau_1}-\frac{1}{\tau_2}\right)\left(\frac{N}{n}\sum_{i\in B} L(x_i\|\beta^{(1)})-\frac{N}{n}\sum_{i\in B} L(x_i\|\beta^{(2)})-(\frac{1}{\tau_1}-\frac{1}{\tau_2})\sigma^2\right)},
+\end{equation}
+
+where $\sigma^2$ is the variance of the noisy estimators $\sum_{i\in B} L(x_i\|\cdot)$. Under Normality assumptions, the above rule leads to an unbiased swapping probability, which satisfy the detailed balance in a stochastic sense. However, the efficiency of the swaps are significantly reduced due to the requirement of corrections to avoid biases. 
+
+The desire to obtain more effective swaps drives us to design more efficient energy estimators. To reduce the variance of the noisy energy estimator $L(B|\beta^{(h)})=\frac{N}{n}\sum_{i\in B}L(x_i|\beta^{(h)})$ for $h\in\{1,2\}$, we consider an unbiased estimator $L(B|\widehat\beta^{(h)})$ for $\sum_{i=1}^N L(x_i|\widehat\beta^{(h)})$ and a constant $c$, we see that a new estimator $\widetilde L(B| \beta^{(h)})$, which follows
+\begin{equation}
+    \widetilde L(B|\beta^{(h)})= L(B|\beta^{(h)}) +c\left( L(B|\widehat\beta^{(h)}) -\sum_{i=1}^N L (x_i| \widehat \beta^{(h)})\right),
+\end{equation}
+is still the unbiased estimator for $\sum_{i=1}^N L(x_i| \beta^{(h)})$. Moreover, energy variance reduction potentially increases the swapping efficiency exponentially given a larger batch size $n$, a small learning rate $\eta$, and a more frequent update of control variate $\widehat \beta$, i.e. a small $m$
+
+\begin{equation}
+Var\left(\widetilde L(B\|\beta^{(h)})\right)\leq O\left(\frac{m^2 \eta}{n}\right).
+\end{equation}
+
+The following shows a demo that explains how variance-reduced reSGLD works.
+
+<p float="left" align="center">
+  <img src="/images/VR-reSGLD/SGLD.gif" width="185" title="SGLD"/>
+  <img src="/images/VR-reSGLD/reSGLD_vs_VR_reSGLD.gif" width="340" alt="Made with Angular" title="reSGLD vs VR-reSGLD" />
+</p>]]></content><author><name>Wei Deng</name></author><category term="Monte Carlo Methods" /><summary type="html"><![CDATA[Variance-reduced sampling algorithms (Dubey et al., 2016) (Xu et al., 2018) are not widely adopted in practice. Alternatively, we focus on the energy variance reduction to exploit exponential accelerations but no longer consider the gradient variance reduction.]]></summary></entry></feed>
