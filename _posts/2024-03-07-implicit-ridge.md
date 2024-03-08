@@ -75,4 +75,4 @@ $$\begin{align}
 \end{align}$$
 
 
-For interested readers on the extension of deep neural networks, we refer interested readers to the study in {% cite fit_without_fear %}.
+For extension to deep neural networks, we refer interested readers to the study in {% cite fit_without_fear %}.
