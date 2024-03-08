@@ -132,6 +132,14 @@
             function filterUsingCategory(selectedCategory) {
               var id = 0;
               
+                var cats = ["Regression"]
+          
+                var postDiv = document.getElementById(++id);
+                postDiv.style.display =
+                  (selectedCategory == 'All' || cats.includes(selectedCategory)) 
+                    ? 'unset' 
+                    : 'none';
+              
                 var cats = ["Diffusion Model"]
           
                 var postDiv = document.getElementById(++id);
@@ -140,7 +148,7 @@
                     ? 'unset' 
                     : 'none';
               
-                var cats = ["Regression"]
+                var cats = ["Diffusion Model"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -157,14 +165,6 @@
                     : 'none';
               
                 var cats = []
-          
-                var postDiv = document.getElementById(++id);
-                postDiv.style.display =
-                  (selectedCategory == 'All' || cats.includes(selectedCategory)) 
-                    ? 'unset' 
-                    : 'none';
-              
-                var cats = ["Regression"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -230,11 +230,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/flow_match_stochastic_interpolant/">  Flow Matching and Stochastic Interpolant </a>
+                        <a href="/posts/implicit_ridge_regularization/">  Implicit Ridge Regularization </a>
                     </p>
-                    <p class='post-date'> 10 August 2023 </p>
+                    <p class='post-date'> 07 March 2024 </p>
                 </div>
-                <p class='post-subtitle'> TBD </p>
+                <p class='post-subtitle'> The optimal penalty can be zero or negative for real-world high dimensional data. </p>
                 <span class='hidden'>1</span>
                 </p>
             </div>
@@ -244,11 +244,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/flow_diffusion_PDE/">  Implicit Ridge Regularization </a>
+                        <a href="/posts/flow_match_stochastic_interpolant/">  Flow Matching and Stochastic Interpolant </a>
                     </p>
-                    <p class='post-date'> 01 July 2023 </p>
+                    <p class='post-date'> 10 August 2023 </p>
                 </div>
-                <p class='post-subtitle'> The optimal penalty can be zero or negative for real-world high dimensional data. </p>
+                <p class='post-subtitle'> TBD </p>
                 <span class='hidden'>2</span>
                 </p>
             </div>
@@ -258,11 +258,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/coupling_by_reflection/">  Coupling by Reflection (II) </a>
+                        <a href="/posts/flow_diffusion_PDE/">  The Triangle of Flow, Diffusion, and PDE </a>
                     </p>
-                    <p class='post-date'> 20 May 2023 </p>
+                    <p class='post-date'> 01 July 2023 </p>
                 </div>
-                <p class='post-subtitle'> A general coupling technique for characterizing a broad range of diffusions. </p>
+                <p class='post-subtitle'> Connections between Probability Flows, Diffusions, and PDEs. </p>
                 <span class='hidden'>3</span>
                 </p>
             </div>
@@ -272,11 +272,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/Girsanov_MLE/">  Girsanov and MLE </a>
+                        <a href="/posts/coupling_by_reflection/">  Coupling by Reflection (II) </a>
                     </p>
-                    <p class='post-date'> 20 March 2023 </p>
+                    <p class='post-date'> 20 May 2023 </p>
                 </div>
-                <p class='post-subtitle'> An application of Girsanov theorem in parameter estimation. </p>
+                <p class='post-subtitle'> A general coupling technique for characterizing a broad range of diffusions. </p>
                 <span class='hidden'>4</span>
                 </p>
             </div>
@@ -286,11 +286,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/implicit_ridge_regularization/">  Implicit Ridge Regularization </a>
+                        <a href="/posts/Girsanov_MLE/">  Girsanov and MLE </a>
                     </p>
-                    <p class='post-date'> 06 March 2023 </p>
+                    <p class='post-date'> 20 March 2023 </p>
                 </div>
-                <p class='post-subtitle'> Optimal ridge penalty for real-world high-dimensional data can be zero or negative </p>
+                <p class='post-subtitle'> An application of Girsanov theorem in parameter estimation. </p>
                 <span class='hidden'>5</span>
                 </p>
             </div>

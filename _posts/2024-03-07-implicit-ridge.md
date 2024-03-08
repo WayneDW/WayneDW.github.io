@@ -7,7 +7,7 @@ category: Regression
 ---
 
 
-#### Ridge Regression with $n\gg d$: Bias-variance trade-off
+### Ridge Regression with $n\gg d$: Bias-variance trade-off
 
 We study the ordinary linear regression
 
@@ -23,7 +23,7 @@ $$\begin{align}
   \mathcal{L}_{\lambda}=\|\mathrm{y}-\mathrm{X} {\beta}\|_2^2 + \lambda \|\beta\|_2^2.\notag\\
 \end{align}$$
 
-The solution follows that
+The solution is given as follows
 
 
 $$\begin{align}
@@ -33,7 +33,7 @@ $$\begin{align}
 
 Increasing $\lambda$ leads to a larger bias but also yields a smaller prediction variance.
 
-#### Ridge Regression with $d\gg n$: Minimum-norm estimator {% cite implicit_ridge %}
+### Ridge Regression with $d\gg n$: Minimum-norm estimator {% cite implicit_ridge %}
 
 
 
@@ -65,18 +65,45 @@ For any $\beta$ that solves $\mathrm{y}-\mathrm{X} {\beta}=0$, we have $\mathrm{
 Next, we proceed to show $(\widehat \beta_{0} - {\beta})\perp \widehat \beta_{0}$. By Eq.\eqref{solution}, we have 
 
 $$\begin{align}
-    \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \widehat \beta_{0} = \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \mathrm{X}^\intercal (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y} = \big(\mathrm{X}\big(\widehat \beta_{0} - {\beta} \big)\big)^{\intercal} (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y}=0.
+    \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \widehat \beta_{0} = \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \mathrm{X}^\intercal (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y} = \big(\mathrm{X}\big(\widehat \beta_{0} - {\beta} \big)\big)^{\intercal} (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y}=0.\notag
 \end{align}$$
 
 This implies that 
 
 $$\begin{align}
-    \| \beta \|_2^2 = \|\beta - \widehat\beta_0 + \widehat \beta_0\|_2^2 = \|\beta - \widehat\beta_0\|_2^2 + \|\widehat \beta_0\|_2^2\geq  \|\widehat \beta_0\|_2^2.
+    \| \beta \|_2^2 = \|\beta - \widehat\beta_0 + \widehat \beta_0\|_2^2 = \|\beta - \widehat\beta_0\|_2^2 + \|\widehat \beta_0\|_2^2\geq  \|\widehat \beta_0\|_2^2.\notag
 \end{align}$$
 
+This result aligns with Occam's Zazor, suggesting the simplest solution among all the possible alternatives.
 
 
-#### Extension to deep neural networks 
+#### Tuning of $\lambda$
+
+We study the derivative of the risk function {% cite implicit_ridge %}
+
+$$\begin{align}
+    \mathrm{R}(\widehat \beta_{\lambda})=\mathrm{E}\big[((\mathrm{x}^\intercal\beta+\epsilon) - \mathrm{x}^\intercal \widehat\beta_{\lambda})^2 \big]=(\widehat\beta_{\lambda}-\beta)^\intercal \Sigma (\widehat\beta_{\lambda}-\beta)+\sigma^2.\notag
+\end{align}$$
+
+We show that the optimal penalty can be $\lambda_{\text{opt}}\leq 0$ by showing $\frac{\partial \mathrm{R}(\widehat \beta_{\lambda})}{\partial \lambda} \bigg\|_{\lambda=0} \leq 0$.
+
+$$\begin{align}
+    \frac{\partial \mathrm{R}(\widehat \beta_{\lambda})}{\partial \lambda}=2(\widehat\beta_{\lambda}-\beta)^\intercal \Sigma \frac{\partial \widehat \beta_{\lambda}}{\partial \lambda}.\notag
+\end{align}$$
+
+Plugging in the solution \eqref{solution}, we have
+
+$$\begin{align}
+    \frac{\partial \mathrm{R}(\widehat \beta_{\lambda})}{\partial \lambda}=2\beta^{\intercal}\Sigma (\mathrm{X}^{\intercal} \mathrm{X})^{+2}\mathrm{X}^\intercal \mathrm{y} - 2\mathrm{y}^\intercal \mathrm{X} (\mathrm{X}^\intercal \mathrm{X})^{+} \Sigma (\mathrm{X}^\intercal \mathrm{X})^{+2} \mathrm{X}^{\intercal} \mathrm{y}\label{relation},
+\end{align}$$
+
+where $(\mathrm{X}^{\intercal} \mathrm{X})^{+n}=\mathrm{U} \mathrm{S}^{-n} \mathrm{V}^\intercal$. Applying Eq.\eqref{relation} to the spiked covariance model {% cite implicit_ridge %}, we find that $\frac{\partial \mathrm{E}[\mathrm{R}(\widehat \beta_{\lambda})]}{\partial \lambda} \bigg\|_{\lambda=0} \leq 0$ under some conditions.
+
+<p align="center">
+    <img src="/images/negative_ridge_penalty.png" width="200" />
+</p>
+
+### Extension to deep neural networks 
 
 Why does deep neural networks generalize so well? The following figure [credit to Belkin] tells us minimizing the smoothness might be the key. 
 

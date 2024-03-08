@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Implicit Ridge Regularization</title>
+    <title>The Triangle of Flow, Diffusion, and PDE</title>
     <meta charset='UTF-8'>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
 
@@ -40,8 +40,8 @@
 
     <div class='front-matter'>
         <div class='wrap'>
-            <h1>Implicit Ridge Regularization</h1>
-            <h4>The optimal penalty can be zero or negative for real-world high dimensional data.</h4>
+            <h1>The Triangle of Flow, Diffusion, and PDE</h1>
+            <h4>Connections between Probability Flows, Diffusions, and PDEs.</h4>
             <div class='bylines'>
                 <div class='byline'>
                     <!-- <h3>Published</h3> -->
@@ -52,72 +52,149 @@
         </div>
     </div>
     <div class='wrap article'>
-        <h4 id="ridge-regression-with-ngg-d-bias-variance-trade-off">Ridge Regression with $n\gg d$: Bias-variance trade-off</h4>
+        <!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
 
-<p>We study the ordinary linear regression</p>
+<h3 id="diffusion-process">Diffusion Process</h3>
 
-\[\begin{align}
-  \mathcal{L}=\|\mathrm{y}-\mathrm{X} {\beta}\|_2^2.\notag\\
-\end{align}\]
-
-<p>where $\mathrm{X}\in \mathbb{R}^{n\times d}$ and is full rank. The solution follows that $\widehat \beta=(\mathrm{X}^\intercal \mathrm{X})^{-1} \mathrm{X} \mathrm{y}$.</p>
-
-<p>However, $(\mathrm{X}^\intercal \mathrm{X})^{-1}$ is often poorly conditioned, which leads to a large prediction variance. To solve this issue, a standard technique is to consider the Tikhonov regularization through a $l_2$ penalty.</p>
+<p>Consider a diffusion process that solves the Itô’s SDE <a class="citation" href="#oksendal2003stochastic">(Øksendal, 2003)</a>:</p>
 
 \[\begin{align}
-  \mathcal{L}_{\lambda}=\|\mathrm{y}-\mathrm{X} {\beta}\|_2^2 + \lambda \|\beta\|_2^2.\notag\\
+\mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\label{SDE}
 \end{align}\]
 
-<p>The solution follows that</p>
+<p>Denote by $\mathrm{P}_t$ the transition function of Markov process</p>
 
 \[\begin{align}
-  \widehat \beta_{\lambda}=(\mathrm{X}^\intercal \mathrm{X} + \lambda \mathrm{I})^{-1} \mathrm{X} \mathrm{y} \label{ridge_solution}.
+(\mathrm{P}_t f)(x)=\int f(y)\mathrm{P}(t, x, \mathrm{d} y)\notag.
 \end{align}\]
 
-<p>Increasing $\lambda$ leads to a larger bias but also yields a smaller prediction variance.</p>
+<p>We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.</p>
 
-<h4 id="ridge-regression-with-dgg-n-minimum-norm-estimator">Ridge Regression with $d\gg n$: Minimum-norm estimator</h4>
-
-<p>Taking the limit $\lambda \rightarrow 0$ in Eq.\eqref{ridge_solution}, we have</p>
+<p>Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito’s formula), where $s\leq t$, we have the <em>backward Kolmogorov equation</em></p>
 
 \[\begin{align}
-    \widehat \beta_{0} = \lim_{\lambda \rightarrow 0}\widehat \beta_{\lambda}= \lim_{\lambda \rightarrow 0} \mathrm{V}\left[\dfrac{\mathrm{S}}{\mathrm{S}^2 + \lambda} \right] \mathrm{U}^\intercal \mathrm{y}=\mathrm{V} \mathrm{S}^{-1}\mathrm{U}^\intercal \mathrm{y}=\mathrm{X}^{+}\mathrm{y}.\label{solution}
+\mathscr{L}&amp;=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
+           &amp;=\sum_{j=1}^d \mathrm{v}_j\frac{\partial}{\partial x_j} + \frac{1}{2}\sum_{i,j=1}^d \Sigma_{ij}\frac{\partial^2}{\partial x_i \partial x_j}\notag.
 \end{align}\]
 
-<p>where $\mathrm{X}=\mathrm{U} \mathrm{S} \mathrm{V}^\intercal$ by SVD decomposition, $\mathrm{U}$ and $\mathrm{V}$ are two orthogonal matrices. $\mathrm{X}^{+}=\mathrm{X}^\intercal (\mathrm{X} \mathrm{X}^\intercal)^{-1}$ is the pseudo-inverse of $\mathrm{X}$ (invertible since $\mathrm{X}$ is full rank).</p>
+<p>where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\mathbb{R}^d$, $\Sigma(x)=\sigma(x) \sigma(x)^\intercal$ and $D^2$ denotes the Hessian matrix.</p>
 
-<p>We can easily verify that $\widehat \beta_{0}$ is a solution of $\mathrm{y}-\mathrm{X} {\beta}=0$ because</p>
+<!-- # https://openreview.net/pdf?id=x9tAJ3_N0k -->
+
+<h3 id="fokker-planck-pde">Fokker-Planck PDE</h3>
+
+<p>Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures</p>
 
 \[\begin{align}
-    \|\mathrm{y}-\mathrm{X} \widehat{\beta}_0 \|_2 = \| \mathrm{y}-\mathrm{X} \mathrm{X}^{+}\mathrm{y} \|_2=\| \mathrm{y}-\mathrm{y} \|_2=0.\notag
+\mathrm{P}^{*}_t \mu(\Gamma)=\int \mathrm{P}(t, x, \Gamma)\mathrm{d} \mu(x)\notag.
 \end{align}\]
 
-<p>Moreover, $\widehat \beta_{0}$ is the minimum-norm estimator in $l_2$</p>
+<p>The semigroup $\mathrm{P}_t$ and $\mathrm{P}_t^{*}$ are adjoint in $L^2$ such that</p>
 
 \[\begin{align}
-    \widehat \beta_{0} = \text{argmin}_{\beta} \big\{\|\beta\|_2^2 \ \ \big| \ \big\| \mathrm{y}-\mathrm{X} \beta \|_2^2=0 \big\}. \notag
+\int (\mathrm{P}_t f)\mathrm{d}\mu=\int f\mathrm{d}(\mathrm{P}_t^{*}\mu)\notag,
 \end{align}\]
 
-<p>Proof:</p>
-
-<p>For any $\beta$ that solves $\mathrm{y}-\mathrm{X} {\beta}=0$, we have $\mathrm{X} \big(\widehat \beta_{0} - \beta \big) = 0.$</p>
-
-<p>Next, we proceed to show $(\widehat \beta_{0} - {\beta})\perp \widehat \beta_{0}$. By Eq.\eqref{solution}, we have</p>
+<p>which yields</p>
 
 \[\begin{align}
-    \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \widehat \beta_{0} = \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \mathrm{X}^\intercal (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y} = \big(\mathrm{X}\big(\widehat \beta_{0} - {\beta} \big)\big)^{\intercal} (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y}=0.
+\int \mathscr{L} f h \mathrm{d} x = \int f \mathscr{L}^* h \mathrm{d}x, \text{ where } \mathrm{P}_t^*=e^{t {\mathscr{L}}^*}.\notag
 \end{align}\]
 
-<p>This implies that</p>
+<p>Let $p_t$ denote the law of the Markov process at time $t$. The law of $p_t$ follows that</p>
 
 \[\begin{align}
-    \| \beta \|_2^2 = \|\beta - \widehat\beta_0 + \widehat \beta_0\|_2^2 = \|\beta - \widehat\beta_0\|_2^2 + \|\widehat \beta_0\|_2^2\geq  \|\widehat \beta_0\|_2^2.
+\frac{\partial p_t}{\partial t} =\mathscr{L}^* p_t,\notag
 \end{align}\]
+
+<p>which is the Fokker-Planck equation (PDE), also known as <em>forward Kolmogorov equation</em>. Analyzing the evolution of the probability densities, we have</p>
+
+\[\begin{align}
+\mathscr{L}^{*} p_t&amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
+                &amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
+                &amp;=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
+\end{align}\]
+
+<p>where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.</p>
+
+<h3 id="probability-flow">Probability Flow</h3>
+
+<p>Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation <a class="citation" href="#OT_applied_math">(Santambrogio, 2015)</a> or continuity equation in fluid dynamics <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>.</p>
+
+\[\begin{align}
+\partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\label{ODE}
+\end{align}\]
+
+<p>Interestingly, it corresponds to the probability flow ODE <a class="citation" href="#score_sde">(Song et al., 2021)</a></p>
+
+\[\begin{align}
+\mathrm{d} X_t={\boldsymbol{\nu_t}}(X_t) \mathrm{d} t.\notag
+\end{align}\]
+
+<p>Apply the instantaneous change of variables <a class="citation" href="#neural_ode">(Chen et al., 2018)</a>, the <strong>log-likelihood</strong> of $p_0(x)$ follows that</p>
+
+\[\begin{align}
+\log p_0(x)=\log p_T(x) + \int_0^T \nabla \cdot {\boldsymbol{\nu_t}} \mathrm{d} t,\notag
+\end{align}\]
+
+<p>which provides an elegant way to compute the likelihood for diffusion models.</p>
+
+<p>In practice, it is expensive to evaluate the divergence $\nabla \cdot {\boldsymbol{\nu_t}}$. We can adopt the Hutchinson trace estimator <a class="citation" href="#Hutchinson89">(Hutchinson, 1989)</a>.</p>
+
+\[\begin{align}
+\nabla \cdot {\boldsymbol{\nu_t}} = \mathbb{E} \big[\epsilon^\intercal \nabla {\boldsymbol{\nu_t}} \epsilon \big],\notag
+\end{align}\]
+
+<p>where $\nabla \cdot {\boldsymbol{\nu_t}}$ is the Jacobian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.</p>
+
+<h4 id="wasserstein-gradient-flow">Wasserstein Gradient Flow</h4>
+
+<p>Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the <em>tangent vector</em> for the curves of measures $t\rightarrow p_t$ <a class="citation" href="#JKO98">(Richard Jordan, 1998)</a> <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>. Define a functional $\mathcal{F}=\text{KL}(\cdot||\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have</p>
+
+\[\begin{align}
+\mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int p \mathrm{V} + \int p \log p.\notag
+\end{align}\]
+
+<p>Taking the first variation of $\mathcal{F}$ at $p$, we have</p>
+
+\[\begin{align}
+\delta \mathcal{F}(p)= \mathrm{V} + \log p+\text{constant}.\notag
+\end{align}\]
+
+<p>The Wasserstein gradient at $p$ follows that</p>
+
+\[\begin{align}
+\nabla_{\text{W}_2} \mathcal{F}(p):=\nabla \delta \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p=-\boldsymbol{\nu},\notag
+\end{align}\]
+
+<p>where the last equality follows by Eq.\eqref{FPE}.</p>
+
+<p>Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$</p>
+
+\[\begin{align}
+\partial_t p_t =\nabla \cdot \bigg(\nabla_{\text{W}_2} \mathcal{F}(p_t) p_t\bigg).\notag
+\end{align}\]
+
+<p>The following is a demo that describes the connections:</p>
+
+<p align="center">
+    <img src="/images/ODE_PDE_SDE.png" width="300" />
+</p>
+
 
     </div>
     <div id='bibliography'>
         <div class='wrap'>
-            <ol class="bibliography"></ol>
+            <ol class="bibliography"><li><span id="oksendal2003stochastic">Øksendal, B. (2003). <i>Stochastic Differential Equations: An Introduction with Applications</i>. Springer.</span></li>
+<li><span id="OT_applied_math">Santambrogio, F. (2015). <i>Optimal Transport for Applied Mathematicians: 
+ Calculus of Variations, PDEs, and Modeling</i>. Springer.</span></li>
+<li><span id="log_concave_sampling">Chewi, S. (2023). <i>Log-Concave Sampling</i>. Online Draft.</span></li>
+<li><span id="score_sde">Song, Y., Sohl-Dickstein, J., Kingma, D. P., Kumar, A., Ermon, S., &amp; Poole, B. (2021). Score-Based Generative Modeling through Stochastic Differential Equations
+. <i>ICLR</i>.</span></li>
+<li><span id="neural_ode">Chen, R. T. Q., Rubanova, Y., Bettencourt, J., &amp; Duvenaud, D. (2018). Neural Ordinary Differential Equations. <i>NeurIPS</i>.</span></li>
+<li><span id="Hutchinson89">Hutchinson, M. F. (1989). A Stochastic Estimator of the Trace of the Influence Matrix for Laplacian
+Smoothing Splines. <i>Communications in Statistics-Simulation and Computation</i>, <i>18</i>(3), 1059–1076.</span></li>
+<li><span id="JKO98">Richard Jordan, F. O., David Kinderlehrer. (1998). The Variational Formulation of the Fokker-Planck Equation. <i>SIAM Journal on Mathematical Analysis</i>.</span></li></ol>
         </div>
     </div>
 </div>
