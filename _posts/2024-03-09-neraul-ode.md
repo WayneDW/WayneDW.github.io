@@ -1,7 +1,7 @@
 ---
-title: 'Flow Matching and Stochastic Interpolant'
-subtitle: TBD
-date: 2023-08-10
+title: 'Thoughts on Flow Matching, Rectified Flow, and Stochastic Interpolant'
+subtitle: The goal is conceptually appealing, but the way is not cheap. 
+date: 2024-03-09
 permalink: /posts/flow_match_stochastic_interpolant/
 category: Diffusion Model
 ---
