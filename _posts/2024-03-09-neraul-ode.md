@@ -1,6 +1,6 @@
 ---
-title: 'Thoughts on Flow Matching, Rectified Flow, and Stochastic Interpolant'
-subtitle: The goal is conceptually appealing, but the way is not cheap. 
+title: 'Flow Matching, Rectified Flow, and Stochastic Interpolant'
+subtitle: An efficient training scheme, although the objective may not be computationally friendly.
 date: 2024-03-09
 permalink: /posts/flow_match_stochastic_interpolant/
 category: Diffusion Model
