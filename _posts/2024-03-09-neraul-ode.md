@@ -74,9 +74,9 @@ The new path $\{\mathrm{Z}_t: t\in[0, 1]\}$ can be simulated via $\mathrm{d} \ma
 
 **Straight flow with optimized coupling**: Similar to flow matching {% cite flow_match %}, RecFlow has a fairly user-friendly training loss via a quadratic cost function and conceptually appealing for straight-path simulation to minimize the number of function evaluations. The iterative rectify procedure further optimize the coupling and makes the algorithm quite efficient compared to the expensive Schrödinger bridge. 
 
-**Formulation**: The extension to general transport cost function looks a bit more complex than the Schrödinger bridge formulation. Moreover, Schrödinger bridge is really elegant for optimizing both general convex and non-convex transport cost function.
+**Formulation**: The extension to general transport cost function looks a bit more complex than the Schrödinger bridge formulation. Moreover, Schrödinger bridge is really elegant for even optimizing non-convex transport cost functions.
 
 
 **Flow or diffusion**: Similar to SGD, RecFlow utilizes the randomness in mini-batch simulation and appears to be scalable for real-world datasets. This brings us a question if the manually injected noise via diffusion models are really needed. For example, stochastic interpolant {% cite stochastic_interpolant %} does unify flow and diffusion, but the training loss becomes implicit again, which may affect the scalability. In my opinion, diffusion model should still outperform flow models in training due to the ease of annealing. 
 
-**Straight v.s. non-straight flows**: I am not fully convinced if displacement interpolantion is always the goal for general non-linear transport. Empirically, we often observe a decent model with 12-16 NFEs, but a much worse model when we further decrease NFE and we have to resort to hacky tricks and distillation. My personal conjecture is that curved trajectories are inevitable to pass these energy barriers. 
+**Straight v.s. non-straight flows**: I am not fully convinced if displacement interpolantion is always the goal for general non-linear transport due to energy barriers. Empirically, we often observe a decent model with 12-16 NFEs, but a much worse model when we further decrease NFE and we have to resort to hacky tricks and distillation. Such empirical findings also match my personal conjecture.
