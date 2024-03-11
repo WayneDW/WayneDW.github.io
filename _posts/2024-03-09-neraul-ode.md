@@ -72,9 +72,9 @@ The new path $\{\mathrm{Z}_t: t\in[0, 1]\}$ can be simulated via $\mathrm{d} \ma
 
 #### Comments:
 
-**Straight flow with optimized coupling**: Similar to flow matching {% cite flow_match %}, RecFlow has a fairly user-friendly training loss via a quadratic cost function and conceptually appealing for straight-path simulation to minimize the number of function evaluations. The iterative rectify procedure further optimize the coupling and makes the algorithm quite efficient compared to the expensive Schrödinger bridge. 
+**Straight flow with optimized coupling**: Similar to flow matching {% cite flow_match %}, RecFlow has a fairly user-friendly training loss via a quadratic cost function and conceptually appealing for straight-path simulation. The iterative rectify procedure further optimizes the coupling and makes the transport more efficient.
 
-**Formulation**: The extension to general transport cost function looks a bit more complex than the Schrödinger bridge formulation. Moreover, Schrödinger bridge is really elegant for even optimizing non-convex transport cost functions.
+**Formulation**: The extension to general transport cost function looks a bit more complex than the Schrödinger bridge formulation. Moreover, Schrödinger bridge is really elegant for optimizing general (convex/ non-convex) transport cost functions.
 
 
 **Flow or diffusion**: Similar to SGD, RecFlow utilizes the randomness in mini-batch simulation and appears to be scalable for real-world datasets. This brings us a question if the manually injected noise via diffusion models are really needed. For example, stochastic interpolant {% cite stochastic_interpolant %} does unify flow and diffusion, but the training loss becomes implicit again, which may affect the scalability. In my opinion, diffusion model should still outperform flow models in training due to the ease of annealing. 
