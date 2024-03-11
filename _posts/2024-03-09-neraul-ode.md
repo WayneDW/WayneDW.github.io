@@ -7,7 +7,7 @@ category: Diffusion Model
 ---
 
 
-Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE) and text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
+Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
 
 ### Rectified Flow
 
@@ -49,7 +49,7 @@ $$\begin{align}\notag
 where the first equality follows by Eq.\eqref{ODE} and the two inequalities follow by Jensen’s inequality. The second equality holds since Law($\mathrm{X}_t$)=Law($\mathrm{Z}_t$). The nice property also motivates to iterate this procedure to keep reducing the transport cost.
 
 
-Nevertheless, straight interpolation is a necessary condition for optimal transport when the transport cost is the Euclidean distance {% cite Optimal_transport %}, but it is not sufficient because the couplings $(\mathrm{Z}_0, \mathrm{Z}_1)$ are also subject to optimize. This also brings another question, is straight-line flow always the go-to choice for more general cost functions?
+Nevertheless, straight interpolation is a necessary condition for optimal transport when the transport cost is the Euclidean distance {% cite Optimal_transport %}, but it is not sufficient because the couplings $(\mathrm{Z}_0, \mathrm{Z}_1)$ are also subject to optimize. 
 
 
 #### More general cost functions
@@ -72,7 +72,7 @@ The new path $\{\mathrm{Z}_t: t\in[0, 1]\}$ can be simulated via $\mathrm{d} \ma
 
 #### Comments:
 
-**Straight flow with optimized coupling**: Similar to flow matching {% cite flow_match %}, RecFlow has a fairly user-friendly training loss via a quadratic cost function and conceptually appealing for straight-path simulation to minimize the number of function evaluations. The iterative rectify procedure could further optimize the coupling. This property makes the algorithm quite efficient compared to the expensive Schrödinger bridge. 
+**Straight flow with optimized coupling**: Similar to flow matching {% cite flow_match %}, RecFlow has a fairly user-friendly training loss via a quadratic cost function and conceptually appealing for straight-path simulation to minimize the number of function evaluations. The iterative rectify procedure further optimize the coupling and makes the algorithm quite efficient compared to the expensive Schrödinger bridge. 
 
 **Formulation**: The extension to general transport cost function looks a bit more complex than the Schrödinger bridge formulation. Moreover, Schrödinger bridge is really elegant for optimizing both general convex and non-convex transport cost function.
 
