@@ -1,6 +1,6 @@
 ---
 title: 'Comments on Rectified Flow'
-subtitle: Straighter flows yield more efficient transport and accelerates the simulations.
+subtitle: Does a straighter flow always yield more efficient transport and accelerate the simulation?
 date: 2024-03-09
 permalink: /posts/flow_match_stochastic_interpolant/
 category: Diffusion Model
