@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-13T07:40:53-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Triangular maps</title><link href="http://localhost:4000/posts/triangular_maps/" rel="alternate" type="text/html" title="Triangular maps" /><published>2024-03-12T00:00:00-07:00</published><updated>2024-03-12T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/triangular_maps/"><![CDATA[<p>FYI</p>]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[FYI]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-13T07:41:17-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Triangular maps</title><link href="http://localhost:4000/posts/triangular_maps/" rel="alternate" type="text/html" title="Triangular maps" /><published>2024-03-12T00:00:00-07:00</published><updated>2024-03-12T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/triangular_maps/"><![CDATA[FYI]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[FYI]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
 
 ### Rectified Flow
 
@@ -175,145 +175,132 @@ Why does deep neural networks generalize so well? The following figure [credit t
 
 For the details, we refer interested readers to the study in {% cite fit_without_fear %}.]]></content><author><name>Wei Deng</name></author><category term="Regression" /><summary type="html"><![CDATA[Ridge Regression with $n\gg d$: Bias-variance trade-off]]></summary></entry><entry><title type="html">The Triangle of Flow, Diffusion, and PDE</title><link href="http://localhost:4000/posts/flow_diffusion_PDE/" rel="alternate" type="text/html" title="The Triangle of Flow, Diffusion, and PDE" /><published>2023-07-01T00:00:00-07:00</published><updated>2023-07-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/flow-diffusion-PDE</id><content type="html" xml:base="http://localhost:4000/posts/flow_diffusion_PDE/"><![CDATA[<!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
 
-### Diffusion Process
+<h3 id="diffusion-process">Diffusion Process</h3>
 
-Consider a diffusion process that solves the Itô's SDE {% cite oksendal2003stochastic %}:
+<p>Consider a diffusion process that solves the Itô’s SDE <a class="citation" href="#oksendal2003stochastic">(Øksendal, 2003)</a>:</p>
 
-$$\begin{align}
+\[\begin{align}
 \mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\label{SDE}
-\end{align}$$
+\end{align}\]
 
-Denote by $\mathrm{P}_t$ the transition function of Markov process
+<p>Denote by $\mathrm{P}_t$ the transition function of Markov process</p>
 
-$$\begin{align}
+\[\begin{align}
 (\mathrm{P}_t f)(x)=\int f(y)\mathrm{P}(t, x, \mathrm{d} y)\notag.
-\end{align}$$
+\end{align}\]
 
-We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.
+<p>We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.</p>
 
-Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)\|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito's formula), where $s\leq t$, we have the *backward Kolmogorov equation*
+<p>Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito’s formula), where $s\leq t$, we have the <em>backward Kolmogorov equation</em></p>
 
-$$\begin{align}
-\mathscr{L}&=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
-           &=\sum_{j=1}^d \mathrm{v}_j\frac{\partial}{\partial x_j} + \frac{1}{2}\sum_{i,j=1}^d \Sigma_{ij}\frac{\partial^2}{\partial x_i \partial x_j}\notag.
-\end{align}$$
+\[\begin{align}
+\mathscr{L}&amp;=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
+           &amp;=\sum_{j=1}^d \mathrm{v}_j\frac{\partial}{\partial x_j} + \frac{1}{2}\sum_{i,j=1}^d \Sigma_{ij}\frac{\partial^2}{\partial x_i \partial x_j}\notag.
+\end{align}\]
 
-where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\mathbb{R}^d$, $\Sigma(x)=\sigma(x) \sigma(x)^\intercal$ and $D^2$ denotes the Hessian matrix. 
-
+<p>where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\mathbb{R}^d$, $\Sigma(x)=\sigma(x) \sigma(x)^\intercal$ and $D^2$ denotes the Hessian matrix.</p>
 
 <!-- # https://openreview.net/pdf?id=x9tAJ3_N0k -->
 
-### Fokker-Planck PDE
+<h3 id="fokker-planck-pde">Fokker-Planck PDE</h3>
 
-Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures 
+<p>Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures</p>
 
-$$\begin{align}
+\[\begin{align}
 \mathrm{P}^{*}_t \mu(\Gamma)=\int \mathrm{P}(t, x, \Gamma)\mathrm{d} \mu(x)\notag.
-\end{align}$$
+\end{align}\]
 
-The semigroup $\mathrm{P}_t$ and $\mathrm{P}_t^{*}$ are adjoint in $L^2$ such that
+<p>The semigroup $\mathrm{P}_t$ and $\mathrm{P}_t^{*}$ are adjoint in $L^2$ such that</p>
 
-$$\begin{align}
+\[\begin{align}
 \int (\mathrm{P}_t f)\mathrm{d}\mu=\int f\mathrm{d}(\mathrm{P}_t^{*}\mu)\notag,
-\end{align}$$
+\end{align}\]
 
-which yields
+<p>which yields</p>
 
-$$\begin{align}
+\[\begin{align}
 \int \mathscr{L} f h \mathrm{d} x = \int f \mathscr{L}^* h \mathrm{d}x, \text{ where } \mathrm{P}_t^*=e^{t {\mathscr{L}}^*}.\notag
-\end{align}$$
+\end{align}\]
 
+<p>Let $p_t$ denote the law of the Markov process at time $t$. The law of $p_t$ follows that</p>
 
-Let $p_t$ denote the law of the Markov process at time $t$. The law of $p_t$ follows that
-
-$$\begin{align}
+\[\begin{align}
 \frac{\partial p_t}{\partial t} =\mathscr{L}^* p_t,\notag
-\end{align}$$
+\end{align}\]
 
-which is the Fokker-Planck equation (PDE), also known as *forward Kolmogorov equation*. Analyzing the evolution of the probability densities, we have
+<p>which is the Fokker-Planck equation (PDE), also known as <em>forward Kolmogorov equation</em>. Analyzing the evolution of the probability densities, we have</p>
 
-$$\begin{align}
-\mathscr{L}^{*} p_t&=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
-                &=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
-                &=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
-\end{align}$$
+\[\begin{align}
+\mathscr{L}^{*} p_t&amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
+                &amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
+                &amp;=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
+\end{align}\]
 
-where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.
+<p>where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.</p>
 
+<h3 id="probability-flow">Probability Flow</h3>
 
+<p>Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation <a class="citation" href="#OT_applied_math">(Santambrogio, 2015)</a> or continuity equation in fluid dynamics <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>.</p>
 
-
-### Probability Flow
-
-Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation {% cite OT_applied_math %} or continuity equation in fluid dynamics {% cite log_concave_sampling %}.
-
-$$\begin{align}
+\[\begin{align}
 \partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\label{ODE}
-\end{align}$$
+\end{align}\]
 
-Interestingly, it corresponds to the probability flow ODE {% cite score_sde %}
+<p>Interestingly, it corresponds to the probability flow ODE <a class="citation" href="#score_sde">(Song et al., 2021)</a></p>
 
-$$\begin{align}
+\[\begin{align}
 \mathrm{d} X_t={\boldsymbol{\nu_t}}(X_t) \mathrm{d} t.\notag
-\end{align}$$
+\end{align}\]
 
+<p>Apply the instantaneous change of variables <a class="citation" href="#neural_ode">(Chen et al., 2018)</a>, the <strong>log-likelihood</strong> of $p_0(x)$ follows that</p>
 
-
-
-Apply the instantaneous change of variables {% cite neural_ode %}, the **log-likelihood** of $p_0(x)$ follows that
-
-$$\begin{align}
+\[\begin{align}
 \log p_0(x)=\log p_T(x) + \int_0^T \nabla \cdot {\boldsymbol{\nu_t}} \mathrm{d} t,\notag
-\end{align}$$
+\end{align}\]
 
-which provides an elegant way to compute the likelihood for diffusion models.
+<p>which provides an elegant way to compute the likelihood for diffusion models.</p>
 
+<p>In practice, it is expensive to evaluate the divergence $\nabla \cdot {\boldsymbol{\nu_t}}$. We can adopt the Hutchinson trace estimator <a class="citation" href="#Hutchinson89">(Hutchinson, 1989)</a>.</p>
 
-In practice, it is expensive to evaluate the divergence $\nabla \cdot {\boldsymbol{\nu_t}}$. We can adopt the Hutchinson trace estimator {% cite Hutchinson89 %}.
-
-$$\begin{align}
+\[\begin{align}
 \nabla \cdot {\boldsymbol{\nu_t}} = \mathbb{E} \big[\epsilon^\intercal \nabla {\boldsymbol{\nu_t}} \epsilon \big],\notag
-\end{align}$$
+\end{align}\]
 
-where $\nabla \cdot {\boldsymbol{\nu_t}}$ is the Jacobian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.
+<p>where $\nabla \cdot {\boldsymbol{\nu_t}}$ is the Jacobian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.</p>
 
+<h4 id="wasserstein-gradient-flow">Wasserstein Gradient Flow</h4>
 
+<p>Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the <em>tangent vector</em> for the curves of measures $t\rightarrow p_t$ <a class="citation" href="#JKO98">(Richard Jordan, 1998)</a> <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>. Define a functional $\mathcal{F}=\text{KL}(\cdot||\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have</p>
 
-#### Wasserstein Gradient Flow
-
-Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the *tangent vector* for the curves of measures $t\rightarrow p_t$ {% cite JKO98 %} {% cite log_concave_sampling %}. Define a functional $\mathcal{F}=\text{KL}(\cdot\|\|\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have
-
-$$\begin{align}
+\[\begin{align}
 \mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int p \mathrm{V} + \int p \log p.\notag
-\end{align}$$
+\end{align}\]
 
-Taking the first variation of $\mathcal{F}$ at $p$, we have
+<p>Taking the first variation of $\mathcal{F}$ at $p$, we have</p>
 
-$$\begin{align}
+\[\begin{align}
 \delta \mathcal{F}(p)= \mathrm{V} + \log p+\text{constant}.\notag
-\end{align}$$
+\end{align}\]
 
-The Wasserstein gradient at $p$ follows that
+<p>The Wasserstein gradient at $p$ follows that</p>
 
-$$\begin{align}
+\[\begin{align}
 \nabla_{\text{W}_2} \mathcal{F}(p):=\nabla \delta \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p=-\boldsymbol{\nu},\notag
-\end{align}$$
+\end{align}\]
 
-where the last equality follows by Eq.\eqref{FPE}.
+<p>where the last equality follows by Eq.\eqref{FPE}.</p>
 
-Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$ 
+<p>Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$</p>
 
-$$\begin{align}
+\[\begin{align}
 \partial_t p_t =\nabla \cdot \bigg(\nabla_{\text{W}_2} \mathcal{F}(p_t) p_t\bigg).\notag
-\end{align}$$
+\end{align}\]
 
-
-
-The following is a demo that describes the connections:
+<p>The following is a demo that describes the connections:</p>
 
 <p align="center">
     <img src="/images/ODE_PDE_SDE.png" width="300" />
-</p>]]></content><author><name>Wei Deng</name></author><category term="Diffusion Model" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Coupling by Reflection (II)</title><link href="http://localhost:4000/posts/coupling_by_reflection/" rel="alternate" type="text/html" title="Coupling by Reflection (II)" /><published>2023-05-20T00:00:00-07:00</published><updated>2023-05-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling-by-Reflection</id><content type="html" xml:base="http://localhost:4000/posts/coupling_by_reflection/"><![CDATA[### Limitations of Synchronous Coupling
+</p>]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Coupling by Reflection (II)</title><link href="http://localhost:4000/posts/coupling_by_reflection/" rel="alternate" type="text/html" title="Coupling by Reflection (II)" /><published>2023-05-20T00:00:00-07:00</published><updated>2023-05-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling-by-Reflection</id><content type="html" xml:base="http://localhost:4000/posts/coupling_by_reflection/"><![CDATA[### Limitations of Synchronous Coupling
 
 Given a $\kappa$-strongly convex drift $U$, we can apply the synchronous coupling for the diffusion process
 
@@ -462,7 +449,7 @@ $$\begin{align}
 
 Hint: 1) write the likelihood; 2) take the gradient.]]></content><author><name>Wei Deng</name></author><summary type="html"><![CDATA[Maximum likelihood estimation]]></summary></entry><entry><title type="html">Schrödinger Bridge Problem</title><link href="http://localhost:4000/posts/Bridge/" rel="alternate" type="text/html" title="Schrödinger Bridge Problem" /><published>2022-06-19T00:00:00-07:00</published><updated>2022-06-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/Bridges</id><content type="html" xml:base="http://localhost:4000/posts/Bridge/"><![CDATA[The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models {% cite Nea11 %}, {% cite forward_backward_SDE %}, {% cite DSB %} and financial mathematics {% cite nutz_trading %} {% cite nutz_portfolio %} {% cite schrodinger_vol_model %}. The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods [\[Image Generation\]](https://paperswithcode.com/sota/image-generation-on-cifar-10).
 
-The most striking feature of this algorithm is its deep mathematical connections to stochastic optimal control, optimal transport, fluid dynamics {% cite siam_review_Sinkhorn_liaisons %}, and DNN approximations. As such, we have sufficient tools to understand the underlying theories. We refer interested readers to the Appendix A of {% cite provably_schrodinger_bridge %}.]]></content><author><name>Wei Deng</name></author><category term="Diffusion Model" /><summary type="html"><![CDATA[The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models (Neal, 2011), (Chen et al., 2022), (De Bortoli et al., 2021) and financial mathematics (Nutz, 2022) (Nutz, 2022) (Henry-Labordere, 2019). The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods [Image Generation].]]></summary></entry><entry><title type="html">Hamiltonian Monte Caro</title><link href="http://localhost:4000/posts/Hamiltonian/" rel="alternate" type="text/html" title="Hamiltonian Monte Caro" /><published>2021-11-01T00:00:00-07:00</published><updated>2021-11-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Hamiltonian</id><content type="html" xml:base="http://localhost:4000/posts/Hamiltonian/"><![CDATA[Hamiltonian Monte Carlo {% cite Nea11 %} (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm {% cite MRRT53 %} and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes. 
+The most striking feature of this algorithm is its deep mathematical connections to stochastic optimal control, optimal transport, fluid dynamics {% cite siam_review_Sinkhorn_liaisons %}, and DNN approximations. As such, we have sufficient tools to understand the underlying theories. We refer interested readers to the Appendix A of {% cite provably_schrodinger_bridge %}.]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models (Neal, 2011), (Chen et al., 2022), (De Bortoli et al., 2021) and financial mathematics (Nutz, 2022) (Nutz, 2022) (Henry-Labordere, 2019). The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods [Image Generation].]]></summary></entry><entry><title type="html">Hamiltonian Monte Caro</title><link href="http://localhost:4000/posts/Hamiltonian/" rel="alternate" type="text/html" title="Hamiltonian Monte Caro" /><published>2021-11-01T00:00:00-07:00</published><updated>2021-11-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Hamiltonian</id><content type="html" xml:base="http://localhost:4000/posts/Hamiltonian/"><![CDATA[Hamiltonian Monte Carlo {% cite Nea11 %} (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm {% cite MRRT53 %} and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes. 
 
 In this blog, I will introduce a paper called Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions {% cite CV19 %}. 
 
