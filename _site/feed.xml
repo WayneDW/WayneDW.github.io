@@ -1,75 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-13T08:11:38-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Triangular maps</title><link href="http://localhost:4000/posts/triangular_maps/" rel="alternate" type="text/html" title="Triangular maps" /><published>2024-03-12T00:00:00-07:00</published><updated>2024-03-12T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/triangular_maps/"><![CDATA[JAX: Real-NVP --  https://blog.evjang.com/2019/07/nf-jax.html
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-13T08:25:06-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Triangular maps</title><link href="http://localhost:4000/posts/triangular_maps/" rel="alternate" type="text/html" title="Triangular maps" /><published>2024-03-12T00:00:00-07:00</published><updated>2024-03-12T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/triangular_maps/"><![CDATA[<p>JAX: Real-NVP –  https://blog.evjang.com/2019/07/nf-jax.html</p>
 
-JAx: Flow: https://github.com/ChrisWaites/jax-flows
+<p>JAx: Flow: https://github.com/ChrisWaites/jax-flows</p>
 
-https://github.com/karpathy/pytorch-normalizing-flows/tree/master
+<p>https://github.com/karpathy/pytorch-normalizing-flows/tree/master</p>
 
-FYI]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[JAX: Real-NVP – https://blog.evjang.com/2019/07/nf-jax.html]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[<p>Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.</p>
+<p>FYI</p>]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[JAX: Real-NVP – https://blog.evjang.com/2019/07/nf-jax.html]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
 
-<h3 id="rectified-flow">Rectified Flow</h3>
+### Rectified Flow
 
-<p>To propose more efficient transport, rectified flow (RecFlow)  <a class="citation" href="#rec_flow">(Liu et al., 2023)</a> proposes to straighten the flow to enable fewer discretization steps and has been adopted by stability AI <a class="citation" href="#stability_ai_transformer">(AI, 2024)</a>. For a given coupling $(\mathrm{X}_0, \mathrm{X}_1)\sim \pi_0\otimes \pi_1$, RecFlow proposes to solve the following probability-flow ODE</p>
+To propose more efficient transport, rectified flow (RecFlow)  {% cite rec_flow %} proposes to straighten the flow to enable fewer discretization steps and has been adopted by stability AI {% cite stability_ai_transformer %}. For a given coupling $(\mathrm{X}_0, \mathrm{X}_1)\sim \pi_0\otimes \pi_1$, RecFlow proposes to solve the following probability-flow ODE 
 
-<p>\(\begin{align}
+$$\begin{align}
     \mathrm{d} \mathrm{Z}_t = \nu_t^{\star} (\mathrm{Z}_t) \mathrm{d} t, \label{ODE}
-\end{align}\)
-where $t\in[0, 1]$, and $\mathrm{Z}_0\sim \mathrm{X}_0$. $\nu_t^{\star}$ is the velocity field and is the solution of the objective</p>
+\end{align}$$
+where $t\in[0, 1]$, and $\mathrm{Z}_0\sim \mathrm{X}_0$. $\nu_t^{\star}$ is the velocity field and is the solution of the objective
 
-\[\begin{align}
+$$\begin{align}
     \inf_{\nu} \int_0^1 \mathbb{E}\bigg[ \big\|\mathrm{X}_1 - \mathrm{X}_0 - \nu_t(\mathrm{X}_t, t) \big\|_2^2 \bigg] \mathrm{d} t.\label{obj}
-\end{align}\]
+\end{align}$$
 
-<p>where $\mathrm{X}_t = t \mathrm{X}_0 + (1-t) \mathrm{X}_1$. The solution of Eq.\eqref{obj} is a straight line interpolation between $\mathrm{X}_0$ and $\mathrm{X}_1$ such that</p>
+where $\mathrm{X}_t = t \mathrm{X}_0 + (1-t) \mathrm{X}_1$. The solution of Eq.\eqref{obj} is a straight line interpolation between $\mathrm{X}_0$ and $\mathrm{X}_1$ such that
 
-\[\begin{align}
+
+$$\begin{align}
     \nu_t^{\star}(z)=\mathbb{E}\bigg[ \mathrm{X}_1 - \mathrm{X}_0 | \mathrm{X}_t = z\bigg].\label{velocity_field}
-\end{align}\]
+\end{align}$$
 
-<p>To obtain a valid coupling $(\mathrm{Z}_0, \mathrm{Z}_1)$, we can draw $\mathrm{Z}_1$ by simulating RecFlow \eqref{ODE} with $\mathrm{Z}_0\sim \pi_0$.</p>
+To obtain a valid coupling $(\mathrm{Z}_0, \mathrm{Z}_1)$, we can draw $\mathrm{Z}_1$ by simulating RecFlow \eqref{ODE} with $\mathrm{Z}_0\sim \pi_0$. 
 
-<h4 id="lower-transport-costs">Lower Transport Costs</h4>
+#### Lower Transport Costs
 
-<p>Define a transport cost function $c(\cdot) = \|\cdot\|_2^2$. We show the rectified coupling $(\mathrm{Z}_0, \mathrm{Z}_1)$ yields a lower transport cost in that $\mathbb{E}\big[c(\mathrm{Z}_1 - \mathrm{Z}_0) \big]\leq \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big]$ for any convex cost function $c$.</p>
+Define a transport cost function $c(\cdot) = \\|\cdot\\|_2^2$. We show the rectified coupling $(\mathrm{Z}_0, \mathrm{Z}_1)$ yields a lower transport cost in that $\mathbb{E}\big[c(\mathrm{Z}_1 - \mathrm{Z}_0) \big]\leq \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big]$ for any convex cost function $c$. 
 
-\[\begin{align}\notag
-    \mathbb{E}\big[c(\mathrm{Z}_1 - \mathrm{Z}_0) \big] &amp;= \mathbb{E}\bigg[c\bigg(\int_0^1 \nu_t^{\star}(\mathrm{Z}_t)\mathrm{d} t \bigg) \bigg] \\ \notag
-    &amp; \leq \mathbb{E}\bigg[\int_0^1 c(\nu_t^{\star}(\mathrm{Z}_t)) \mathrm{d} t \bigg] \\ \notag
-    &amp; = \mathbb{E}\bigg[\int_0^1 c(\nu_t^{\star}(\mathrm{X}_t)) \mathrm{d} t \bigg] \\ \notag
-    &amp; = \mathbb{E}\bigg[\int_0^1 c(\mathbb{E}\big[(\mathrm{X}_1 - \mathrm{X}_0 \big| \mathrm{X}_t)\big]) \mathrm{d} t \bigg] \\ \notag
-    &amp; \leq \mathbb{E}\bigg[\int_0^1 \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big| \mathrm{X}_t\big] \mathrm{d} t \bigg] \\ \notag
-    &amp; = \int_0^1 \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0)\big]\mathrm{d} t \\ \notag
-    &amp; = \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big].
-\end{align}\]
 
-<p>where the first equality follows by Eq.\eqref{ODE} and the two inequalities follow by Jensen’s inequality. The second equality holds since Law($\mathrm{X}_t$)=Law($\mathrm{Z}_t$). The nice property also motivates to iterate this procedure to keep reducing the transport cost.</p>
+$$\begin{align}\notag
+    \mathbb{E}\big[c(\mathrm{Z}_1 - \mathrm{Z}_0) \big] &= \mathbb{E}\bigg[c\bigg(\int_0^1 \nu_t^{\star}(\mathrm{Z}_t)\mathrm{d} t \bigg) \bigg] \\ \notag
+    & \leq \mathbb{E}\bigg[\int_0^1 c(\nu_t^{\star}(\mathrm{Z}_t)) \mathrm{d} t \bigg] \\ \notag
+    & = \mathbb{E}\bigg[\int_0^1 c(\nu_t^{\star}(\mathrm{X}_t)) \mathrm{d} t \bigg] \\ \notag
+    & = \mathbb{E}\bigg[\int_0^1 c(\mathbb{E}\big[(\mathrm{X}_1 - \mathrm{X}_0 \big| \mathrm{X}_t)\big]) \mathrm{d} t \bigg] \\ \notag
+    & \leq \mathbb{E}\bigg[\int_0^1 \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big| \mathrm{X}_t\big] \mathrm{d} t \bigg] \\ \notag
+    & = \int_0^1 \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0)\big]\mathrm{d} t \\ \notag
+    & = \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big].
+\end{align}$$
 
-<p>Nevertheless, straight interpolation is a necessary condition for optimal transport when the transport cost is the Euclidean distance <a class="citation" href="#Optimal_transport">(Villani, 2008)</a>, but it is not sufficient because the couplings $(\mathrm{Z}_0, \mathrm{Z}_1)$ are also subject to optimize.</p>
+where the first equality follows by Eq.\eqref{ODE} and the two inequalities follow by Jensen’s inequality. The second equality holds since Law($\mathrm{X}_t$)=Law($\mathrm{Z}_t$). The nice property also motivates to iterate this procedure to keep reducing the transport cost.
 
-<h4 id="more-general-cost-functions">More general cost functions</h4>
 
-<p>The quadratic transport cost function corresponds to the Brownian motion prior. For more general convex cost function $c$, the vector field <a class="citation" href="#rec_flow_general">(Liu, 2022)</a> follows that</p>
+Nevertheless, straight interpolation is a necessary condition for optimal transport when the transport cost is the Euclidean distance {% cite Optimal_transport %}, but it is not sufficient because the couplings $(\mathrm{Z}_0, \mathrm{Z}_1)$ are also subject to optimize. 
 
-\[\begin{align}
+
+#### More general cost functions
+
+The quadratic transport cost function corresponds to the Brownian motion prior. For more general convex cost function $c$, the vector field {% cite rec_flow_general %} follows that
+
+$$\begin{align}
    \nu_t(\mathrm{Z})=\nabla c^{\star} (\nabla f_t (\mathrm{Z})),\notag
-\end{align}\]
+\end{align}$$
 
-<p>where $c^{\star}$ is the conjugate function of $c$, $f$ is the solution of the Bregman divergence</p>
+where $c^{\star}$ is the conjugate function of $c$, $f$ is the solution of the Bregman divergence
 
-\[\begin{align}
+$$\begin{align}
     \inf_f \int_0^1 \mathbb{E}\bigg[c^{\star}(\nabla f(\mathrm{X}_t)) - (\mathrm{X}_1 - \mathrm{X}_0)^\intercal \nabla f(\mathrm{X}_t) + c(\mathrm{X}_1 - \mathrm{X}_0) \bigg] \mathrm{d} t.\notag
-\end{align}\]
+\end{align}$$
 
-<p>The new path ${\mathrm{Z}_t: t\in[0, 1]}$ can be simulated via $\mathrm{d} \mathrm{Z}_t=\nabla c^{\star}(\nabla f_t(\mathrm{Z}_t))\mathrm{d}t$ with $\mathrm{Z}_0=\mathrm{X}_0$.</p>
+The new path $\{\mathrm{Z}_t: t\in[0, 1]\}$ can be simulated via $\mathrm{d} \mathrm{Z}_t=\nabla c^{\star}(\nabla f_t(\mathrm{Z}_t))\mathrm{d}t$ with $\mathrm{Z}_0=\mathrm{X}_0$.
 
-<h4 id="comments">Comments:</h4>
 
-<p><strong>Straight flow with optimized coupling</strong>: Similar to flow matching <a class="citation" href="#flow_match">(Lipman et al., 2023)</a>, RecFlow has a fairly user-friendly training loss via a quadratic cost and is appealing for straight-path simulation. The iterative rectify procedure further optimizes the coupling and makes the transport more efficient.</p>
 
-<p><strong>Formulation</strong>: The extension to general transport cost function looks a bit more complex than the Schrödinger bridge formulation, where the latter <a class="citation" href="#forward_backward_SDE">(Chen et al., 2022)</a> is really elegant for optimizing general (convex/ non-convex) transport cost functions.</p>
+#### Comments:
 
-<p><strong>Flow or diffusion</strong>: Similar to SGD, RecFlow utilizes the randomness in mini-batch simulation and appears to be scalable for real-world datasets. This brings us a question if the manually injected noise via diffusion models are really needed. For example, stochastic interpolant <a class="citation" href="#stochastic_interpolant">(Albergo et al., 2023)</a> does unify flow and diffusion, but the training loss becomes implicit again, which may affect the scalability. In my opinion, diffusion model should still outperform flow models in training due to the ease of annealing.</p>
+**Straight flow with optimized coupling**: Similar to flow matching {% cite flow_match %}, RecFlow has a fairly user-friendly training loss via a quadratic cost and is appealing for straight-path simulation. The iterative rectify procedure further optimizes the coupling and makes the transport more efficient.
 
-<p><strong>Straight v.s. non-straight flows</strong>: I am not fully convinced if displacement interpolantion is always the goal for general non-linear transport due to energy barriers. Empirically, we often observe a decent model with 12-16 NFEs, but a much worse model when we further decrease NFE and we have to resort to hacky tricks and distillation. Such empirical findings also motivate the study of <a class="citation" href="#multi_consistency_model">(Heek et al., 2024)</a>.</p>]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.]]></summary></entry><entry><title type="html">Implicit Ridge Regularization</title><link href="http://localhost:4000/posts/implicit_ridge_regularization/" rel="alternate" type="text/html" title="Implicit Ridge Regularization" /><published>2024-03-07T00:00:00-08:00</published><updated>2024-03-07T00:00:00-08:00</updated><id>http://localhost:4000/posts/implicit-ridge</id><content type="html" xml:base="http://localhost:4000/posts/implicit_ridge_regularization/"><![CDATA[### Ridge Regression with $n\gg d$: Bias-variance trade-off
+**Formulation**: The extension to general transport cost function looks a bit more complex than the Schrödinger bridge formulation, where the latter {% cite forward_backward_SDE %} is really elegant for optimizing general (convex/ non-convex) transport cost functions.
+
+**Flow or diffusion**: Similar to SGD, RecFlow utilizes the randomness in mini-batch simulation and appears to be scalable for real-world datasets. This brings us a question if the manually injected noise via diffusion models are really needed. For example, stochastic interpolant {% cite stochastic_interpolant %} does unify flow and diffusion, but the training loss becomes implicit again, which may affect the scalability. In my opinion, diffusion model should still outperform flow models in training due to the ease of annealing. 
+
+**Straight v.s. non-straight flows**: I am not fully convinced if displacement interpolantion is always the goal for general non-linear transport due to energy barriers. Empirically, we often observe a decent model with 12-16 NFEs, but a much worse model when we further decrease NFE and we have to resort to hacky tricks and distillation. Such empirical findings also motivate the study of {% cite multi_consistency_model %}.]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.]]></summary></entry><entry><title type="html">Implicit Ridge Regularization</title><link href="http://localhost:4000/posts/implicit_ridge_regularization/" rel="alternate" type="text/html" title="Implicit Ridge Regularization" /><published>2024-03-07T00:00:00-08:00</published><updated>2024-03-07T00:00:00-08:00</updated><id>http://localhost:4000/posts/implicit-ridge</id><content type="html" xml:base="http://localhost:4000/posts/implicit_ridge_regularization/"><![CDATA[### Ridge Regression with $n\gg d$: Bias-variance trade-off
 
 We study the ordinary linear regression
 
@@ -460,7 +466,7 @@ $$\begin{align}
 \mathrm{d}X_t = -\alpha X_t \mathrm{d}t+\sigma\mathrm{d}W_t.\notag
 \end{align}$$
 
-Hint: 1) write the likelihood; 2) take the gradient.]]></content><author><name>Wei Deng</name></author><summary type="html"><![CDATA[Maximum likelihood estimation]]></summary></entry><entry><title type="html">Schrödinger Bridge Problem</title><link href="http://localhost:4000/posts/Bridge/" rel="alternate" type="text/html" title="Schrödinger Bridge Problem" /><published>2022-06-19T00:00:00-07:00</published><updated>2022-06-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/Bridges</id><content type="html" xml:base="http://localhost:4000/posts/Bridge/"><![CDATA[The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models {% cite Nea11 %}, {% cite forward_backward_SDE %}, {% cite DSB %} and financial mathematics {% cite nutz_trading %} {% cite nutz_portfolio %} {% cite schrodinger_vol_model %}. The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods [\[Image Generation\]](https://paperswithcode.com/sota/image-generation-on-cifar-10).
+Hint: 1) write the likelihood; 2) take the gradient.]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[Maximum likelihood estimation]]></summary></entry><entry><title type="html">Schrödinger Bridge Problem</title><link href="http://localhost:4000/posts/Bridge/" rel="alternate" type="text/html" title="Schrödinger Bridge Problem" /><published>2022-06-19T00:00:00-07:00</published><updated>2022-06-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/Bridges</id><content type="html" xml:base="http://localhost:4000/posts/Bridge/"><![CDATA[The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models {% cite Nea11 %}, {% cite forward_backward_SDE %}, {% cite DSB %} and financial mathematics {% cite nutz_trading %} {% cite nutz_portfolio %} {% cite schrodinger_vol_model %}. The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods [\[Image Generation\]](https://paperswithcode.com/sota/image-generation-on-cifar-10).
 
 The most striking feature of this algorithm is its deep mathematical connections to stochastic optimal control, optimal transport, fluid dynamics {% cite siam_review_Sinkhorn_liaisons %}, and DNN approximations. As such, we have sufficient tools to understand the underlying theories. We refer interested readers to the Appendix A of {% cite provably_schrodinger_bridge %}.]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models (Neal, 2011), (Chen et al., 2022), (De Bortoli et al., 2021) and financial mathematics (Nutz, 2022) (Nutz, 2022) (Henry-Labordere, 2019). The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods [Image Generation].]]></summary></entry><entry><title type="html">Hamiltonian Monte Caro</title><link href="http://localhost:4000/posts/Hamiltonian/" rel="alternate" type="text/html" title="Hamiltonian Monte Caro" /><published>2021-11-01T00:00:00-07:00</published><updated>2021-11-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Hamiltonian</id><content type="html" xml:base="http://localhost:4000/posts/Hamiltonian/"><![CDATA[Hamiltonian Monte Carlo {% cite Nea11 %} (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm {% cite MRRT53 %} and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes. 
 
@@ -652,7 +658,7 @@ It can be shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon
 
 ## Conclusions
 
-Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity {% cite HG14 %}.]]></content><author><name>Wei Deng</name></author><category term="Monte Carlo Methods" /><summary type="html"><![CDATA[Hamiltonian Monte Carlo (Neal, 2011) (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm (Metropolis, 1953) and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes.]]></summary></entry><entry><title type="html">Couplings and Monte Carlo Methods (I)</title><link href="http://localhost:4000/posts/Couplings/" rel="alternate" type="text/html" title="Couplings and Monte Carlo Methods (I)" /><published>2021-08-01T00:00:00-07:00</published><updated>2021-08-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling</id><content type="html" xml:base="http://localhost:4000/posts/Couplings/"><![CDATA[A coupling of two random variables/ vectors represents a joint distribution, where the marginal distributions are denoted by $p$ and $q$, respectively. Any joint distributions of $p$ and $q$ define a valid coupling. Although there are infinitely many of them, some of them are quite special and may facilitate our analysis. 
+Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity {% cite HG14 %}.]]></content><author><name>Wei Deng</name></author><category term="Sampling" /><summary type="html"><![CDATA[Hamiltonian Monte Carlo (Neal, 2011) (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm (Metropolis, 1953) and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes.]]></summary></entry><entry><title type="html">Couplings and Monte Carlo Methods (I)</title><link href="http://localhost:4000/posts/Couplings/" rel="alternate" type="text/html" title="Couplings and Monte Carlo Methods (I)" /><published>2021-08-01T00:00:00-07:00</published><updated>2021-08-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling</id><content type="html" xml:base="http://localhost:4000/posts/Couplings/"><![CDATA[A coupling of two random variables/ vectors represents a joint distribution, where the marginal distributions are denoted by $p$ and $q$, respectively. Any joint distributions of $p$ and $q$ define a valid coupling. Although there are infinitely many of them, some of them are quite special and may facilitate our analysis. 
 
 
 # Maximal Coupling
