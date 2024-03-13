@@ -1,75 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-13T07:41:17-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Triangular maps</title><link href="http://localhost:4000/posts/triangular_maps/" rel="alternate" type="text/html" title="Triangular maps" /><published>2024-03-12T00:00:00-07:00</published><updated>2024-03-12T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/triangular_maps/"><![CDATA[FYI]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[FYI]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-13T08:11:38-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Triangular maps</title><link href="http://localhost:4000/posts/triangular_maps/" rel="alternate" type="text/html" title="Triangular maps" /><published>2024-03-12T00:00:00-07:00</published><updated>2024-03-12T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/triangular_maps/"><![CDATA[JAX: Real-NVP --  https://blog.evjang.com/2019/07/nf-jax.html
 
-### Rectified Flow
+JAx: Flow: https://github.com/ChrisWaites/jax-flows
 
-To propose more efficient transport, rectified flow (RecFlow)  {% cite rec_flow %} proposes to straighten the flow to enable fewer discretization steps and has been adopted by stability AI {% cite stability_ai_transformer %}. For a given coupling $(\mathrm{X}_0, \mathrm{X}_1)\sim \pi_0\otimes \pi_1$, RecFlow proposes to solve the following probability-flow ODE 
+https://github.com/karpathy/pytorch-normalizing-flows/tree/master
 
-$$\begin{align}
+FYI]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[JAX: Real-NVP – https://blog.evjang.com/2019/07/nf-jax.html]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[<p>Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.</p>
+
+<h3 id="rectified-flow">Rectified Flow</h3>
+
+<p>To propose more efficient transport, rectified flow (RecFlow)  <a class="citation" href="#rec_flow">(Liu et al., 2023)</a> proposes to straighten the flow to enable fewer discretization steps and has been adopted by stability AI <a class="citation" href="#stability_ai_transformer">(AI, 2024)</a>. For a given coupling $(\mathrm{X}_0, \mathrm{X}_1)\sim \pi_0\otimes \pi_1$, RecFlow proposes to solve the following probability-flow ODE</p>
+
+<p>\(\begin{align}
     \mathrm{d} \mathrm{Z}_t = \nu_t^{\star} (\mathrm{Z}_t) \mathrm{d} t, \label{ODE}
-\end{align}$$
-where $t\in[0, 1]$, and $\mathrm{Z}_0\sim \mathrm{X}_0$. $\nu_t^{\star}$ is the velocity field and is the solution of the objective
+\end{align}\)
+where $t\in[0, 1]$, and $\mathrm{Z}_0\sim \mathrm{X}_0$. $\nu_t^{\star}$ is the velocity field and is the solution of the objective</p>
 
-$$\begin{align}
+\[\begin{align}
     \inf_{\nu} \int_0^1 \mathbb{E}\bigg[ \big\|\mathrm{X}_1 - \mathrm{X}_0 - \nu_t(\mathrm{X}_t, t) \big\|_2^2 \bigg] \mathrm{d} t.\label{obj}
-\end{align}$$
+\end{align}\]
 
-where $\mathrm{X}_t = t \mathrm{X}_0 + (1-t) \mathrm{X}_1$. The solution of Eq.\eqref{obj} is a straight line interpolation between $\mathrm{X}_0$ and $\mathrm{X}_1$ such that
+<p>where $\mathrm{X}_t = t \mathrm{X}_0 + (1-t) \mathrm{X}_1$. The solution of Eq.\eqref{obj} is a straight line interpolation between $\mathrm{X}_0$ and $\mathrm{X}_1$ such that</p>
 
-
-$$\begin{align}
+\[\begin{align}
     \nu_t^{\star}(z)=\mathbb{E}\bigg[ \mathrm{X}_1 - \mathrm{X}_0 | \mathrm{X}_t = z\bigg].\label{velocity_field}
-\end{align}$$
+\end{align}\]
 
-To obtain a valid coupling $(\mathrm{Z}_0, \mathrm{Z}_1)$, we can draw $\mathrm{Z}_1$ by simulating RecFlow \eqref{ODE} with $\mathrm{Z}_0\sim \pi_0$. 
+<p>To obtain a valid coupling $(\mathrm{Z}_0, \mathrm{Z}_1)$, we can draw $\mathrm{Z}_1$ by simulating RecFlow \eqref{ODE} with $\mathrm{Z}_0\sim \pi_0$.</p>
 
-#### Lower Transport Costs
+<h4 id="lower-transport-costs">Lower Transport Costs</h4>
 
-Define a transport cost function $c(\cdot) = \\|\cdot\\|_2^2$. We show the rectified coupling $(\mathrm{Z}_0, \mathrm{Z}_1)$ yields a lower transport cost in that $\mathbb{E}\big[c(\mathrm{Z}_1 - \mathrm{Z}_0) \big]\leq \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big]$ for any convex cost function $c$. 
+<p>Define a transport cost function $c(\cdot) = \|\cdot\|_2^2$. We show the rectified coupling $(\mathrm{Z}_0, \mathrm{Z}_1)$ yields a lower transport cost in that $\mathbb{E}\big[c(\mathrm{Z}_1 - \mathrm{Z}_0) \big]\leq \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big]$ for any convex cost function $c$.</p>
 
+\[\begin{align}\notag
+    \mathbb{E}\big[c(\mathrm{Z}_1 - \mathrm{Z}_0) \big] &amp;= \mathbb{E}\bigg[c\bigg(\int_0^1 \nu_t^{\star}(\mathrm{Z}_t)\mathrm{d} t \bigg) \bigg] \\ \notag
+    &amp; \leq \mathbb{E}\bigg[\int_0^1 c(\nu_t^{\star}(\mathrm{Z}_t)) \mathrm{d} t \bigg] \\ \notag
+    &amp; = \mathbb{E}\bigg[\int_0^1 c(\nu_t^{\star}(\mathrm{X}_t)) \mathrm{d} t \bigg] \\ \notag
+    &amp; = \mathbb{E}\bigg[\int_0^1 c(\mathbb{E}\big[(\mathrm{X}_1 - \mathrm{X}_0 \big| \mathrm{X}_t)\big]) \mathrm{d} t \bigg] \\ \notag
+    &amp; \leq \mathbb{E}\bigg[\int_0^1 \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big| \mathrm{X}_t\big] \mathrm{d} t \bigg] \\ \notag
+    &amp; = \int_0^1 \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0)\big]\mathrm{d} t \\ \notag
+    &amp; = \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big].
+\end{align}\]
 
-$$\begin{align}\notag
-    \mathbb{E}\big[c(\mathrm{Z}_1 - \mathrm{Z}_0) \big] &= \mathbb{E}\bigg[c\bigg(\int_0^1 \nu_t^{\star}(\mathrm{Z}_t)\mathrm{d} t \bigg) \bigg] \\ \notag
-    & \leq \mathbb{E}\bigg[\int_0^1 c(\nu_t^{\star}(\mathrm{Z}_t)) \mathrm{d} t \bigg] \\ \notag
-    & = \mathbb{E}\bigg[\int_0^1 c(\nu_t^{\star}(\mathrm{X}_t)) \mathrm{d} t \bigg] \\ \notag
-    & = \mathbb{E}\bigg[\int_0^1 c(\mathbb{E}\big[(\mathrm{X}_1 - \mathrm{X}_0 \big| \mathrm{X}_t)\big]) \mathrm{d} t \bigg] \\ \notag
-    & \leq \mathbb{E}\bigg[\int_0^1 \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big| \mathrm{X}_t\big] \mathrm{d} t \bigg] \\ \notag
-    & = \int_0^1 \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0)\big]\mathrm{d} t \\ \notag
-    & = \mathbb{E}\big[c(\mathrm{X}_1 - \mathrm{X}_0) \big].
-\end{align}$$
+<p>where the first equality follows by Eq.\eqref{ODE} and the two inequalities follow by Jensen’s inequality. The second equality holds since Law($\mathrm{X}_t$)=Law($\mathrm{Z}_t$). The nice property also motivates to iterate this procedure to keep reducing the transport cost.</p>
 
-where the first equality follows by Eq.\eqref{ODE} and the two inequalities follow by Jensen’s inequality. The second equality holds since Law($\mathrm{X}_t$)=Law($\mathrm{Z}_t$). The nice property also motivates to iterate this procedure to keep reducing the transport cost.
+<p>Nevertheless, straight interpolation is a necessary condition for optimal transport when the transport cost is the Euclidean distance <a class="citation" href="#Optimal_transport">(Villani, 2008)</a>, but it is not sufficient because the couplings $(\mathrm{Z}_0, \mathrm{Z}_1)$ are also subject to optimize.</p>
 
+<h4 id="more-general-cost-functions">More general cost functions</h4>
 
-Nevertheless, straight interpolation is a necessary condition for optimal transport when the transport cost is the Euclidean distance {% cite Optimal_transport %}, but it is not sufficient because the couplings $(\mathrm{Z}_0, \mathrm{Z}_1)$ are also subject to optimize. 
+<p>The quadratic transport cost function corresponds to the Brownian motion prior. For more general convex cost function $c$, the vector field <a class="citation" href="#rec_flow_general">(Liu, 2022)</a> follows that</p>
 
-
-#### More general cost functions
-
-The quadratic transport cost function corresponds to the Brownian motion prior. For more general convex cost function $c$, the vector field {% cite rec_flow_general %} follows that
-
-$$\begin{align}
+\[\begin{align}
    \nu_t(\mathrm{Z})=\nabla c^{\star} (\nabla f_t (\mathrm{Z})),\notag
-\end{align}$$
+\end{align}\]
 
-where $c^{\star}$ is the conjugate function of $c$, $f$ is the solution of the Bregman divergence
+<p>where $c^{\star}$ is the conjugate function of $c$, $f$ is the solution of the Bregman divergence</p>
 
-$$\begin{align}
+\[\begin{align}
     \inf_f \int_0^1 \mathbb{E}\bigg[c^{\star}(\nabla f(\mathrm{X}_t)) - (\mathrm{X}_1 - \mathrm{X}_0)^\intercal \nabla f(\mathrm{X}_t) + c(\mathrm{X}_1 - \mathrm{X}_0) \bigg] \mathrm{d} t.\notag
-\end{align}$$
+\end{align}\]
 
-The new path $\{\mathrm{Z}_t: t\in[0, 1]\}$ can be simulated via $\mathrm{d} \mathrm{Z}_t=\nabla c^{\star}(\nabla f_t(\mathrm{Z}_t))\mathrm{d}t$ with $\mathrm{Z}_0=\mathrm{X}_0$.
+<p>The new path ${\mathrm{Z}_t: t\in[0, 1]}$ can be simulated via $\mathrm{d} \mathrm{Z}_t=\nabla c^{\star}(\nabla f_t(\mathrm{Z}_t))\mathrm{d}t$ with $\mathrm{Z}_0=\mathrm{X}_0$.</p>
 
+<h4 id="comments">Comments:</h4>
 
+<p><strong>Straight flow with optimized coupling</strong>: Similar to flow matching <a class="citation" href="#flow_match">(Lipman et al., 2023)</a>, RecFlow has a fairly user-friendly training loss via a quadratic cost and is appealing for straight-path simulation. The iterative rectify procedure further optimizes the coupling and makes the transport more efficient.</p>
 
-#### Comments:
+<p><strong>Formulation</strong>: The extension to general transport cost function looks a bit more complex than the Schrödinger bridge formulation, where the latter <a class="citation" href="#forward_backward_SDE">(Chen et al., 2022)</a> is really elegant for optimizing general (convex/ non-convex) transport cost functions.</p>
 
-**Straight flow with optimized coupling**: Similar to flow matching {% cite flow_match %}, RecFlow has a fairly user-friendly training loss via a quadratic cost and is appealing for straight-path simulation. The iterative rectify procedure further optimizes the coupling and makes the transport more efficient.
+<p><strong>Flow or diffusion</strong>: Similar to SGD, RecFlow utilizes the randomness in mini-batch simulation and appears to be scalable for real-world datasets. This brings us a question if the manually injected noise via diffusion models are really needed. For example, stochastic interpolant <a class="citation" href="#stochastic_interpolant">(Albergo et al., 2023)</a> does unify flow and diffusion, but the training loss becomes implicit again, which may affect the scalability. In my opinion, diffusion model should still outperform flow models in training due to the ease of annealing.</p>
 
-**Formulation**: The extension to general transport cost function looks a bit more complex than the Schrödinger bridge formulation, where the latter {% cite forward_backward_SDE %} is really elegant for optimizing general (convex/ non-convex) transport cost functions.
-
-**Flow or diffusion**: Similar to SGD, RecFlow utilizes the randomness in mini-batch simulation and appears to be scalable for real-world datasets. This brings us a question if the manually injected noise via diffusion models are really needed. For example, stochastic interpolant {% cite stochastic_interpolant %} does unify flow and diffusion, but the training loss becomes implicit again, which may affect the scalability. In my opinion, diffusion model should still outperform flow models in training due to the ease of annealing. 
-
-**Straight v.s. non-straight flows**: I am not fully convinced if displacement interpolantion is always the goal for general non-linear transport due to energy barriers. Empirically, we often observe a decent model with 12-16 NFEs, but a much worse model when we further decrease NFE and we have to resort to hacky tricks and distillation. Such empirical findings also motivate the study of {% cite multi_consistency_model %}.]]></content><author><name>Wei Deng</name></author><category term="Diffusion Model" /><summary type="html"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.]]></summary></entry><entry><title type="html">Implicit Ridge Regularization</title><link href="http://localhost:4000/posts/implicit_ridge_regularization/" rel="alternate" type="text/html" title="Implicit Ridge Regularization" /><published>2024-03-07T00:00:00-08:00</published><updated>2024-03-07T00:00:00-08:00</updated><id>http://localhost:4000/posts/implicit-ridge</id><content type="html" xml:base="http://localhost:4000/posts/implicit_ridge_regularization/"><![CDATA[### Ridge Regression with $n\gg d$: Bias-variance trade-off
+<p><strong>Straight v.s. non-straight flows</strong>: I am not fully convinced if displacement interpolantion is always the goal for general non-linear transport due to energy barriers. Empirically, we often observe a decent model with 12-16 NFEs, but a much worse model when we further decrease NFE and we have to resort to hacky tricks and distillation. Such empirical findings also motivate the study of <a class="citation" href="#multi_consistency_model">(Heek et al., 2024)</a>.</p>]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.]]></summary></entry><entry><title type="html">Implicit Ridge Regularization</title><link href="http://localhost:4000/posts/implicit_ridge_regularization/" rel="alternate" type="text/html" title="Implicit Ridge Regularization" /><published>2024-03-07T00:00:00-08:00</published><updated>2024-03-07T00:00:00-08:00</updated><id>http://localhost:4000/posts/implicit-ridge</id><content type="html" xml:base="http://localhost:4000/posts/implicit_ridge_regularization/"><![CDATA[### Ridge Regression with $n\gg d$: Bias-variance trade-off
 
 We study the ordinary linear regression
 
@@ -175,128 +175,141 @@ Why does deep neural networks generalize so well? The following figure [credit t
 
 For the details, we refer interested readers to the study in {% cite fit_without_fear %}.]]></content><author><name>Wei Deng</name></author><category term="Regression" /><summary type="html"><![CDATA[Ridge Regression with $n\gg d$: Bias-variance trade-off]]></summary></entry><entry><title type="html">The Triangle of Flow, Diffusion, and PDE</title><link href="http://localhost:4000/posts/flow_diffusion_PDE/" rel="alternate" type="text/html" title="The Triangle of Flow, Diffusion, and PDE" /><published>2023-07-01T00:00:00-07:00</published><updated>2023-07-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/flow-diffusion-PDE</id><content type="html" xml:base="http://localhost:4000/posts/flow_diffusion_PDE/"><![CDATA[<!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
 
-<h3 id="diffusion-process">Diffusion Process</h3>
+### Diffusion Process
 
-<p>Consider a diffusion process that solves the Itô’s SDE <a class="citation" href="#oksendal2003stochastic">(Øksendal, 2003)</a>:</p>
+Consider a diffusion process that solves the Itô's SDE {% cite oksendal2003stochastic %}:
 
-\[\begin{align}
+$$\begin{align}
 \mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\label{SDE}
-\end{align}\]
+\end{align}$$
 
-<p>Denote by $\mathrm{P}_t$ the transition function of Markov process</p>
+Denote by $\mathrm{P}_t$ the transition function of Markov process
 
-\[\begin{align}
+$$\begin{align}
 (\mathrm{P}_t f)(x)=\int f(y)\mathrm{P}(t, x, \mathrm{d} y)\notag.
-\end{align}\]
+\end{align}$$
 
-<p>We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.</p>
+We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.
 
-<p>Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito’s formula), where $s\leq t$, we have the <em>backward Kolmogorov equation</em></p>
+Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)\|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito's formula), where $s\leq t$, we have the *backward Kolmogorov equation*
 
-\[\begin{align}
-\mathscr{L}&amp;=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
-           &amp;=\sum_{j=1}^d \mathrm{v}_j\frac{\partial}{\partial x_j} + \frac{1}{2}\sum_{i,j=1}^d \Sigma_{ij}\frac{\partial^2}{\partial x_i \partial x_j}\notag.
-\end{align}\]
+$$\begin{align}
+\mathscr{L}&=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
+           &=\sum_{j=1}^d \mathrm{v}_j\frac{\partial}{\partial x_j} + \frac{1}{2}\sum_{i,j=1}^d \Sigma_{ij}\frac{\partial^2}{\partial x_i \partial x_j}\notag.
+\end{align}$$
 
-<p>where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\mathbb{R}^d$, $\Sigma(x)=\sigma(x) \sigma(x)^\intercal$ and $D^2$ denotes the Hessian matrix.</p>
+where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\mathbb{R}^d$, $\Sigma(x)=\sigma(x) \sigma(x)^\intercal$ and $D^2$ denotes the Hessian matrix. 
+
 
 <!-- # https://openreview.net/pdf?id=x9tAJ3_N0k -->
 
-<h3 id="fokker-planck-pde">Fokker-Planck PDE</h3>
+### Fokker-Planck PDE
 
-<p>Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures</p>
+Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures 
 
-\[\begin{align}
+$$\begin{align}
 \mathrm{P}^{*}_t \mu(\Gamma)=\int \mathrm{P}(t, x, \Gamma)\mathrm{d} \mu(x)\notag.
-\end{align}\]
+\end{align}$$
 
-<p>The semigroup $\mathrm{P}_t$ and $\mathrm{P}_t^{*}$ are adjoint in $L^2$ such that</p>
+The semigroup $\mathrm{P}_t$ and $\mathrm{P}_t^{*}$ are adjoint in $L^2$ such that
 
-\[\begin{align}
+$$\begin{align}
 \int (\mathrm{P}_t f)\mathrm{d}\mu=\int f\mathrm{d}(\mathrm{P}_t^{*}\mu)\notag,
-\end{align}\]
+\end{align}$$
 
-<p>which yields</p>
+which yields
 
-\[\begin{align}
+$$\begin{align}
 \int \mathscr{L} f h \mathrm{d} x = \int f \mathscr{L}^* h \mathrm{d}x, \text{ where } \mathrm{P}_t^*=e^{t {\mathscr{L}}^*}.\notag
-\end{align}\]
+\end{align}$$
 
-<p>Let $p_t$ denote the law of the Markov process at time $t$. The law of $p_t$ follows that</p>
 
-\[\begin{align}
+Let $p_t$ denote the law of the Markov process at time $t$. The law of $p_t$ follows that
+
+$$\begin{align}
 \frac{\partial p_t}{\partial t} =\mathscr{L}^* p_t,\notag
-\end{align}\]
+\end{align}$$
 
-<p>which is the Fokker-Planck equation (PDE), also known as <em>forward Kolmogorov equation</em>. Analyzing the evolution of the probability densities, we have</p>
+which is the Fokker-Planck equation (PDE), also known as *forward Kolmogorov equation*. Analyzing the evolution of the probability densities, we have
 
-\[\begin{align}
-\mathscr{L}^{*} p_t&amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
-                &amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
-                &amp;=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
-\end{align}\]
+$$\begin{align}
+\mathscr{L}^{*} p_t&=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
+                &=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
+                &=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
+\end{align}$$
 
-<p>where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.</p>
+where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.
 
-<h3 id="probability-flow">Probability Flow</h3>
 
-<p>Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation <a class="citation" href="#OT_applied_math">(Santambrogio, 2015)</a> or continuity equation in fluid dynamics <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>.</p>
 
-\[\begin{align}
+
+### Probability Flow
+
+Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation {% cite OT_applied_math %} or continuity equation in fluid dynamics {% cite log_concave_sampling %}.
+
+$$\begin{align}
 \partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\label{ODE}
-\end{align}\]
+\end{align}$$
 
-<p>Interestingly, it corresponds to the probability flow ODE <a class="citation" href="#score_sde">(Song et al., 2021)</a></p>
+Interestingly, it corresponds to the probability flow ODE {% cite score_sde %}
 
-\[\begin{align}
+$$\begin{align}
 \mathrm{d} X_t={\boldsymbol{\nu_t}}(X_t) \mathrm{d} t.\notag
-\end{align}\]
+\end{align}$$
 
-<p>Apply the instantaneous change of variables <a class="citation" href="#neural_ode">(Chen et al., 2018)</a>, the <strong>log-likelihood</strong> of $p_0(x)$ follows that</p>
 
-\[\begin{align}
+
+
+Apply the instantaneous change of variables {% cite neural_ode %}, the **log-likelihood** of $p_0(x)$ follows that
+
+$$\begin{align}
 \log p_0(x)=\log p_T(x) + \int_0^T \nabla \cdot {\boldsymbol{\nu_t}} \mathrm{d} t,\notag
-\end{align}\]
+\end{align}$$
 
-<p>which provides an elegant way to compute the likelihood for diffusion models.</p>
+which provides an elegant way to compute the likelihood for diffusion models.
 
-<p>In practice, it is expensive to evaluate the divergence $\nabla \cdot {\boldsymbol{\nu_t}}$. We can adopt the Hutchinson trace estimator <a class="citation" href="#Hutchinson89">(Hutchinson, 1989)</a>.</p>
 
-\[\begin{align}
+In practice, it is expensive to evaluate the divergence $\nabla \cdot {\boldsymbol{\nu_t}}$. We can adopt the Hutchinson trace estimator {% cite Hutchinson89 %}.
+
+$$\begin{align}
 \nabla \cdot {\boldsymbol{\nu_t}} = \mathbb{E} \big[\epsilon^\intercal \nabla {\boldsymbol{\nu_t}} \epsilon \big],\notag
-\end{align}\]
+\end{align}$$
 
-<p>where $\nabla \cdot {\boldsymbol{\nu_t}}$ is the Jacobian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.</p>
+where $\nabla \cdot {\boldsymbol{\nu_t}}$ is the Jacobian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.
 
-<h4 id="wasserstein-gradient-flow">Wasserstein Gradient Flow</h4>
 
-<p>Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the <em>tangent vector</em> for the curves of measures $t\rightarrow p_t$ <a class="citation" href="#JKO98">(Richard Jordan, 1998)</a> <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>. Define a functional $\mathcal{F}=\text{KL}(\cdot||\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have</p>
 
-\[\begin{align}
+#### Wasserstein Gradient Flow
+
+Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the *tangent vector* for the curves of measures $t\rightarrow p_t$ {% cite JKO98 %} {% cite log_concave_sampling %}. Define a functional $\mathcal{F}=\text{KL}(\cdot\|\|\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have
+
+$$\begin{align}
 \mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int p \mathrm{V} + \int p \log p.\notag
-\end{align}\]
+\end{align}$$
 
-<p>Taking the first variation of $\mathcal{F}$ at $p$, we have</p>
+Taking the first variation of $\mathcal{F}$ at $p$, we have
 
-\[\begin{align}
+$$\begin{align}
 \delta \mathcal{F}(p)= \mathrm{V} + \log p+\text{constant}.\notag
-\end{align}\]
+\end{align}$$
 
-<p>The Wasserstein gradient at $p$ follows that</p>
+The Wasserstein gradient at $p$ follows that
 
-\[\begin{align}
+$$\begin{align}
 \nabla_{\text{W}_2} \mathcal{F}(p):=\nabla \delta \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p=-\boldsymbol{\nu},\notag
-\end{align}\]
+\end{align}$$
 
-<p>where the last equality follows by Eq.\eqref{FPE}.</p>
+where the last equality follows by Eq.\eqref{FPE}.
 
-<p>Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$</p>
+Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$ 
 
-\[\begin{align}
+$$\begin{align}
 \partial_t p_t =\nabla \cdot \bigg(\nabla_{\text{W}_2} \mathcal{F}(p_t) p_t\bigg).\notag
-\end{align}\]
+\end{align}$$
 
-<p>The following is a demo that describes the connections:</p>
+
+
+The following is a demo that describes the connections:
 
 <p align="center">
     <img src="/images/ODE_PDE_SDE.png" width="300" />
