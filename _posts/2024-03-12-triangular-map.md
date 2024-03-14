@@ -7,7 +7,7 @@ category: Flow
 ---
 
 
-
+Mathematically, the key part is Jacobian transformation.
 
 JAX: Real-NVP --  https://blog.evjang.com/2019/07/nf-jax.html
 
