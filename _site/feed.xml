@@ -1,115 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-16T06:39:15-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Autoregressive Flow</title><link href="http://localhost:4000/posts/autoregressive_flow/" rel="alternate" type="text/html" title="Autoregressive Flow" /><published>2024-03-16T00:00:00-07:00</published><updated>2024-03-16T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/autoregressive_flow/"><![CDATA[\[\begin{align}
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-16T06:40:19-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Autoregressive Flow</title><link href="http://localhost:4000/posts/autoregressive_flow/" rel="alternate" type="text/html" title="Autoregressive Flow" /><published>2024-03-16T00:00:00-07:00</published><updated>2024-03-16T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/autoregressive_flow/"><![CDATA[$$\begin{align}
   .
-\end{align}\]
+\end{align}$$
 
-<h3 id="normalizing-flows">Normalizing Flows</h3>
+### Normalizing Flows
 
-<p>Normalizing flows are early pioneers in generating modeling through a series of invertible transformations. The main idea is to transform a random vector $u$ through a transport map $\mathcal{T}$:</p>
+Normalizing flows are early pioneers in generating modeling through a series of invertible transformations. The main idea is to transform a random vector $u$ through a transport map $\mathcal{T}$:
 
-\[\begin{align}
+$$\begin{align}
   \mathrm{x}=\mathcal{T}(u), \text{where}\  u\sim p_u(u).
-\end{align}\]
+\end{align}$$
 
-<p>If $\mathcal{T}$ is a bijective, differentiable function, the density of $x$ can be obtained by a change of variables</p>
+If $\mathcal{T}$ is a bijective, differentiable function, the density of $x$ can be obtained by a change of variables
 
-\[\begin{align}
+$$\begin{align}
   p_x(x)=p_u(u)\bigg|\text{det} J_{\mathcal{T}}(u) \bigg|^{-1}.
-\end{align}\]
+\end{align}$$
 
-<p>where $\text{det} J_{\mathcal{T}}(u)$ quantifies the change of volume w.r.t. u, such that $\text{det} J_{\mathcal{T}}(u)\approx \frac{\text{Vol}(\mathrm{d} x)}{\text{Vol}(\mathrm{d} u)}$.</p>
+where $\text{det} J_{\mathcal{T}}(u)$ quantifies the change of volume w.r.t. u, such that $\text{det} J_{\mathcal{T}}(u)\approx \frac{\text{Vol}(\mathrm{d} x)}{\text{Vol}(\mathrm{d} u)}$. 
 
-<p>It is also equivalent to the Jacobian of $\mathbb{T}^{-1}$ in a way that.</p>
 
-\[\begin{align}
+
+
+It is also equivalent to the Jacobian of $\mathbb{T}^{-1}$ in a way that.
+
+
+$$\begin{align}
   p_x(x)=p_u(\mathcal{T}^{-1}(X))\bigg|\text{det} J_{\mathcal{T}^{-1}}(u) \bigg|.
-\end{align}\]
+\end{align}$$
 
-<p>Empirically, the transport map $\mathcal{T}$ can be implemented with a neural network.</p>
+Empirically, the transport map $\mathcal{T}$ can be implemented with a neural network.
 
-<h4 id="composition-property">Composition Property</h4>
 
-<p>One such transformation is not sufficient to model complex distributions. It is standard to conduct multiple transformations $\mathcal{T}_1$, $\mathcal{T}_2, \cdots$, $\mathcal{T}_K$ such that $\mathcal{T}=\mathcal{T}_K \circ \cdots \circ \mathcal{T}_2 \circ \mathcal{T}_1$. If $\{ \mathcal{T}_k \}_1^K$ are also bijective and invertible, we have</p>
+#### Composition Property
 
-\[\begin{align}
-  &amp;\mathcal{T}^{-1}=(\mathcal{T}_K \circ \cdots \circ \mathcal{T}_2 \circ \mathcal{T}_1)^{-1}=\mathcal{T}_1^{-1} \circ \mathcal{T}_2^{-1} \circ \dots \mathcal{T}_K^{-1}.\notag \\
-  &amp; \text{det} J_{\mathcal{T}}(u) = \text{det} J_{\mathcal{T}_K \circ \dots \mathcal{T}_1}(u) = \text{det} J_{\mathcal{T}_1}(u)  \cdot \text{det} J_{\mathcal{T}_2}(\mathcal{T}_1(u))  \cdot \text{det} J_{\mathcal{T}_K}(\mathcal{T}_{K-1}(\cdots(\mathcal{T}_1(u)))).
-\end{align}\]
+One such transformation is not sufficient to model complex distributions. It is standard to conduct multiple transformations $\mathcal{T}_1$, $\mathcal{T}_2, \cdots$, $\mathcal{T}_K$ such that $\mathcal{T}=\mathcal{T}_K \circ \cdots \circ \mathcal{T}_2 \circ \mathcal{T}_1$. If $\\{ \mathcal{T}_k \\}_1^K$ are also bijective and invertible, we have
 
-<h4 id="kl-divergence">KL Divergence</h4>
+$$\begin{align}
+  &\mathcal{T}^{-1}=(\mathcal{T}_K \circ \cdots \circ \mathcal{T}_2 \circ \mathcal{T}_1)^{-1}=\mathcal{T}_1^{-1} \circ \mathcal{T}_2^{-1} \circ \dots \mathcal{T}_K^{-1}.\notag \\
+  & \text{det} J_{\mathcal{T}}(u) = \text{det} J_{\mathcal{T}_K \circ \dots \mathcal{T}_1}(u) = \text{det} J_{\mathcal{T}_1}(u)  \cdot \text{det} J_{\mathcal{T}_2}(\mathcal{T}_1(u))  \cdot \text{det} J_{\mathcal{T}_K}(\mathcal{T}_{K-1}(\cdots(\mathcal{T}_1(u)))).
+\end{align}$$
 
-<p>Denote by  $\phi$ and $\psi$ the parameters of $\mathcal{T}$ and $p_u(u)$, respectively. The forward KL divergence follows that</p>
 
-\[\begin{align}
-  \mathcal{L}(\phi, \psi)&amp;=\text{KL}(p^{\star}_{X}(x)\| p_X(x; \phi, \psi)) \notag \\
-  &amp;=-\mathbb{E}_{p^{\star}_{X}(x)} [\log p_X(x; \phi, \psi)] + \text{const} \notag \\
-  &amp;=-\mathbb{E}_{p^{\star}_{X}(x)} [\log p_u(\mathcal{T}^{-1}(x; \phi); \psi) + \log |\text{det} J_{\mathcal{T}^{-1}}(x; \phi)|]+\text{const}. \notag
-\end{align}\]
+#### KL Divergence
 
-<p>The forward KL divergence is well-suited for situations in which we have samples from the
+
+Denote by  $\phi$ and $\psi$ the parameters of $\mathcal{T}$ and $p_u(u)$, respectively. The forward KL divergence follows that
+
+$$\begin{align}
+  \mathcal{L}(\phi, \psi)&=\text{KL}(p^{\star}_{X}(x)\| p_X(x; \phi, \psi)) \notag \\
+  &=-\mathbb{E}_{p^{\star}_{X}(x)} [\log p_X(x; \phi, \psi)] + \text{const} \notag \\
+  &=-\mathbb{E}_{p^{\star}_{X}(x)} [\log p_u(\mathcal{T}^{-1}(x; \phi); \psi) + \log |\text{det} J_{\mathcal{T}^{-1}}(x; \phi)|]+\text{const}. \notag
+\end{align}$$
+
+The forward KL divergence is well-suited for situations in which we have samples from the
 target distribution (or the ability to generate them), but we cannot necessarily evaluate
-the target density $p^{\star}_X(x)$ (polish words ).</p>
+the target density $p^{\star}_X(x)$ (polish words ). 
 
-<p>Alternatively, when we are interested to evaluate model density $p_X^{\star}(x)$, we can try to optimize the reverse KL divergence</p>
 
-\[\begin{align}
-  \mathcal{L}(\phi, \psi)&amp;=\text{KL}(p_X(x; \phi, \psi) \| p^{\star}_{X}(x)) \notag \\
-  &amp;=\mathbb{E}_{p_{X}(x; \phi, \psi)} [\log p_X(x; \phi, \psi) - \log p_{X}^{\star}(x)]  \notag \\
-  &amp;=-\mathbb{E}_{p_{u}(u; \psi)} [\log p_u(u; \psi) - \log |\text{det} J_{\mathcal{T}}(u; \phi)| - \log p_{X}^{\star}(\mathcal{T}(u; \phi))]. \notag
-\end{align}\]
+Alternatively, when we are interested to evaluate model density $p_X^{\star}(x)$, we can try to optimize the reverse KL divergence 
 
-<p>In empirical training, we resrot to Monte Carlo samples to approximate the expectation.</p>
+$$\begin{align}
+  \mathcal{L}(\phi, \psi)&=\text{KL}(p_X(x; \phi, \psi) \| p^{\star}_{X}(x)) \notag \\
+  &=\mathbb{E}_{p_{X}(x; \phi, \psi)} [\log p_X(x; \phi, \psi) - \log p_{X}^{\star}(x)]  \notag \\
+  &=-\mathbb{E}_{p_{u}(u; \psi)} [\log p_u(u; \psi) - \log |\text{det} J_{\mathcal{T}}(u; \phi)| - \log p_{X}^{\star}(\mathcal{T}(u; \phi))]. \notag
+\end{align}$$
 
-<h3 id="autogressive-flows">Autogressive Flows</h3>
+In empirical training, we resrot to Monte Carlo samples to approximate the expectation.
 
-<p>Autoregressive flows were one of the earliest flows developed. We can transform any distribution $p_x(x)$ into a uniform distribution in $(0, 1)^D$ using maps with a triangular Jacobian. (polish)</p>
 
-<p>To achieve the goal of universal representation, we leverage conditional probability and decompose $p_X(x)$ into a product of conditional probabilities as follows</p>
+### Autogressive Flows
 
-\[\begin{align}
-  p_X(x) = \Pi_{i=1}^D p_X(x_i | x_{&lt;i}).
-\end{align}\]
+Autoregressive flows were one of the earliest flows developed. We can transform any distribution $p_x(x)$ into a uniform distribution in $(0, 1)^D$ using maps with a triangular Jacobian. (polish)
 
-<p>Define the transformation $F$ to be the CDF function of the conditional density:</p>
+To achieve the goal of universal representation, we leverage conditional probability and decompose $p_X(x)$ into a product of conditional probabilities as follows
 
-\[\begin{align}
-  z_i = F_i(x_i, x_{&lt;i})=\int_{-\infty}^{x_i} p_X(x_i'|x_{&lt;i}) \mathrm{d} x_i'=\text{P}(x_i'\leq x_i | x_{&lt;i}).
-\end{align}\]
+$$\begin{align}
+  p_X(x) = \Pi_{i=1}^D p_X(x_i | x_{<i}).
+\end{align}$$
 
-<p>The invertibility of $F$ leads to</p>
+Define the transformation $F$ to be the CDF function of the conditional density:
 
-\[\begin{align}
-  x_i = (F_i(\cdot, x_{&lt;i}))^{-1} (z_i) \text{ for } i=1,2,..., D.
-\end{align}\]
+$$\begin{align}
+  z_i = F_i(x_i, x_{<i})=\int_{-\infty}^{x_i} p_X(x_i'|x_{<i}) \mathrm{d} x_i'=\text{P}(x_i'\leq x_i | x_{<i}).
+\end{align}$$
 
-<p>Notably, the Jacobian of $F$ is a lower trianagular matrix and the determinant of $F$ is equal to the product of diagonal elemants.</p>
+The invertibility of $F$ leads to 
 
-\[\begin{align}
-  \text{det} J_F(x) = \Pi_{i=1}^D \frac{\partial F_i}{\partial x_i} = \Pi_{i=1}^D p_X(x_i | x_{&lt;i})=p_X(x).
-\end{align}\]
+$$\begin{align}
+  x_i = (F_i(\cdot, x_{<i}))^{-1} (z_i) \text{ for } i=1,2,..., D.
+\end{align}$$
 
-<h4 id="masked-autoencoder">Masked Autoencoder</h4>
+Notably, the Jacobian of $F$ is a lower trianagular matrix and the determinant of $F$ is equal to the product of diagonal elemants.
 
-<p>The iterative conditional operations appear to be natural, but the challenge is how to model the conditional probability efficiently. We can employ a na"ive RNN encoder to model in a sequential manner. However, it may not scale well to high dimensions. To tackle this issue, a mind-blowing idea is to work on a vanilla autoencoder with clear masks to satisfy the autoregressive property in an efficient parallel scheme.  Since output $\tilde x_d$ must depend only on the preceding inputs $x_{&lt;d}$, it means that there must be no computational path between output unit $\tilde x_d$ and any of the input units $x_d, \cdots, x_D$.</p>
+$$\begin{align}
+  \text{det} J_F(x) = \Pi_{i=1}^D \frac{\partial F_i}{\partial x_i} = \Pi_{i=1}^D p_X(x_i | x_{<i})=p_X(x).
+\end{align}$$
 
-<h4 id="masked-ar">Masked AR</h4>
 
-<h4 id="inverse-ar">Inverse AR</h4>
 
-<p>understand the loss function:</p>
+#### Masked Autoencoder
 
-<p>zs, prior_logprob, log_det = model(x)
+The iterative conditional operations appear to be natural, but the challenge is how to model the conditional probability efficiently. We can employ a na\"ive RNN encoder to model in a sequential manner. However, it may not scale well to high dimensions. To tackle this issue, a mind-blowing idea is to work on a vanilla autoencoder with clear masks to satisfy the autoregressive property in an efficient parallel scheme.  Since output $\tilde x_d$ must depend only on the preceding inputs $x_{<d}$, it means that there must be no computational path between output unit $\tilde x_d$ and any of the input units $x_d, \cdots, x_D$.
+
+#### Masked AR
+
+#### Inverse AR
+
+
+
+
+understand the loss function:
+
+zs, prior_logprob, log_det = model(x)
 logprob = prior_logprob + log_det
-loss = -torch.sum(logprob) # NLL</p>
+loss = -torch.sum(logprob) # NLL
 
-<p>Masked autoencoder (why do we need parity?) RNN is not needed, better efficiency. https://www.youtube.com/watch?v=lNW8T0W-xeE</p>
+Masked autoencoder (why do we need parity?) RNN is not needed, better efficiency. https://www.youtube.com/watch?v=lNW8T0W-xeE
 
-<p>JAX: Real-NVP –  https://blog.evjang.com/2019/07/nf-jax.html</p>
 
-<p>JAx: Flow: https://github.com/ChrisWaites/jax-flows</p>
 
-<p>https://github.com/karpathy/pytorch-normalizing-flows/tree/master</p>
 
-<p>FYI</p>]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[\[\begin{align} . \end{align}\]]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
+JAX: Real-NVP --  https://blog.evjang.com/2019/07/nf-jax.html
+
+JAx: Flow: https://github.com/ChrisWaites/jax-flows
+
+https://github.com/karpathy/pytorch-normalizing-flows/tree/master
+
+FYI]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[\[\begin{align} . \end{align}\]]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
 
 ### Rectified Flow
 
