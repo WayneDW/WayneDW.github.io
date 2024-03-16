@@ -105,23 +105,28 @@
             </button>
           
             
-            <button id="Diffusion Model" onclick="filterUsingCategory(this.id)" style="border:none;background: none;">
-                <b> Diffusion Model </b>
+            <button id="Diffusion" onclick="filterUsingCategory(this.id)" style="border:none;background: none;">
+                <b> Diffusion </b>
             </button>
           
             
-            <button id="Functional Inequality" onclick="filterUsingCategory(this.id)" style="border:none;background: none;">
-                <b> Functional Inequality </b>
-            </button>
-          
-            
-            <button id="Monte Carlo Methods" onclick="filterUsingCategory(this.id)" style="border:none;background: none;">
-                <b> Monte Carlo Methods </b>
+            <button id="Flow" onclick="filterUsingCategory(this.id)" style="border:none;background: none;">
+                <b> Flow </b>
             </button>
           
             
             <button id="Regression" onclick="filterUsingCategory(this.id)" style="border:none;background: none;">
                 <b> Regression </b>
+            </button>
+          
+            
+            <button id="Sampling" onclick="filterUsingCategory(this.id)" style="border:none;background: none;">
+                <b> Sampling </b>
+            </button>
+          
+            
+            <button id="Theory" onclick="filterUsingCategory(this.id)" style="border:none;background: none;">
+                <b> Theory </b>
             </button>
           
           <span class='hidden'></span>
@@ -132,7 +137,15 @@
             function filterUsingCategory(selectedCategory) {
               var id = 0;
               
-                var cats = ["Diffusion Model"]
+                var cats = ["Flow"]
+          
+                var postDiv = document.getElementById(++id);
+                postDiv.style.display =
+                  (selectedCategory == 'All' || cats.includes(selectedCategory)) 
+                    ? 'unset' 
+                    : 'none';
+              
+                var cats = ["Flow"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -148,7 +161,7 @@
                     ? 'unset' 
                     : 'none';
               
-                var cats = ["Diffusion Model"]
+                var cats = ["Diffusion"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -164,7 +177,7 @@
                     ? 'unset' 
                     : 'none';
               
-                var cats = []
+                var cats = ["Diffusion"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -172,7 +185,7 @@
                     ? 'unset' 
                     : 'none';
               
-                var cats = ["Diffusion Model"]
+                var cats = ["Diffusion"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -180,7 +193,7 @@
                     ? 'unset' 
                     : 'none';
               
-                var cats = ["Monte Carlo Methods"]
+                var cats = ["Sampling"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -196,7 +209,7 @@
                     ? 'unset' 
                     : 'none';
               
-                var cats = ["Functional Inequality"]
+                var cats = ["Theory"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -204,7 +217,7 @@
                     ? 'unset' 
                     : 'none';
               
-                var cats = ["Monte Carlo Methods"]
+                var cats = ["Sampling"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -212,7 +225,7 @@
                     ? 'unset' 
                     : 'none';
               
-                var cats = ["Monte Carlo Methods"]
+                var cats = ["Sampling"]
           
                 var postDiv = document.getElementById(++id);
                 postDiv.style.display =
@@ -230,11 +243,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/rec_flow/">  Rectified Flow and Beyond </a>
+                        <a href="/posts/triangular_maps/">  Autoregressive Flow </a>
                     </p>
-                    <p class='post-date'> 09 March 2024 </p>
+                    <p class='post-date'> 12 March 2024 </p>
                 </div>
-                <p class='post-subtitle'> Does a straighter flow always yield more efficient transport and accelerate the simulation? </p>
+                <p class='post-subtitle'> Efficient transport maps </p>
                 <span class='hidden'>1</span>
                 </p>
             </div>
@@ -244,11 +257,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/implicit_ridge_regularization/">  Implicit Ridge Regularization </a>
+                        <a href="/posts/rec_flow/">  Rectified Flow and Beyond </a>
                     </p>
-                    <p class='post-date'> 07 March 2024 </p>
+                    <p class='post-date'> 09 March 2024 </p>
                 </div>
-                <p class='post-subtitle'> The optimal penalty can be zero or negative for real-world high dimensional data. </p>
+                <p class='post-subtitle'> Does a straighter flow always yield more efficient transport and accelerate the simulation? </p>
                 <span class='hidden'>2</span>
                 </p>
             </div>
@@ -258,11 +271,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/flow_diffusion_PDE/">  The Triangle of Flow, Diffusion, and PDE </a>
+                        <a href="/posts/implicit_ridge_regularization/">  Implicit Ridge Regularization </a>
                     </p>
-                    <p class='post-date'> 01 July 2023 </p>
+                    <p class='post-date'> 07 March 2024 </p>
                 </div>
-                <p class='post-subtitle'> Connections between Probability Flows, Diffusions, and PDEs. </p>
+                <p class='post-subtitle'> The optimal penalty can be zero or negative for real-world high dimensional data. </p>
                 <span class='hidden'>3</span>
                 </p>
             </div>
@@ -272,11 +285,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/coupling_by_reflection/">  Coupling by Reflection (II) </a>
+                        <a href="/posts/flow_diffusion_PDE/">  The Triangle of Flow, Diffusion, and PDE </a>
                     </p>
-                    <p class='post-date'> 20 May 2023 </p>
+                    <p class='post-date'> 01 July 2023 </p>
                 </div>
-                <p class='post-subtitle'> A general coupling technique for characterizing a broad range of diffusions. </p>
+                <p class='post-subtitle'> Connections between Probability Flows, Diffusions, and PDEs. </p>
                 <span class='hidden'>4</span>
                 </p>
             </div>
@@ -286,11 +299,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/Girsanov_MLE/">  Girsanov and MLE </a>
+                        <a href="/posts/coupling_by_reflection/">  Coupling by Reflection (II) </a>
                     </p>
-                    <p class='post-date'> 20 March 2023 </p>
+                    <p class='post-date'> 20 May 2023 </p>
                 </div>
-                <p class='post-subtitle'> An application of Girsanov theorem in parameter estimation. </p>
+                <p class='post-subtitle'> A general coupling technique for characterizing a broad range of diffusions. </p>
                 <span class='hidden'>5</span>
                 </p>
             </div>
@@ -300,11 +313,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/Bridge/">  Schrödinger Bridge Problem </a>
+                        <a href="/posts/Girsanov_MLE/">  Girsanov and MLE </a>
                     </p>
-                    <p class='post-date'> 19 June 2022 </p>
+                    <p class='post-date'> 20 March 2023 </p>
                 </div>
-                <p class='post-subtitle'> A framework that unifies optimal transport, FB-SDEs, fluid dynamics, and stochastic control. </p>
+                <p class='post-subtitle'> An application of Girsanov theorem in parameter estimation. </p>
                 <span class='hidden'>6</span>
                 </p>
             </div>
@@ -314,11 +327,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/Hamiltonian/">  Hamiltonian Monte Caro </a>
+                        <a href="/posts/Bridge/">  Schrödinger Bridge Problem </a>
                     </p>
-                    <p class='post-date'> 01 November 2021 </p>
+                    <p class='post-date'> 19 June 2022 </p>
                 </div>
-                <p class='post-subtitle'> An elegant sampler that utilizes Hamiltonian dynamics to propose new states in simulations. </p>
+                <p class='post-subtitle'> A framework that unifies optimal transport, FB-SDEs, fluid dynamics, and stochastic control. </p>
                 <span class='hidden'>7</span>
                 </p>
             </div>
@@ -328,11 +341,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/Couplings/">  Couplings and Monte Carlo Methods (I) </a>
+                        <a href="/posts/Hamiltonian/">  Hamiltonian Monte Caro </a>
                     </p>
-                    <p class='post-date'> 01 August 2021 </p>
+                    <p class='post-date'> 01 November 2021 </p>
                 </div>
-                <p class='post-subtitle'> A family of techniques to understand the convergence of random variables. </p>
+                <p class='post-subtitle'> An elegant sampler that utilizes Hamiltonian dynamics to propose new states in simulations. </p>
                 <span class='hidden'>8</span>
                 </p>
             </div>
@@ -342,11 +355,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/Lyapunov_Poincare/">  The Lyapunov Function Method for Poincaré Inequality </a>
+                        <a href="/posts/Couplings/">  Couplings and Monte Carlo Methods (I) </a>
                     </p>
-                    <p class='post-date'> 01 June 2021 </p>
+                    <p class='post-date'> 01 August 2021 </p>
                 </div>
-                <p class='post-subtitle'> An elegant functional inequality that unifies ODEs, PDEs, SDEs, functional analysis, and Riemannian geometry. </p>
+                <p class='post-subtitle'> A family of techniques to understand the convergence of random variables. </p>
                 <span class='hidden'>9</span>
                 </p>
             </div>
@@ -356,11 +369,11 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
-                        <a href="/posts/replica/">  Replica Exchange and Variance Reduction </a>
+                        <a href="/posts/Lyapunov_Poincare/">  The Lyapunov Function Method for Poincaré Inequality </a>
                     </p>
-                    <p class='post-date'> 01 May 2021 </p>
+                    <p class='post-date'> 01 June 2021 </p>
                 </div>
-                <p class='post-subtitle'> Running multiple MCMCs at different temperatures to explore the solution thoroughly. </p>
+                <p class='post-subtitle'> An elegant functional inequality that unifies ODEs, PDEs, SDEs, functional analysis, and Riemannian geometry. </p>
                 <span class='hidden'>10</span>
                 </p>
             </div>
@@ -370,12 +383,26 @@
                 <p class="itemInteriorSection">
                 <div class='post-row'>
                     <p class='post-title'>
+                        <a href="/posts/replica/">  Replica Exchange and Variance Reduction </a>
+                    </p>
+                    <p class='post-date'> 01 May 2021 </p>
+                </div>
+                <p class='post-subtitle'> Running multiple MCMCs at different temperatures to explore the solution thoroughly. </p>
+                <span class='hidden'>11</span>
+                </p>
+            </div>
+            
+            
+            <div class="post" id="12">
+                <p class="itemInteriorSection">
+                <div class='post-row'>
+                    <p class='post-title'>
                         <a href="/posts/CSGLD/">  Dynamic Importance Sampling and Beyond </a>
                     </p>
                     <p class='post-date'> 05 November 2020 </p>
                 </div>
                 <p class='post-subtitle'> Negative learning rate helps escape local traps </p>
-                <span class='hidden'>11</span>
+                <span class='hidden'>12</span>
                 </p>
             </div>
             

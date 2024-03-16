@@ -1,34 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-15T20:43:13-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Autoregressive Flow</title><link href="http://localhost:4000/posts/triangular_maps/" rel="alternate" type="text/html" title="Autoregressive Flow" /><published>2024-03-12T00:00:00-07:00</published><updated>2024-03-12T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/triangular_maps/"><![CDATA[Normalizing flows are early pioneers in generating modeling by mapping base distributions via a series of invertible transformations. The main idea is to transform the data $x$ through 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-15T20:49:23-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Autoregressive Flow</title><link href="http://localhost:4000/posts/triangular_maps/" rel="alternate" type="text/html" title="Autoregressive Flow" /><published>2024-03-12T00:00:00-07:00</published><updated>2024-03-12T00:00:00-07:00</updated><id>http://localhost:4000/posts/triangular-map</id><content type="html" xml:base="http://localhost:4000/posts/triangular_maps/"><![CDATA[<p>Normalizing flows are early pioneers in generating modeling by mapping base distributions via a series of invertible transformations. The main idea is to transform the data $x$ through</p>
 
+<p>https://arxiv.org/pdf/1912.02762.pdf</p>
 
-https://arxiv.org/pdf/1912.02762.pdf
+<p>Normaling flow: change of variable, the key part is Jacobian transformation.</p>
 
+<p>composition</p>
 
-Normaling flow: change of variable, the key part is Jacobian transformation.
+<p>triangular map</p>
 
+<p>understand the loss function:</p>
 
-composition
-
-triangular map
-
-understand the loss function:
-
-zs, prior_logprob, log_det = model(x)
+<p>zs, prior_logprob, log_det = model(x)
 logprob = prior_logprob + log_det
-loss = -torch.sum(logprob) # NLL
+loss = -torch.sum(logprob) # NLL</p>
 
-Masked autoencoder (why do we need parity?) RNN is not needed, better efficiency. https://www.youtube.com/watch?v=lNW8T0W-xeE
+<p>Masked autoencoder (why do we need parity?) RNN is not needed, better efficiency. https://www.youtube.com/watch?v=lNW8T0W-xeE</p>
 
+<p>JAX: Real-NVP –  https://blog.evjang.com/2019/07/nf-jax.html</p>
 
+<p>JAx: Flow: https://github.com/ChrisWaites/jax-flows</p>
 
+<p>https://github.com/karpathy/pytorch-normalizing-flows/tree/master</p>
 
-JAX: Real-NVP --  https://blog.evjang.com/2019/07/nf-jax.html
-
-JAx: Flow: https://github.com/ChrisWaites/jax-flows
-
-https://github.com/karpathy/pytorch-normalizing-flows/tree/master
-
-FYI]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[Normalizing flows are early pioneers in generating modeling by mapping base distributions via a series of invertible transformations. The main idea is to transform the data $x$ through]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[<p>Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.</p>
+<p>FYI</p>]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[Normalizing flows are early pioneers in generating modeling by mapping base distributions via a series of invertible transformations. The main idea is to transform the data $x$ through]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[<p>Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.</p>
 
 <h3 id="rectified-flow">Rectified Flow</h3>
 
@@ -93,933 +87,871 @@ where $t\in[0, 1]$, and $\mathrm{Z}_0\sim \mathrm{X}_0$. $\nu_t^{\star}$ is the 
 
 <p><strong>Flow or diffusion</strong>: Similar to SGD, RecFlow utilizes the randomness in mini-batch simulation and appears to be scalable for real-world datasets. This brings us a question if the manually injected noise via diffusion models are really needed. For example, stochastic interpolant <a class="citation" href="#stochastic_interpolant">(Albergo et al., 2023)</a> does unify flow and diffusion, but the training loss becomes implicit again, which may affect the scalability. In my opinion, diffusion model should still outperform flow models in training due to the ease of annealing.</p>
 
-<p><strong>Straight v.s. non-straight flows</strong>: I am not fully convinced if displacement interpolantion is always the goal for general non-linear transport due to energy barriers. Empirically, we often observe a decent model with 12-16 NFEs, but a much worse model when we further decrease NFE and we have to resort to hacky tricks and distillation. Such empirical findings also motivate the study of <a class="citation" href="#multi_consistency_model">(Heek et al., 2024)</a>.</p>]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.]]></summary></entry><entry><title type="html">Implicit Ridge Regularization</title><link href="http://localhost:4000/posts/implicit_ridge_regularization/" rel="alternate" type="text/html" title="Implicit Ridge Regularization" /><published>2024-03-07T00:00:00-08:00</published><updated>2024-03-07T00:00:00-08:00</updated><id>http://localhost:4000/posts/implicit-ridge</id><content type="html" xml:base="http://localhost:4000/posts/implicit_ridge_regularization/"><![CDATA[### Ridge Regression with $n\gg d$: Bias-variance trade-off
+<p><strong>Straight v.s. non-straight flows</strong>: I am not fully convinced if displacement interpolantion is always the goal for general non-linear transport due to energy barriers. Empirically, we often observe a decent model with 12-16 NFEs, but a much worse model when we further decrease NFE and we have to resort to hacky tricks and distillation. Such empirical findings also motivate the study of <a class="citation" href="#multi_consistency_model">(Heek et al., 2024)</a>.</p>]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.]]></summary></entry><entry><title type="html">Implicit Ridge Regularization</title><link href="http://localhost:4000/posts/implicit_ridge_regularization/" rel="alternate" type="text/html" title="Implicit Ridge Regularization" /><published>2024-03-07T00:00:00-08:00</published><updated>2024-03-07T00:00:00-08:00</updated><id>http://localhost:4000/posts/implicit-ridge</id><content type="html" xml:base="http://localhost:4000/posts/implicit_ridge_regularization/"><![CDATA[<h3 id="ridge-regression-with-ngg-d-bias-variance-trade-off">Ridge Regression with $n\gg d$: Bias-variance trade-off</h3>
 
-We study the ordinary linear regression
+<p>We study the ordinary linear regression</p>
 
-$$\begin{align}
+\[\begin{align}
   \mathcal{L}=\|\mathrm{y}-\mathrm{X} {\beta}\|_2^2.\notag\\
-\end{align}$$
+\end{align}\]
 
-where $\mathrm{X}\in \mathbb{R}^{n\times d}$ and is full rank. The solution follows that $\widehat \beta=(\mathrm{X}^\intercal \mathrm{X})^{-1} \mathrm{X} \mathrm{y}$.
+<p>where $\mathrm{X}\in \mathbb{R}^{n\times d}$ and is full rank. The solution follows that $\widehat \beta=(\mathrm{X}^\intercal \mathrm{X})^{-1} \mathrm{X} \mathrm{y}$.</p>
 
-However, $(\mathrm{X}^\intercal \mathrm{X})^{-1}$ is often poorly conditioned, which leads to a large prediction variance. To solve this issue, a standard technique is to consider the Tikhonov regularization through a $l_2$ penalty.
+<p>However, $(\mathrm{X}^\intercal \mathrm{X})^{-1}$ is often poorly conditioned, which leads to a large prediction variance. To solve this issue, a standard technique is to consider the Tikhonov regularization through a $l_2$ penalty.</p>
 
-$$\begin{align}
+\[\begin{align}
   \mathcal{L}_{\lambda}=\|\mathrm{y}-\mathrm{X} {\beta}\|_2^2 + \lambda \|\beta\|_2^2.\notag\\
-\end{align}$$
+\end{align}\]
 
-The solution is given as follows
+<p>The solution is given as follows</p>
 
-
-$$\begin{align}
+\[\begin{align}
   \widehat \beta_{\lambda}=(\mathrm{X}^\intercal \mathrm{X} + \lambda \mathrm{I})^{-1} \mathrm{X} \mathrm{y} \label{ridge_solution}.
-\end{align}$$
+\end{align}\]
 
+<p>Increasing $\lambda$ leads to a larger bias but also yields a smaller prediction variance.</p>
 
-Increasing $\lambda$ leads to a larger bias but also yields a smaller prediction variance.
+<h3 id="ridge-regression-with-dgg-n-minimum-norm-estimator-kobak-et-al-2020">Ridge Regression with $d\gg n$: Minimum-norm estimator <a class="citation" href="#implicit_ridge">(Kobak et al., 2020)</a></h3>
 
-### Ridge Regression with $d\gg n$: Minimum-norm estimator {% cite implicit_ridge %}
+<p>Taking the limit $\lambda \rightarrow 0$ in Eq.\eqref{ridge_solution}, we have</p>
 
-
-
-Taking the limit $\lambda \rightarrow 0$ in Eq.\eqref{ridge_solution}, we have
-
-$$\begin{align}
+\[\begin{align}
     \widehat \beta_{0} = \lim_{\lambda \rightarrow 0}\widehat \beta_{\lambda}= \lim_{\lambda \rightarrow 0} \mathrm{V}\left[\dfrac{\mathrm{S}}{\mathrm{S}^2 + \lambda} \right] \mathrm{U}^\intercal \mathrm{y}=\mathrm{V} \mathrm{S}^{-1}\mathrm{U}^\intercal \mathrm{y}=\mathrm{X}^{+}\mathrm{y}.\label{solution}
-\end{align}$$
+\end{align}\]
 
-where $\mathrm{X}=\mathrm{U} \mathrm{S} \mathrm{V}^\intercal$ by SVD decomposition, $\mathrm{U}$ and $\mathrm{V}$ are two orthogonal matrices. $\mathrm{X}^{+}=\mathrm{X}^\intercal (\mathrm{X} \mathrm{X}^\intercal)^{-1}$ is the pseudo-inverse of $\mathrm{X}$ (invertible since $\mathrm{X}$ is full rank).
+<p>where $\mathrm{X}=\mathrm{U} \mathrm{S} \mathrm{V}^\intercal$ by SVD decomposition, $\mathrm{U}$ and $\mathrm{V}$ are two orthogonal matrices. $\mathrm{X}^{+}=\mathrm{X}^\intercal (\mathrm{X} \mathrm{X}^\intercal)^{-1}$ is the pseudo-inverse of $\mathrm{X}$ (invertible since $\mathrm{X}$ is full rank).</p>
 
+<p>We can easily verify that $\widehat \beta_{0}$ is a solution of $\mathrm{y}-\mathrm{X} {\beta}=0$ because</p>
 
-We can easily verify that $\widehat \beta_{0}$ is a solution of $\mathrm{y}-\mathrm{X} {\beta}=0$ because 
-
-$$\begin{align}
+\[\begin{align}
     \|\mathrm{y}-\mathrm{X} \widehat{\beta}_0 \|_2 = \| \mathrm{y}-\mathrm{X} \mathrm{X}^{+}\mathrm{y} \|_2=\| \mathrm{y}-\mathrm{y} \|_2=0.\notag
-\end{align}$$
+\end{align}\]
 
-Moreover, $\widehat \beta_{0}$ is the minimum-norm estimator in $l_2$
+<p>Moreover, $\widehat \beta_{0}$ is the minimum-norm estimator in $l_2$</p>
 
-$$\begin{align}
+\[\begin{align}
     \widehat \beta_{0} = \text{argmin}_{\beta} \big\{\|\beta\|_2^2 \ \ \big| \ \big\| \mathrm{y}-\mathrm{X} \beta \|_2^2=0 \big\}. \notag
-\end{align}$$
+\end{align}\]
 
-Proof:
+<p>Proof:</p>
 
-For any $\beta$ that solves $\mathrm{y}-\mathrm{X} {\beta}=0$, we have $\mathrm{X} \big(\widehat \beta_{0} - \beta \big) = 0.$
+<p>For any $\beta$ that solves $\mathrm{y}-\mathrm{X} {\beta}=0$, we have $\mathrm{X} \big(\widehat \beta_{0} - \beta \big) = 0.$</p>
 
-Next, we proceed to show $(\widehat \beta_{0} - {\beta})\perp \widehat \beta_{0}$. By Eq.\eqref{solution}, we have 
+<p>Next, we proceed to show $(\widehat \beta_{0} - {\beta})\perp \widehat \beta_{0}$. By Eq.\eqref{solution}, we have</p>
 
-$$\begin{align}
+\[\begin{align}
     \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \widehat \beta_{0} = \big(\widehat \beta_{0} - {\beta} \big)^{\intercal} \mathrm{X}^\intercal (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y} = \big(\mathrm{X}\big(\widehat \beta_{0} - {\beta} \big)\big)^{\intercal} (\mathrm{X} \mathrm{X}^\intercal)^{-1}\mathrm{y}=0.\notag
-\end{align}$$
+\end{align}\]
 
-This implies that 
+<p>This implies that</p>
 
-$$\begin{align}
+\[\begin{align}
     \| \beta \|_2^2 = \|\beta - \widehat\beta_0 + \widehat \beta_0\|_2^2 = \|\beta - \widehat\beta_0\|_2^2 + \|\widehat \beta_0\|_2^2\geq  \|\widehat \beta_0\|_2^2.\notag
-\end{align}$$
+\end{align}\]
 
-This result aligns with Occam's Zazor, suggesting the simplest solution among all the possible alternatives.
+<p>This result aligns with Occam’s Zazor, suggesting the simplest solution among all the possible alternatives.</p>
 
+<h4 id="tuning-of-lambda">Tuning of $\lambda$</h4>
 
-#### Tuning of $\lambda$
+<p>We study the derivative of the risk function <a class="citation" href="#implicit_ridge">(Kobak et al., 2020)</a></p>
 
-We study the derivative of the risk function {% cite implicit_ridge %}
-
-$$\begin{align}
+\[\begin{align}
     \mathrm{R}(\widehat \beta_{\lambda})=\mathrm{E}\big[((\mathrm{x}^\intercal\beta+\epsilon) - \mathrm{x}^\intercal \widehat\beta_{\lambda})^2 \big]=(\widehat\beta_{\lambda}-\beta)^\intercal \Sigma (\widehat\beta_{\lambda}-\beta)+\sigma^2.\notag
-\end{align}$$
+\end{align}\]
 
-We show that the optimal penalty can be $\lambda_{\text{opt}}\leq 0$ by showing $\frac{\partial \mathrm{R}(\widehat \beta_{\lambda})}{\partial \lambda} \bigg\|_{\lambda=0} \leq 0$.
+<p>We show that the optimal penalty can be $\lambda_{\text{opt}}\leq 0$ by showing $\frac{\partial \mathrm{R}(\widehat \beta_{\lambda})}{\partial \lambda} \bigg|_{\lambda=0} \leq 0$.</p>
 
-$$\begin{align}
+\[\begin{align}
     \frac{\partial \mathrm{R}(\widehat \beta_{\lambda})}{\partial \lambda}=2(\widehat\beta_{\lambda}-\beta)^\intercal \Sigma \frac{\partial \widehat \beta_{\lambda}}{\partial \lambda}.\notag
-\end{align}$$
+\end{align}\]
 
-Plugging in the solution \eqref{solution}, we have
+<p>Plugging in the solution \eqref{solution}, we have</p>
 
-$$\begin{align}
+\[\begin{align}
     \frac{\partial \mathrm{R}(\widehat \beta_{\lambda})}{\partial \lambda}=2\beta^{\intercal}\Sigma (\mathrm{X}^{\intercal} \mathrm{X})^{+2}\mathrm{X}^\intercal \mathrm{y} - 2\mathrm{y}^\intercal \mathrm{X} (\mathrm{X}^\intercal \mathrm{X})^{+} \Sigma (\mathrm{X}^\intercal \mathrm{X})^{+2} \mathrm{X}^{\intercal} \mathrm{y}\label{relation},
-\end{align}$$
+\end{align}\]
 
-where $(\mathrm{X}^{\intercal} \mathrm{X})^{+n}=\mathrm{U} \mathrm{S}^{-n} \mathrm{V}^\intercal$. Applying Eq.\eqref{relation} to the spiked covariance model {% cite implicit_ridge %}, we find that $\frac{\partial \mathrm{E}[\mathrm{R}(\widehat \beta_{\lambda})]}{\partial \lambda} \bigg\|_{\lambda=0} \leq 0$ under some conditions.
+<p>where $(\mathrm{X}^{\intercal} \mathrm{X})^{+n}=\mathrm{U} \mathrm{S}^{-n} \mathrm{V}^\intercal$. Applying Eq.\eqref{relation} to the spiked covariance model <a class="citation" href="#implicit_ridge">(Kobak et al., 2020)</a>, we find that $\frac{\partial \mathrm{E}[\mathrm{R}(\widehat \beta_{\lambda})]}{\partial \lambda} \bigg|_{\lambda=0} \leq 0$ under some conditions.</p>
 
 <p align="center">
     <img src="/images/negative_ridge_penalty.png" width="200" />
 </p>
 
-### Extension to deep neural networks 
+<h3 id="extension-to-deep-neural-networks">Extension to deep neural networks</h3>
 
-Why does deep neural networks generalize so well? The following figure [credit to Belkin] tells us minimizing the smoothness might be the key. 
+<p>Why does deep neural networks generalize so well? The following figure [credit to Belkin] tells us minimizing the smoothness might be the key.</p>
 
 <p align="center">
     <img src="/images/fit_without_fear.png" width="600" />
 </p>
 
-For the details, we refer interested readers to the study in {% cite fit_without_fear %}.]]></content><author><name>Wei Deng</name></author><category term="Regression" /><summary type="html"><![CDATA[Ridge Regression with $n\gg d$: Bias-variance trade-off]]></summary></entry><entry><title type="html">The Triangle of Flow, Diffusion, and PDE</title><link href="http://localhost:4000/posts/flow_diffusion_PDE/" rel="alternate" type="text/html" title="The Triangle of Flow, Diffusion, and PDE" /><published>2023-07-01T00:00:00-07:00</published><updated>2023-07-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/flow-diffusion-PDE</id><content type="html" xml:base="http://localhost:4000/posts/flow_diffusion_PDE/"><![CDATA[<!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
+<p>For the details, we refer interested readers to the study in <a class="citation" href="#fit_without_fear">(Belkin, 2021)</a>.</p>]]></content><author><name>Wei Deng</name></author><category term="Regression" /><summary type="html"><![CDATA[Ridge Regression with $n\gg d$: Bias-variance trade-off]]></summary></entry><entry><title type="html">The Triangle of Flow, Diffusion, and PDE</title><link href="http://localhost:4000/posts/flow_diffusion_PDE/" rel="alternate" type="text/html" title="The Triangle of Flow, Diffusion, and PDE" /><published>2023-07-01T00:00:00-07:00</published><updated>2023-07-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/flow-diffusion-PDE</id><content type="html" xml:base="http://localhost:4000/posts/flow_diffusion_PDE/"><![CDATA[<!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
 
-### Diffusion Process
+<h3 id="diffusion-process">Diffusion Process</h3>
 
-Consider a diffusion process that solves the Itô's SDE {% cite oksendal2003stochastic %}:
+<p>Consider a diffusion process that solves the Itô’s SDE <a class="citation" href="#oksendal2003stochastic">(Øksendal, 2003)</a>:</p>
 
-$$\begin{align}
+\[\begin{align}
 \mathrm{d} \mathrm{X}_t=\boldsymbol{\mathrm{v}_t}(\mathrm{X}_t) \mathrm{d} t + \sigma(X_t) \mathrm{d} \mathrm{W}_t.\label{SDE}
-\end{align}$$
+\end{align}\]
 
-Denote by $\mathrm{P}_t$ the transition function of Markov process
+<p>Denote by $\mathrm{P}_t$ the transition function of Markov process</p>
 
-$$\begin{align}
+\[\begin{align}
 (\mathrm{P}_t f)(x)=\int f(y)\mathrm{P}(t, x, \mathrm{d} y)\notag.
-\end{align}$$
+\end{align}\]
 
-We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.
+<p>We can easily check that $\mathrm{P}_t$ is a linear operator and an example of a Markov semigroup.</p>
 
-Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)\|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito's formula), where $s\leq t$, we have the *backward Kolmogorov equation*
+<p>Define the generator $\mathscr{L}f=\lim \frac{\mathrm{P}_t f - f}{y}$, where $\mathrm{P}_t=e^{t \mathscr{L}}$. Analyzing the transition of the conditional expectation $\mathbb{E}(f(\mathrm{X}_t)|\mathrm{X}_s=x)$ for a bounded function $f$ (Ito’s formula), where $s\leq t$, we have the <em>backward Kolmogorov equation</em></p>
 
-$$\begin{align}
-\mathscr{L}&=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
-           &=\sum_{j=1}^d \mathrm{v}_j\frac{\partial}{\partial x_j} + \frac{1}{2}\sum_{i,j=1}^d \Sigma_{ij}\frac{\partial^2}{\partial x_i \partial x_j}\notag.
-\end{align}$$
+\[\begin{align}
+\mathscr{L}&amp;=\boldsymbol{\mathrm{v}}\cdot \nabla + \frac{1}{2} \Sigma:D^2\notag\\
+           &amp;=\sum_{j=1}^d \mathrm{v}_j\frac{\partial}{\partial x_j} + \frac{1}{2}\sum_{i,j=1}^d \Sigma_{ij}\frac{\partial^2}{\partial x_i \partial x_j}\notag.
+\end{align}\]
 
-where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\mathbb{R}^d$, $\Sigma(x)=\sigma(x) \sigma(x)^\intercal$ and $D^2$ denotes the Hessian matrix. 
-
+<p>where $\nabla$ and  $\nabla\cdot$ denote the gradient and the divergence in $\mathbb{R}^d$, $\Sigma(x)=\sigma(x) \sigma(x)^\intercal$ and $D^2$ denotes the Hessian matrix.</p>
 
 <!-- # https://openreview.net/pdf?id=x9tAJ3_N0k -->
 
-### Fokker-Planck PDE
+<h3 id="fokker-planck-pde">Fokker-Planck PDE</h3>
 
-Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures 
+<p>Further define the semigroup $\mathrm{P}_t^{*}$ that acts on probability measures</p>
 
-$$\begin{align}
+\[\begin{align}
 \mathrm{P}^{*}_t \mu(\Gamma)=\int \mathrm{P}(t, x, \Gamma)\mathrm{d} \mu(x)\notag.
-\end{align}$$
+\end{align}\]
 
-The semigroup $\mathrm{P}_t$ and $\mathrm{P}_t^{*}$ are adjoint in $L^2$ such that
+<p>The semigroup $\mathrm{P}_t$ and $\mathrm{P}_t^{*}$ are adjoint in $L^2$ such that</p>
 
-$$\begin{align}
+\[\begin{align}
 \int (\mathrm{P}_t f)\mathrm{d}\mu=\int f\mathrm{d}(\mathrm{P}_t^{*}\mu)\notag,
-\end{align}$$
+\end{align}\]
 
-which yields
+<p>which yields</p>
 
-$$\begin{align}
+\[\begin{align}
 \int \mathscr{L} f h \mathrm{d} x = \int f \mathscr{L}^* h \mathrm{d}x, \text{ where } \mathrm{P}_t^*=e^{t {\mathscr{L}}^*}.\notag
-\end{align}$$
+\end{align}\]
 
+<p>Let $p_t$ denote the law of the Markov process at time $t$. The law of $p_t$ follows that</p>
 
-Let $p_t$ denote the law of the Markov process at time $t$. The law of $p_t$ follows that
-
-$$\begin{align}
+\[\begin{align}
 \frac{\partial p_t}{\partial t} =\mathscr{L}^* p_t,\notag
-\end{align}$$
+\end{align}\]
 
-which is the Fokker-Planck equation (PDE), also known as *forward Kolmogorov equation*. Analyzing the evolution of the probability densities, we have
+<p>which is the Fokker-Planck equation (PDE), also known as <em>forward Kolmogorov equation</em>. Analyzing the evolution of the probability densities, we have</p>
 
-$$\begin{align}
-\mathscr{L}^{*} p_t&=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
-                &=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
-                &=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
-\end{align}$$
+\[\begin{align}
+\mathscr{L}^{*} p_t&amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
+                &amp;=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \big(\nabla\cdot \Sigma\big) p_t + \frac{1}{2} \Sigma \nabla p_t \bigg). \notag \\
+                &amp;=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
+\end{align}\]
 
-where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.
+<p>where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.</p>
 
+<h3 id="probability-flow">Probability Flow</h3>
 
+<p>Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation <a class="citation" href="#OT_applied_math">(Santambrogio, 2015)</a> or continuity equation in fluid dynamics <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>.</p>
 
-
-### Probability Flow
-
-Denote by $\boldsymbol{\nu}=\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p$, the FPE is recased as the transport equation {% cite OT_applied_math %} or continuity equation in fluid dynamics {% cite log_concave_sampling %}.
-
-$$\begin{align}
+\[\begin{align}
 \partial_t p_t =- \nabla \cdot ({\boldsymbol{\nu_t}} p_t).\label{ODE}
-\end{align}$$
+\end{align}\]
 
-Interestingly, it corresponds to the probability flow ODE {% cite score_sde %}
+<p>Interestingly, it corresponds to the probability flow ODE <a class="citation" href="#score_sde">(Song et al., 2021)</a></p>
 
-$$\begin{align}
+\[\begin{align}
 \mathrm{d} X_t={\boldsymbol{\nu_t}}(X_t) \mathrm{d} t.\notag
-\end{align}$$
+\end{align}\]
 
+<p>Apply the instantaneous change of variables <a class="citation" href="#neural_ode">(Chen et al., 2018)</a>, the <strong>log-likelihood</strong> of $p_0(x)$ follows that</p>
 
-
-
-Apply the instantaneous change of variables {% cite neural_ode %}, the **log-likelihood** of $p_0(x)$ follows that
-
-$$\begin{align}
+\[\begin{align}
 \log p_0(x)=\log p_T(x) + \int_0^T \nabla \cdot {\boldsymbol{\nu_t}} \mathrm{d} t,\notag
-\end{align}$$
+\end{align}\]
 
-which provides an elegant way to compute the likelihood for diffusion models.
+<p>which provides an elegant way to compute the likelihood for diffusion models.</p>
 
+<p>In practice, it is expensive to evaluate the divergence $\nabla \cdot {\boldsymbol{\nu_t}}$. We can adopt the Hutchinson trace estimator <a class="citation" href="#Hutchinson89">(Hutchinson, 1989)</a>.</p>
 
-In practice, it is expensive to evaluate the divergence $\nabla \cdot {\boldsymbol{\nu_t}}$. We can adopt the Hutchinson trace estimator {% cite Hutchinson89 %}.
-
-$$\begin{align}
+\[\begin{align}
 \nabla \cdot {\boldsymbol{\nu_t}} = \mathbb{E} \big[\epsilon^\intercal \nabla {\boldsymbol{\nu_t}} \epsilon \big],\notag
-\end{align}$$
+\end{align}\]
 
-where $\nabla \cdot {\boldsymbol{\nu_t}}$ is the Jacobian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.
+<p>where $\nabla \cdot {\boldsymbol{\nu_t}}$ is the Jacobian of ${\boldsymbol{\nu_t}}$; the random variable $\epsilon$ is a standard Gaussian vector and $\epsilon^\intercal \nabla {\boldsymbol{\nu_t}}$ can be efficiently computed using reverse-mode automatic differentiation.</p>
 
+<h4 id="wasserstein-gradient-flow">Wasserstein Gradient Flow</h4>
 
+<p>Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the <em>tangent vector</em> for the curves of measures $t\rightarrow p_t$ <a class="citation" href="#JKO98">(Richard Jordan, 1998)</a> <a class="citation" href="#log_concave_sampling">(Chewi, 2023)</a>. Define a functional $\mathcal{F}=\text{KL}(\cdot||\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have</p>
 
-#### Wasserstein Gradient Flow
-
-Consider a homogeneous case where $\boldsymbol{\mathrm{v_t}}\equiv -\nabla \mathrm{V}$ and $\Sigma(x)=2\boldsymbol{\text{I}}$ for Eq.\eqref{SDE}, the vector field $\boldsymbol{\nu}$ can be interpreted as the *tangent vector* for the curves of measures $t\rightarrow p_t$ {% cite JKO98 %} {% cite log_concave_sampling %}. Define a functional $\mathcal{F}=\text{KL}(\cdot\|\|\pi)$, where $\pi\propto \exp(-\mathrm{V})$. We have
-
-$$\begin{align}
+\[\begin{align}
 \mathcal{F}(p)=\int p \log \frac{p}{\pi} = \int p \mathrm{V} + \int p \log p.\notag
-\end{align}$$
+\end{align}\]
 
-Taking the first variation of $\mathcal{F}$ at $p$, we have
+<p>Taking the first variation of $\mathcal{F}$ at $p$, we have</p>
 
-$$\begin{align}
+\[\begin{align}
 \delta \mathcal{F}(p)= \mathrm{V} + \log p+\text{constant}.\notag
-\end{align}$$
+\end{align}\]
 
-The Wasserstein gradient at $p$ follows that
+<p>The Wasserstein gradient at $p$ follows that</p>
 
-$$\begin{align}
+\[\begin{align}
 \nabla_{\text{W}_2} \mathcal{F}(p):=\nabla \delta \mathcal{F}(p)= \nabla \mathrm{V} + \nabla\log p=-\boldsymbol{\nu},\notag
-\end{align}$$
+\end{align}\]
 
-where the last equality follows by Eq.\eqref{FPE}.
+<p>where the last equality follows by Eq.\eqref{FPE}.</p>
 
-Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$ 
+<p>Now the transport equation \eqref{ODE} can be also formulated as the Wasserstein gradient flow of $\mathcal{F}$</p>
 
-$$\begin{align}
+\[\begin{align}
 \partial_t p_t =\nabla \cdot \bigg(\nabla_{\text{W}_2} \mathcal{F}(p_t) p_t\bigg).\notag
-\end{align}$$
+\end{align}\]
 
-
-
-The following is a demo that describes the connections:
+<p>The following is a demo that describes the connections:</p>
 
 <p align="center">
     <img src="/images/ODE_PDE_SDE.png" width="300" />
-</p>]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Coupling by Reflection (II)</title><link href="http://localhost:4000/posts/coupling_by_reflection/" rel="alternate" type="text/html" title="Coupling by Reflection (II)" /><published>2023-05-20T00:00:00-07:00</published><updated>2023-05-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling-by-Reflection</id><content type="html" xml:base="http://localhost:4000/posts/coupling_by_reflection/"><![CDATA[### Limitations of Synchronous Coupling
+</p>]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Coupling by Reflection (II)</title><link href="http://localhost:4000/posts/coupling_by_reflection/" rel="alternate" type="text/html" title="Coupling by Reflection (II)" /><published>2023-05-20T00:00:00-07:00</published><updated>2023-05-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling-by-Reflection</id><content type="html" xml:base="http://localhost:4000/posts/coupling_by_reflection/"><![CDATA[<h3 id="limitations-of-synchronous-coupling">Limitations of Synchronous Coupling</h3>
 
-Given a $\kappa$-strongly convex drift $U$, we can apply the synchronous coupling for the diffusion process
+<p>Given a $\kappa$-strongly convex drift $U$, we can apply the synchronous coupling for the diffusion process</p>
 
-$$\begin{align}
+\[\begin{align}
   \mathrm{d}X_t = U(X_t)\mathrm{d}t+\mathrm{d}W_t\notag\\
   \mathrm{d}Y_t = U(Y_t)\mathrm{d}t+\mathrm{d}W_t.\notag\\
-\end{align}$$
+\end{align}\]
 
-Eliminating the Brownian motion, we obtain a contractivity property
+<p>Eliminating the Brownian motion, we obtain a contractivity property</p>
 
-$$\begin{align}
+\[\begin{align}
   \|X_t-Y_t\|\leq \|X_0-Y_0\|^2 \exp(-\kappa t).\notag
-\end{align}$$
+\end{align}\]
 
-However, we cannot easily obtain the desired contraction when $U$ is not strongly convex. To address this issue, one should consider a more general coupling method based on a specic metric instead of the standard Euclidean metric. The diffusions may not contract almost surely, but rather in the average sense.
+<p>However, we cannot easily obtain the desired contraction when $U$ is not strongly convex. To address this issue, one should consider a more general coupling method based on a specic metric instead of the standard Euclidean metric. The diffusions may not contract almost surely, but rather in the average sense.</p>
 
-### Reflection Coupling
+<h3 id="reflection-coupling">Reflection Coupling</h3>
 
-Define the coupling time $T_c=\inf \\{ t\geq 0  \| X_t =Y_t \\}$. By definition, we know that $X_t=Y_t$ for $t\geq T_c$ {% cite mufa_chen %} {% cite reflection_coupling %} {% cite reflection_coupling_2 %}  {% cite coupling_hmc %}. When the drift term $U$ is zero, we observe that $\\|X_t-Y_t\\|$ remains fixed for any $t$ and synchronous coupling doesn't induce any contraction. 
+<p>Define the coupling time $T_c=\inf \{ t\geq 0  | X_t =Y_t \}$. By definition, we know that $X_t=Y_t$ for $t\geq T_c$ <a class="citation" href="#mufa_chen">(Chen &amp; Li, 1989)</a> <a class="citation" href="#reflection_coupling">(Eberle, 2011)</a> <a class="citation" href="#reflection_coupling_2">(Eberle, 2016)</a>  <a class="citation" href="#coupling_hmc">(N. Bou-Rabee &amp; Zimmer, 2020)</a>. When the drift term $U$ is zero, we observe that $\|X_t-Y_t\|$ remains fixed for any $t$ and synchronous coupling doesn’t induce any contraction.</p>
 
-Let's explore an alternative coupling where the Brownian motion moves in the opposite direction. We anticipate with some probability the processes will merge [Why?].
+<p>Let’s explore an alternative coupling where the Brownian motion moves in the opposite direction. We anticipate with some probability the processes will merge [Why?].</p>
 
-$$\begin{align}
-  \mathrm{d}X_t &= U(X_t)\mathrm{d}t+\mathrm{d}W_t\notag\\
-  \mathrm{d}Y_t &= U(Y_t)\mathrm{d}t+(\mathrm{I} - 2\cdot e_t e_t^{\intercal})\mathrm{d}W_t,\notag\\
-\end{align}$$
+\[\begin{align}
+  \mathrm{d}X_t &amp;= U(X_t)\mathrm{d}t+\mathrm{d}W_t\notag\\
+  \mathrm{d}Y_t &amp;= U(Y_t)\mathrm{d}t+(\mathrm{I} - 2\cdot e_t e_t^{\intercal})\mathrm{d}W_t,\notag\\
+\end{align}\]
 
-where $e_t=\mathbb{I}\_{[X_t\neq Y_t]}\cdot \frac{X_t-Y_t}{\\|X_t-Y_t\\|}$ and one can identify that $\widetilde W_t=\int_0^t \big[\mathrm{I} - 2\cdot e_s e_s^{\intercal} \big]\mathrm{d} s$ is also a Brownian motion. In addition, $e_t e_t^{\intercal}$ is the orthogonal projection onto the unit vector $e_t$ [\[Hint\]](https://textbooks.math.gatech.edu/ila/projections.html) and you can easily check that $e_t$ is the eigenvector of $\mathrm{I} - 2\cdot e_t e_t^{\intercal}$ with one eigenvalue $-1$..
+<p>where $e_t=\mathbb{I}_{[X_t\neq Y_t]}\cdot \frac{X_t-Y_t}{\|X_t-Y_t\|}$ and one can identify that $\widetilde W_t=\int_0^t \big[\mathrm{I} - 2\cdot e_s e_s^{\intercal} \big]\mathrm{d} s$ is also a Brownian motion. In addition, $e_t e_t^{\intercal}$ is the orthogonal projection onto the unit vector $e_t$ <a href="https://textbooks.math.gatech.edu/ila/projections.html">[Hint]</a> and you can easily check that $e_t$ is the eigenvector of $\mathrm{I} - 2\cdot e_t e_t^{\intercal}$ with one eigenvalue $-1$..</p>
 
+<h3 id="supermartingales">Supermartingales</h3>
 
-### Supermartingales 
+<p>We first show $\exp(c\cdot t)f(G_t)$ is a supermartingale, where $G_t=\|X_t-Y_t\|$.</p>
 
-We first show $\exp(c\cdot t)f(G_t)$ is a supermartingale, where $G_t=\\|X_t-Y_t\\|$.
+<p>Apply Ito’s lemma to $f(G_t)$, where $f$ is a concave function to induce a new distance metric $d_f(X, Y)=f(\|X-Y\|)$ <a class="citation" href="#reflection_coupling">(Eberle, 2011)</a>.</p>
 
-Apply Ito's lemma to $f(G_t)$, where $f$ is a concave function to induce a new distance metric $d_f(X, Y)=f(\\|X-Y\\|)$ {% cite reflection_coupling %}.
-
-$$\begin{align}
+\[\begin{align}
   \mathrm{d} f(G_t)=2f'(R_t)\mathrm{d}W_t+\bigg\{f'(G_t)\cdot \bigg\langle U(X_t)-U(Y_t), \frac{X_t-Y_t}{\|X_t-Y_t\|}\bigg\rangle +2f''(G_t)\bigg\} \mathrm{d}t.\notag
-\end{align}$$
+\end{align}\]
 
-Assume $\langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq -\kappa(r) \frac{\\|X_t-Y_t\\|^2}{2}$, where $\kappa(r)$ is not necessarily positive
+<p>Assume $\langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq -\kappa(r) \frac{\|X_t-Y_t\|^2}{2}$, where $\kappa(r)$ is not necessarily positive</p>
 
-$$\begin{align}
+\[\begin{align}
   \bigg\langle U(X_t)-U(Y_t), \frac{X_t-Y_t}{\|X_t-Y_t\|}\bigg\rangle \leq -\frac{1}{2} \cdot G_t \cdot\kappa(G_t). \notag
-\end{align}$$
+\end{align}\]
 
-Further including the integration factor $\exp(c\cdot t)$, we have
+<p>Further including the integration factor $\exp(c\cdot t)$, we have</p>
 
-$$\begin{align}
+\[\begin{align}
   \dfrac{\mathrm{d} \bigg[\exp(c\cdot t)f(G_t)\bigg]}{\exp(c\cdot t)}\leq 2f'(R_t) \mathrm{d}W_t + \bigg[-\frac{1}{2} G_t \cdot\kappa(G_t) f'(G_t)+2f''(G_t)+c \cdot f(G_t)\bigg]\mathrm{d}t. \notag
-\end{align}$$
+\end{align}\]
 
-In other words, it induces a supermartingale when we have
+<p>In other words, it induces a supermartingale when we have</p>
 
-$$\begin{align}
+\[\begin{align}
 -\frac{1}{2} G_t \cdot\kappa(G_t) f'(G_t)+2f''(G_t)+c \cdot f(G_t)\leq 0.\notag
-\end{align}$$
+\end{align}\]
 
+<p>It implies that a proper $f$ may help us obtain the desired result</p>
 
-It implies that a proper $f$ may help us obtain the desired result
-
-$$\begin{align}
+\[\begin{align}
   \mathrm{E}[f(\|X_t-Y_t\|)] \leq f(\|X_0-Y_0\|)\cdot \exp(-c\cdot t).\notag
-\end{align}$$
+\end{align}\]
 
+<h3 id="how-to-build-such-an-f">How to build such an $f$</h3>
 
+<h4 id="a-simple-case-when-c--0">A simple case when $c = 0$</h4>
 
-### How to build such an $f$
+<p>We propose to find a $f$ that satisfies</p>
 
-#### A simple case when $c = 0$
-
-We propose to find a $f$ that satisfies 
-
-$$\begin{align}
+\[\begin{align}
 f''(G_t)\leq \frac{1}{4} G_t \cdot\kappa(G_t) f'(G_t).\notag
-\end{align}$$
+\end{align}\]
 
-The worst case is given by $f(R)=\int_0^{R} f'(s) \mathrm{d}s$, where $f'$ is solved by Growall inequality
+<p>The worst case is given by $f(R)=\int_0^{R} f’(s) \mathrm{d}s$, where $f’$ is solved by Growall inequality</p>
 
-$$\begin{align}
-f'(R)&=\exp\bigg\{\int_0^R\frac{1}{4} s \cdot\kappa(G_t) \mathrm{d}s\bigg\}.\notag
-\end{align}$$
+\[\begin{align}
+f'(R)&amp;=\exp\bigg\{\int_0^R\frac{1}{4} s \cdot\kappa(G_t) \mathrm{d}s\bigg\}.\notag
+\end{align}\]
 
-#### Extention to $c>0$
+<h4 id="extention-to-c0">Extention to $c&gt;0$</h4>
 
-We aim to obtain the following dimension-independent bound in $R, L\in [0, \infty)$ {% cite reflection_coupling %}.
+<p>We aim to obtain the following dimension-independent bound in $R, L\in [0, \infty)$ <a class="citation" href="#reflection_coupling">(Eberle, 2011)</a>.</p>
 
-The general idea is to permit strong convexity outside of a ball with a given radius, within which local non-convexity is allowed.
+<p>The general idea is to permit strong convexity outside of a ball with a given radius, within which local non-convexity is allowed.</p>
 
-$-\mathbb{I}\_{[\\|X_t-Y_t\\|< R]} L{\\|X_t-Y_t\\|^2}\leq \langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq \mathbb{I}\_{[\\|X_t-Y_t\\|\geq R]} K{\\|X_t-Y_t\\|^2}.$]]></content><author><name>Wei Deng</name></author><category term="Coupling" /><summary type="html"><![CDATA[Limitations of Synchronous Coupling]]></summary></entry><entry><title type="html">Girsanov and MLE</title><link href="http://localhost:4000/posts/Girsanov_MLE/" rel="alternate" type="text/html" title="Girsanov and MLE" /><published>2023-03-20T00:00:00-07:00</published><updated>2023-03-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Girsanov-Likelihood</id><content type="html" xml:base="http://localhost:4000/posts/Girsanov_MLE/"><![CDATA[### Maximum likelihood estimation
+<p>$-\mathbb{I}_{[\|X_t-Y_t\|&lt; R]} L{\|X_t-Y_t\|^2}\leq \langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq \mathbb{I}_{[\|X_t-Y_t\|\geq R]} K{\|X_t-Y_t\|^2}.$</p>]]></content><author><name>Wei Deng</name></author><category term="Coupling" /><summary type="html"><![CDATA[Limitations of Synchronous Coupling]]></summary></entry><entry><title type="html">Girsanov and MLE</title><link href="http://localhost:4000/posts/Girsanov_MLE/" rel="alternate" type="text/html" title="Girsanov and MLE" /><published>2023-03-20T00:00:00-07:00</published><updated>2023-03-20T00:00:00-07:00</updated><id>http://localhost:4000/posts/Girsanov-Likelihood</id><content type="html" xml:base="http://localhost:4000/posts/Girsanov_MLE/"><![CDATA[<h3 id="maximum-likelihood-estimation">Maximum likelihood estimation</h3>
 
-Given $N$ independent observations, the likelihood function given $\theta=(\mu, \sigma)$ follows that
+<p>Given $N$ independent observations, the likelihood function given $\theta=(\mu, \sigma)$ follows that</p>
 
-$$\begin{align}
+\[\begin{align}
 \mathcal{L}(\{x_i\}_{i=1}^N|\theta)=\prod_{i=1}^N f(x_i|\theta),\notag
-\end{align}$$
+\end{align}\]
 
-which models the density of the random variable $X$. The maximum likelihood estimator (MLE) is given by
+<p>which models the density of the random variable $X$. The maximum likelihood estimator (MLE) is given by</p>
 
-$$\begin{align}
+\[\begin{align}
 \widehat\theta=\text{argmax} \mathcal{L}(\mathbf{x}|\theta),\notag
-\end{align}$$
+\end{align}\]
 
-where $\mathbf{x}=\\{x_i\\}_{i=1}^N$. When $X$ is a Gaussian random variable that follows $X\sim \mathcal{N}(\mu, \sigma^2)$. The likelihood function is expressed as
+<p>where $\mathbf{x}=\{x_i\}_{i=1}^N$. When $X$ is a Gaussian random variable that follows $X\sim \mathcal{N}(\mu, \sigma^2)$. The likelihood function is expressed as</p>
 
-$$\begin{align}\label{MLE}
+\[\begin{align}\label{MLE}
 \mathcal{L}(\{x_i\}_{i=1}^N|\theta)=\bigg(\frac{1}{\sqrt{2\pi \sigma^2}}\bigg)^{N/2} \exp\bigg(-\frac{\sum_{i=1}^N (x_i-\mu)^2}{2\sigma^2}\bigg).
-\end{align}$$
+\end{align}\]
 
-Taking the gradient w.r.t. $\mu$ and $\sigma^2$, we have
+<p>Taking the gradient w.r.t. $\mu$ and $\sigma^2$, we have</p>
 
-$$\begin{align}
+\[\begin{align}
 \widehat \mu=\frac{1}{N}\sum_{i=1}^N x_i, \quad \widehat\sigma^2=\frac{1}{N} \sum_{i=1}^N (x_i-\widehat \mu)^2.\notag
-\end{align}$$
+\end{align}\]
 
+<h3 id="girsanov-theorem">Girsanov theorem</h3>
 
-### Girsanov theorem
+<p>Assume we have a diffusion process</p>
 
-Assume we have a diffusion process
-
-$$\begin{align}
+\[\begin{align}
 \mathrm{d}X_t = b(X_t;\theta)\mathrm{d}t+\sigma\mathrm{d}W_t.\notag
-\end{align}$$
+\end{align}\]
 
-We observe the whole path of the process $X\_t$ from time $[0, T]$. Denote by $\mathbb{P}\_X$ the law of the process on the path space, which is absolutely continuous w.r.t. the Wiener measure. The density of $\mathbb{P}\_X$ w.r.t. the Wiener measure is determined by the Radon-Nikodym derivative 
+<p>We observe the whole path of the process $X_t$ from time $[0, T]$. Denote by $\mathbb{P}_X$ the law of the process on the path space, which is absolutely continuous w.r.t. the Wiener measure. The density of $\mathbb{P}_X$ w.r.t. the Wiener measure is determined by the Radon-Nikodym derivative</p>
 
-$$\begin{align}\label{girsanov}
+\[\begin{align}\label{girsanov}
 \frac{\mathrm{d}\mathbb{P}_X}{\mathrm{d}\mathbb{P}_W}=\exp\bigg(\frac{1}{\sigma}\int_0^T b(X_s; \theta)\mathrm{d}W_s-\int_0^T \frac{b^2(X_s;\theta)}{2\sigma^2}\mathrm{d}s \bigg).
-\end{align}$$
+\end{align}\]
 
+<p>We can observe a close connection between Eq.\eqref{MLE} and a discrete variant of Eq.\eqref{girsanov}</p>
 
+<p>Remark: While the Girsanov theorem is commonly employed, it is prone to mistakes that can be easily made. Have I made any such errors?</p>
 
+<h3 id="applications">Applications</h3>
 
-We can observe a close connection between Eq.\eqref{MLE} and a discrete variant of Eq.\eqref{girsanov} 
+<p>Given a stationary Ornstein-Uhlenbeck process, how do you estimate the parameters using MLE <a class="citation" href="#Grigorios_14">(Pavliotis, 2014)</a>..</p>
 
-Remark: While the Girsanov theorem is commonly employed, it is prone to mistakes that can be easily made. Have I made any such errors?
-
-
-### Applications
-
-Given a stationary Ornstein-Uhlenbeck process, how do you estimate the parameters using MLE {% cite Grigorios_14 %}..
-
-$$\begin{align}
+\[\begin{align}
 \mathrm{d}X_t = -\alpha X_t \mathrm{d}t+\sigma\mathrm{d}W_t.\notag
-\end{align}$$
+\end{align}\]
 
-Hint: 1) write the likelihood; 2) take the gradient.]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[Maximum likelihood estimation]]></summary></entry><entry><title type="html">Schrödinger Bridge Problem</title><link href="http://localhost:4000/posts/Bridge/" rel="alternate" type="text/html" title="Schrödinger Bridge Problem" /><published>2022-06-19T00:00:00-07:00</published><updated>2022-06-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/Bridges</id><content type="html" xml:base="http://localhost:4000/posts/Bridge/"><![CDATA[The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models {% cite Nea11 %}, {% cite forward_backward_SDE %}, {% cite DSB %} and financial mathematics {% cite nutz_trading %} {% cite nutz_portfolio %} {% cite schrodinger_vol_model %}. The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods [\[Image Generation\]](https://paperswithcode.com/sota/image-generation-on-cifar-10).
+<p>Hint: 1) write the likelihood; 2) take the gradient.</p>]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[Maximum likelihood estimation]]></summary></entry><entry><title type="html">Schrödinger Bridge Problem</title><link href="http://localhost:4000/posts/Bridge/" rel="alternate" type="text/html" title="Schrödinger Bridge Problem" /><published>2022-06-19T00:00:00-07:00</published><updated>2022-06-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/Bridges</id><content type="html" xml:base="http://localhost:4000/posts/Bridge/"><![CDATA[<p>The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models <a class="citation" href="#Nea11">(Neal, 2011)</a>, <a class="citation" href="#forward_backward_SDE">(Chen et al., 2022)</a>, <a class="citation" href="#DSB">(De Bortoli et al., 2021)</a> and financial mathematics <a class="citation" href="#nutz_trading">(Nutz, 2022)</a> <a class="citation" href="#nutz_portfolio">(Nutz, 2022)</a> <a class="citation" href="#schrodinger_vol_model">(Henry-Labordere, 2019)</a>. The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods <a href="https://paperswithcode.com/sota/image-generation-on-cifar-10">[Image Generation]</a>.</p>
 
-The most striking feature of this algorithm is its deep mathematical connections to stochastic optimal control, optimal transport, fluid dynamics {% cite siam_review_Sinkhorn_liaisons %}, and DNN approximations. As such, we have sufficient tools to understand the underlying theories. We refer interested readers to the Appendix A of {% cite provably_schrodinger_bridge %}.]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models (Neal, 2011), (Chen et al., 2022), (De Bortoli et al., 2021) and financial mathematics (Nutz, 2022) (Nutz, 2022) (Henry-Labordere, 2019). The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods [Image Generation].]]></summary></entry><entry><title type="html">Hamiltonian Monte Caro</title><link href="http://localhost:4000/posts/Hamiltonian/" rel="alternate" type="text/html" title="Hamiltonian Monte Caro" /><published>2021-11-01T00:00:00-07:00</published><updated>2021-11-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Hamiltonian</id><content type="html" xml:base="http://localhost:4000/posts/Hamiltonian/"><![CDATA[Hamiltonian Monte Carlo {% cite Nea11 %} (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm {% cite MRRT53 %} and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes. 
+<p>The most striking feature of this algorithm is its deep mathematical connections to stochastic optimal control, optimal transport, fluid dynamics <a class="citation" href="#siam_review_Sinkhorn_liaisons">(Chen, 2021)</a>, and DNN approximations. As such, we have sufficient tools to understand the underlying theories. We refer interested readers to the Appendix A of <a class="citation" href="#provably_schrodinger_bridge">(Chen et al., 2023)</a>.</p>]]></content><author><name>Wei Deng</name></author><category term="Diffusion" /><summary type="html"><![CDATA[The classical Schrödinger Bridge Problem (SBP) have found interesting applications in deep generative models (Neal, 2011), (Chen et al., 2022), (De Bortoli et al., 2021) and financial mathematics (Nutz, 2022) (Nutz, 2022) (Henry-Labordere, 2019). The iterative nature in solving this problem shows a great potential to further accelerate the training for score-based generative models, although the later is already the state-of-the-art methods [Image Generation].]]></summary></entry><entry><title type="html">Hamiltonian Monte Caro</title><link href="http://localhost:4000/posts/Hamiltonian/" rel="alternate" type="text/html" title="Hamiltonian Monte Caro" /><published>2021-11-01T00:00:00-07:00</published><updated>2021-11-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Hamiltonian</id><content type="html" xml:base="http://localhost:4000/posts/Hamiltonian/"><![CDATA[<p>Hamiltonian Monte Carlo <a class="citation" href="#Nea11">(Neal, 2011)</a> (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm <a class="citation" href="#MRRT53">(Metropolis, 1953)</a> and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes.</p>
 
-In this blog, I will introduce a paper called Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions {% cite CV19 %}. 
+<p>In this blog, I will introduce a paper called Optimal Convergence Rate of Hamiltonian Monte Carlo for Strongly Logconcave Distributions <a class="citation" href="#CV19">(Zongchen Chen, 2019)</a>.</p>
 
-## Hamiltonian Dynamics
+<h2 id="hamiltonian-dynamics">Hamiltonian Dynamics</h2>
 
-HMC algorithms conserves Hamiltonian and the volume in the phase space and enjoy the reversibility condition (by flipping a sign). It aims to simulate particles according to the laws of Hamiltonian dynamics. Consider a Hamiltonian function $H(x, v)$ defined as follows
+<p>HMC algorithms conserves Hamiltonian and the volume in the phase space and enjoy the reversibility condition (by flipping a sign). It aims to simulate particles according to the laws of Hamiltonian dynamics. Consider a Hamiltonian function $H(x, v)$ defined as follows</p>
 
-\begin{equation}\notag
-H(x, v)=f(x)+\\|v\\|^2,
-\end{equation}
+<p>\begin{equation}\notag
+H(x, v)=f(x)+\|v\|^2,
+\end{equation}</p>
 
-where $f$ is the potential energy function, $x$ is the position, and $v$ is the velocity variable. In each step, the update of the particles $(x, v)$ follows the system of (ordinary) differential equations as follows
+<p>where $f$ is the potential energy function, $x$ is the position, and $v$ is the velocity variable. In each step, the update of the particles $(x, v)$ follows the system of (ordinary) differential equations as follows</p>
 
-
-\begin{equation}\label{hmc_eq}
+<p>\begin{equation}\label{hmc_eq}
 \frac{d x}{d t}=\frac{\partial H}{\partial v}=v(t) \ \ \text{and} \ \ \frac{d v}{d t}=-\frac{\partial H}{\partial x}=-\nabla f(x).
-\end{equation}
+\end{equation}</p>
 
-After a time interval $t$, the solutions follow a ``Hamiltonian flow'' $\varphi_t$ that maps $(x,v)$ to $(x_t(x,v), v_t(x, v))$.
+<p>After a time interval $t$, the solutions follow a ``Hamiltonian flow’’ $\varphi_t$ that maps $(x,v)$ to $(x_t(x,v), v_t(x, v))$.</p>
 
+<h2 id="convergence-of-ideal-hmc">Convergence of Ideal HMC</h2>
 
+<p>To prove the convergence of the ideal HMC algorithms, we first assume standard assumptions.</p>
 
+<p><strong>Strong convexity</strong> We say $f$ is $\mu$-strongly convex if for all $x, y\in R^d$, we have</p>
 
+<p>\begin{equation}\notag
+f(y)\geq f(x)+\langle \nabla f(x), y-x\rangle + \frac{\mu}{2} \|y-x\|^2.
+\end{equation}</p>
 
-## Convergence of Ideal HMC
+<p><strong>Smoothness</strong> We also assume $f$ is $L$-smooth in the sense that</p>
 
-To prove the convergence of the ideal HMC algorithms, we first assume standard assumptions.
+<p>\begin{equation}\notag
+f(y)\leq f(x)+\langle \nabla f(x), y-x\rangle + \frac{L}{2} \|y-x\|^2.
+\end{equation}</p>
 
-**Strong convexity** We say $f$ is $\mu$-strongly convex if for all $x, y\in R^d$, we have
+<p>The convergence analysis hinges on the coupling of two Markov chains such that the distance between the position variables $x_k$ and $y_k$ (the second Markov chain) contracts in each step.</p>
 
-\begin{equation}\notag
-f(y)\geq f(x)+\langle \nabla f(x), y-x\rangle + \frac{\mu}{2} \\|y-x\\|^2.
-\end{equation}
-
-**Smoothness** We also assume $f$ is $L$-smooth in the sense that
-
-\begin{equation}\notag
-f(y)\leq f(x)+\langle \nabla f(x), y-x\rangle + \frac{L}{2} \\|y-x\\|^2.
-\end{equation}
-
-The convergence analysis hinges on the coupling of two Markov chains such that the distance between the position variables $x_k$ and $y_k$ (the second Markov chain) contracts in each step.
-
-Denote by $x(t)$ and $y(t)$ solutions of HMC (\ref{hmc_eq}) and denote by $x(0)$ and $y(0)$ the initial positions of two ODEs for HMC. To faciliate the analysis of coupling techniques, we adopt the same initial velocity $v(0)=u(0)$. The convergence study hinges on the contraction bound as follows
+<p>Denote by $x(t)$ and $y(t)$ solutions of HMC (\ref{hmc_eq}) and denote by $x(0)$ and $y(0)$ the initial positions of two ODEs for HMC. To faciliate the analysis of coupling techniques, we adopt the same initial velocity $v(0)=u(0)$. The convergence study hinges on the contraction bound as follows</p>
 
 <p align="center">
     <img src="/images/HMC_coupling2.png" width="400" />
 </p>
 
+<p><strong>Lemma</strong> Assume the potential function $f$ satisfies the convexity and smoothness assumptions. Then for $0\leq t \leq \frac{1}{2\sqrt{L}}$, we have</p>
 
-**Lemma** Assume the potential function $f$ satisfies the convexity and smoothness assumptions. Then for $0\leq t \leq \frac{1}{2\sqrt{L}}$, we have
+<p>\begin{equation}\notag
+\|x(t)-y(t)\|^2 \leq (1-\frac{\mu}{4}t^2) \|x(0)-y(0)\|^2.
+\end{equation}</p>
 
+<p><strong>Proof</strong>
+Consider two ODEs for HMCs:</p>
+
+\[\begin{align}\notag
+\qquad\qquad\qquad\qquad x'(t)&amp;=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t) \notag\\\\
+\qquad\qquad\qquad\qquad v'(t)&amp;=-\nabla f(x(t))     \quad\qquad\qquad\ \   u'(t)=-\nabla f(y(t)),\notag
+\end{align}\]
+
+<p>where the initial velocities follow $u(0)=v(0)$.</p>
+
+<p>Taking the second derivative of $\frac{1}{2}\|x-y\|^2$, we have</p>
+
+\[\begin{align}\notag
+\frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)&amp;=\frac{d}{dt}\langle v-u, x-y \rangle\notag\\
+						  &amp;=\langle v'-u', x-y \rangle + \langle v-u, x'-y' \rangle \notag\\
+						  &amp;=-\rho \|x-y\|^2 + \|v-u\|^2,\notag
+\end{align}\]
+
+<p>where $\rho=\rho(t)=\frac{\langle \nabla f(x) - \nabla f(y), x-y \rangle}{\|x-y\|^2}$.</p>
+
+<p>To upper bound $\|v-u\|^2$, recall that 
 \begin{equation}\notag
-\\|x(t)-y(t)\\|^2 \leq (1-\frac{\mu}{4}t^2) \\|x(0)-y(0)\\|^2.
-\end{equation}
+\frac{d}{dt} \|x\|=\frac{d}{dx} \|x\| \cdot \frac{d}{dt} x=\frac{\langle x, \dot{x} \rangle}{\|x\|}.
+\end{equation}</p>
 
+<p>In what follows, we have</p>
 
-**Proof**
-Consider two ODEs for HMCs: 
+<p>\begin{equation}\notag
+\frac{d}{dt}\|v-u\|=\frac{1}{\|v-u\|}\langle v’-u’, v-u\rangle =-\frac{\langle \nabla f(x)-\nabla f(y), v-u\rangle}{\|v-u\|}.
+\end{equation}</p>
 
-$$\begin{align}\notag
-\qquad\qquad\qquad\qquad x'(t)&=v(t)    \qquad\qquad \quad\text{and}\qquad y'(t)=u(t) \notag\\\\
-\qquad\qquad\qquad\qquad v'(t)&=-\nabla f(x(t))     \quad\qquad\qquad\ \   u'(t)=-\nabla f(y(t)),\notag
-\end{align}$$
+<p>In particular for the upper bound of $\frac{d}{dt}\|v-u\|$, we have</p>
 
-where the initial velocities follow $u(0)=v(0)$. 
+\[\begin{align}
+\left|\frac{d}{dt}\|v-u\|\right| &amp;\leq \|\nabla f(x)-\nabla f(y)\| \notag\\
+                                 &amp; \leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle} \notag\\
+                                 &amp; = \sqrt{L\rho \|x-y\|^2} \notag\\
+				 &amp; \leq \sqrt{2L\rho \|x_0-y_0\|^2}, \notag\\
+\end{align}\]
 
-Taking the second derivative of $\frac{1}{2}\\|x-y\\|^2$, we have
+<p>where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in <a class="citation" href="#CV19">(Zongchen Chen, 2019)</a>.</p>
 
-$$\begin{align}\notag
-\frac{d^2}{dt^2}\left(\frac{1}{2} \|x-y\|^2\right)&=\frac{d}{dt}\langle v-u, x-y \rangle\notag\\
-						  &=\langle v'-u', x-y \rangle + \langle v-u, x'-y' \rangle \notag\\
-						  &=-\rho \|x-y\|^2 + \|v-u\|^2,\notag
-\end{align}$$
+<p>Now, we can upper bound $\|v-u\|^2$ as follows</p>
 
-where $\rho=\rho(t)=\frac{\langle \nabla f(x) - \nabla f(y), x-y \rangle}{\\|x-y\\|^2}$.
+\[\begin{align}
+\|v-u\|^2 &amp;\leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2 \notag\\
+\qquad\qquad &amp; \leq \left(\int_0^t \sqrt{2 L\rho} \|x_0-y_0\| ds\right)^2 \notag\\
+\qquad\qquad &amp; \leq 2L t \left(\int_0^t \rho ds\right) \|x_0 - y_0\|^2. \notag\\
+\end{align}\]
 
-To upper bound $\\|v-u\\|^2$, recall that 
-\begin{equation}\notag
-\frac{d}{dt} \\|x\\|=\frac{d}{dx} \\|x\\| \cdot \frac{d}{dt} x=\frac{\langle x, \dot{x} \rangle}{\\|x\\|}.
-\end{equation}
+<p>Define the monotone increasing function</p>
 
-In what follows, we have
-
-\begin{equation}\notag
-\frac{d}{dt}\\|v-u\\|=\frac{1}{\\|v-u\\|}\langle v'-u', v-u\rangle =-\frac{\langle \nabla f(x)-\nabla f(y), v-u\rangle}{\\|v-u\\|}.
-\end{equation}
-
-In particular for the upper bound of $\frac{d}{dt}\\|v-u\\|$, we have
-
-$$\begin{align}
-\left|\frac{d}{dt}\|v-u\|\right| &\leq \|\nabla f(x)-\nabla f(y)\| \notag\\
-                                 & \leq \sqrt{L \langle \nabla f(x) - \nabla f(y), x-y \rangle} \notag\\
-                                 & = \sqrt{L\rho \|x-y\|^2} \notag\\
-				 & \leq \sqrt{2L\rho \|x_0-y_0\|^2}, \notag\\
-\end{align}$$
-
-where the first inequality follows by Cauchy–Schwarz inequality, the second inequality follows by the L-smoothness assumption, and the last inequality follows by Claim 7 in {% cite CV19 %}.
-
-Now, we can upper bound $\\|v-u\\|^2$ as follows
-
-$$\begin{align}
-\|v-u\|^2 &\leq  \left(\int_0^t \left|\frac{d}{ds}\|v-u\|\right| ds\right)^2 \notag\\
-\qquad\qquad & \leq \left(\int_0^t \sqrt{2 L\rho} \|x_0-y_0\| ds\right)^2 \notag\\
-\qquad\qquad & \leq 2L t \left(\int_0^t \rho ds\right) \|x_0 - y_0\|^2. \notag\\
-\end{align}$$
-
-Define the monotone increasing function
-
-\begin{equation}\notag
+<p>\begin{equation}\notag
 P=P(t)=\int_0^t \rho dt,
-\end{equation}
+\end{equation}</p>
 
-where $P(0)=0$ and $\mu t \leq P(t)\leq L t$ for all $t\geq 0$. Then
+<p>where $P(0)=0$ and $\mu t \leq P(t)\leq L t$ for all $t\geq 0$. Then</p>
 
+<p>\begin{equation}\notag
+|v-u|^2 \leq 2L t P|x_0-y_0|^2.
+\end{equation}</p>
+
+<p>Combining the above upper bounds, we have</p>
+
+<p>\begin{equation}\notag
+\frac{d^2}{dt^2} \left(\frac{1}{2}\|x-y\|^2 \right)\leq -\rho \left(\frac{1}{2} \|x_0-y_0\|^2\right)+2Lt P \|x_0-y_0\|^2.
+\end{equation}</p>
+
+<p>Define $\alpha(t)=\frac{1}{2} \|x-y\|^2$, then we have</p>
+
+<p>\begin{equation}\notag
+\alpha’(t)\leq -\alpha(0) (\rho(t)-4L t P(t)).
+\end{equation}</p>
+
+<p>Integrating both sides and combining the fact that $\alpha’(0)=0$, we have</p>
+
+\[\begin{align}
+\alpha'(t)&amp;=\int_0^t \alpha'(s) ds \notag\\
+\qquad\ &amp;\leq -\int_0^t \alpha(0) (\rho(s)-4L t P(s))ds \notag\\
+\qquad\ &amp;\leq -\alpha(t)\left(P(t) - 4LP(t) \int_0^t s ds\right) \notag\\
+\qquad\ &amp;=-\alpha(0)P(t)(1-2Lt^2). \notag
+\end{align}\]
+
+<p>Choose $t \in [0, \frac{1}{2\sqrt{L}}]$, then we can deduce that
 \begin{equation}\notag
-\|v-u\|^2 \leq 2L t P\|x_0-y_0\|^2.
-\end{equation}
+\alpha’(t)\leq -\alpha(0) \frac{\mu}{2} t.
+\end{equation}</p>
 
-Combining the above upper bounds, we have
+<p>Eventually, we have the desired result such that</p>
 
-\begin{equation}\notag
-\frac{d^2}{dt^2} \left(\frac{1}{2}\\|x-y\\|^2 \right)\leq -\rho \left(\frac{1}{2} \\|x_0-y_0\\|^2\right)+2Lt P \\|x_0-y_0\\|^2.
-\end{equation}
+<p>\begin{equation}\notag
+\alpha(t)=\alpha(0)+\int_0^t \alpha’(s) d s \leq \alpha(0) \left(1-\frac{\mu}{4} t^2\right).
+\end{equation}</p>
 
-Define $\alpha(t)=\frac{1}{2} \\|x-y\\|^2$, then we have
+<p>Setting $t=T=1/(c\sqrt{L})$ for some constant $c\geq 2$, we get</p>
 
-\begin{equation}\notag
-\alpha'(t)\leq -\alpha(0) (\rho(t)-4L t P(t)).
-\end{equation}
+<p>\begin{equation}\notag
+|x(T)-y(T)|^2 \leq \left(1-\frac{1}{4c^2 \kappa}\right)|x(0)-y(0)|^2.
+\end{equation}</p>
 
-Integrating both sides and combining the fact that $\alpha'(0)=0$, we have
+<p>Eventually, we can achieve the convergence in Wasserstein distance such that</p>
 
-$$\begin{align}
-\alpha'(t)&=\int_0^t \alpha'(s) ds \notag\\
-\qquad\ &\leq -\int_0^t \alpha(0) (\rho(s)-4L t P(s))ds \notag\\
-\qquad\ &\leq -\alpha(t)\left(P(t) - 4LP(t) \int_0^t s ds\right) \notag\\
-\qquad\ &=-\alpha(0)P(t)(1-2Lt^2). \notag
-\end{align}$$
+<p>\begin{equation}\notag
+W^2_2(\nu_k, \pi)\leq E\left[|x_k-y_k|^2\right]\leq \left(1-\frac{1}{4c^2 \kappa}\right)^k O(1).
+\end{equation}</p>
 
-Choose $t \in [0, \frac{1}{2\sqrt{L}}]$, then we can deduce that
-\begin{equation}\notag
-\alpha'(t)\leq -\alpha(0) \frac{\mu}{2} t.
-\end{equation}
+<h2 id="discretized-hmc">Discretized HMC</h2>
 
-Eventually, we have the desired result such that
+<p><a class="citation" href="#MV18">(Mangoubi &amp; Vishnoi, 2018)</a> proposed to approximate the Hamiltonian trajectory with a second-order Euler integrator such that</p>
 
-\begin{equation}\notag
-\alpha(t)=\alpha(0)+\int_0^t \alpha'(s) d s \leq \alpha(0) \left(1-\frac{\mu}{4} t^2\right).
-\end{equation}
-
-
-Setting $t=T=1/(c\sqrt{L})$ for some constant $c\geq 2$, we get
-
-\begin{equation}\notag
-\|x(T)-y(T)\|^2 \leq \left(1-\frac{1}{4c^2 \kappa}\right)\|x(0)-y(0)\|^2.
-\end{equation}
-
-Eventually, we can achieve the convergence in Wasserstein distance such that 
-
-\begin{equation}\notag
-W^2_2(\nu_k, \pi)\leq E\left[\|x_k-y_k\|^2\right]\leq \left(1-\frac{1}{4c^2 \kappa}\right)^k O(1).
-\end{equation}
-
-## Discretized HMC
-
-{% cite MV18 %} proposed to approximate the Hamiltonian trajectory with a second-order Euler integrator such that
-
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \hat{x_{\eta}}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \quad \hat{v_{\eta}}(x, v)=v-\eta \nabla f(x) - \frac{1}{2} \eta^2 \nabla^2 f(x) v.
-\end{equation}
+\end{equation}</p>
 
-Since Hessian is expensive to computate and store, an approximation is conducted through
+<p>Since Hessian is expensive to computate and store, an approximation is conducted through</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \nabla^2 f(x) v \approx \frac{\nabla f(\hat{x_{\eta}}) - \nabla f(x)}{\eta},
-\end{equation}
+\end{equation}</p>
 
-Now, the numerical integrator follows that
+<p>Now, the numerical integrator follows that</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \hat{x_{\eta}}(x, v)=x+v \eta - \frac{1}{2} \nabla f(x), \qquad \hat{v_{\eta}}(x, v)=v-\frac{1}{2}\eta (\nabla f(x) - \nabla f(\hat{x_{\eta}})).
+\end{equation}</p>
+
+<p>It can be shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions <a class="citation" href="#MV18">(Mangoubi &amp; Vishnoi, 2018)</a>. Other interesting persepectives can be seen in <a class="citation" href="#Che20">(“Fast Mixing of Metropolized Hamiltonian Monte Carlo: Benefits of Multi-Step Gradients,” 2020)</a>.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity <a class="citation" href="#HG14">(Hoffman, 2014)</a>.</p>]]></content><author><name>Wei Deng</name></author><category term="Sampling" /><summary type="html"><![CDATA[Hamiltonian Monte Carlo (Neal, 2011) (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm (Metropolis, 1953) and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes.]]></summary></entry><entry><title type="html">Couplings and Monte Carlo Methods (I)</title><link href="http://localhost:4000/posts/Couplings/" rel="alternate" type="text/html" title="Couplings and Monte Carlo Methods (I)" /><published>2021-08-01T00:00:00-07:00</published><updated>2021-08-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling</id><content type="html" xml:base="http://localhost:4000/posts/Couplings/"><![CDATA[<p>A coupling of two random variables/ vectors represents a joint distribution, where the marginal distributions are denoted by $p$ and $q$, respectively. Any joint distributions of $p$ and $q$ define a valid coupling. Although there are infinitely many of them, some of them are quite special and may facilitate our analysis.</p>
+
+<h1 id="maximal-coupling">Maximal Coupling</h1>
+
+<p>Total variation distance is defined as follows</p>
+
+<p>\begin{equation}\notag
+\forall A\in X, \quad |p-q|_{\text{TV}}=\sup_{X\in A} \mathbb{P}(X\in A) - \mathbb{P}(Y\in A),
 \end{equation}
+where $X$ and $Y$ are random variables defined on the state space $\mathbb{X}$ with measurable set $X$. Note that for any measurable set $A\in X$, the follow inequality always holds</p>
 
-It can be shown that such a discretized HMC requires O($d^{\frac{1}{4}} \epsilon^{-\frac{1}{2}}$) gradient evaluations under proper regularity assumptions {% cite MV18 %}. Other interesting persepectives can be seen in {% cite Che20 %}.
+<p>$\mathbb{P}(X\in A)- \mathbb{P}(Y\in A)=\mathbb{P}(X\in A \cap X\neq Y)- \mathbb{P}(Y\in A \cap X\neq Y)\leq \mathbb{P}(X\neq Y)$.</p>
 
+<p>There exists one pair of $(X,Y)$ such that the above inequality holds. Any coupling that satisfies this property is known as <strong>maximal coupling</strong>.</p>
 
+<p>Denoting by $\nu=p-q$ the zero-mass measure, there is a set $D$ according to the Hahn-Jordan decomposition such that $\nu^{+}=(p-q)(\cdot \cap D)$ and $\nu^{-}=(q-p)(\cdot \cap D^c)$ are both positive measures and $\nu=\nu^{+}-\nu^-$.</p>
 
-## Conclusions
+<p>Notably, it is clear that $D=\{x:\ p(x)\geq q(x)\}$. It follows that $\sup_{A\in {X}} \mathbb{P}(X\in A)- \mathbb{P}(Y\in A)=\sup_{A\in {X}}\nu(A)=\nu(D)=\mathbb{P}(X\in D)-\mathbb{P}(Y\in D)$. We have</p>
 
-Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity {% cite HG14 %}.]]></content><author><name>Wei Deng</name></author><category term="Sampling" /><summary type="html"><![CDATA[Hamiltonian Monte Carlo (Neal, 2011) (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm (Metropolis, 1953) and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes.]]></summary></entry><entry><title type="html">Couplings and Monte Carlo Methods (I)</title><link href="http://localhost:4000/posts/Couplings/" rel="alternate" type="text/html" title="Couplings and Monte Carlo Methods (I)" /><published>2021-08-01T00:00:00-07:00</published><updated>2021-08-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Coupling</id><content type="html" xml:base="http://localhost:4000/posts/Couplings/"><![CDATA[A coupling of two random variables/ vectors represents a joint distribution, where the marginal distributions are denoted by $p$ and $q$, respectively. Any joint distributions of $p$ and $q$ define a valid coupling. Although there are infinitely many of them, some of them are quite special and may facilitate our analysis. 
-
-
-# Maximal Coupling
-
-Total variation distance is defined as follows
-
-\begin{equation}\notag
-\forall A\in X, \quad \|p-q\|\_{\text{TV}}=\sup\_{X\in A} \mathbb{P}(X\in A) - \mathbb{P}(Y\in A),
-\end{equation}
-where $X$ and $Y$ are random variables defined on the state space $\mathbb{X}$ with measurable set $X$. Note that for any measurable set $A\in X$, the follow inequality always holds
-
-$\mathbb{P}(X\in A)- \mathbb{P}(Y\in A)=\mathbb{P}(X\in A \cap X\neq Y)- \mathbb{P}(Y\in A \cap X\neq Y)\leq \mathbb{P}(X\neq Y)$.
-
-There exists one pair of $(X,Y)$ such that the above inequality holds. Any coupling that satisfies this property is known as **maximal coupling**.
-
-Denoting by $\nu=p-q$ the zero-mass measure, there is a set $D$ according to the Hahn-Jordan decomposition such that $\nu^{+}=(p-q)(\cdot \cap D)$ and $\nu^{-}=(q-p)(\cdot \cap D^c)$ are both positive measures and $\nu=\nu^{+}-\nu^-$.
-
-
-Notably, it is clear that $D=\\{x:\ p(x)\geq q(x)\\}$. It follows that $\sup_{A\in {X}} \mathbb{P}(X\in A)- \mathbb{P}(Y\in A)=\sup_{A\in {X}}\nu(A)=\nu(D)=\mathbb{P}(X\in D)-\mathbb{P}(Y\in D)$. We have
-
-$$\begin{align}
-\mathbb{P}(X\in D)-\mathbb{P}(Y\in D)&=\int_{\{x:\ p(x)\geq q(x)\}} p(x) d x - \int_{\{x:\ p(x) \geq q(x)\}} q(x) d x\nonumber\\
-&=\int_{\{x:\ p(x)< q(x)\}} q(x) d x - \int_{\{x:\ p(x) < q(x)\}} p(x) d x.\nonumber
-\end{align}$$
+\[\begin{align}
+\mathbb{P}(X\in D)-\mathbb{P}(Y\in D)&amp;=\int_{\{x:\ p(x)\geq q(x)\}} p(x) d x - \int_{\{x:\ p(x) \geq q(x)\}} q(x) d x\nonumber\\
+&amp;=\int_{\{x:\ p(x)&lt; q(x)\}} q(x) d x - \int_{\{x:\ p(x) &lt; q(x)\}} p(x) d x.\nonumber
+\end{align}\]
 
 <p align="center">
     <img src="/images/TS_distance.png" width="600" />
 </p>
-Summing up the above equations and combining $|a-b|=a+b-2 a\wedge b$, we can obtain the area between the two pdf curves {% cite Jacob_Pierre %}
+<p>Summing up the above equations and combining $|a-b|=a+b-2 a\wedge b$, we can obtain the area between the two pdf curves <a class="citation" href="#Jacob_Pierre">(Jacob, 2021)</a></p>
 
-\begin{equation}\notag
-\|p-q\|_{\text{TV}}=\frac{1}{2} \int |p(x)- q(x)| d x = 1-\int \min \\{p(x), q(x) \\} dx.
-\end{equation}
- 
-In the end, we can summarize the different formulations of total variation
-$$\begin{align}\notag
-\|p-q\|_{\text{TV}}&=\sup \mathbb{P}(X\in A)- \mathbb{P}(Y\in A)\\
-		   &=\frac{1}{2}\int |p(x)- q(x)| d x\notag\\
-		   &=1-\int \min\{p(x), q(x)\} d x\notag\\
-		   &=\inf_{(X,Y)\in \text{coupling}(p, q)} \mathbb{P}(X\neq Y).\notag
-\end{align}$$
+<p>\begin{equation}\notag
+|p-q|_{\text{TV}}=\frac{1}{2} \int |p(x)- q(x)| d x = 1-\int \min \{p(x), q(x) \} dx.
+\end{equation}</p>
 
+<p>In the end, we can summarize the different formulations of total variation
+\(\begin{align}\notag
+\|p-q\|_{\text{TV}}&amp;=\sup \mathbb{P}(X\in A)- \mathbb{P}(Y\in A)\\
+		   &amp;=\frac{1}{2}\int |p(x)- q(x)| d x\notag\\
+		   &amp;=1-\int \min\{p(x), q(x)\} d x\notag\\
+		   &amp;=\inf_{(X,Y)\in \text{coupling}(p, q)} \mathbb{P}(X\neq Y).\notag
+\end{align}\)</p>
 
-### Applications
+<h3 id="applications">Applications</h3>
 
-Suppose $(X_i)$ follow an (independent) binomial distribution $Binomial(\lambda, N)$ and $(Y_i)$ follow an (independent) Poisson distribution $Poisson(\lambda)$. Next, we couple $X_i$ and $Y_i$ maximally. The **overlap mass** is equal to $(1-\lambda)\wedge e^{-\lambda} + \lambda \wedge \lambda e^{-\lambda}=1-\lambda+\lambda e^{-\lambda}$. That means $\mathbb{P}(X_i\neq Y_i)=\lambda(1-e^{-\lambda})\leq \lambda^2$.
+<p>Suppose $(X_i)$ follow an (independent) binomial distribution $Binomial(\lambda, N)$ and $(Y_i)$ follow an (independent) Poisson distribution $Poisson(\lambda)$. Next, we couple $X_i$ and $Y_i$ maximally. The <strong>overlap mass</strong> is equal to $(1-\lambda)\wedge e^{-\lambda} + \lambda \wedge \lambda e^{-\lambda}=1-\lambda+\lambda e^{-\lambda}$. That means $\mathbb{P}(X_i\neq Y_i)=\lambda(1-e^{-\lambda})\leq \lambda^2$.</p>
 
-Replace $\lambda$ with $\lambda/N$, we have
+<p>Replace $\lambda$ with $\lambda/N$, we have
 \begin{equation}\notag
 \mathbb{P}\left(\frac{\sum_{i=1}^N X_i-\sum_{i=1}^N Y_i}{N}\right)\leq \frac{\lambda^2}{N},
 \end{equation}
-where implies that given a large N and a fixed $\lambda$, Poisson distribution approximates the binomial distribution.
+where implies that given a large N and a fixed $\lambda$, Poisson distribution approximates the binomial distribution.</p>
 
-### Convergence rates
+<h3 id="convergence-rates">Convergence rates</h3>
 
-By assuming $(Y_t)$ is simulated from the stationary distribution in the beginning, we can introduce a coupling inequality such that
+<p>By assuming $(Y_t)$ is simulated from the stationary distribution in the beginning, we can introduce a coupling inequality such that</p>
 
-\begin{equation}\notag
-{L}(X_t)-{L}(Y_t)\| \leq \mathbb{P}(\tau>t),
+<p>\begin{equation}\notag
+{L}(X_t)-{L}(Y_t)| \leq \mathbb{P}(\tau&gt;t),
 \end{equation}
-where $\tau$ is a random variable that enables $X_t=Y_t$ and is also known as ''meeting time''. The equality can be achieved given the maximal coupling but the contruction may differ in different problems. In addition, meeting exactly sometimes is quite restricted; it is enough to consider close enough chains.
+where $\tau$ is a random variable that enables $X_t=Y_t$ and is also known as ‘‘meeting time’’. The equality can be achieved given the maximal coupling but the contruction may differ in different problems. In addition, meeting exactly sometimes is quite restricted; it is enough to consider close enough chains.</p>
 
-# Synchronous Coupling
+<h1 id="synchronous-coupling">Synchronous Coupling</h1>
 
-Synchronous coupling models the contraction of a pair of trajectories and can be used to prove the convergence of stochastic gradient Langevin dynamics for strongly log-concave distributions.
+<p>Synchronous coupling models the contraction of a pair of trajectories and can be used to prove the convergence of stochastic gradient Langevin dynamics for strongly log-concave distributions.</p>
 
-Let $\theta_k\in \mathbb{R}^d$ be the $k$-th iterate of the following stochastic gradient Langevin algorithm.
+<p>Let $\theta_k\in \mathbb{R}^d$ be the $k$-th iterate of the following stochastic gradient Langevin algorithm.
 \begin{align}\notag
     \theta_{k+1}=\theta_k -\eta \nabla \widetilde f(\theta_k)+\sqrt{2\tau\eta}\xi_k,
 \end{align}
-where $\eta$ is the learning rate, $\tau$ is the temperature, $\xi_k$ is a standard $d$-dimensional Gaussian vector, and $\nabla \widetilde f(\theta)$ is an unbiased estimate of the exact gradient $\nabla f(\theta)$.
+where $\eta$ is the learning rate, $\tau$ is the temperature, $\xi_k$ is a standard $d$-dimensional Gaussian vector, and $\nabla \widetilde f(\theta)$ is an unbiased estimate of the exact gradient $\nabla f(\theta)$.</p>
 
+<h2 id="assumptions">Assumptions</h2>
 
-
-
-## Assumptions
-
-**Smoothness** We say $f$ is $L$-smooth if for some $L>0$
+<p><strong>Smoothness</strong> We say $f$ is $L$-smooth if for some $L&gt;0$
 \begin{align}\label{def:strong_convex}
-f(y)\leq f(x)+\langle \nabla f(x),y-x \rangle+\frac{L}{2}\\| y-x \\|^2_2\quad \forall x, y\in \mathbb{R}^d.
-\end{align}
+f(y)\leq f(x)+\langle \nabla f(x),y-x \rangle+\frac{L}{2}\| y-x \|^2_2\quad \forall x, y\in \mathbb{R}^d.
+\end{align}</p>
 
-
-**Strong convexity**
-We say $f$ is $m$-strongly convex if for some $m>0$
+<p><strong>Strong convexity</strong>
+We say $f$ is $m$-strongly convex if for some $m&gt;0$
 \begin{align}\label{def:smooth}
-f(x)\geq f(y)+\langle \nabla f(y),x-y \rangle + \frac{m}{2} \\| y-x \\|_2^2\quad \forall x, y\in \mathbb{R}^d.
-\end{align}
+f(x)\geq f(y)+\langle \nabla f(y),x-y \rangle + \frac{m}{2} \| y-x \|_2^2\quad \forall x, y\in \mathbb{R}^d.
+\end{align}</p>
 
-
-**Bounded variance** The variance of stochastic gradient $\nabla \widetilde f(x)$ is upper bounded such that
+<p><strong>Bounded variance</strong> The variance of stochastic gradient $\nabla \widetilde f(x)$ is upper bounded such that
 \begin{align}\label{def:variance}
-\mathbb{E}[\\|\nabla \widetilde f(x)-\nabla f(x)\\|^2] \leq \sigma^2 d,\quad \forall x\in \mathbb{R}^d.
-\end{align}
+\mathbb{E}[\|\nabla \widetilde f(x)-\nabla f(x)\|^2] \leq \sigma^2 d,\quad \forall x\in \mathbb{R}^d.
+\end{align}</p>
 
+<h2 id="a-crude-estimate">A Crude Estimate</h2>
 
+<p>Assume assumptions \ref{def:strong_convex}, \ref{def:smooth}, and \ref{def:variance} hold. For any learning rate $\eta \in (0 , 1 \wedge {m}/{L^2} )$  and $|| \theta_0-\theta_* || \leq \sqrt{d} {D}$, where $\theta_*$ is a stationary point. Then</p>
 
-
-## A Crude Estimate
-
-Assume assumptions \ref{def:strong_convex}, \ref{def:smooth}, and \ref{def:variance} hold. For any learning rate $\eta \in (0 , 1 \wedge {m}/{L^2} )$  and $\|\| \theta_0-\theta_* \|\| \leq \sqrt{d} {D}$, where $\theta_*$ is a stationary point. Then
-
-
-\begin{align}\notag
+<p>\begin{align}\notag
 W_2(\mu_k, \pi) \leq e^{-{mk\eta}/{2}} \cdot 2 ( \sqrt{d} {D} + \sqrt{d/m} ) + \sqrt{ 2d (\sigma^2+L^2 G\eta) / m^2},
-\end{align}
+\end{align}</p>
 
-where $\mu_k$ denotes the probability measure of $\theta_k$ and $G:=25(\tau+m {D}^2+\sigma^2)$.
+<p>where $\mu_k$ denotes the probability measure of $\theta_k$ and $G:=25(\tau+m {D}^2+\sigma^2)$.</p>
 
+<h2 id="proof">Proof</h2>
+<p>Denote $\theta_t$ as the continuous-time interpolation of the stochastic gradient Langevin dynamics as follows</p>
 
-## Proof
-Denote $\theta_t$ as the continuous-time interpolation of the stochastic gradient Langevin dynamics as follows
-
-\begin{align}\notag
+<p>\begin{align}\notag
 d \theta_t = - \nabla \widetilde f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) d t + \sqrt{2\tau} d \widetilde W_t,
-\end{align}
+\end{align}</p>
 
-where ${\theta}_0=\theta_0$. For any $k\in \mathbb{N}^{+}$ and a time $t$ that satisfies $t=k\eta$, it is apparent that $\widehat\mu_t={L}({\theta}_t)$ is the same as $\mu_k={L}(\theta_k)$, where ${L}(\cdot)$ denotes a distribution of a random variable. In addition, we define an auxiliary process $(\beta_t)$ that starts from the stationary distribution $\pi$
+<p>where ${\theta}_0=\theta_0$. For any $k\in \mathbb{N}^{+}$ and a time $t$ that satisfies $t=k\eta$, it is apparent that $\widehat\mu_t={L}({\theta}_t)$ is the same as $\mu_k={L}(\theta_k)$, where ${L}(\cdot)$ denotes a distribution of a random variable. In addition, we define an auxiliary process $(\beta_t)$ that starts from the stationary distribution $\pi$</p>
 
-\begin{align}\notag
+<p>\begin{align}\notag
 d \beta_t = - \nabla f(\beta_t) d t + \sqrt{2\tau} d W_t.
-\end{align}
+\end{align}</p>
 
+<p>Consider Itô’s formula for the sequence of $\frac{1}{2}  \| \theta_t - \beta_t \| ^2$</p>
 
+\[\begin{align}\notag
+&amp;\ \ \ \frac{1}{2} d  \| \theta_t - \beta_t \|^2\notag\\
+&amp;= \langle \theta_t - \beta_t, d \theta_t - d \beta_t \rangle + \mathrm{Tr}[ d^2 \theta_t - d^2 \beta_t ]\notag\\
+&amp;=\langle \theta_t - \beta_t, (\nabla f(\beta_t) -\nabla\widetilde  f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) ) d t + \sqrt{2\tau} ( d \widetilde W_t - d W_t ) \rangle + 2\tau \mathrm{Tr}[ d^2 \widetilde W_t - d^2 W_t ].\notag
+\end{align}\]
 
-Consider Itô's formula for the sequence of $\frac{1}{2}  \\| \theta_t - \beta_t \\| ^2$
+<p>Taking $\widetilde W_t=W_t$ defines a synchronous coupling. Arrange the terms</p>
 
-$$\begin{align}\notag
-&\ \ \ \frac{1}{2} d  \| \theta_t - \beta_t \|^2\notag\\
-&= \langle \theta_t - \beta_t, d \theta_t - d \beta_t \rangle + \mathrm{Tr}[ d^2 \theta_t - d^2 \beta_t ]\notag\\
-&=\langle \theta_t - \beta_t, (\nabla f(\beta_t) -\nabla\widetilde  f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) ) d t + \sqrt{2\tau} ( d \widetilde W_t - d W_t ) \rangle + 2\tau \mathrm{Tr}[ d^2 \widetilde W_t - d^2 W_t ].\notag
-\end{align}$$
+\[\begin{align}\notag
+&amp;\ \ \ \frac{1}{2} d \| \theta_t - \beta_t \|^2 \notag\\
+&amp;= \langle \theta_t - \beta_t, \nabla f(\beta_t)-\nabla f(\theta_t) \rangle d t+ \langle \theta_t - \beta_t,  \nabla f(\theta_{t}) - \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor})  \rangle d t\notag\\
+&amp;\qquad \qquad\qquad+ \langle \theta_t - \beta_t, \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) - \nabla \widetilde f(\widehat \theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) \rangle d t \notag\\
+&amp;\leq - m \| \theta_t - \beta_t \|^2 d t + \frac{m}{4} \| \theta_t - \beta_t \|^2 d t + \frac{1}{m}  \| \nabla f(\theta_{t}) - \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor})  \|^2 d t \notag\\
+&amp;\qquad\qquad  + \frac{m}{4} \| \theta_t - \beta_t \|\|^2 d t + \frac{1}{m} \| \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) - \nabla \widetilde f(\widehat \theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) \|^2 d t\notag\\
+&amp;\leq  - \frac{m}{2} \| \theta_t - \beta_t \|\|^2 d t + \frac{d\sigma^2}{m} d t +\frac{1}{m} \| \nabla f(\theta_{t}) - \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) \|^2  d t\notag\\
+&amp;\leq  - \frac{m}{2} \| \theta_t - \beta_t \|^2 d t + \frac{d\sigma^2}{m} d t+ \frac{L^2}{m} \| \theta_{t} - \theta_{\eta\lfloor\frac{t}{\eta} \rfloor} \|^2  d t\notag\\
+\end{align}\]
 
+<p>where the first inequality follows from $ab\leq  (\frac{\sqrt{m}}{2}a)^2+({\frac{1}{\sqrt{m}}}b)^2$ and the strong-convexity property \ref{def:strong_convex}; in particular, we don’t attempt to optimize the constants of $-\frac{m}{2}$ for the item $|| \theta_t - \beta_t ||^2$; the second and third inequalities follow by bounded variance assumption \ref{def:variance} and the smoothness assumption \ref{def:smooth}, respectively.</p>
 
-Taking $\widetilde W_t=W_t$ defines a synchronous coupling. Arrange the terms
-
-$$\begin{align}\notag
-&\ \ \ \frac{1}{2} d \| \theta_t - \beta_t \|^2 \notag\\
-&= \langle \theta_t - \beta_t, \nabla f(\beta_t)-\nabla f(\theta_t) \rangle d t+ \langle \theta_t - \beta_t,  \nabla f(\theta_{t}) - \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor})  \rangle d t\notag\\
-&\qquad \qquad\qquad+ \langle \theta_t - \beta_t, \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) - \nabla \widetilde f(\widehat \theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) \rangle d t \notag\\
-&\leq - m \| \theta_t - \beta_t \|^2 d t + \frac{m}{4} \| \theta_t - \beta_t \|^2 d t + \frac{1}{m}  \| \nabla f(\theta_{t}) - \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor})  \|^2 d t \notag\\
-&\qquad\qquad  + \frac{m}{4} \| \theta_t - \beta_t \|\|^2 d t + \frac{1}{m} \| \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) - \nabla \widetilde f(\widehat \theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) \|^2 d t\notag\\
-&\leq  - \frac{m}{2} \| \theta_t - \beta_t \|\|^2 d t + \frac{d\sigma^2}{m} d t +\frac{1}{m} \| \nabla f(\theta_{t}) - \nabla f(\theta_{\eta\lfloor\frac{t}{\eta} \rfloor}) \|^2  d t\notag\\
-&\leq  - \frac{m}{2} \| \theta_t - \beta_t \|^2 d t + \frac{d\sigma^2}{m} d t+ \frac{L^2}{m} \| \theta_{t} - \theta_{\eta\lfloor\frac{t}{\eta} \rfloor} \|^2  d t\notag\\
-\end{align}$$
-
-
-where the first inequality follows from $ab\leq  (\frac{\sqrt{m}}{2}a)^2+({\frac{1}{\sqrt{m}}}b)^2$ and the strong-convexity property \ref{def:strong_convex}; in particular, we don't attempt to optimize the constants of $-\frac{m}{2}$ for the item $\|\| \theta_t - \beta_t \|\|^2$; the second and third inequalities follow by bounded variance assumption \ref{def:variance} and the smoothness assumption \ref{def:smooth}, respectively.
-
-
-Now apply Grönwall's inequality to the preceding inequality and take expectation respect to a coupling $(\theta_t, \beta_t) \sim \Gamma(\widehat\mu_t,\pi)$
+<p>Now apply Grönwall’s inequality to the preceding inequality and take expectation respect to a coupling $(\theta_t, \beta_t) \sim \Gamma(\widehat\mu_t,\pi)$
 \begin{align}\label{eq:1st_gronwall}
-     \mathbb{E}{ \\|\theta_t - \beta_t \\|^2}\leq  \mathbb{E}{\\| \theta_0 - \beta_0 \\|^2} e^{-mt}+\frac{2}{m}\int_0^t g(d\sigma^2+ L^2\underbrace{\mathbb{E}{ \\| \theta_{s} - \theta_{\eta\lfloor\frac{s}{\eta} \rfloor} \\|^2 }}_{I: \text{Discretization error}} g) e^{-(t-s)m} d s. 
-\end{align}
+     \mathbb{E}{ \|\theta_t - \beta_t \|^2}\leq  \mathbb{E}{\| \theta_0 - \beta_0 \|^2} e^{-mt}+\frac{2}{m}\int_0^t g(d\sigma^2+ L^2\underbrace{\mathbb{E}{ \| \theta_{s} - \theta_{\eta\lfloor\frac{s}{\eta} \rfloor} \|^2 }}_{I: \text{Discretization error}} g) e^{-(t-s)m} d s. 
+\end{align}</p>
 
+<p>Plugging some estimate of $I$ into Eq.\eqref{eq:1st_gronwall}, we have
+\(\begin{align}\notag
+&amp;\ \ \ \mathbb{E}{ \| \theta_t - \beta_t \|^2 }\\
+&amp;\leq  \mathbb{E}{ \| \theta_0 - \beta_0 \|^2} e^{-mt}+\frac{2d}{m} (\sigma^2+L^2 G\eta) \int_0^t  e^{-(t-s)m} d s\notag\\
+&amp;\leq \mathbb{E}{ \| \theta_0 - \beta_0 \|^2} e^{-mt}+\frac{2d}{m^2} (\sigma^2+L^2 G\eta).\notag
+\end{align}\)</p>
 
-Plugging some estimate of $I$ into Eq.\eqref{eq:1st_gronwall}, we have
-$$\begin{align}\notag
-&\ \ \ \mathbb{E}{ \| \theta_t - \beta_t \|^2 }\\
-&\leq  \mathbb{E}{ \| \theta_0 - \beta_0 \|^2} e^{-mt}+\frac{2d}{m} (\sigma^2+L^2 G\eta) \int_0^t  e^{-(t-s)m} d s\notag\\
-&\leq \mathbb{E}{ \| \theta_0 - \beta_0 \|^2} e^{-mt}+\frac{2d}{m^2} (\sigma^2+L^2 G\eta).\notag
-\end{align}$$
+<p>Recall that $\theta_k$ and $\widehat\theta_{t\eta}$ have the same distribution $\mu_k$. By the definition of $W_2$ distance, we have</p>
 
+\[\begin{align}\notag
+&amp;\ \ \ W_2(\mu_k, \pi)\\
+&amp;\leq e^{-{mk\eta}/{2}} \cdot W_2(\mu_0, \pi) + \sqrt{ 2d (\sigma^2+L^2 G\eta) / m^2}\notag\\
+&amp;\leq e^{-{mk\eta}/{2}} \cdot 2 (\| \theta_0 - \theta_* \| +  \sqrt{d/m} )+ \sqrt{ 2d(\sigma^2+L^2 G\eta) / m^2}\notag\\
+&amp;\leq e^{-{mk\eta}/{2}} \cdot 2 ( \sqrt{d} {D} +  \sqrt{d/m} )+  \sqrt{ 2 d(\sigma^2+L^2 G\eta) / m^2},\notag
+\end{align}\]
 
-Recall that $\theta_k$ and $\widehat\theta_{t\eta}$ have the same distribution $\mu_k$. By the definition of $W_2$ distance, we have
+<p>where the first inequality follows by applying $\sqrt{| a + b |} \leq \sqrt{| a |} + \sqrt{| b |}$, the second one follows by an estimate of $W_2(\mu_0, \pi)$, and the last step follows from the initialization condition.</p>
 
-$$\begin{align}\notag
-&\ \ \ W_2(\mu_k, \pi)\\
-&\leq e^{-{mk\eta}/{2}} \cdot W_2(\mu_0, \pi) + \sqrt{ 2d (\sigma^2+L^2 G\eta) / m^2}\notag\\
-&\leq e^{-{mk\eta}/{2}} \cdot 2 (\| \theta_0 - \theta_* \| +  \sqrt{d/m} )+ \sqrt{ 2d(\sigma^2+L^2 G\eta) / m^2}\notag\\
-&\leq e^{-{mk\eta}/{2}} \cdot 2 ( \sqrt{d} {D} +  \sqrt{d/m} )+  \sqrt{ 2 d(\sigma^2+L^2 G\eta) / m^2},\notag
-\end{align}$$
+<h3 id="remark-how-to-achieve-a-sharper-upper-bound">Remark: How to achieve a sharper upper bound?</h3>]]></content><author><name>Wei Deng</name></author><category term="Coupling" /><summary type="html"><![CDATA[A coupling of two random variables/ vectors represents a joint distribution, where the marginal distributions are denoted by $p$ and $q$, respectively. Any joint distributions of $p$ and $q$ define a valid coupling. Although there are infinitely many of them, some of them are quite special and may facilitate our analysis.]]></summary></entry><entry><title type="html">The Lyapunov Function Method for Poincaré Inequality</title><link href="http://localhost:4000/posts/Lyapunov_Poincare/" rel="alternate" type="text/html" title="The Lyapunov Function Method for Poincaré Inequality" /><published>2021-06-01T00:00:00-07:00</published><updated>2021-06-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Lyapunov-Poincare</id><content type="html" xml:base="http://localhost:4000/posts/Lyapunov_Poincare/"><![CDATA[<p>Poincaré (spectral gap) inequality <a class="citation" href="#Bakry08">(Bakry et al., 2008)</a> is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.</p>
 
-where the first inequality follows by applying $\sqrt{\| a + b \|} \leq \sqrt{\| a \|} + \sqrt{\| b \|}$, the second one follows by an estimate of $W_2(\mu_0, \pi)$, and the last step follows from the initialization condition.
+<h2 id="langevin-diffusion">Langevin diffusion</h2>
 
-### Remark: How to achieve a sharper upper bound?]]></content><author><name>Wei Deng</name></author><category term="Coupling" /><summary type="html"><![CDATA[A coupling of two random variables/ vectors represents a joint distribution, where the marginal distributions are denoted by $p$ and $q$, respectively. Any joint distributions of $p$ and $q$ define a valid coupling. Although there are infinitely many of them, some of them are quite special and may facilitate our analysis.]]></summary></entry><entry><title type="html">The Lyapunov Function Method for Poincaré Inequality</title><link href="http://localhost:4000/posts/Lyapunov_Poincare/" rel="alternate" type="text/html" title="The Lyapunov Function Method for Poincaré Inequality" /><published>2021-06-01T00:00:00-07:00</published><updated>2021-06-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Lyapunov-Poincare</id><content type="html" xml:base="http://localhost:4000/posts/Lyapunov_Poincare/"><![CDATA[Poincaré (spectral gap) inequality {% cite Bakry08 %} is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
+<p>Suppose we are interested in the convergence of the stochastic differential equation</p>
 
-
-## Langevin diffusion
-
-Suppose we are interested in the convergence of the stochastic differential equation
-
-\begin{equation}\notag
+<p>\begin{equation}\notag
 dx_t = -\nabla U(x_t)dt + \sqrt{2}dW_t,
+\end{equation}</p>
+
+<p>where $\nabla U(\cdot)$ denotes the gradient of a energy function $U$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under mild growth conditions on $U(\cdot)$, $x$ converges to a stationary measure $\mu(x)\propto e^{-U(x)}$.</p>
+
+<p>Define a family of operators $(P_t)_{t\geq 0}$ as follows</p>
+
+<p>\begin{equation}\notag
+P_t(f(x)) = E[f(x_t)|$=x],
 \end{equation}
+where the expectation is taken over a particular set to denote the conditional density.</p>
 
-where $\nabla U(\cdot)$ denotes the gradient of a energy function $U$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under mild growth conditions on $U(\cdot)$, $x$ converges to a stationary measure $\mu(x)\propto e^{-U(x)}$.
+<p>For a smooth test function $f(x)$, Itô’s formula implies that</p>
 
-
-Define a family of operators $(P_t)_{t\geq 0}$ as follows
-
-\begin{equation}\notag
-P_t(f(x)) = E[f(x_t)\|$=x],
-\end{equation}
-where the expectation is taken over a particular set to denote the conditional density.
-
-For a smooth test function $f(x)$, Itô's formula implies that
-
-\begin{equation}\notag
+<p>\begin{equation}\notag
 d f(x_t) = \sqrt{2} \nabla f(x_t) dB_t + Lf(x_t)dt,
 \end{equation}
-where $L$ is the infinitesimal generator of the symmetric Markov Semigroup $P_t$ 
+where $L$ is the infinitesimal generator of the symmetric Markov Semigroup $P_t$</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla f\rangle,
 \end{equation}
-where $\Delta$ denotes the Laplace operator.
+where $\Delta$ denotes the Laplace operator.</p>
 
-## Poincaré Inequality
+<h2 id="poincaré-inequality">Poincaré Inequality</h2>
 
-We say the Gibbs measure $\mu$ satisfies a Poincaré equality with a constant $C$ if
+<p>We say the Gibbs measure $\mu$ satisfies a Poincaré equality with a constant $C$ if</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 Var_{\mu}(f)=\int f^2 d\mu -(\int f d\mu)^2 \leq C \xi(f),
 \end{equation}
-where $\xi$ is the Dirichlet form defined as 
+where $\xi$ is the Dirichlet form defined as</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \xi(f)=\int \Gamma(f)d\mu.
-\end{equation}
+\end{equation}</p>
 
-$\Gamma$ is the Carré du Champ operator satisfying 
+<p>$\Gamma$ is the Carré du Champ operator satisfying</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f)). 
 \end{equation}
-Since $\mu$ is reversible for $P_t$, we have the invariance property $\int L(f)=0$ for all f in the Dirichlet domain. In other words, for symmetric $\mu$, we have 
+Since $\mu$ is reversible for $P_t$, we have the invariance property $\int L(f)=0$ for all f in the Dirichlet domain. In other words, for symmetric $\mu$, we have</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \xi(f)=\int \Gamma(f)d\mu=-\int f L(f) d\mu =\int (\nabla f)^2 d\mu.
 \end{equation}
-where the last inequality follows by integration by parts such that: $-\int f L(f) d\mu=-\int f\nabla (e^{-U(x)}\nabla f)dx=-\int f d(e^{-U(x)} \nabla f)=f e^{-U(x)} \nabla f\|_{boundary} + \int (\nabla f)^2 d\mu.$
+where the last inequality follows by integration by parts such that: $-\int f L(f) d\mu=-\int f\nabla (e^{-U(x)}\nabla f)dx=-\int f d(e^{-U(x)} \nabla f)=f e^{-U(x)} \nabla f|_{boundary} + \int (\nabla f)^2 d\mu.$</p>
 
-## Variance Decay
+<h2 id="variance-decay">Variance Decay</h2>
 
-Now we study the decay of variance
+<p>Now we study the decay of variance</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu.
 \end{equation}
-Reacll $\xi(f)=-\int f L(f) d\mu$. Taking the derivative
+Reacll $\xi(f)=-\int f L(f) d\mu$. Taking the derivative</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \Lambda_t(t)=2\int P_t f L P_t f d\mu = -2 \xi(P_t f).
-\end{equation}
+\end{equation}</p>
 
-Combining the Poincaré equality, we have that
+<p>Combining the Poincaré equality, we have that</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)
 \end{equation}
-This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integration factor $e^{\frac{2t}{C}}$, we have
+This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integration factor $e^{\frac{2t}{C}}$, we have</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \nabla (\Lambda(t) e^{\frac{2t}{C}})=\Lambda_t(t) e^{\frac{2t}{C}} + \Lambda(t) \frac{2}{C} e^{\frac{2t}{C}}\leq 0.
 \end{equation}
-Hence $\Lambda(t) e^{\frac{2t}{C}} \leq \Lambda(0)$. In other words,
+Hence $\Lambda(t) e^{\frac{2t}{C}} \leq \Lambda(0)$. In other words,</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f).
-\end{equation}
+\end{equation}</p>
 
-## How to identify the Poincaré constant
+<h2 id="how-to-identify-the-poincaré-constant">How to identify the Poincaré constant</h2>
 
-Despite the appealing formulation, identifying the best constant $C>0$ is in general not easy. In this blog, we will show a method for determining a crude estimate of such a constant.
+<p>Despite the appealing formulation, identifying the best constant $C&gt;0$ is in general not easy. In this blog, we will show a method for determining a crude estimate of such a constant.</p>
 
-We denote a Lyapunov function by $V$ if $V\geq 1$ and if there exist $\lambda>0, b\geq 0$ and some $R > 0$ such that for all $x$, the following drift condition holds
+<p>We denote a Lyapunov function by $V$ if $V\geq 1$ and if there exist $\lambda&gt;0, b\geq 0$ and some $R &gt; 0$ such that for all $x$, the following drift condition holds</p>
 
-\begin{equation}\notag
+<p>\begin{equation}\notag
 LV(x) ≤ -\lambda V(x) + b 1_{B(0, R)}(x).
-\end{equation}
+\end{equation}</p>
 
-### By Theorem 1.4 [1], we show that if there exists a Lyapunov function $V(x)$ satisfying the drift condition, then $\mu $ satisfies a $L^2$ Poincaré inequality with constant $C_P=\frac{1}{\lambda}(1+b\kappa_R)$, where $\kappa_R$ is the L2 Poincaré constant of $\mu$ restricted to the ball B(0,R).
+<h3 id="by-theorem-14-1-we-show-that-if-there-exists-a-lyapunov-function-vx-satisfying-the-drift-condition-then-mu--satisfies-a-l2-poincaré-inequality-with-constant-c_pfrac1lambda1bkappa_r-where-kappa_r-is-the-l2-poincaré-constant-of-mu-restricted-to-the-ball-b0r">By Theorem 1.4 [1], we show that if there exists a Lyapunov function $V(x)$ satisfying the drift condition, then $\mu $ satisfies a $L^2$ Poincaré inequality with constant $C_P=\frac{1}{\lambda}(1+b\kappa_R)$, where $\kappa_R$ is the L2 Poincaré constant of $\mu$ restricted to the ball B(0,R).</h3>
 
+<p>Given a smooth function $g$, we know that $Var_{{\mu}}(g)\leq \int (g-c)^2 d\mu$ for all $c$. In what follows, we set $f=g-c$, where $c$ is a constant to be selected later.</p>
 
+<p>Next, we reformulate the drift condition and take an integral for $f^2$ with respect to $\mu$:</p>
 
-Given a smooth function $g$, we know that $Var_{\{\mu}}(g)\leq \int (g-c)^2 d\mu$ for all $c$. In what follows, we set $f=g-c$, where $c$ is a constant to be selected later.
-
-Next, we reformulate the drift condition and take an integral for $f^2$ with respect to $\mu$:
-
-\begin{equation}\notag
+<p>\begin{equation}\notag
 \int f^2 d\mu \leq \int \frac{-LV}{\lambda V} f^2 d\mu + \int f^2 \frac{b}{\lambda V}1_{B(0, R)}d \mu.
-\end{equation}
+\end{equation}</p>
 
-### Control the first term $\int \frac{-LV}{\lambda V} f^2 d\mu$
+<h3 id="control-the-first-term-int-frac-lvlambda-v-f2-dmu">Control the first term $\int \frac{-LV}{\lambda V} f^2 d\mu$</h3>
 
-Since $L$ is $\mu$-symmetric, by integration by parts, we get
+<p>Since $L$ is $\mu$-symmetric, by integration by parts, we get</p>
 
-$\int \frac{-LV}{V}f^2d \mu= \int \nabla\left(\frac{f^2}{V}\right) \nabla V d\mu$
+<p>$\int \frac{-LV}{V}f^2d \mu= \int \nabla\left(\frac{f^2}{V}\right) \nabla V d\mu$</p>
 
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  =2\int \frac{f}{V} \nabla f \nabla V d\mu  - \int \frac{f^2}{V^2} \|\nabla V\|^2 d\mu$
+<p>$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  =2\int \frac{f}{V} \nabla f \nabla V d\mu  - \int \frac{f^2}{V^2} |\nabla V|^2 d\mu$</p>
 
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\int \|\nabla f\|^2 d\mu - \int \|\nabla f - \frac{f}{V} \nabla V\|^2 d\mu$
+<p>$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\int |\nabla f|^2 d\mu - \int |\nabla f - \frac{f}{V} \nabla V|^2 d\mu$</p>
 
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \int \|\nabla f\|^2 d\mu$
+<p>$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \int |\nabla f|^2 d\mu$</p>
 
-### Control the second term $\int f^2 \frac{b}{\lambda V}1_{B(0, R)} d\mu$
+<h3 id="control-the-second-term-int-f2-fracblambda-v1_b0-r-dmu">Control the second term $\int f^2 \frac{b}{\lambda V}1_{B(0, R)} d\mu$</h3>
 
-Since $\mu$ satisfies a Poincaré inequality on $B(0, R)$ with a constant $\kappa_R$, we have
+<p>Since $\mu$ satisfies a Poincaré inequality on $B(0, R)$ with a constant $\kappa_R$, we have</p>
 
+<p>\begin{equation}\notag
+\int_{B(0, R)} f^2 d\mu\leq \kappa_R \int_{B(0, R)} |\nabla f|^2 d\mu + (1/\mu(B(0, R))) \left(\int_{B(0, R)} fd\mu\right)^2.
+\end{equation}</p>
+
+<p>Fix $c=\int_{B(0, R)} gd\mu$. We have
 \begin{equation}\notag
-\int_{B(0, R)} f^2 d\mu\leq \kappa_R \int_{B(0, R)} \|\nabla f\|^2 d\mu + (1/\mu(B(0, R))) \left(\int_{B(0, R)} fd\mu\right)^2.
+\int_{B(0, R)} \frac{f^2}{V}d\mu\leq \int_{B(0, R)} f^2 d\mu\leq \kappa_{R}\int_{B(0, R)} |\nabla f|^2d\mu.
 \end{equation}
+Eventually, we have</p>
 
-Fix $c=\int_{B(0, R)} gd\mu$. We have
-\begin{equation}\notag
-\int_{B(0, R)} \frac{f^2}{V}d\mu\leq \int_{B(0, R)} f^2 d\mu\leq \kappa_{R}\int_{B(0, R)} \|\nabla f\|^2d\mu.
+<p>\begin{equation}\notag
+Var_{\mu}(f)=\int f^2 d\mu \leq \frac{1}{\lambda} (1+b\kappa_R) \int |\nabla f|^2 d\mu.
 \end{equation}
-Eventually, we have
+In other words, the Poincaré inequality has a crude constant $C_p=\frac{1}{\lambda} (1+b \kappa_R)$.</p>
 
-\begin{equation}\notag
-Var_{\mu}(f)=\int f^2 d\mu \leq \frac{1}{\lambda} (1+b\kappa_R) \int \|\nabla f\|^2 d\mu.
-\end{equation}
-In other words, the Poincaré inequality has a crude constant $C_p=\frac{1}{\lambda} (1+b \kappa_R)$.
+<h2 id="construction-of-the-lypunov-function">Construction of the Lypunov function</h2>
 
-## Construction of the Lypunov function
+<p>Suppose we require one tail condition of the energy function $U(x)$, i.e. there exist $\alpha &gt;0$ and $R\geq 0$ such that</p>
 
-Suppose we require one tail condition of the energy function $U(x)$, i.e. there exist $\alpha >0$ and $R\geq 0$ such that
+<h3 id="assumption-langle-x-nabla-uxrangle-geq-alpha-x-for-all-xgeq-r-c1">Assumption $\langle x, \nabla U(x)\rangle \geq \alpha |x|$ for all $|x|\geq R$ (C1)</h3>
 
-### Assumption $\langle x, \nabla U(x)\rangle \geq \alpha \|x\|$ for all $\|x\|\geq R$ (C1)
+<p>Now it is sufficient to build a Lyapunov function $V(x)=e^{\gamma |x|}$, where $|x|=\sqrt{\sum_{i=1}^n x_i^2}$.</p>
 
-Now it is sufficient to build a Lyapunov function $V(x)=e^{\gamma \|x\|}$, where $\|x\|=\sqrt{\sum_{i=1}^n x_i^2}$.
+<p>Note that $\frac{\partial V(x)}{\partial x_i}= \gamma \frac{x_i}{|x|} V(x)$ and $\frac{\partial^2 V(x)}{\partial x_i^2}=\frac{\gamma}{|x|} V(x)+ \gamma^2 \frac{x_i^2}{|x|^2} V(x) - \gamma \frac{x_i^2}{|x|^3}V(x)$.</p>
 
-Note that $\frac{\partial V(x)}{\partial x_i}= \gamma \frac{x_i}{\|x\|} V(x)$ and $\frac{\partial^2 V(x)}{\partial x_i^2}=\frac{\gamma}{\|x\|} V(x)+ \gamma^2 \frac{x_i^2}{\|x\|^2} V(x) - \gamma \frac{x_i^2}{\|x\|^3}V(x)$. 
+<p>In the sequel, we have</p>
 
-In the sequel, we have
+<p>$LV(x)=\gamma\left(\frac{n-1}{|x|}+\gamma-\frac{x}{|x|} \nabla U(x)\right) V(x)$</p>
 
-$LV(x)=\gamma\left(\frac{n-1}{\|x\|}+\gamma-\frac{x}{\|x\|} \nabla U(x)\right) V(x)$
+<p>$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \gamma\left(\frac{n-1}{|x|} + \gamma -\alpha \right) V(x)$</p>
 
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \gamma\left(\frac{n-1}{\|x\|} + \gamma -\alpha \right) V(x)$
+<p>$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq -\gamma(\alpha-\gamma-\frac{n-1}{R}) V(x) + b 1_{B(0, R)}(x)$.</p>
 
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq -\gamma(\alpha-\gamma-\frac{n-1}{R}) V(x) + b 1_{B(0, R)}(x)$.
+<p>Hence $V(x)$ is a Lyapunov function provided</p>
 
-Hence $V(x)$ is a Lyapunov function provided
+<p>\begin{equation}\notag
+\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})&gt;0,
+\end{equation}</p>
 
-\begin{equation}\notag
-\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})>0,
-\end{equation}
+<p>which suffices to choose $\gamma&lt;\alpha$, a large $R$ and assume the (C1) condition.</p>
 
-which suffices to choose $\gamma<\alpha$, a large $R$ and assume the (C1) condition.
- 
-## Discussions
+<h2 id="discussions">Discussions</h2>
 
-[1] The construction of Lyapunov function implies a tail decay for the distribution $\mu\propto e^{-U(x)}$ outside the ball $B(0, R)$.
+<p>[1] The construction of Lyapunov function implies a tail decay for the distribution $\mu\propto e^{-U(x)}$ outside the ball $B(0, R)$.</p>
 
-[2] Obtaining a sharper estimate of Poincaré constant may require isoperimetric inequality.]]></content><author><name>Wei Deng</name></author><category term="Theory" /><summary type="html"><![CDATA[Poincaré (spectral gap) inequality (Bakry et al., 2008) is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.]]></summary></entry></feed>
+<p>[2] Obtaining a sharper estimate of Poincaré constant may require isoperimetric inequality.</p>]]></content><author><name>Wei Deng</name></author><category term="Theory" /><summary type="html"><![CDATA[Poincaré (spectral gap) inequality (Bakry et al., 2008) is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.]]></summary></entry></feed>
