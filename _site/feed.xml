@@ -1,195 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-16T19:44:55-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Autoregressive Flow</title><link href="http://localhost:4000/posts/autoregressive_flow/" rel="alternate" type="text/html" title="Autoregressive Flow" /><published>2024-03-16T00:00:00-07:00</published><updated>2024-03-16T00:00:00-07:00</updated><id>http://localhost:4000/posts/ar-flow</id><content type="html" xml:base="http://localhost:4000/posts/autoregressive_flow/"><![CDATA[<h3 id="normalizing-flows">Normalizing Flows</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-16T20:12:42-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wei Deng / 邓伟</title><subtitle>Ph.D. candidate in Applied Math at Purdue University</subtitle><author><name>Wei Deng</name></author><entry><title type="html">Autoregressive Flow</title><link href="http://localhost:4000/posts/autoregressive_flow/" rel="alternate" type="text/html" title="Autoregressive Flow" /><published>2024-03-16T00:00:00-07:00</published><updated>2024-03-16T00:00:00-07:00</updated><id>http://localhost:4000/posts/ar-flow</id><content type="html" xml:base="http://localhost:4000/posts/autoregressive_flow/"><![CDATA[### Normalizing Flows
 
-<p>Normalizing flows <a class="citation" href="#normalzing_flow_jmlr">(Papamakarios et al., 2021)</a> are the pioneers in generative models. The main idea is to transform a random vector $\mathrm{u}$ through an invertible transport map $\mathrm{T}$:</p>
+Normalizing flows {% cite normalzing_flow_jmlr %} are the pioneers in generative models. The main idea is to transform a random vector $\mathrm{u}$ through an invertible transport map $\mathrm{T}$:
 
-\[\begin{align}
+$$\begin{align}
   \mathrm{x}=\mathrm{T}(\mathrm{u}), \ \ \text{where}\  \mathrm{u}\sim \mathrm{p}_{\mathrm{u}}(\mathrm{u}).\notag
-\end{align}\]
+\end{align}$$
 
-<p>If $\mathrm{T}$ is bijective and differentiable, the density of $\mathrm{x}$ can be obtained by a change of variables</p>
+If $\mathrm{T}$ is bijective and differentiable, the density of $\mathrm{x}$ can be obtained by a change of variables
 
-\[\begin{align}
+$$\begin{align}
   \mathrm{p}_{\mathrm{X}}(\mathrm{x})=\mathrm{p}_{\mathrm{u}}(\mathrm{u})\bigg|\text{det} \mathrm{J}_{\mathrm{T}}(\mathrm{u}) \bigg|^{-1}=\mathrm{p}_{\mathrm{u}}(\mathrm{T}^{-1}(\mathrm{X}))\bigg|\text{det} \mathrm{J}_{\mathrm{T}^{-1}}(\mathrm{u}) \bigg|.\notag
-\end{align}\]
+\end{align}$$
 
-<p>where \(\text{det}\ \mathrm{J}_{\mathrm{T}}(\mathrm{u})\) quantifies the change of volume w.r.t. u, such that \(\text{det}\ \mathrm{J}_{\mathrm{T}}(\mathrm{u}) \approx \frac{\text{Vol}(\mathrm{d} \mathrm{x})}{\text{Vol}(\mathrm{d} \mathrm{u})}\); the second equality holds since $\text{det} (\mathrm{A} \mathrm{A}^{-1})=1=\text{det} (\mathrm{A}) \text{det}(\mathrm{A}^{-1})$.</p>
+where $$\text{det}\ \mathrm{J}_{\mathrm{T}}(\mathrm{u})$$ quantifies the change of volume w.r.t. u, such that $$\text{det}\ \mathrm{J}_{\mathrm{T}}(\mathrm{u}) \approx \frac{\text{Vol}(\mathrm{d} \mathrm{x})}{\text{Vol}(\mathrm{d} \mathrm{u})}$$; the second equality holds since $\text{det} (\mathrm{A} \mathrm{A}^{-1})=1=\text{det} (\mathrm{A}) \text{det}(\mathrm{A}^{-1})$.
 
-<h4 id="composition-property">Composition Property</h4>
 
-<p>To model complex distributions, it is standard to conduct multiple transformations $\mathrm{T}_1$, $\mathrm{T}_2, \cdots$, $\mathrm{T}_K$ such that $\mathrm{T}=\mathrm{T}_K \circ \cdots \circ \mathrm{T}_2 \circ \mathrm{T}_1$. If \(\{\mathrm{T}_k\}_{k=1}^K\) are also bijective and invertible, we have</p>
+#### Composition Property
 
-\[\begin{align}
-  \mathrm{T}^{-1}&amp;=(\mathrm{T}_K \circ \cdots \circ \mathrm{T}_2 \circ \mathrm{T}_1)^{-1}=\mathrm{T}_1^{-1} \circ \mathrm{T}_2^{-1} \circ \dots \mathrm{T}_K^{-1}.\label{iterative_maps} \\
-  \text{det} \ \mathrm{J}_{\mathrm{T}}(\mathrm{u})&amp; = \text{det} \mathrm{J}_{\mathrm{T}_K \circ \dots \mathrm{T}_1}(\mathrm{u}) = \text{det} \mathrm{J}_{\mathrm{T}_1}(\mathrm{u})  \cdot \text{det} \mathrm{J}_{\mathrm{T}_2}(\mathrm{T}_1(\mathrm{u}))  \cdot \text{det} \mathrm{J}_{\mathrm{T}_K}(\mathrm{T}_{K-1}(\cdots(\mathrm{T}_1(\mathrm{u})))).\notag
-\end{align}\]
+To model complex distributions, it is standard to conduct multiple transformations $\mathrm{T}_1$, $\mathrm{T}_2, \cdots$, $\mathrm{T}_K$ such that $\mathrm{T}=\mathrm{T}_K \circ \cdots \circ \mathrm{T}_2 \circ \mathrm{T}_1$. If $$\{\mathrm{T}_k\}_{k=1}^K$$ are also bijective and invertible, we have
 
-<h4 id="kl-divergence">KL Divergence</h4>
+$$\begin{align}
+  \mathrm{T}^{-1}&=(\mathrm{T}_K \circ \cdots \circ \mathrm{T}_2 \circ \mathrm{T}_1)^{-1}=\mathrm{T}_1^{-1} \circ \mathrm{T}_2^{-1} \circ \dots \mathrm{T}_K^{-1}.\label{iterative_maps} \\
+  \text{det} \ \mathrm{J}_{\mathrm{T}}(\mathrm{u})& = \text{det} \mathrm{J}_{\mathrm{T}_K \circ \dots \mathrm{T}_1}(\mathrm{u}) = \text{det} \mathrm{J}_{\mathrm{T}_1}(\mathrm{u})  \cdot \text{det} \mathrm{J}_{\mathrm{T}_2}(\mathrm{T}_1(\mathrm{u}))  \cdot \text{det} \mathrm{J}_{\mathrm{T}_K}(\mathrm{T}_{K-1}(\cdots(\mathrm{T}_1(\mathrm{u})))).\notag
+\end{align}$$
 
-<p>Denote by  $\phi$ and $\psi$ the parameters of $\mathrm{T}$ and $\mathrm{p}_{\mathrm{u}}(\mathrm{u})$, respectively. The forward KL divergence follows that</p>
 
-\[\begin{align}
-  \mathrm{L}(\phi, \psi)&amp;=\text{KL}(\mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})\| \mathrm{p}_{\mathrm{X}}(\mathrm{x}; \phi, \psi)) \label{forward_KL} \\
-  &amp;=-\mathbb{E}_{\mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})} [\log \mathrm{p}_{\mathrm{X}}(\mathrm{x}; \phi, \psi)] + \text{const} \notag \\
-  &amp;=-\mathbb{E}_{\mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})} [\log \mathrm{p}_{\mathrm{u}}(\mathrm{T}^{-1}(\mathrm{x}; \phi); \psi) + \log |\text{det} \mathrm{J}_{\mathrm{T}^{-1}}(\mathrm{x}; \phi)|]+\text{const}. \notag
-\end{align}\]
+#### KL Divergence
 
-<p>The forward KL divergence is well-suited to generate the data distribution if we can model the transport maps $\mathrm{T}$ efficiently as shown in the masked autoencoder below, but is less efficient in computing the model density $\mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})$ due to the iterative maps in Eq.\eqref{iterative_maps}.</p>
 
-<p>Alternatively, when we are interested to evaluate model density \(\mathrm{p}_{\mathrm{X}^{\star}}(\mathrm{x})\), we can try to optimize the reverse KL divergence</p>
+Denote by  $\phi$ and $\psi$ the parameters of $\mathrm{T}$ and $\mathrm{p}_{\mathrm{u}}(\mathrm{u})$, respectively. The forward KL divergence follows that
 
-\[\begin{align}
-  \mathrm{L}(\phi, \psi)&amp;=\text{KL}(\mathrm{p}_\mathrm{X}(\mathrm{x}; \phi, \psi) \| \mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})) \label{reverse_KL} \\
-  &amp;=\mathbb{E}_{\mathrm{p}_{\mathrm{X}}(\mathrm{x}; \phi, \psi)} [\log \mathrm{p}_{\mathrm{X}}(\mathrm{x}; \phi, \psi) - \log \mathrm{p}_{\mathrm{X}}^{\star}(\mathrm{x})]  \notag \\
-  &amp;=-\mathbb{E}_{\mathrm{p}_{\mathrm{u}}(\mathrm{u}; \psi)} [\log \mathrm{p}_{\mathrm{u}}(\mathrm{u}; \psi) - \log |\text{det} \mathrm{J}_{\mathrm{T}}(\mathrm{u}; \phi)| - \log \mathrm{p}_{\mathrm{X}}^{\star}(\mathrm{T}(\mathrm{u}; \phi))]. \notag
-\end{align}\]
+$$\begin{align}
+  \mathrm{L}(\phi, \psi)&=\text{KL}(\mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})\| \mathrm{p}_{\mathrm{X}}(\mathrm{x}; \phi, \psi)) \label{forward_KL} \\
+  &=-\mathbb{E}_{\mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})} [\log \mathrm{p}_{\mathrm{X}}(\mathrm{x}; \phi, \psi)] + \text{const} \notag \\
+  &=-\mathbb{E}_{\mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})} [\log \mathrm{p}_{\mathrm{u}}(\mathrm{T}^{-1}(\mathrm{x}; \phi); \psi) + \log |\text{det} \mathrm{J}_{\mathrm{T}^{-1}}(\mathrm{x}; \phi)|]+\text{const}. \notag
+\end{align}$$
 
-<p>In empirical training, we resrot to Monte Carlo samples to approximate the expectation.</p>
+The forward KL divergence is well-suited to generate the data distribution if we can model the transport maps $\mathrm{T}$ efficiently as shown in the masked autoencoder below, but is less efficient in computing the model density $\mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})$ due to the iterative maps in Eq.\eqref{iterative_maps}.
 
-<h3 id="autogressive-flows">Autogressive Flows</h3>
 
-<p>Autoregressive flows represent one of the earliest developments in flow-based models. We can map the data distribution $\mathrm{p}_\mathrm{X}(\mathrm{x})$ into a uniform distribution in $(0, 1)^\mathrm{D}$ using a transport map with a triangular Jacobian.</p>
+Alternatively, when we are interested to evaluate model density $$\mathrm{p}_{\mathrm{X}^{\star}}(\mathrm{x})$$, we can try to optimize the reverse KL divergence 
 
-<p>To achieve the goal of universal representation, we leverage conditional probability and decompose $\mathrm{p}_\mathrm{X}(\mathrm{x})$ into a product of conditional probabilities as follows</p>
+$$\begin{align}
+  \mathrm{L}(\phi, \psi)&=\text{KL}(\mathrm{p}_\mathrm{X}(\mathrm{x}; \phi, \psi) \| \mathrm{p}^{\star}_{\mathrm{X}}(\mathrm{x})) \label{reverse_KL} \\
+  &=\mathbb{E}_{\mathrm{p}_{\mathrm{X}}(\mathrm{x}; \phi, \psi)} [\log \mathrm{p}_{\mathrm{X}}(\mathrm{x}; \phi, \psi) - \log \mathrm{p}_{\mathrm{X}}^{\star}(\mathrm{x})]  \notag \\
+  &=-\mathbb{E}_{\mathrm{p}_{\mathrm{u}}(\mathrm{u}; \psi)} [\log \mathrm{p}_{\mathrm{u}}(\mathrm{u}; \psi) - \log |\text{det} \mathrm{J}_{\mathrm{T}}(\mathrm{u}; \phi)| - \log \mathrm{p}_{\mathrm{X}}^{\star}(\mathrm{T}(\mathrm{u}; \phi))]. \notag
+\end{align}$$
 
-\[\begin{align}
-  \mathrm{p}_{\mathrm{X}}(\mathrm{x}) = \Pi_{i=1}^\mathrm{D} \mathrm{p}_{\mathrm{X}}(\mathrm{x}_i | \mathrm{x}_{&lt;i}).\label{seq_structure}
-\end{align}\]
+In empirical training, we resrot to Monte Carlo samples to approximate the expectation.
 
-<p>Define the transformation $\mathrm{F}$ to be the CDF function of the conditional density:</p>
 
-\[\begin{align}
-  \mathrm{z}_i = \mathrm{F}_i(\mathrm{x}_i| \mathrm{x}_{&lt;i})=\int_{-\infty}^{\mathrm{x}_i} \mathrm{p}_{\mathrm{X}}(\mathrm{x}_i'|\mathrm{x}_{&lt;i}) \mathrm{d} \mathrm{x}_i'=\text{P}(\mathrm{x}_i'\leq \mathrm{x}_i | \mathrm{x}_{&lt;i}).\notag
-\end{align}\]
+### Autogressive Flows
 
-<p>The invertibility of $\mathrm{F}$ leads to</p>
+Autoregressive flows represent one of the earliest developments in flow-based models. We can map the data distribution $\mathrm{p}_\mathrm{X}(\mathrm{x})$ into a uniform distribution in $(0, 1)^\mathrm{D}$ using a transport map with a triangular Jacobian. 
 
-\[\begin{align}
-  \mathrm{x}_i = (\mathrm{F}_i(\cdot|\mathrm{x}_{&lt;i}))^{-1} (\mathrm{z}_i) \text{ for } i=1,2,..., \mathrm{D}.\notag
-\end{align}\]
+To achieve the goal of universal representation, we leverage conditional probability and decompose $\mathrm{p}_\mathrm{X}(\mathrm{x})$ into a product of conditional probabilities as follows
 
-<p>Notably, the Jacobian of $\mathrm{F}$ is a lower trianagular matrix and the determinant of $\mathrm{F}$ is equal to the product of diagonal elemants.</p>
+$$\begin{align}
+  \mathrm{p}_{\mathrm{X}}(\mathrm{x}) = \Pi_{i=1}^\mathrm{D} \mathrm{p}_{\mathrm{X}}(\mathrm{x}_i | \mathrm{x}_{<i}).\label{seq_structure}
+\end{align}$$
 
-\[\begin{align}
-  \text{det} \mathrm{J}_\mathrm{F}(\mathrm{x}) = \Pi_{i=1}^\mathrm{D} \frac{\partial \mathrm{F}_i}{\partial \mathrm{x}_i} = \Pi_{i=1}^\mathrm{D} \mathrm{p}_\mathrm{X}(\mathrm{x}_i | \mathrm{x}_{&lt;i})=\mathrm{p}_\mathrm{X}(\mathrm{x}).\notag
-\end{align}\]
+Define the transformation $\mathrm{F}$ to be the CDF function of the conditional density:
 
-<p>If there is another map $\mathrm{G}$ that transforms a general prior distribution to the uniform distribution $(0, 1)^\mathrm{D}$, the flow with transformation $\mathrm{T}=\mathrm{F}^{-1}\circ \mathrm{G}$ can map a general prior to the data distribution.</p>
+$$\begin{align}
+  \mathrm{z}_i = \mathrm{F}_i(\mathrm{x}_i| \mathrm{x}_{<i})=\int_{-\infty}^{\mathrm{x}_i} \mathrm{p}_{\mathrm{X}}(\mathrm{x}_i'|\mathrm{x}_{<i}) \mathrm{d} \mathrm{x}_i'=\text{P}(\mathrm{x}_i'\leq \mathrm{x}_i | \mathrm{x}_{<i}).\notag
+\end{align}$$
 
-<h3 id="modeling">Modeling</h3>
+The invertibility of $\mathrm{F}$ leads to 
 
-<h4 id="masked-autoencoder">Masked Autoencoder</h4>
+$$\begin{align}
+  \mathrm{x}_i = (\mathrm{F}_i(\cdot|\mathrm{x}_{<i}))^{-1} (\mathrm{z}_i) \text{ for } i=1,2,..., \mathrm{D}.\notag
+\end{align}$$
 
-<p>To model the sequential structure \eqref{seq_structure} via an efficient parallelism, <a class="citation" href="#mask_ae">(Germain et al., 2015)</a> abandoned the RNN encoder and proposed a mind-blowing idea by using an masked autoencoder. The code snippet is from <a class="citation" href="#torch_nf">(Karpathy, 2019)</a>.</p>
+Notably, the Jacobian of $\mathrm{F}$ is a lower trianagular matrix and the determinant of $\mathrm{F}$ is equal to the product of diagonal elemants.
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MaskedLinear</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">):</span>
-    <span class="s">""" apply masks to a standard MLP """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_features</span><span class="p">,</span> <span class="n">out_features</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">in_features</span><span class="p">,</span> <span class="n">out_features</span><span class="p">,</span> <span class="n">bias</span><span class="p">)</span>        
-        <span class="bp">self</span><span class="p">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s">'mask'</span><span class="p">,</span> <span class="n">torch</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">out_features</span><span class="p">,</span> <span class="n">in_features</span><span class="p">))</span>
+$$\begin{align}
+  \text{det} \mathrm{J}_\mathrm{F}(\mathrm{x}) = \Pi_{i=1}^\mathrm{D} \frac{\partial \mathrm{F}_i}{\partial \mathrm{x}_i} = \Pi_{i=1}^\mathrm{D} \mathrm{p}_\mathrm{X}(\mathrm{x}_i | \mathrm{x}_{<i})=\mathrm{p}_\mathrm{X}(\mathrm{x}).\notag
+\end{align}$$
+
+If there is another map $\mathrm{G}$ that transforms a general prior distribution to the uniform distribution $(0, 1)^\mathrm{D}$, the flow with transformation $\mathrm{T}=\mathrm{F}^{-1}\circ \mathrm{G}$ can map a general prior to the data distribution.
+
+
+### Modeling
+
+#### Masked Autoencoder
+
+To model the sequential structure \eqref{seq_structure} via an efficient parallelism, {% cite mask_ae %} abandoned the RNN encoder and proposed a mind-blowing idea by using an masked autoencoder. The code snippet is from {% cite torch_nf %}.
+
+```python
+class MaskedLinear(nn.Linear):
+    """ apply masks to a standard MLP """
+    def __init__(self, in_features, out_features, bias=True):
+        super().__init__(in_features, out_features, bias)        
+        self.register_buffer('mask', torch.ones(out_features, in_features))
         
-    <span class="k">def</span> <span class="nf">set_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">mask</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">copy_</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">mask</span><span class="p">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">uint8</span><span class="p">).</span><span class="n">T</span><span class="p">))</span>
+    def set_mask(self, mask):
+        self.mask.data.copy_(torch.from_numpy(mask.astype(np.uint8).T))
         
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">F</span><span class="p">.</span><span class="n">linear</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">mask</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">weight</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">bias</span><span class="p">)</span>
-</code></pre></div></div>
+    def forward(self, input):
+        return F.linear(input, self.mask * self.weight, self.bias)
+```
 
-<p>The challenge is to design proper masks to satisfy the autoregressive (triangular) property. A good tutorial is provided below <a class="citation" href="#masked_ae_youtube_tutorial">(Khapra, 2019)</a>.</p>
+The challenge is to design proper masks to satisfy the autoregressive (triangular) property. A good tutorial is provided below {% cite masked_ae_youtube_tutorial %}. 
 
 <p align="center">
     <img src="/images/masked_ae.png" width="500" />
 </p>
 
-<p>To ensure the output $\tilde x_d$ only depend on the preceding inputs $x_{&lt;d}$.</p>
+To ensure the output $\tilde x_d$ only depend on the preceding inputs $x_{<d}$.
 
-<ol>
-  <li>Assign the $k$-th hidden unit some random number $m(k)$ in $\{1, 2, \cdots, D-1\}$, which is the maximum number of input units that can be connected.</li>
-</ol>
+1. Assign the $k$-th hidden unit some random number $m(k)$ in $\\{1, 2, \cdots, D-1\\}$, which is the maximum number of input units that can be connected.
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># sample the order of the inputs and the connectivity of all neurons
-</span>    <span class="bp">self</span><span class="p">.</span><span class="n">m</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">nin</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">natural_ordering</span> <span class="k">else</span> <span class="n">rng</span><span class="p">.</span><span class="n">permutation</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">nin</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">m</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">m</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nb">min</span><span class="p">(),</span> <span class="bp">self</span><span class="p">.</span><span class="n">nin</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">hidden_sizes</span><span class="p">[</span><span class="n">l</span><span class="p">])</span>
-</code></pre></div></div>
-<ol>
-  <li>For any layers except the last one, the mask value is \(1_{m(k)\geq d}\) for the $d$-th output; The sign is changed to $&gt;$ for the last layer.</li>
-</ol>
+```python
+    # sample the order of the inputs and the connectivity of all neurons
+    self.m[-1] = np.arange(self.nin) if self.natural_ordering else rng.permutation(self.nin)
+    for l in range(L):
+        self.m[l] = rng.randint(self.m[l-1].min(), self.nin-1, size=self.hidden_sizes[l])
+```
+2. For any layers except the last one, the mask value is $$1_{m(k)\geq d}$$ for the $d$-th output; The sign is changed to $>$ for the last layer. 
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># construct the mask matrices
-</span>    <span class="n">masks</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">.</span><span class="n">m</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">][:,</span><span class="bp">None</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="p">.</span><span class="n">m</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="bp">None</span><span class="p">,:]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">)]</span>
-    <span class="n">masks</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">m</span><span class="p">[</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">][:,</span><span class="bp">None</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">m</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="bp">None</span><span class="p">,:])</span>
-</code></pre></div></div>
+```python
+    # construct the mask matrices
+    masks = [self.m[l-1][:,None] <= self.m[l][None,:] for l in range(L)]
+    masks.append(self.m[L-1][:,None] < self.m[-1][None,:])
+```
 
-<h4 id="masked-autogressive-flow-maf">Masked Autogressive Flow (MAF)</h4>
 
-<p>MAF <a class="citation" href="#MAF">(Papamakarios et al., 2017)</a> propose to optimize the reverse KL objective (missing reference), which is efficient in the conditional density estimation while the sampling stage is slow in high dimensions because we need to iterate the dimension sequentially. To help understand the masked autoregressive flow, I simplified <a class="citation" href="#torch_nf">(Karpathy, 2019)</a>’s code template and added some edits and comments.</p>
+#### Masked Autogressive Flow (MAF)
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nflib.made</span> <span class="kn">import</span> <span class="n">ARMLP</span>
+MAF {% cite MAF %} propose to optimize the reverse KL objective {% cite reverse_KL %}, which is efficient in the conditional density estimation while the sampling stage is slow in high dimensions because we need to iterate the dimension sequentially. To help understand the masked autoregressive flow, I simplified {% cite torch_nf %}'s code template and added some edits and comments.
 
-<span class="k">class</span> <span class="nc">MAF</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="s">""" Masked Autoregressive Flow that uses a MADE-style network for fast forward """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">parity</span><span class="p">,</span> <span class="n">net_class</span><span class="o">=</span><span class="n">ARMLP</span><span class="p">,</span> <span class="n">nh</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">net_class</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">nh</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">parity</span> <span class="o">=</span> <span class="n">parity</span>
+```python
+from nflib.made import ARMLP
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="n">s</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">torch</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span>
-        <span class="c1"># permute elements for efficiency - pg5 https://arxiv.org/pdf/1705.07057.pdf
-</span>        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span> <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">parity</span> <span class="k">else</span> <span class="n">z</span>
-        <span class="n">log_det</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">z</span><span class="p">,</span> <span class="n">log_det</span>
+class MAF(nn.Module):
+    """ Masked Autoregressive Flow that uses a MADE-style network for fast forward """
+    def __init__(self, dim, parity, net_class=ARMLP, nh=24):
+        super().__init__()
+        self.dim = dim
+        self.net = net_class(dim, dim*2, nh)
+        self.parity = parity
+
+    def forward(self, x):
+        s, t = self.net(x)
+        z = x * torch.exp(s) + t
+        # permute elements for efficiency - pg5 https://arxiv.org/pdf/1705.07057.pdf
+        z = z.flip(dims=(1,)) if self.parity else z
+        log_det = torch.sum(s, dim=1)
+        return z, log_det
     
-    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="n">log_det</span> <span class="o">=</span> <span class="mi">0</span> 
-        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span> <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">parity</span> <span class="k">else</span> <span class="n">z</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">dim</span><span class="p">):</span> <span class="c1"># iterative sampling from d=1 to D
-</span>            <span class="n">s</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">clone</span><span class="p">())</span> <span class="c1"># clone to avoid in-place op errors if using IAF
-</span>            <span class="n">x</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">torch</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
-            <span class="n">log_det</span> <span class="o">+=</span> <span class="o">-</span><span class="n">s</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">log_det</span>
+    def backward(self, z):
+        x = torch.zeros_like(z)
+        log_det = 0 
+        z = z.flip(dims=(1,)) if self.parity else z
+        for i in range(self.dim): # iterative sampling from d=1 to D
+            s, t = self.net(x.clone()) # clone to avoid in-place op errors if using IAF
+            x[:, i] = (z[:, i] - t[:, i]) * torch.exp(-s[:, i])
+            log_det += -s[:, i]
+        return x, log_det
 
-<span class="k">class</span> <span class="nc">NormalizingFlowModel</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="s">""" A Normalizing Flow Model is a (prior, flow) pair """</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prior</span><span class="p">,</span> <span class="n">af_flows</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">prior</span> <span class="o">=</span> <span class="n">prior</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">af_flow</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">ModuleList</span><span class="p">(</span><span class="n">af_flows</span><span class="p">)</span>
+class NormalizingFlowModel(nn.Module):
+    """ A Normalizing Flow Model is a (prior, flow) pair """
+    def __init__(self, prior, af_flows):
+        super().__init__()
+        self.prior = prior
+        self.af_flow = nn.ModuleList(af_flows)
         
-    <span class="k">def</span> <span class="nf">iterate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">log_det</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="k">for</span> <span class="n">af_flow</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">af_flow</span><span class="p">[::</span><span class="n">direction</span><span class="p">]:</span>
-            <span class="n">cur_flow</span> <span class="o">=</span> <span class="n">af_flow</span><span class="p">.</span><span class="n">forward</span> <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">af_flow</span><span class="p">.</span><span class="n">backward</span>
-            <span class="n">data</span><span class="p">,</span> <span class="n">ld</span> <span class="o">=</span> <span class="n">cur_flow</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="n">log_det</span> <span class="o">+=</span> <span class="n">ld</span>
-        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">log_det</span>
+    def iterate(self, data, direction=1):
+        log_det = torch.zeros(data.shape[0])
+        for af_flow in self.af_flow[::direction]:
+            cur_flow = af_flow.forward if direction == 1 else af_flow.backward
+            data, ld = cur_flow(data)
+            log_det += ld
+        return data, log_det
     
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="n">z</span><span class="p">,</span> <span class="n">log_det</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">iterate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">direction</span><span class="o">=+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">prior_logprob</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">prior</span><span class="p">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">z</span><span class="p">).</span><span class="n">view</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">z</span><span class="p">,</span> <span class="n">prior_logprob</span><span class="p">,</span> <span class="n">log_det</span>
+    def forward(self, x):
+        z, log_det = self.iterate(x, direction=+1)
+        prior_logprob = self.prior.log_prob(z).view(x.size(0), -1).sum(1)
+        return z, prior_logprob, log_det
 
-    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">iterate</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">direction</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    def backward(self, z):
+        return self.iterate(z, direction=-1)
     
-    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">):</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">prior</span><span class="p">.</span><span class="n">sample</span><span class="p">((</span><span class="n">num_samples</span><span class="p">,))</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">iterate</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">direction</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">x</span>
-</code></pre></div></div>
+    def sample(self, num_samples):
+        z = self.prior.sample((num_samples,))
+        x, _ = self.iterate(z, direction=-1)
+        return x
+```
 
-<h4 id="inverse-autogressive-flow-iaf">Inverse Autogressive Flow (IAF)</h4>
 
-<p>Similar to MAF, IAF <a class="citation" href="#IAF">(Kingma et al., 2016)</a> proposed to flip the backward and forward sampling to speed up the sampling efficiency. The density estimation, however, becomes slower. The optimization corresponds to the forward KL divergence.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IAF</span><span class="p">(</span><span class="n">MAF</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">forward</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">backward</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">backward</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">forward</span>
-</code></pre></div></div>]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[Normalizing Flows]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
+
+#### Inverse Autogressive Flow (IAF)
+
+Similar to MAF, IAF {% cite IAF %} proposed to flip the backward and forward sampling to speed up the sampling efficiency. The density estimation, however, becomes slower. The optimization corresponds to the forward KL divergence.
+
+```python
+class IAF(MAF):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.forward, self.backward = self.backward, self.forward
+```]]></content><author><name>Wei Deng</name></author><category term="Flow" /><summary type="html"><![CDATA[Normalizing Flows]]></summary></entry><entry><title type="html">Ensemble Kalman Filter</title><link href="http://localhost:4000/posts/ensemble_kalman_filter/" rel="alternate" type="text/html" title="Ensemble Kalman Filter" /><published>2024-03-16T00:00:00-07:00</published><updated>2024-03-16T00:00:00-07:00</updated><id>http://localhost:4000/posts/ensemble-kalman-filter</id><content type="html" xml:base="http://localhost:4000/posts/ensemble_kalman_filter/"><![CDATA[]]></content><author><name>Wei Deng</name></author><category term="Filter" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Rectified Flow and Beyond</title><link href="http://localhost:4000/posts/rec_flow/" rel="alternate" type="text/html" title="Rectified Flow and Beyond" /><published>2024-03-09T00:00:00-08:00</published><updated>2024-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/rec-flow</id><content type="html" xml:base="http://localhost:4000/posts/rec_flow/"><![CDATA[Diffusion models have demonstrated interesting applications, such as text-to-image generation (stable diffusion, DALLE), text-to-video generation (Sora), and text-to-audio generation. However, diffusion models often require tens or hundreds of steps in generation and is quite slow.
 
 ### Rectified Flow
 
@@ -1018,174 +1029,4 @@ $$\begin{align}\notag
 
 where the first inequality follows by applying $\sqrt{\| a + b \|} \leq \sqrt{\| a \|} + \sqrt{\| b \|}$, the second one follows by an estimate of $W_2(\mu_0, \pi)$, and the last step follows from the initialization condition.
 
-### Remark: How to achieve a sharper upper bound?]]></content><author><name>Wei Deng</name></author><category term="Coupling" /><summary type="html"><![CDATA[A coupling of two random variables/ vectors represents a joint distribution, where the marginal distributions are denoted by $p$ and $q$, respectively. Any joint distributions of $p$ and $q$ define a valid coupling. Although there are infinitely many of them, some of them are quite special and may facilitate our analysis.]]></summary></entry><entry><title type="html">The Lyapunov Function Method for Poincaré Inequality</title><link href="http://localhost:4000/posts/Lyapunov_Poincare/" rel="alternate" type="text/html" title="The Lyapunov Function Method for Poincaré Inequality" /><published>2021-06-01T00:00:00-07:00</published><updated>2021-06-01T00:00:00-07:00</updated><id>http://localhost:4000/posts/Lyapunov-Poincare</id><content type="html" xml:base="http://localhost:4000/posts/Lyapunov_Poincare/"><![CDATA[Poincaré (spectral gap) inequality {% cite Bakry08 %} is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.
-
-
-## Langevin diffusion
-
-Suppose we are interested in the convergence of the stochastic differential equation
-
-\begin{equation}\notag
-dx_t = -\nabla U(x_t)dt + \sqrt{2}dW_t,
-\end{equation}
-
-where $\nabla U(\cdot)$ denotes the gradient of a energy function $U$ and $(W_t)_{t\geq 0}$ is a Brownian motion. Under mild growth conditions on $U(\cdot)$, $x$ converges to a stationary measure $\mu(x)\propto e^{-U(x)}$.
-
-
-Define a family of operators $(P_t)_{t\geq 0}$ as follows
-
-\begin{equation}\notag
-P_t(f(x)) = E[f(x_t)\|$=x],
-\end{equation}
-where the expectation is taken over a particular set to denote the conditional density.
-
-For a smooth test function $f(x)$, Itô's formula implies that
-
-\begin{equation}\notag
-d f(x_t) = \sqrt{2} \nabla f(x_t) dB_t + Lf(x_t)dt,
-\end{equation}
-where $L$ is the infinitesimal generator of the symmetric Markov Semigroup $P_t$ 
-
-\begin{equation}\notag
-Lf=\lim_{t\rightarrow 0} \frac{P_t f -f }{t}=\Delta f - \langle\nabla U, \nabla f\rangle,
-\end{equation}
-where $\Delta$ denotes the Laplace operator.
-
-## Poincaré Inequality
-
-We say the Gibbs measure $\mu$ satisfies a Poincaré equality with a constant $C$ if
-
-\begin{equation}\notag
-Var_{\mu}(f)=\int f^2 d\mu -(\int f d\mu)^2 \leq C \xi(f),
-\end{equation}
-where $\xi$ is the Dirichlet form defined as 
-
-\begin{equation}\notag
-\xi(f)=\int \Gamma(f)d\mu.
-\end{equation}
-
-$\Gamma$ is the Carré du Champ operator satisfying 
-
-\begin{equation}\notag
-\Gamma(f)=\frac{1}{2}(L(f^2)-2 f L(f)). 
-\end{equation}
-Since $\mu$ is reversible for $P_t$, we have the invariance property $\int L(f)=0$ for all f in the Dirichlet domain. In other words, for symmetric $\mu$, we have 
-
-\begin{equation}\notag
-\xi(f)=\int \Gamma(f)d\mu=-\int f L(f) d\mu =\int (\nabla f)^2 d\mu.
-\end{equation}
-where the last inequality follows by integration by parts such that: $-\int f L(f) d\mu=-\int f\nabla (e^{-U(x)}\nabla f)dx=-\int f d(e^{-U(x)} \nabla f)=f e^{-U(x)} \nabla f\|_{boundary} + \int (\nabla f)^2 d\mu.$
-
-## Variance Decay
-
-Now we study the decay of variance
-
-\begin{equation}\notag
-\Lambda(t)=Var_{\mu}(P_t f)= \int(P_t f)^2d\mu.
-\end{equation}
-Reacll $\xi(f)=-\int f L(f) d\mu$. Taking the derivative
-
-\begin{equation}\notag
-\Lambda_t(t)=2\int P_t f L P_t f d\mu = -2 \xi(P_t f).
-\end{equation}
-
-Combining the Poincaré equality, we have that
-
-\begin{equation}\notag
-\Lambda(t)=Var_{\mu}(P_t f)\leq C \xi(P_t f)=-\frac{C}{2}\Lambda_t(t)
-\end{equation}
-This means that $\Lambda_t(t)\leq -\frac{2}{C} \Lambda(t)$. Including an integration factor $e^{\frac{2t}{C}}$, we have
-
-\begin{equation}\notag
-\nabla (\Lambda(t) e^{\frac{2t}{C}})=\Lambda_t(t) e^{\frac{2t}{C}} + \Lambda(t) \frac{2}{C} e^{\frac{2t}{C}}\leq 0.
-\end{equation}
-Hence $\Lambda(t) e^{\frac{2t}{C}} \leq \Lambda(0)$. In other words,
-
-\begin{equation}\notag
-Var_{\mu}(P_t f)\leq e^{-2t/C} Var_{\mu}(f).
-\end{equation}
-
-## How to identify the Poincaré constant
-
-Despite the appealing formulation, identifying the best constant $C>0$ is in general not easy. In this blog, we will show a method for determining a crude estimate of such a constant.
-
-We denote a Lyapunov function by $V$ if $V\geq 1$ and if there exist $\lambda>0, b\geq 0$ and some $R > 0$ such that for all $x$, the following drift condition holds
-
-\begin{equation}\notag
-LV(x) ≤ -\lambda V(x) + b 1_{B(0, R)}(x).
-\end{equation}
-
-### By Theorem 1.4 [1], we show that if there exists a Lyapunov function $V(x)$ satisfying the drift condition, then $\mu $ satisfies a $L^2$ Poincaré inequality with constant $C_P=\frac{1}{\lambda}(1+b\kappa_R)$, where $\kappa_R$ is the L2 Poincaré constant of $\mu$ restricted to the ball B(0,R).
-
-
-
-Given a smooth function $g$, we know that $Var_{\{\mu}}(g)\leq \int (g-c)^2 d\mu$ for all $c$. In what follows, we set $f=g-c$, where $c$ is a constant to be selected later.
-
-Next, we reformulate the drift condition and take an integral for $f^2$ with respect to $\mu$:
-
-\begin{equation}\notag
-\int f^2 d\mu \leq \int \frac{-LV}{\lambda V} f^2 d\mu + \int f^2 \frac{b}{\lambda V}1_{B(0, R)}d \mu.
-\end{equation}
-
-### Control the first term $\int \frac{-LV}{\lambda V} f^2 d\mu$
-
-Since $L$ is $\mu$-symmetric, by integration by parts, we get
-
-$\int \frac{-LV}{V}f^2d \mu= \int \nabla\left(\frac{f^2}{V}\right) \nabla V d\mu$
-
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  =2\int \frac{f}{V} \nabla f \nabla V d\mu  - \int \frac{f^2}{V^2} \|\nabla V\|^2 d\mu$
-
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\int \|\nabla f\|^2 d\mu - \int \|\nabla f - \frac{f}{V} \nabla V\|^2 d\mu$
-
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \int \|\nabla f\|^2 d\mu$
-
-### Control the second term $\int f^2 \frac{b}{\lambda V}1_{B(0, R)} d\mu$
-
-Since $\mu$ satisfies a Poincaré inequality on $B(0, R)$ with a constant $\kappa_R$, we have
-
-\begin{equation}\notag
-\int_{B(0, R)} f^2 d\mu\leq \kappa_R \int_{B(0, R)} \|\nabla f\|^2 d\mu + (1/\mu(B(0, R))) \left(\int_{B(0, R)} fd\mu\right)^2.
-\end{equation}
-
-Fix $c=\int_{B(0, R)} gd\mu$. We have
-\begin{equation}\notag
-\int_{B(0, R)} \frac{f^2}{V}d\mu\leq \int_{B(0, R)} f^2 d\mu\leq \kappa_{R}\int_{B(0, R)} \|\nabla f\|^2d\mu.
-\end{equation}
-Eventually, we have
-
-\begin{equation}\notag
-Var_{\mu}(f)=\int f^2 d\mu \leq \frac{1}{\lambda} (1+b\kappa_R) \int \|\nabla f\|^2 d\mu.
-\end{equation}
-In other words, the Poincaré inequality has a crude constant $C_p=\frac{1}{\lambda} (1+b \kappa_R)$.
-
-## Construction of the Lypunov function
-
-Suppose we require one tail condition of the energy function $U(x)$, i.e. there exist $\alpha >0$ and $R\geq 0$ such that
-
-### Assumption $\langle x, \nabla U(x)\rangle \geq \alpha \|x\|$ for all $\|x\|\geq R$ (C1)
-
-Now it is sufficient to build a Lyapunov function $V(x)=e^{\gamma \|x\|}$, where $\|x\|=\sqrt{\sum_{i=1}^n x_i^2}$.
-
-Note that $\frac{\partial V(x)}{\partial x_i}= \gamma \frac{x_i}{\|x\|} V(x)$ and $\frac{\partial^2 V(x)}{\partial x_i^2}=\frac{\gamma}{\|x\|} V(x)+ \gamma^2 \frac{x_i^2}{\|x\|^2} V(x) - \gamma \frac{x_i^2}{\|x\|^3}V(x)$. 
-
-In the sequel, we have
-
-$LV(x)=\gamma\left(\frac{n-1}{\|x\|}+\gamma-\frac{x}{\|x\|} \nabla U(x)\right) V(x)$
-
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq \gamma\left(\frac{n-1}{\|x\|} + \gamma -\alpha \right) V(x)$
-
-$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \leq -\gamma(\alpha-\gamma-\frac{n-1}{R}) V(x) + b 1_{B(0, R)}(x)$.
-
-Hence $V(x)$ is a Lyapunov function provided
-
-\begin{equation}\notag
-\lambda = \gamma(\alpha-\gamma-\frac{n-1}{R})>0,
-\end{equation}
-
-which suffices to choose $\gamma<\alpha$, a large $R$ and assume the (C1) condition.
- 
-## Discussions
-
-[1] The construction of Lyapunov function implies a tail decay for the distribution $\mu\propto e^{-U(x)}$ outside the ball $B(0, R)$.
-
-[2] Obtaining a sharper estimate of Poincaré constant may require isoperimetric inequality.]]></content><author><name>Wei Deng</name></author><category term="Theory" /><summary type="html"><![CDATA[Poincaré (spectral gap) inequality (Bakry et al., 2008) is the first important family of functional inequalities that charaterizes the exponential convergence of a random variable towards the equilibrium.]]></summary></entry></feed>
+### Remark: How to achieve a sharper upper bound?]]></content><author><name>Wei Deng</name></author><category term="Coupling" /><summary type="html"><![CDATA[A coupling of two random variables/ vectors represents a joint distribution, where the marginal distributions are denoted by $p$ and $q$, respectively. Any joint distributions of $p$ and $q$ define a valid coupling. Although there are infinitely many of them, some of them are quite special and may facilitate our analysis.]]></summary></entry></feed>

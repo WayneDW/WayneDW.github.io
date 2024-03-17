@@ -49,6 +49,10 @@
 <lastmod>2024-03-16T00:00:00-07:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/posts/ensemble_kalman_filter/</loc>
+<lastmod>2024-03-16T00:00:00-07:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/posts/CSGLD/</loc>
 </url>
 <url>
@@ -83,6 +87,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/posts/autoregressive_flow/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/posts/ensemble_kalman_filter/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/posts/log_sobolev_inequality/</loc>
