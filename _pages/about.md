@@ -7,7 +7,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/lake_tahoe.png"></p>
 
 
-I am a Researcher at Morgan Stanley [Link](https://www.morganstanley.com/about-us/technology/machine-learning-research-team). My interest is to study GPU-friendly sampling, diffusion, filtering, and transport methods. The applications include Bayesian uncertainty, generative models, financial time series, and computer vision. I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction).
+I am a Researcher at Morgan Stanley [Link](https://www.morganstanley.com/about-us/technology/machine-learning-research-team). My interest is to study GPU-friendly sampling, diffusion, filtering, and transport methods. The applications include Bayesian uncertainty, generative models, fintech, and computer vision. I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction).
 
 
 
