@@ -28,7 +28,7 @@ Dec, 2023. Glad to participate [Transport, Diffusion, and Sampling Workshop](htt
 
 Nov, 2023. Talk at [Financial Mathematics Seminar at FSU](https://www.math.fsu.edu/finmath/seminars.php)
 
-Apr, 2023. One ICML on [diffusion models and Schrodinger bridge](https://arxiv.org/pdf/2305.07247) is accepted with my intern [Shikai](https://users.cs.utah.edu/~shikai/)!
+Apr, 2023. One ICML on [diffusion Schrodinger bridge with transformers](https://arxiv.org/pdf/2305.07247) is accepted with my intern [Shikai](https://users.cs.utah.edu/~shikai/)!
 
 Dec, 2022. The [Contour Sampler](https://proceedings.neurips.cc/paper/2020/file/b5b8c484824d8a06f4f3d570bc420313-Paper.pdf) is implemented in [BlackJAX](https://blackjax-devs.github.io/sampling-book/algorithms/contour_sgld.html)! 
 
