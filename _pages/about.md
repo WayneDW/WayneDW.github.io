@@ -10,7 +10,7 @@ author_profile: true
 
 I am a researcher at Morgan Stanley. My interest is to study GPU-friendly sampling, diffusion, filtering, and transport methods. The applications include generative models, time series, and computer vision. I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction).
 
-I got my Ph.D. in applied math at Purdue University in Dec 2021 and my thesis is <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>.
+<!---  I got my Ph.D. in applied math at Purdue University in Dec 2021 and my thesis is <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>. -->
 
 <!--- Selected Publications I am furtunate to work with: [Shikai Fang](https://users.cs.utah.edu/~shikai/), [Yixin Tan](https://scholar.google.com/citations?user=3AGaybIAAAAJ&hl=zh-CN), [Kevin Rojas](https://kevinrojas1499.github.io/) during the summer internships since 2022. -->
 
