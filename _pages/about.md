@@ -7,13 +7,15 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/lake_tahoe.png"></p>
 
 
-I am a Researcher at Morgan Stanley [Link](https://www.morganstanley.com/about-us/technology/machine-learning-research-team). I do 70% time on financial data and 30% on research. My interest is to study GPU-friendly sampling, diffusion, filtering, and transport methods. The applications include Bayesian uncertainty, generative models, fintech, and computer vision. I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). 
+I am a Researcher at Morgan Stanley [Link](https://www.morganstanley.com/about-us/technology/machine-learning-research-team). I do 70% time on financial data and 30% on research. My interest is to study GPU-friendly sampling, diffusion, filtering, and transport methods. The applications include Bayesian uncertainty, generative models, fintech, and computer vision. I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). I got my Ph.D. in applied math at Purdue University in Dec 2021 and my thesis is <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>.
 
 <!--- Selected Publications I am furtunate to work with: [Shikai Fang](https://users.cs.utah.edu/~shikai/), [Yixin Tan](https://scholar.google.com/citations?user=3AGaybIAAAAJ&hl=zh-CN), [Kevin Rojas](https://kevinrojas1499.github.io/) during the summer internships since 2022. -->
 
 
 
-I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a> 
+<!--- I got my Ph.D. in applied math at Purdue University in Dec 2021. -->
+
+<!--- , where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a> -->
 
 
 
