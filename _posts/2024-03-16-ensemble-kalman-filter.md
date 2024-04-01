@@ -6,12 +6,6 @@ permalink: /posts/ensemble_kalman_filter/
 category: Filter
 ---
 
-This study is mainly adapted from Andrew's lectures {% cite kf_lecture %} on Kalman filter.
-
-
-$\begin{align}
-.        \notag
-\end{align}$
 
 ### Recursive least squares
 
@@ -26,62 +20,66 @@ where $\mathrm{y}, \varepsilon\in \mathrm{R}$, $\mathrm{x}\in\mathrm{R}^{1\times
 Given $n$ observations $(\mathrm{x}_1, \mathrm{y}_1), (\mathrm{x}_2, \mathrm{y}_2), \cdots, (\mathrm{x}_n, \mathrm{y}_n)$, the solution of Eq.\eqref{OLS} follows that
 
 $$\begin{align}
-\widehat\beta_n = (\mathrm{X}_n^\intercal \mathrm{X}_n)^{-1} \mathrm{X}_n^\intercal \mathrm{Y}_n:=\mathrm{N}_n^{-1} \mathrm{V}_n,\label{solution_n}
+\widehat\beta_n = (\mathrm{X}_n^\intercal \mathrm{X}_n)^{-1} \mathrm{X}_n^\intercal \mathrm{Y}_n, \label{solution_n}  
 \end{align}$$
 
-where $\mathrm{X}_n=(\mathrm{x}_1; \mathrm{x}_2; \cdots; \mathrm{x}_n)$ is a $n\times d$ matrix and $\mathrm{Y}_n=(\mathrm{y}_1, \mathrm{y}_2, \cdots, \mathrm{y}_n) \in \mathrm{R}^n$, $$\mathrm{N}_n=\mathrm{X}_{n}^\intercal \mathrm{X}_{n}$$ and $$\mathrm{V}_n=\mathrm{X}_{n}^\intercal \mathrm{Y}_n$$.
+where $\mathrm{X}_n=(\mathrm{x}_1; \mathrm{x}_2; \cdots; \mathrm{x}_n)$ is a $n\times d$ matrix and $\mathrm{Y}_n=(\mathrm{y}_1, \mathrm{y}_2, \cdots, \mathrm{y}_n) \in \mathrm{R}^n$.
 
 Consider online learning when we have a new $\mathrm{x}_{n+1}$, the solution can be updated as follows
 
 $$\begin{align}
 \widehat\beta_{n+1} &= (\mathrm{X}_{n+1}^\intercal \mathrm{X}_{n+1})^{-1} \mathrm{X}_{n+1}^\intercal \mathrm{Y}_{n+1}\notag\\
-&=\mathrm{N}_{n+1}^{-1} \mathrm{V}_{n+1}\notag.\\
-&=\underbrace{(\mathrm{N}_{n} + \mathrm{x}_{n+1}^\intercal \mathrm{x}_{n+1})^{-1}}_{\text{I}: \ \ \mathrm{N}_{n+1}^{-1}} \underbrace{(\mathrm{V}_{n} + \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1})}_{\text{II}:\ \  \mathrm{V_{n+1}}}.\label{decomposition}
+&=(\mathrm{P}_{n}^{-1} + \mathrm{x}_{n+1}^\intercal \mathrm{x}_{n+1})^{-1} (\mathrm{X}_{n}^\intercal \mathrm{Y}_{n} + \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1})\notag \\
+&=\underbrace{(\mathrm{P}_{n}^{-1} + \mathrm{x}_{n+1}^\intercal \mathrm{x}_{n+1})^{-1}}_{\mathrm{P}_{n+1}} \big(\mathrm{P}_{n}^{-1}\widehat\beta_n +  \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \big),\label{decomposition}
 \end{align}$$
 
-where the last equality holds by the block matrix multiplication.
+where $$\mathrm{P}_n=(\mathrm{X}_{n}^\intercal \mathrm{X}_{n})^{-1}$$, the second equality holds by the block matrix multiplication, and the last equality is followed by Eq.\eqref{solution_n}. 
 
-Applying the [Woodbury matrix identity](https://en.wikipedia.org/wiki/Woodbury_matrix_identity) associated with  an invertible square matrix $\mathrm{A}$
-
-$$\begin{align}
+Applying the [Woodbury matrix identity](https://en.wikipedia.org/wiki/Woodbury_matrix_identity), 
+<!-- $$\begin{align}
 (\mathrm{A}+\mathrm{U}\mathrm{C}\mathrm{V})^{-1} = \mathrm{A}^{-1} - \mathrm{A}^{-1} \mathrm{U} (\mathrm{C}^{-1}+\mathrm{V} \mathrm{A}^{-1}\mathrm{U})^{-1} \mathrm{V} \mathrm{A}^{-1},\notag
-\end{align}$$ 
-
-the item $\text{I}$ in Eq.\eqref{decomposition} can be simplified as follows
+\end{align}$$  -->
+the item $\mathrm{P}_{n+1}$ in Eq.\eqref{decomposition} can be simplified
 
 $$\begin{align}
-\text{I}:=\mathrm{N}_{n+1}^{-1}&=\mathrm{N}_n^{-1} - \mathrm{N}_n^{-1} \mathrm{x}_{n+1}^\intercal (\underbrace{1 + \mathrm{x}_{n+1} \mathrm{N}_n^{-1} \mathrm{x}_n^\intercal}_{\mathrm{S}_{n+1}})^{-1} \mathrm{x}_{n+1} \mathrm{N}_n^{-1}\notag\\
-&=\mathrm{N}_n^{-1} - \mathrm{K}_{n+1} \mathrm{x}_{n+1} \mathrm{N}_n^{-1},\notag \\
-\mathrm{K}_{n+1}&=\mathrm{N}_n^{-1} \mathrm{x}_{n+1}^\intercal \mathrm{S}_{n+1}^{-1}.
+\mathrm{P}_{n+1}&=\mathrm{P}_n - \mathrm{P}_n \mathrm{x}_{n+1}^\intercal [\underbrace{1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_n^\intercal}_{\mathrm{S}_{n+1} \text{, which is a scalar.}}]^{-1} \mathrm{x}_{n+1} \mathrm{P}_n\notag\\
+&=\mathrm{P}_n - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal,\label{P_solution} \\
+\text{where}\ \  \mathrm{K}_{n+1}&=\mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{S}_{n+1}^{-1}. \label{def_K}
 \end{align}$$
 
-where $\mathrm{S}_{n+1}$ is a scalar.
-
-Combining the solution in Eq.\eqref{solution_n}, the item $\text{II}$ in Eq.\eqref{decomposition} follows that
+Combining Eq.\eqref{decomposition}, Eq.\eqref{P_solution}, and Eq.\eqref{def_K}, we have 
 
 $$\begin{align}
-\text{II}&=\mathrm{N}_{n+1}\widehat\beta_{n+1}\notag\\
-        &=\mathrm{V}_n + \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
-        &=\mathrm{V}_n + \mathrm{x}_{n+1}^\intercal \mathrm{x}_{n+1}\widehat\beta_n + \mathrm{x}_{n+1}^\intercal \epsilon_{n+1} \notag \\
-        &=\underbrace{(\mathrm{N}_n + \mathrm{x}_{n+1}^\intercal \mathrm{x}_{n+1})}_{\mathrm{N}_{n+1}}\widehat\beta_n + \mathrm{x}_{n+1}^\intercal \epsilon_{n+1}, \notag \\
-\end{align}$$ 
+\widehat\beta_{n+1} &= (\mathrm{P}_n - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal) \big(\mathrm{P}_{n}^{-1}\widehat\beta_n +  \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \big) \notag \\
+&=\widehat\beta_n + \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal \mathrm{P}_{n}^{-1}\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
+&=\widehat\beta_n + \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} - \mathrm{K}_{n+1} \mathrm{x}_{n+1}\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
+&=\widehat\beta_n + \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} - \mathrm{K}_{n+1} \mathrm{x}_{n+1}\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{x}_{n+1} \mathrm{P}_{n} \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
+&\overset{\eqref{def_K}}{=}\widehat\beta_n + \mathrm{K}_{n+1} \mathrm{S}_{n+1} \mathrm{y}_{n+1} - \mathrm{K}_{n+1} \mathrm{x}_{n+1}\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{x}_{n+1} \mathrm{P}_{n} \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1}  \notag \\
+&=\widehat\beta_n + \mathrm{K}_{n+1} (\mathrm{y}_{n+1} - \mathrm{x}_{n+1}\widehat\beta_n), \notag \\
+\end{align}$$
 
-where the third equality follows by Eq.\eqref{OLS}.
+where the last equality follows by $$\mathrm{S}_{n+1}=1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_n^\intercal$$ in Eq.\eqref{P_solution}.
 
-
-Dividing $\mathrm{N}_{n+1}$ on both sides of the above equation, we have
+To summarize, the update scheme for recursive least squares follow that
 
 $$\begin{align}
-\widehat\beta_{n+1}&=\widehat\beta_n + \mathrm{N}_{n+1}^{-1}\mathrm{x}_{n+1}^\intercal \epsilon_{n+1} \notag \\
-                   &=\widehat\beta_n + \mathrm{K}_{n+1} \epsilon_{n+1}, \notag \\
-\end{align}$$ 
-
-
-
+\mathrm{K}_{n+1}&=\mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{S}_{n+1}^{-1}\notag \\
+\mathrm{S}_{n+1}&=1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_n^\intercal \notag \\
+\widehat\beta_{n+1}&=\widehat\beta_n + \mathrm{K}_{n+1} (\mathrm{y}_{n+1} - \mathrm{x}_{n+1}\widehat\beta_n),\notag\\
+\mathrm{P}_{n+1}&=\mathrm{P}_n - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal. \notag
+\end{align}$$
 
 
 ### Kalman Filter
 
+Kalman Filter {% cite bayes_filtering %} or state space model is the go-to framework for Bayesian filtering problem. The dynamics and the measurements follow a linear Gaussian model
+
+$$\begin{align}
+\mathrm{x}_k&=\mathrm{A}_{k-1} \mathrm{x}_{k-1} + \mathrm{w}_{k-1}, \notag \\
+\mathrm{y}_k&=\mathrm{H}_k\mathrm{x}_k + \mathrm{r}_k \notag.
+\end{align}$$
+
+where $$\mathrm{x}_k\in\mathrm{R}^n$$ is the latent state and $$\mathrm{y}_k\in\mathrm{R}^m$$ is the measurement; $$\mathrm{w}_{k-1}\sim \mathrm{N}(0, \mathrm{Q}_{k-1})$$ and $$\mathrm{r}_k \sim \mathrm{N}(0, \mathrm{R}_k)$$; the prior $$\mathrm{x}_0\sim \mathrm{N}(\mathrm{m}_0, \mathrm{P}_0)$$. $$\mathrm{A}_{k-1}$$ is the transition matrix and $\mathrm{H}_k$ is the measurement model. Both matrices are assumed to be known. For example, we can be obtained through MLE estimation.  
 
 ### Ensemble Kalman Filter
 
