@@ -47,27 +47,6 @@ Oct, 2020. Talk at ML + X Seminar at Brown University
 
 
 
-<!--- Selected Publications -->
-<!---  ====== -->
-<!--- My interests mainly focus on scalable Monte Carlo methods. The research finds extensive applications in uncertainty estimation, feature selection, and reinforcement learning. -->
-
-<!--- ### Monte Carlo and Uncertainty Estimation -->
-
-<!--- * **W. Deng**<sup>*</sup>, Q. Feng<sup>*</sup>, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://openreview.net/pdf?id=iOnhIy-a-0n). ICLR 2021. [\[video\]](https://slideslive.com/38954013/accelerating-convergence-of-replica-exchange-stochastic-gradient-mcmc-via-variance-reduction?ref=speaker-30773-latest) -->
-
-<!--- * **W. Deng**, Q. Feng<sup>*</sup>, L. Gao<sup>*</sup>, F. Liang, G. Lin. [Non-convex Learning via Replica Exchange Stochastic Gradient MCMC](https://arxiv.org/pdf/2008.05367.pdf). ICML 2020. [\[slides\]](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf) -->
-
-<!--- * **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). NeurIPS 2020 [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions) -->
-
-
-<!--- Research Talks -->
-<!--- ====== -->
-
-
-<!--- * Non-convex Bayesian Learning via Stochastic Gradient Markov Chain Monte Carlo. *Ph.D. Oral Defense*. Purdue University. Oct.26, 2021. [\[video\]](https://www.youtube.com/watch?v=MGcg0Wh9K68) -->
-
-<!--- * Accelerating Convergence of Stochastic Gradient MCMC via Replica Exchange and Dynamic Importance Sampling. *Department of Machine Intelligence, Peking University & School of Statistics, Renmin University of China & Machine Learning Research, Morgan Stanley*. 2021 -->
-
 
 Services
 ======
