@@ -12,8 +12,7 @@ I am a researcher at Morgan Stanley. My interest is to study GPU-friendly sampli
 
 <!---  I got my Ph.D. in applied math at Purdue University in Dec 2021 and my thesis is <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>. -->
 
-<!--- Selected Publications I am furtunate to work with: [Shikai Fang](https://users.cs.utah.edu/~shikai/), [Yixin Tan](https://scholar.google.com/citations?user=3AGaybIAAAAJ&hl=zh-CN), [Kevin Rojas](https://kevinrojas1499.github.io/) during the summer internships since 2022. -->
-
+Interns I have or will work with: [Shikai Fang](https://users.cs.utah.edu/~shikai/), [Yixin Tan](https://scholar.google.com/citations?user=3AGaybIAAAAJ&hl=zh-CN), [Kevin Rojas](https://kevinrojas1499.github.io/), [Marin Biloš](https://openreview.net/profile?id=~Marin_Bilo%C5%A11), [Sarthak Mittal](https://sarthmit.github.io/).
 
 
 <!--- I got my Ph.D. in applied math at Purdue University in Dec 2021. -->
@@ -22,10 +21,10 @@ I am a researcher at Morgan Stanley. My interest is to study GPU-friendly sampli
 
 
 
-Contact: firstnamelastname056@gmail.com
+If you want to work with me, feel free to contact me at: firstnamelastname056@gmail.com
 
 
-<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li>  <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li>   <li> <a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank">OpenReview</a> </li>   </ul>  
+<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li> <ul class="pub-links"> <li> <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="_blank">Thesis</a> </li> <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li>   <li> <a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank">OpenReview</a> </li>   </ul>  
 
 
 News
