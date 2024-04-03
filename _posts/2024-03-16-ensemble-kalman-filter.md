@@ -215,7 +215,18 @@ $$\begin{align}
 **Proof** Denote by $\mathrm{\bar x=x-a}$ and $\mathrm{\bar y=y-b}$. The key lies in constructing a vector $\mathrm{\bar z}=\mathrm{M \bar x+N\bar y}$ s.t. $\mathrm{Cov(\bar z, \bar y)=M Cov(\bar x,\bar y)+N Cov(\bar y,\bar y)=0}$. It suffices to fix $\mathrm{M=I \ \text{and}\ N=-C B^{-1}}$.
 
 
-Now we have $\mathrm{\bar z}=\mathrm{\bar x-C B^{-1} \bar y}$ and it is clear that $\mathrm{E(Z)=0}$.
+Now we have $\mathrm{\bar z=\bar x-C B^{-1} \bar y,\ \  \bar x=\bar z+C B^{-1} \bar y}$. Since $\mathrm{E(Z)=0}$, we have
+$$\begin{align}
+\mathrm{E[\bar x|\bar y]}&=\mathrm{E[\bar z+C B^{-1} \bar y|\bar y]} = \mathrm{E[\bar z]+C B^{-1} \bar y=C B^{-1} \bar y}, \quad \mathrm{E[x|y]=a+C B^{-1} (y-b)} \notag.\\
+\end{align}$$
+
+$$\begin{align}
+\mathrm{Var[x|y]}&=\mathrm{Var[\bar x|\bar y]=Var[\bar z+C B^{-1} \bar y | \bar y]=Var[\bar z]}\notag \\
+  \mathrm{Var[\bar z]}&=\mathrm{Var[\bar x-C B^{-1}\bar y]=A+CB^{-1}C^\intercal-2 CB^{-1} C^\intercal,}\notag
+\end{align}$$
+
+where the first equality holds because $$\textcolor{darkblue}{\mathrm{Var[\bar z \\|\bar z]}=0}$$.
+
 
 
 

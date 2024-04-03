@@ -7,6 +7,8 @@ author_profile: true
 
 ### Denoising Diffusion Models
 
+* **W. Deng**<sup>*</sup><sup>#</sup>, Weijian Luo<sup>*</sup>, Yixin Tan<sup>*</sup>, Marin Bilos, Yu, Yuriy, T. Q. Chen. [One Variational Diffusion]. submitted. 2024
+
 * **W. Deng**<sup>*</sup><sup>#</sup>, Y. Chen<sup>*</sup>, T. Yang<sup>*</sup>, H. Du<sup>*</sup>, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). arXiv:2401.03228, 2024. A short version is accepted by Learning, Control, and Dynamical Systems [ICML'23 Workshop](https://openreview.net/pdf?id=WQNG9CLSk4)
 
 
