@@ -74,7 +74,8 @@ $$\begin{align}
 
 
 
-Kalman Filter {% cite bayes_filtering %} or state space model are powerful tools in finance for estimating and predicting the state of a system based on incomplete and noisy measurements. It describes the evolution of a system over time in terms of its unobservable states and observable outputs.
+Kalman Filter {% cite bayes_filtering %} or state space model are powerful tools in finance for estimating and predicting the state of a system based on incomplete and noisy measurements. It describes the evolution of a system over time in terms of its unobservable states and observable outputs. 
+
 <p align="center">
     <img src="/images/state-space.png" width="250" />
 </p>
@@ -82,13 +83,13 @@ The dynamics and the measurements follow a linear Gaussian model
 
 $$\begin{align}
 
-\mathrm{x}_n&=\mathrm{A}_{n-1} \mathrm{x}_{n-1} + \mathrm{w}_{n-1}, \notag\\
-\mathrm{y}_n&=\mathrm{H}_n\mathrm{x}_n + \mathrm{r}_n \label{linear_ss}.
+\mathrm{x}_n&=\mathrm{A}_{n-1} \mathrm{x}_{n-1} + \mathrm{w}_{n-1}, \ \ \mathrm{w}_{n-1}\sim \mathrm{N}(0, \mathrm{Q}_{n-1})\notag\\
+\mathrm{y}_n&=\mathrm{H}_n\mathrm{x}_n + \mathrm{r}_n, \ \ \mathrm{r}_n \sim \mathrm{N}(0, \mathrm{R}_n) \label{linear_ss}.
 \end{align}$$
 
 
 
-where $$\mathrm{x}_n\in\mathrm{R}^d$$ is the latent state and $$\mathrm{y}_n\in\mathrm{R}^p$$ is the measurement; $$\mathrm{w}_{n-1}\sim \mathrm{N}(0, \mathrm{Q}_{n-1})$$ and $$\mathrm{r}_n \sim \mathrm{N}(0, \mathrm{R}_n)$$; the prior $$\mathrm{x}_0\sim \mathrm{N}(\mathrm{u}_0, \mathrm{P}_0)$$. $$\mathrm{A}_{n-1}$$ is the transition matrix and $\mathrm{H}_n$ is the measurement model. Both matrices are assumed to be known or can be estimated through MLE.  
+where $$\mathrm{x}_n\in\mathrm{R}^d$$ is the latent state and $$\mathrm{y}_n\in\mathrm{R}^p$$ is the measurement; the prior $$\mathrm{x}_0\sim \mathrm{N}(\mathrm{u}_0, \mathrm{P}_0)$$. $$\mathrm{A}_{n-1}$$ is the transition matrix and $\mathrm{H}_n$ is the measurement model. Both matrices are assumed to be known or can be estimated through MLE.  
 
 
 The probabilistic formulation is
@@ -118,7 +119,7 @@ The update step follows
 $$\begin{align}
 \mathrm{S_n} &= \mathrm{H_n P_n^- H_n^\intercal + R_n}\notag,\\
 \mathrm{K_n} &= \mathrm{P_n^- H_n^\intercal S_n^{-1}}, \notag\\
-\mathrm{u_n} &= \mathrm{u_n^- + K_n (y_n - H_n u_n-)},\notag\\
+\mathrm{u_n} &= \mathrm{u_n^- + K_n (y_n - H_n u_n^-)},\notag\\
 \mathrm{P_n} &= \mathrm{P_n^- - K_n S_n K_n^\intercal} \notag.
 \end{align}$$
 
@@ -132,13 +133,13 @@ $$\begin{align}
 &\mathrm{\quad\ P(x_{n-1}, x_n|y_{1:n-1})}\notag\\
 &=\mathrm{P( x_n|x_{n-1}) P(x_{n-1}|y_{1:n-1})}\notag\\
 &=\mathrm{N(x_n| A_{n-1}x_{n-1}, Q_{n-1}) N(x_{n-1}| u_{n-1}, P_{n-1})}\notag\\
-&=\mathrm{N\bigg(\begin{bmatrix}\mathrm{x}_{n-1} \\ \mathrm{x}_n \end{bmatrix}\bigg|m', P'\bigg)},\notag
+&=\mathrm{N\bigg(\begin{bmatrix}\mathrm{x}_{n-1} \\ \mathrm{x}_n \end{bmatrix}\bigg|u', P'\bigg)},\notag
 \end{align}$$
 
 where 
 
 $$\begin{align*}
-\mathrm{m'}&=\begin{bmatrix}\mathrm{u_{n-1}} \\ \mathrm{A_{n-1} u_{n-1}}\end{bmatrix} \notag \\
+\mathrm{u'}&=\begin{bmatrix}\mathrm{u_{n-1}} \\ \mathrm{A_{n-1} u_{n-1}}\end{bmatrix} \notag \\
 \mathrm{P'}&=\begin{bmatrix} \mathrm{P_{n-1}} &  \mathrm{P_{n-1} A_{n-1}^\intercal} \\  \mathrm{A_{n-1}P_{n-1}} &  \mathrm{A_{n-1} P_{n-1} A_{n-1}^\intercal+ Q_{n-1}} \end{bmatrix}\end{align*}. \notag$$
  
 By Lemma A.2, the marginal $\mathrm{x}_n$ follows that
@@ -158,13 +159,13 @@ $$\begin{align}
 $$\begin{align}
 \mathrm{P(x_n, y_n|y_{1:n-1})}&\mathrm{=P(y_n|x_n) P(x_n|y_{1:n-1}),} \notag\\
                         &=\mathrm{N(y_n|H_n x_n, R_n) N(u_n^-, P_n^-)}\notag\\
-                             &=\mathrm{N}\bigg(\begin{bmatrix}\mathrm{x_n}\\ \mathrm{y_n} \end{bmatrix}\bigg| \mathrm{m}'', \mathrm{P}''\bigg),\notag\\
+                             &=\mathrm{N}\bigg(\begin{bmatrix}\mathrm{x_n}\\ \mathrm{y_n} \end{bmatrix}\bigg| \mathrm{u}'', \mathrm{P}''\bigg),\notag\\
 \end{align}$$
 
 where 
 
 $$\begin{align}
-\mathrm{m}''=\begin{bmatrix} \mathrm{m}_n' \\ \mathrm{H_n^- u_n^-} \end{bmatrix}, \qquad \mathrm{P}''=\begin{bmatrix} \mathrm{P}_n^- & \mathrm{P}_n^- \mathrm{H_n^\intercal} \\ \mathrm{H_n P_n^-} & \mathrm{H_n P_n^- H_n^\intercal + R_n} \end{bmatrix}.\notag
+\mathrm{u}''=\begin{bmatrix} \mathrm{u}_n' \\ \mathrm{H_n^- u_n^-} \end{bmatrix}, \qquad \mathrm{P}''=\begin{bmatrix} \mathrm{P}_n^- & \mathrm{P}_n^- \mathrm{H_n^\intercal} \\ \mathrm{H_n P_n^-} & \mathrm{H_n P_n^- H_n^\intercal + R_n} \end{bmatrix}.\notag
 \end{align}$$
 
 (III) By Lemma A.2, we have
@@ -176,7 +177,7 @@ $$\begin{align}
 where 
 
 $$\begin{align}
-\mathrm{m}_n &= \mathrm{u_n^- + K_n [y_n - H_n u_n^-]} \notag \\
+\mathrm{u}_n &= \mathrm{u_n^- + K_n [y_n - H_n u_n^-]} \notag \\
 \mathrm{P_n} &= \mathrm{P_n^- - K_n S_n K_n^\intercal} \notag \\
 \mathrm{S_n} &= \mathrm{H_n P_n^- H_n^\intercal + R_n} \notag \\
 \mathrm{K_n} &= \mathrm{P_n^- H_n^\intercal S_n^{-1}}. \notag\\
@@ -198,6 +199,14 @@ given that
 $$\begin{align}
 \mathrm{x}  &\sim \mathrm{N}(\mathrm{m}, \mathrm{P}) \notag\\
 \mathrm{y|x} &\sim \mathrm{N}(\mathrm{H}\mathrm{x}+\mathrm{u}, \mathrm{R}).\notag
+\end{align}$$
+
+**Proof** $$\mathrm{Var[y]}$$ can be solved by Lemma A.3. For another, we have
+
+$$\begin{align}
+\mathrm{Cov(x, y)}&=\mathrm{E[xy^\textcolor{blue}{\intercal}]-E[x]E[y]}\notag \\
+                 &=\mathrm{E[xx^\intercal H^\intercal+x u]-m (Hm+u)}\notag\\
+                 &=\mathrm{P H^\intercal}.\notag\\
 \end{align}$$
 
 **Lemma A.2** The conditional distribution of $\mathrm{x}$ given $\mathrm{y}$ follows that
@@ -227,8 +236,26 @@ $$\begin{align}
 
 where the first equality holds because $$\textcolor{darkblue}{\mathrm{Var[\bar z \\|\bar z]}=0}$$.
 
+**Lemma A.3** Law of Total Variance
 
+$$\begin{align}
+\mathrm{Var[y]=E[Var[y|x]] + Var[E[y|x]]}\notag.
+\end{align}$$
 
+**Proof** By the law of total expectation $$\mathrm{E[y]=E[E[y\\|x]]}$$ and $$\mathrm{E[y^2]=Var[y] + E[y]^2}$$, we have
+
+$$\begin{align}
+\mathrm{E[y^2]=E[Var[y|x] + E[y|x]^2]}\notag.
+\end{align}$$
+
+We further have
+
+$$\begin{align}
+\mathrm{Var[y]=E[y^2|x] - E[y]^2}&\mathrm{=E[Var[y|x] + E[y|x]^2]-E[y]^2}\notag \\
+                                &=\mathrm{E[Var[y|x] + E[y|x]^2]-E[E[y|x]]^2}\notag \\
+                                &=\mathrm{E[Var[y|x]] + E[E[y|x]^2]-E[[y|x]]^2}\notag \\
+                                &=\mathrm{E[Var[y|x]] + Var[E[y|x]]}.\notag
+\end{align}$$
 
 ### Ensemble Kalman Filter
 
