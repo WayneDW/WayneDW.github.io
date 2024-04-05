@@ -1,13 +1,13 @@
 ---
 title: 'Ensemble Kalman Filter'
-subtitle: A general template for time series predictions
+subtitle: A scalable template for high-dimensional time series predictions
 date: 2024-03-16
 permalink: /posts/ensemble_kalman_filter/
 category: Filter
 ---
 
 
-### Recursive least squares
+### Recursive Least Squares
 
 Consider linear regression
 
@@ -89,15 +89,22 @@ $$\begin{align}
 
 
 
-where $$\mathrm{x}_n\in\mathrm{R}^d$$ is the latent state and $$\mathrm{y}_n\in\mathrm{R}^p$$ is the measurement; the prior $$\mathrm{x}_0\sim \mathrm{N}(\mathrm{u}_0, \mathrm{P}_0)$$. $$\mathrm{A}_{n-1}$$ is the transition matrix and $\mathrm{H}_n$ is the measurement model. Both matrices are assumed to be known or can be estimated through MLE.  
+where $$\mathrm{x}_n\in\mathrm{R}^d$$ is the latent state and $$\mathrm{y}_n\in\mathrm{R}^p$$ is the measurement. $$\mathrm{A}_{n-1}$$ is the transition matrix and $\mathrm{H}_n$ is the measurement model. Both matrices are assumed to be known or can be estimated through MLE. In weather forecasts, the state and observation dimensions are often large such that $d\geq 10^7$ and $p\geq 10^5$ {% cite e_kf %}.  
 
 
 The probabilistic formulation is
 
 $$\begin{align}
-\mathrm{P}(\mathrm{x}_n|\mathrm{x}_{n-1})&=\mathrm{N}(\mathrm{x}_n|\mathrm{A}_{n-1} \mathrm{x}_{n-1}, \mathrm{Q}_{n-1}), \notag \\
+\mathrm{P}(\mathrm{x}_n|\mathrm{x}_{n-1})&=\mathrm{N}(\mathrm{x}_n|\mathrm{A}_{n-1} \mathrm{x}_{n-1}, \mathrm{Q}_{n-1}) \notag \\
 \mathrm{P}(\mathrm{y}_n|\mathrm{x}_n)&=\mathrm{N}(\mathrm{y}_n|\mathrm{H}_n\mathrm{x}_n, \mathrm{R}_n) \notag.
 \end{align}$$
+
+Assume the filtering distribution given the information up to step $n-1$, where $$n\in \mathrm{N}^+$$, follows
+
+$$\begin{align}
+\mathrm{P}(\mathrm{x}_{n-1}|\mathrm{y}_{1:n-1})&=\mathrm{N}(\mathrm{x}_{n-1}|\mathrm{u}_{n-1}, \mathrm{P}_{n-1}). \label{filter_dist}\\
+\end{align}$$
+
 
 **Theorem** The Bayesian filtering equations \eqref{linear_ss} can be evaluated in a closed-form Gaussian distribution:
 
@@ -118,10 +125,12 @@ The update step follows
 
 $$\begin{align}
 \mathrm{S_n} &= \mathrm{H_n P_n^- H_n^\intercal + R_n}\notag,\\
-\mathrm{K_n} &= \mathrm{P_n^- H_n^\intercal S_n^{-1}}, \notag\\
+\mathrm{K_n} &= \mathrm{P_n^- H_n^\intercal S_n^{-1}}, \label{kalman_gain}\\
 \mathrm{u_n} &= \mathrm{u_n^- + K_n (y_n - H_n u_n^-)},\notag\\
-\mathrm{P_n} &= \mathrm{P_n^- - K_n S_n K_n^\intercal} \notag.
+\mathrm{P_n} &= \mathrm{P_n^- - K_n S_n K_n^\intercal} \notag,
 \end{align}$$
+
+where $\mathrm{K_n}$ is the Kalman gain matrix of size $d\times p$. Note that since storing and inverting the matrix is quite expensive when $d$ or $p$ is large. Approximations are inevitable. 
 
 
 
@@ -259,6 +268,30 @@ $$\begin{align}
 
 ### Ensemble Kalman Filter
 
-#### Appendix
-### Code 
+Kalman filter is not very scalable to high dimensions. To tackle this issue, ensemble Kalman filter (EnKF) proposes to propagate samples through a deterministic transport instead of employing the expensive Kalman gain $\mathrm{K}_n$ in Eq.\eqref{kalman_gain}. As a derivative-free Monte Carlo filter, the ensemble of samples implicitly yields a form of dimension reduction and greatly accelerates the algorithm {% cite e_kf %}.
+
+Given samples $$\{\mathrm{\widehat x}_{n-1}^{(i)}\}_{i=1}^{N}$$ simulated from \eqref{filter_dist}, particles at step $n$ can be updated via Eq.\eqref{linear_ss}: 
+
+$$\begin{align}
+\mathrm{\widehat x}_{n}^{(i)} =  \mathrm{f}(\widehat x_{n-1}^{(i)})+ \mathrm{w}_{n-1}^{(i)}, \ \ \mathrm{w}_{n-1}^{(i)}\sim \mathrm{N}(0, \mathrm{Q}_{n-1}).\notag
+\end{align}$$
+
+where $\mathrm{f}$ can be linear function driven by $\mathrm{A}_{n-1}$ or some general nonlinear functions. 
+
+The Kalman gain $\mathrm{K}_n$ in Eq.\eqref{kalman_gain} can be approximated by $\mathrm{\widehat K}_n$, which follows that
+
+$$\begin{align}
+\mathrm{\widehat S_n} &= \mathrm{H_n \widehat P_n^- H_n^\intercal + R_n}\notag\\
+\mathrm{\widehat K_n} &= \mathrm{\widehat P_n^- H_n^\intercal \widehat S_n^{-1}}, \notag\\
+\end{align}$$
+
+where $\mathrm{\widehat P}_n$ is the empirical covariance of $$\{\mathrm{\widehat x}_{n-1}^{(i)}\}_{i=1}^{N}$$ instead of the true covariance $\mathrm{P}_n$. 
+
+#### Large Sample Asymptotics
+
+Intuitively, we expect EnKF will converge to KF when $\mathrm{N} \rightarrow \infty$ by invoking the law of large numbers. However, this only holds given linear state transitions with well-posed priors {% cite EnKF_sample_asymptotics %}. 
+
+* For state space system with Gaussian priors, the empirical mean and covariance via EnKF converges to the exact KF in the classical order of $\frac{1}{\sqrt{\mathrm{N}}}$.
+
+* When $\mathrm{f}$ is some general nonlinear function and when the prior is not linearly initialized, EnKF doesn't converge to KF as $\mathrm{N} \rightarrow \infty$.
 
