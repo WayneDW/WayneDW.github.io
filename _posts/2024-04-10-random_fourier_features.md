@@ -117,7 +117,7 @@ $$\begin{align}
 \end{align}$$
 
 
-This implies that given sufficiently many samples of $$\mathrm{\{w_i\}_{i=1}^R}$$, we use approximate the kernel 
+This implies that given sufficiently many samples of $$\mathrm{\{w_i\}_{i=1}^R}$$, we use random samples to approximate the kernel 
 
 $$\begin{align} 
 \mathrm{k_{c^{-1/2}}(x, y) \approx E[\cos(w^\intercal (x-y) )] \approx \frac{1}{R} \sum_{i=1}^R \tilde z_i^\intercal \tilde z_i}. \notag  
