@@ -1,9 +1,9 @@
 ---
 title: 'Random Fourier Features'
-subtitle: An Monte Carlo sampler for RBF kernels
+subtitle: An Monte Carlo sampler for radial basis function kernels
 date: 2024-04-02
 permalink: /posts/random_fourier_features/
-category: Regression
+category: Sampling
 ---
 
 ### A Weight-space View of Linear Regression 
@@ -88,7 +88,7 @@ $$\textcolor{blue}{\text{Can we do better?}}$$
 ### Random Fourier Features
 
 
-To tackle this issue, random Fourier features {% cite random_features %} propose an unbiased Monte Carlo approximation to approximate the RBF kernel. Such transformations have widely been used in the time embedding of transformer models and also used to demonstrate DNN models are faster than trees {% cite num_embed %}.
+To tackle this issue, random Fourier features {% cite random_features %} propose an unbiased Monte Carlo approximation to approximate the radial basis function (RBF) kernel. Such transformations have widely been used in the time embedding of transformer models and also used to demonstrate DNN models are faster than trees {% cite num_embed %}.
 
 Define $$\mathrm{f(x):= \exp\{i w^\intercal x\}}$$. Given a Gaussian vector $\mathrm{w\sim N(0, c I)}$, we have that
 
