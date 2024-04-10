@@ -1,7 +1,7 @@
 ---
 title: 'Random Fourier Features'
 subtitle: An Monte Carlo sampler for radial basis function kernels
-date: 2024-04-02
+date: 2024-04-10
 permalink: /posts/random_fourier_features/
 category: Sampling
 ---
