@@ -88,7 +88,7 @@ $$\textcolor{blue}{\text{Can we do better?}}$$
 ### Random Fourier Features
 
 
-To tackle this issue, random Fourier features {% cite random_features %} propose an unbiased Monte Carlo approximation to approximate the radial basis function (RBF) kernel. Such transformations have widely been used in the time embedding of DNN models, such as transformers, and also used to demonstrate DNN are faster than trees {% cite num_embed %} in tabular data.
+To tackle this issue, random Fourier features {% cite random_features %} propose an unbiased Monte Carlo approximation to approximate the radial basis function (RBF) kernel. Such transformations have widely been used in the sinusoidal embeddings of [attentions](https://github.com/facebookresearch/fairseq/blob/bedb259bf34a9fc22073c13a1cee23192fa70ef3/fairseq/modules/sinusoidal_positional_embedding.py#L15) {% cite attention_need %}, and also used to demonstrate DNN are faster than trees {% cite num_embed %} in tabular data.
 
 Define $$\mathrm{f(x):= \exp\{i w^\intercal x\}}$$. Given a Gaussian vector $\mathrm{w\sim N(0, c I)}$, we have that
 
