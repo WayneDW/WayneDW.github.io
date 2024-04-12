@@ -148,3 +148,6 @@ The following is a demo that describes the connections:
     <img src="/images/ODE_PDE_SDE.png" width="300" />
 </p>
 
+#### Acknowledge
+
+Big thanks to my friend Jiang Nan for helping build this website!
