@@ -109,9 +109,9 @@ $$\begin{align}
 **Theorem** The Bayesian filtering equations \eqref{linear_ss} can be evaluated in a closed-form Gaussian distribution:
 
 $$\begin{align}
-\mathrm{P(x_n|y_{1:n-1})}&=\mathrm{N(x_n|u_n^-, P_n^-)},\notag \\
-\mathrm{P(x_n|y_{1:n})}&=\mathrm{N(x_n|u_n, P_n)},\notag \\
-\mathrm{P(y_n|y_{1:n-1})}&=\mathrm{N(y_n|H_n u_n, S_n)},\notag
+\mathrm{P(x_n|y_{1:n-1})}&=\mathrm{N(x_n|u_n^-, P_n^-)}\notag \\
+\mathrm{P(x_n|y_{1:n})}&=\mathrm{N(x_n|u_n, P_n)}\notag \\
+\mathrm{P(y_n|y_{1:n-1})}&=\mathrm{N(y_n|H_n u_n, S_n)}.\notag
 \end{align}$$
 
 The prediction step follows
@@ -124,9 +124,9 @@ $$\begin{align}
 The update step follows
 
 $$\begin{align}
-\mathrm{S_n} &= \mathrm{H_n P_n^- H_n^\intercal + R_n}\notag,\\
-\mathrm{K_n} &= \mathrm{P_n^- H_n^\intercal S_n^{-1}}, \label{kalman_gain}\\
-\mathrm{u_n} &= \mathrm{u_n^- + K_n (y_n - H_n u_n^-)},\notag\\
+\mathrm{S_n} &= \mathrm{H_n P_n^- H_n^\intercal + R_n}\notag\\
+\mathrm{K_n} &= \mathrm{P_n^- H_n^\intercal S_n^{-1}} \label{kalman_gain}\\
+\mathrm{u_n} &= \mathrm{u_n^- + K_n (y_n - H_n u_n^-)}\notag\\
 \mathrm{P_n} &= \mathrm{P_n^- - K_n S_n K_n^\intercal} \notag,
 \end{align}$$
 
