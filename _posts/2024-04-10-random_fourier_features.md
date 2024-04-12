@@ -92,8 +92,6 @@ To tackle this issue, random Fourier features {% cite random_features %} propose
 
 Define $$\mathrm{f(x):= \exp\{i w^\intercal x\}}$$. Given a Gaussian vector $\mathrm{w\sim N(0, c I)}$, we have that
 
-Use a more general variance.
-
 $$\begin{align}
 \mathrm{E[f(x) f(y)^*]} &= \mathrm{E\big[\exp\big(iw^\intercal (x-y) \big)\big]} \notag \\
                &= \mathrm{(2\pi \sqrt{c})^{-D/2}\int \exp\bigg(-\frac{1}{2c} w^\intercal w\bigg)\exp(i w^\intercal \underbrace{(x-y)}_{:=\delta}) dw} \notag \\
