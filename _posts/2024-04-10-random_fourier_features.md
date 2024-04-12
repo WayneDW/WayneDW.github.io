@@ -38,9 +38,9 @@ $\begin{align}
 \mathrm{p(\bar w|X,y)\sim N\bigg(\sigma^{-2} A^{-1}\Phi y, A^{-1} \bigg),}\label{post_v1}
 \end{align}$
 
-where $$\mathrm{\Phi\equiv \Phi(X)}=\begin{bmatrix} \mathrm{\phi_1(x_1)} & \cdots & \mathrm{\phi_N(x_1)} \\ 
+where $$\mathrm{\Phi\equiv \Phi(X)}=\begin{bmatrix} \mathrm{\phi_1(x_1)} & \cdots & \mathrm{\phi_1(x_n)} \\ 
                                      \cdots & \cdots & \cdots \\  
-                                     \mathrm{\phi_1(x_n)} & \cdots & \mathrm{\phi_N(x_n)} \end{bmatrix}$$ is a $\mathrm{N\times n}$ matrix and $\mathrm{A=\sigma_n^{-2} \Phi \Phi^\intercal + \Sigma^{-1}}$. 
+                                     \mathrm{\phi_N(x_1)} & \cdots & \mathrm{\phi_N(x_n)} \end{bmatrix}$$ is a $\mathrm{N\times n}$ matrix and $\mathrm{A=\sigma_n^{-2} \Phi \Phi^\intercal + \Sigma^{-1}}$. 
                                      
 The distribution of the predictions given a test set $\mathrm{X}_{*}$ follows that
 
