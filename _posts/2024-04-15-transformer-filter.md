@@ -145,8 +145,9 @@ the state estimates from transformer filters are $$\mathrm{\varepsilon}$$-close 
 
 
 
-#### Conclusion
+#### Conclusion and Future Works
 
 * Positional embedding is not needed in transformers to approximate Kalman filter.
-* The predictions are not affected given permuted historical state and observation estimates???
+* The predictions are not affected given permuted historical state and observation estimates (TBD).
+* What is the motivation of the multi-head mechanism in attention layers?
 
