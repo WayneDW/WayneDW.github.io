@@ -3,7 +3,7 @@ title: 'Ensemble Kalman Filter'
 subtitle: A scalable template for high-dimensional time series predictions
 date: 2024-04-02
 permalink: /posts/ensemble_kalman_filter/
-category: Filter
+category: State Space Model
 ---
 
 

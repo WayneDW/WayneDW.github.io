@@ -3,7 +3,7 @@ title: 'Transformer Filter'
 subtitle: Can a Transformer Represent a Kalman Filter?
 date: 2024-04-15
 permalink: /posts/transformer_filter/
-category: Filter
+category: State Space Model
 ---
 
 Transformers have achieved unprecedented successes in large language models. Transformers utilize non-recurrent structures and have achieved great efficiency in modeling long sequences. However, it is still not clear if transformers can model state-space models or Kalman filters with arbitrary accuracy.
