@@ -33,7 +33,7 @@ News
 
 Apr, 2024. 2 UAI (+1 Oral) and 1 AISTAT are accpeted! 
 
-Feb, 2024. 2 ICML + 3 UAI submitted + 1 JCGS (revision)
+Feb, 2024. 2 ICML submitted + 1 JCGS (revision)
 
 Dec, 2023. Participate [Transport, Diffusion, and Sampling Workshop](https://events.simonsfoundation.org/event/335b8972-e63d-4672-82f3-4dd95868cb40/websitePage:5849ec81-d030-4248-b300-3290be94dbdf?_gl=1*28zgwu*_ga*MzkzMDg3OTI0LjE3MDA5MzkyMjM.*_ga_C1G2F4HXQL*MTcwMTI3NzMxNi4zLjEuMTcwMTI3Nzk1Ni4wLjAuMA..) at Flatiron Institute.
 
