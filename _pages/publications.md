@@ -9,7 +9,7 @@ author_profile: true
 
 * **W. Deng**<sup>*</sup><sup>#</sup>, W. Luo<sup>*</sup>, Y. Tan<sup>*</sup>, M. Biloš, Yu, Yuriy, T. Q. Chen. [One Variational Diffusion]. submitted. 2024
 
-* **W. Deng**<sup>*</sup><sup>#</sup>, Y. Chen<sup>*</sup>, T. Yang<sup>*</sup>, H. Du<sup>*</sup>, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). arXiv:2401.03228, 2024. A short version is accepted by Learning, Control, and Dynamical Systems [ICML'23 Workshop](https://openreview.net/pdf?id=WQNG9CLSk4)
+* **W. Deng**<sup>*</sup><sup>#</sup>, Y. Chen<sup>*</sup>, T. Yang<sup>*</sup>, H. Du<sup>*</sup>, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**)
 
 
 * Y. Chen<sup>α</sup>, **W. Deng**<sup>α</sup><sup>#</sup>, S. Fang<sup>α</sup>, F. Li<sup>α</sup>, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023 (α: alphabetical order, #: Correspondence)
@@ -18,7 +18,7 @@ author_profile: true
 
 ### Monte Carlo Methods
 
-* **W. Deng**<sup>*</sup>, Q. Zhang<sup>*</sup>, Q. Feng<sup>*</sup>, F. Liang, G. Lin. [Non-reversible Parallel Tempering for Deep Posterior Approximation](https://arxiv.org/pdf/2211.10837.pdf). AAAI-23 (**Oral Presentation**)
+* **W. Deng**<sup>*</sup>, Q. Zhang<sup>*</sup>, Q. Feng<sup>*</sup>, F. Liang, G. Lin. [Non-reversible Parallel Tempering for Deep Posterior Approximation](https://arxiv.org/pdf/2211.10837.pdf). AAAI-23 (**Oral**)
 
 * **W. Deng**, G. Lin, F. Liang. [An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization](https://link.springer.com/epdf/10.1007/s11222-022-10120-3?sharing_token=3D38cUKCcTFwSnC9tCumefe4RwlQNchNByi7wbcMAY5wU6YiY0TlM_GKKke2kamOPjMBvVXx8MgkcpmS8OGmuzOCh2eHt8iYVjbUfb8rmQwWWTeCWeZPq4aH8jFXlvv6zduuChKpiW0iM9BB02fHctPD5gZFj3jBGqfPzBAyIIE%3D). Statistics and Computing, (2022) 32:58 [\[code\]](https://github.com/WayneDW/Global-optimization-via-an-adaptively-weighted-stochastic-gradient-MCMC)
 
@@ -33,7 +33,7 @@ author_profile: true
 * **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). NeurIPS 2020 [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf)[\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions) [\[知乎\]](https://zhuanlan.zhihu.com/p/267633636)
 
 
-* **W. Deng**, Y.-A. Ma, Z. Song, Q. Zhang, G. Lin. [On Convergence of Federated Averaging Langevin Dynamics](https://arxiv.org/pdf/2112.05120.pdf). arXiv 2112.05120.
+* **W. Deng**, Y.-A. Ma, Z. Song, Q. Zhang, G. Lin. [On Convergence of Federated Averaging Langevin Dynamics](https://arxiv.org/pdf/2112.05120.pdf). UAI 2024
 
 <!--- * **W. Deng**, Q. Zhang. User-friendly (Some Secret) Sampling Algorithms for Deep Learning. 2021. On progress. -->
 
