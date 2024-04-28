@@ -31,6 +31,8 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 News
 =====
 
+Apr, 2024. [Reflected Schrödinger Bridge for Constrained Generative Modeling] is accepted by UAI'24 as Oral. 
+
 Apr, 2024. 2 UAI (+1 Oral) and 1 AISTAT are accpeted! 
 
 Feb, 2024. 2 ICML submitted + 1 JCGS (revision)
