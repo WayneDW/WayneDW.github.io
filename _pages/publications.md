@@ -9,7 +9,7 @@ author_profile: true
 
 * **W. Deng**<sup>*</sup><sup>#</sup>, W. Luo<sup>*</sup>, Y. Tan<sup>*</sup>, M. Biloš, Yu, Yuriy, T. Q. Chen. [One Variational Diffusion]. submitted. 2024
 
-* **W. Deng**<sup>*</sup><sup>#</sup>, Y. Chen<sup>*</sup>, T. Yang<sup>*</sup>, H. Du<sup>*</sup>, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**)
+* **W. Deng**<sup>*</sup><sup>#</sup>, Y. Chen<sup>*</sup>, T. Yang<sup>*</sup>, H. Du<sup>*</sup>, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**) Acceptance rate **5%**.
 
 
 * Y. Chen<sup>α</sup>, **W. Deng**<sup>α</sup><sup>#</sup>, S. Fang<sup>α</sup>, F. Li<sup>α</sup>, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023 (α: alphabetical order, #: Correspondence)
