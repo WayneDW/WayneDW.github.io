@@ -33,6 +33,12 @@ News
 
 Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as Oral. 
 
+<p align="center">
+    <img src="/images/flower.gif" width="150" />
+    <img src="/images/star.gif" width="150" />
+    <img src="/images/heart.gif" width="150" />
+</p>
+
 Apr, 2024. 2 UAI (+1 Oral) and 1 AISTAT are accpeted! 
 
 Feb, 2024. 2 ICML submitted + 1 JCGS (revision)
