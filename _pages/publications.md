@@ -35,12 +35,20 @@ author_profile: true
 * **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). NeurIPS 2020 [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf)[\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions) [\[知乎\]](https://zhuanlan.zhihu.com/p/267633636)
 
 
+### Thompson Sampling
 
-<!--- * **W. Deng**, Q. Zhang. User-friendly (Some Secret) Sampling Algorithms for Deep Learning. 2021. On progress. -->
+* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). NeurIPS 2021 **Spotlight** (<3% acceptance rate)
 
-<!--- * **W. Deng**<sup>*</sup>, Y. Ma<sup>*</sup>, Z. Song<sup>*</sup>, G. Lin. On the Convergence of Some Distributed Sampling Algorithms. 2021. On progress -->
+* H Zheng, W Deng, C Moya, G Lin. [Accelerating Approximate Thompson Sampling with Underdamped Langevin Monte Carlo](https://arxiv.org/abs/2401.11665). AISTAT 2024
 
-<!---  [\[video\]](https://nips.cc/virtual/2020/public/poster_b5b8c484824d8a06f4f3d570bc420313.html)  -->
+### Sparse Deep Learning and Applications
+
+* **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). NeurIPS 2019 [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
+
+* **W. Deng**, J. Pan, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). WSDM 2021 [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions) ![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/a-sparse-deep-factorization-machine-for/click-through-rate-prediction-on-criteo)
+
+* Y. Wang, **W. Deng**, G. Lin. [An Adaptive Hessian Approximated Stochastic Gradient MCMC Method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). Journal of Computational Physics. Vol 432, 2021.
+
 
 
 
