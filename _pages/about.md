@@ -31,7 +31,7 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 News
 =====
 
-Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as Oral. 
+Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as Oral (<3% acceptance rate). 
 
 <p align="center">
     <img src="/images/flower.gif" width="100" />
