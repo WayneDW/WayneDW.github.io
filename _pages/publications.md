@@ -7,7 +7,7 @@ author_profile: true
 
 ### Denoising Diffusion Models
 
-* **W. Deng**<sup>*</sup><sup>#</sup>, W. Luo, Y. Tan, M. Biloš, Yu, Yuriy, T. Q. Chen. [Variational Schr\"odinger Diffusion Models]. ICML 2024. To appear
+* **W. Deng**<sup>*</sup><sup>#</sup>, W. Luo, Y. Tan, M. Biloš, Yu, Yuriy, T. Q. Chen. Variational Schrödinger Diffusion Models. ICML 2024. To appear
 
 * **W. Deng**<sup>*</sup><sup>#</sup>, Y. Chen<sup>*</sup>, T. Yang<sup>*</sup>, H. Du<sup>*</sup>, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**) Acceptance rate **2.7%**.
 
