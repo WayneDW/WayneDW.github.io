@@ -102,7 +102,7 @@ $$\begin{align}
 
 where $*$ denotes the conjugate transpose.
 
-#### Empirical approximations
+#### Empirical Approximations
 
 Define $$\mathrm{\tilde z^\intercal=\begin{bmatrix} \mathrm{\cos(w^\intercal x)} \\ \mathrm{\sin(w^\intercal x)} \end{bmatrix}}$$, where $\mathrm{w\sim N(0, c)}$. In practice, we want to approximate 
 
