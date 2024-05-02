@@ -7,7 +7,7 @@ author_profile: true
 
 ### Denoising Diffusion Models
 
-* **W. Deng**<sup>*</sup><sup>#</sup>, W. Luo<sup>*</sup>, Y. Tan<sup>*</sup>, M. Biloš, Yu, Yuriy, T. Q. Chen. [One Variational Diffusion]. submitted. 2024
+* **W. Deng**<sup>*</sup><sup>#</sup>, W. Luo, Y. Tan, M. Biloš, Yu, Yuriy, T. Q. Chen. [Variational Schr\"odinger Diffusion Models]. ICML 2024. To appear
 
 * **W. Deng**<sup>*</sup><sup>#</sup>, Y. Chen<sup>*</sup>, T. Yang<sup>*</sup>, H. Du<sup>*</sup>, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**) Acceptance rate **2.7%**.
 
@@ -17,6 +17,8 @@ author_profile: true
 
 
 ### Monte Carlo Methods
+
+* H. Zheng, H. Du, Q. Feng, W. Deng, G. Lin. [Constrained Exploration via Reflected Replica Exchange Stochastic Gradient Langevin Dynamics]. ICML 2024. To appear
 
 * **W. Deng**, Q. Zhang<sup>*</sup>, Y.-A. Ma, Z. Song, G. Lin. [On Convergence of Federated Averaging Langevin Dynamics](https://arxiv.org/pdf/2112.05120.pdf). UAI 2024
 

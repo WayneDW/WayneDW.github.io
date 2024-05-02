@@ -31,6 +31,8 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 News
 =====
 
+Apr, 2024. Two ICMLs are accepted! 
+
 Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as Oral (<3% acceptance rate). 
 
 <p align="center">
@@ -41,7 +43,7 @@ Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is 
 
 Apr, 2024. 2 UAI (+1 Oral) and 1 AISTAT are accpeted! 
 
-Feb, 2024. 2 ICML submitted + 1 JCGS (revision)
+Feb, 2024. 1 JCGS (revision)
 
 Dec, 2023. Participate [Transport, Diffusion, and Sampling Workshop](https://www.simonsfoundation.org/event/measure-transport-diffusion-processes-and-sampling-workshop/) at Flatiron Institute.
 
