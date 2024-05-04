@@ -31,7 +31,7 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 News
 =====
 
-Apr, 2024. Two ICMLs are accepted! 
+Apr, 2024. [Variational Schrödinger Diffusion Models] is accepted by ICML'24! Schrödinger is not only elegant but also scalable now! 
 
 Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as Oral (<3% acceptance rate). 
 
@@ -41,7 +41,7 @@ Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is 
     <img src="/images/heart.gif" width="70" />
 </p>
 
-Apr, 2024. 2 UAI (+1 Oral) and 1 AISTAT are accpeted! 
+Apr, 2024. 2 ICML, 2 UAI (+1 Oral) and 1 AISTAT are accpeted! 
 
 Feb, 2024. 1 JCGS (revision)
 
