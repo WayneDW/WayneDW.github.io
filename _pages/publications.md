@@ -54,4 +54,6 @@ author_profile: true
 
 
 
-(*) denotes equal contribution.
+(*): equal contribution.
+(α): alphabetical order.
+(#): correspondence
