@@ -47,6 +47,8 @@ Apr, 2024. 2 ICML, 2 UAI (+1 Oral) and 1 AISTAT are accpeted!
 
 Feb, 2024. 1 JCGS (revision)
 
+Feb, 2024. Talk at [Statistics Colloquium at UConn](https://statistics.uconn.edu/2024/01/10/wei-deng/)
+
 Dec, 2023. Participate [Transport, Diffusion, and Sampling Workshop](https://www.simonsfoundation.org/event/measure-transport-diffusion-processes-and-sampling-workshop/) at Flatiron Institute.
 
 Nov, 2023. Talk at [Financial Mathematics Seminar at FSU](https://www.math.fsu.edu/finmath/seminars.php)
