@@ -31,7 +31,7 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 News
 =====
 
-Apr, 2024. [Variational Schrödinger Diffusion Models](https://www.google.com) is accepted by ICML'24! Schrödinger diffusion is not only elegant but also **scalable** now by linearizing the forward score functions. Simulation-free property is all we need for scalability.
+Apr, 2024. [Variational Schrödinger Diffusion Models](https://www.google.com) is accepted by ICML'24! Schrödinger diffusion is **scalable** now by linearizing the forward score functions. Simulation-free property is all we need for scalability.
 
 Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as Oral (<3% acceptance rate). 
 
