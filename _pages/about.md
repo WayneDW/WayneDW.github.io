@@ -35,7 +35,7 @@ News
 
 Apr, 2024. [Variational Schrödinger Diffusion Models](https://www.google.com) is accepted by ICML'24! Schrödinger diffusion is **scalable** now by linearizing the forward scores. Simulation-free property is all we need for scalability.
 
-Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as **Oral** (<3% acceptance rate). Reflected Schrödinger inherits the linear convergence of couplings via entropic optimal transport on bounded domains.
+Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as **Oral** (<3% acceptance rate). Reflected Schrödinger has the linear convergence of couplings via entropic optimal transport on bounded domains.
 
 <p align="center">
     <img src="/images/flower.gif" width="70" />
