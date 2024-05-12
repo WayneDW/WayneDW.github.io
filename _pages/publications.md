@@ -39,7 +39,7 @@ author_profile: true
 
 ### Thompson Sampling
 
-* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). NeurIPS 2021 **Spotlight** (<7% acceptance rate)
+* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). NeurIPS 2021 **Spotlight** (3% acceptance rate)
 
 * H Zheng, **W Deng**, C Moya, G Lin. [Accelerating Approximate Thompson Sampling with Underdamped Langevin Monte Carlo](https://arxiv.org/abs/2401.11665). AISTAT 2024
 
