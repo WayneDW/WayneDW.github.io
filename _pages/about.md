@@ -18,8 +18,7 @@ Interns I (* directly) work with: [Shikai Fang\*](https://users.cs.utah.edu/~shi
 
 
 
-I got my Ph.D. in applied math at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. My thesis is: <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>
-
+I got my Ph.D. at Purdue University in Dec 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. 
 
 
 Feel free to contact me at: firstnamelastname056@gmail.com
