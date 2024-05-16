@@ -18,7 +18,7 @@ author_profile: true
 
 ### Monte Carlo Methods
 
-* H. Zheng, H. Du, Q. Feng, **W. Deng**, G. Lin. [Constrained Exploration via Reflected Replica Exchange Stochastic Gradient Langevin Dynamics](https://arxiv.org/pdf/2405.07839). ICML 2024. 
+* H. Zheng, H. Du, Q. Feng, **W. Deng**<sup>#</sup>, G. Lin. [Constrained Exploration via Reflected Replica Exchange Stochastic Gradient Langevin Dynamics](https://arxiv.org/pdf/2405.07839). ICML 2024. 
 
 * **W. Deng**, Q. Zhang, Y.-A. Ma, Z. Song, G. Lin. [On Convergence of Federated Averaging Langevin Dynamics](https://arxiv.org/pdf/2112.05120.pdf). UAI 2024
 
