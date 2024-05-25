@@ -1,6 +1,6 @@
 ---
 title: 'Transformer Filter'
-subtitle: Can a Transformer Represent a Kalman Filter?
+subtitle: Can a Transformer represent a Kalman filter?
 date: 2024-04-15
 permalink: /posts/transformer_filter/
 category: State Space Model
