@@ -8,7 +8,7 @@ author_profile: true
 
 
 
-I am a researcher at Morgan Stanley. My interest is to study GPU-friendly sampling, diffusion, filtering, and transport methods. The applications include, but not limited to generative models and time series. 
+I am a researcher at Morgan Stanley. My interest is to study sampling, diffusion, filtering, and transport methods. The applications include, but not limited to generative models and time series. 
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
@@ -18,7 +18,7 @@ Interns I (* directly) work with: [Shikai Fang\*](https://users.cs.utah.edu/~shi
 
 
 
-I got my Ph.D. at Purdue University in 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. 
+<!---  I got my Ph.D. at Purdue University in 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. -->
 
 
 Feel free to contact me at: firstnamelastname056@gmail.com
