@@ -30,6 +30,8 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 News
 =====
 
+Jun, 2024. 1 JCGS is accpeted. Federated Hamiltonian Monte Carlo can be faster than Federated Langevin dynamics.
+
 Apr, 2024. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795) is accepted by ICML'24! Schrödinger diffusion is **scalable** now by linearizing the forward scores. Simulation-free property is all we need for scalability.
 
 Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as **Oral** (<3% acceptance rate). Reflected Schrödinger has the linear convergence of couplings via entropic optimal transport on bounded domains.
@@ -41,8 +43,6 @@ Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is 
 </p>
 
 Apr, 2024. 2 ICML, 2 UAI (+1 Oral) and 1 AISTAT are accpeted! 
-
-Feb, 2024. 1 JCGS (revision)
 
 Feb, 2024. Talk at [Statistics Colloquium at UConn](https://statistics.uconn.edu/2024/01/10/wei-deng/)
 
