@@ -4,7 +4,7 @@ title: "Wei Deng"
 excerpt: "what is this?"
 author_profile: true
 ---
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/lake_tahoe.png"></p>
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/mont_tremblant.png"></p>
 
 
 
