@@ -42,7 +42,7 @@ Applying the [Woodbury matrix identity](https://en.wikipedia.org/wiki/Woodbury_m
 the item $\mathrm{P}_{n+1}$ in Eq.\eqref{decomposition} can be simplified
 
 $$\begin{align}
-\mathrm{P}_{n+1}&=\mathrm{P}_n - \mathrm{P}_n \mathrm{x}_{n+1}^\intercal [\underbrace{1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_n^\intercal}_{\mathrm{S}_{n+1} \text{, which is a scalar.}}]^{-1} \mathrm{x}_{n+1} \mathrm{P}_n\notag\\
+\mathrm{P}_{n+1}&=\mathrm{P}_n - \mathrm{P}_n \mathrm{x}_{n+1}^\intercal [\underbrace{1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_{n+1}^\intercal}_{\mathrm{S}_{n+1} \text{, which is a scalar.}}]^{-1} \mathrm{x}_{n+1} \mathrm{P}_n\notag\\
 &=\mathrm{P}_n - \mathrm{K}_{n+1} \mathrm{S}_{n+1} \mathrm{K}_{n+1}^\intercal,\label{P_solution} \\
 \text{where}\ \  \mathrm{K}_{n+1}&=\mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{S}_{n+1}^{-1}. \label{def_K}
 \end{align}$$
@@ -50,21 +50,21 @@ $$\begin{align}
 Combining Eq.\eqref{decomposition} and Eq.\eqref{P_solution}, we have 
 
 $$\begin{align}
-\widehat\beta_{n+1} &= (\mathrm{P}_n - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal) \big(\mathrm{P}_{n}^{-1}\widehat\beta_n +  \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \big) \notag \\
-&=\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal \mathrm{P}_{n}^{-1}\widehat\beta_n + \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1}  - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
-&\overset{\eqref{def_K}}{=}\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{x}_{n+1}\widehat\beta_n + \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1}  - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
-&\overset{\eqref{def_K}}{=}\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{x}_{n+1}\widehat\beta_n + \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1}  - \mathrm{K}_{n+1} \mathrm{x}_{n+1} \mathrm{P}_{n} \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
+\widehat\beta_{n+1} &= (\mathrm{P}_n - \mathrm{K}_{n+1} \mathrm{S}_{n+1} \mathrm{K}_{n+1}^\intercal) \big(\mathrm{P}_{n}^{-1}\widehat\beta_n +  \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \big) \notag \\
+&=\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{S}_{n+1} \mathrm{K}_{n+1}^\intercal \mathrm{P}_{n}^{-1}\widehat\beta_n + \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1}  - \mathrm{K}_{n+1} \mathrm{S}_{n+1} \mathrm{K}_{n+1}^\intercal \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
+% &\overset{\eqref{def_K}}{=}\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{x}_{n+1}\widehat\beta_n + \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1}  - \mathrm{K}_{n+1} \mathrm{S}_n \mathrm{K}_{n+1}^\intercal \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
+% &\overset{\eqref{def_K}}{=}\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{x}_{n+1}\widehat\beta_n + \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1}  - \mathrm{K}_{n+1} \mathrm{x}_{n+1} \mathrm{P}_{n} \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1} \notag \\
 &\overset{\eqref{def_K}}{=}\widehat\beta_n - \mathrm{K}_{n+1} \mathrm{x}_{n+1}\widehat\beta_n  + \mathrm{K}_{n+1} \mathrm{S}_{n+1} \mathrm{y}_{n+1} - \mathrm{K}_{n+1} \mathrm{x}_{n+1} \mathrm{P}_{n} \mathrm{x}_{n+1}^\intercal \mathrm{y}_{n+1}  \notag \\
 &=\widehat\beta_n + \mathrm{K}_{n+1} (\mathrm{y}_{n+1} - \mathrm{x}_{n+1}\widehat\beta_n), \notag \\
 \end{align}$$
 
-where the last equality follows by $$\mathrm{S}_{n+1}=1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_n^\intercal$$ in Eq.\eqref{P_solution}.
+where the third equality follow by repeatly using $$\mathrm{K}_{n+1} \mathrm{S}_{n+1} =\mathrm{P}_n \mathrm{x}_{n+1}^\intercal$$ in \eqref{def_K} for the right three items and the last equality follows by $$\mathrm{S}_{n+1}=1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_n^\intercal$$ above Eq.\eqref{P_solution}.
 
 To summarize, the update scheme for recursive least squares follow that
 
 $$\begin{align}
 \mathrm{K}_{n+1}&=\mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{S}_{n+1}^{-1}\notag \\
-\mathrm{S}_{n+1}&=1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_n^\intercal \notag \\
+\mathrm{S}_{n+1}&=1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \notag \\
 \widehat\beta_{n+1}&=\widehat\beta_n + \mathrm{K}_{n+1} (\mathrm{y}_{n+1} - \mathrm{x}_{n+1}\widehat\beta_n)\notag\\
 \mathrm{P}_{n+1}&=\mathrm{P}_n - \mathrm{K}_{n+1} \mathrm{S}_{n+1} \mathrm{K}_{n+1}^\intercal. \notag
 \end{align}$$
