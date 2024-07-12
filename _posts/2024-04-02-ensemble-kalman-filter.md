@@ -65,8 +65,8 @@ To summarize, the update scheme for recursive least squares follow that
 $$\begin{align}
 \widehat\beta_{n+1}&=\widehat\beta_n + \mathrm{K}_{n+1} (\mathrm{y}_{n+1} - \mathrm{x}_{n+1}\widehat\beta_n)\notag\\
 \mathrm{K}_{n+1}&=\mathrm{P}_n \mathrm{x}_{n+1}^\intercal \mathrm{S}_{n+1}^{-1}\notag \\
-\mathrm{S}_{n+1}&=1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_{n+1}^\intercal \notag \\
-\mathrm{P}_{n+1}&=\mathrm{P}_n - \mathrm{K}_{n+1} \mathrm{S}_{n+1} \mathrm{K}_{n+1}^\intercal. \notag
+\mathrm{P}_{n+1}&=\mathrm{P}_n - \mathrm{K}_{n+1} \mathrm{S}_{n+1} \mathrm{K}_{n+1}^\intercal\notag \\
+\mathrm{S}_{n+1}&=1 + \mathrm{x}_{n+1} \mathrm{P}_n \mathrm{x}_{n+1}^\intercal. \notag 
 \end{align}$$
 
 
