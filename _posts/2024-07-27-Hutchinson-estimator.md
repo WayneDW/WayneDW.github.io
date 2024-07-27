@@ -60,7 +60,7 @@ $$\begin{align}
 where the second equality follows since $\mathrm{z_i z_j}$ also follows the Rademachar distribution. The variance seems to be strictly smaller than the Gaussian vector, however, it may not be the case in practice.
 
 
-The nice computational properties are suggested {% cite race_est %} to make the analysis much simpler. For a general analysis that applies to any distributions, feel free to check the nice slides over here {% cite utah_quadratic %}.
+The nice computational properties are suggested by {% cite race_est %} to make the analysis much simpler. For a general analysis that applies to any distributions, feel free to check the nice slides over here {% cite utah_quadratic %}.
 
 
 <!-- included complexity analysis https://arxiv.org/pdf/2012.12895 -->
