@@ -37,8 +37,9 @@ Note that Gaussian vector with common variance is invariant under orthogonal tra
 Consider the eigenvalue decomposition $\mathrm{A=Q^\intercal \Lambda Q}$, we have
 
 $$\begin{align}
-    \mathrm{Var[z^T A z]=Var[z \Lambda z]=Var\bigg[\sum_{i=1}^d \lambda_i z_i^2\bigg]=\sum_{i=1}^d \lambda_i^2 Var\big[z_i^2\big]=\sum_{i=1}^d \lambda_i^2=\|A\|_F},\notag
+    \mathrm{Var[z^\intercal A z]=Var[z^\intercal \Lambda z]=Var\bigg[\sum_{i=1}^d \lambda_i z_i^2\bigg]{=}\sum_{i=1}^d \lambda_i^2 Var\big[z_i^2\big]\overset{\mathrm{\sigma^2=1}}{=}\sum_{i=1}^d \lambda_i^2=\|A\|_F},\notag
 \end{align}$$
+
 
 where $$\mathrm{\|\cdot\|_F}$$ denotes the Frobenius norm of a matrix. 
 
