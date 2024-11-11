@@ -1,6 +1,6 @@
 ---
 title: 'Isoperimetric inequality'
-date: 2024-10-01
+date: 2027-10-01
 permalink: /posts/isoperimetric_inequality/
 ---
 

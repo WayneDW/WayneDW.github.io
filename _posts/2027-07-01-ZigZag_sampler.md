@@ -1,7 +1,7 @@
 ---
 title: 'ZigZag Sampler'
 subtitle: ZigZag Sampler
-date: 2025-07-01
+date: 2027-07-01
 permalink: /posts/zigzag/
 category: Monte Carlo Methods
 ---
