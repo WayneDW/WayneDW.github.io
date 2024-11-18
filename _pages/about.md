@@ -30,6 +30,8 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 News
 =====
 
+Nov, 2024. Talk at [LoG NY Meetup](https://logmeetupnyc.github.io/).
+
 Jun, 2024. 1 JCGS is accpeted. Federated HMC can be faster than Federated Langevin dynamics.
 
 Apr, 2024. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795) is accepted by ICML'24! Schrödinger diffusion is **scalable** now by linearizing the forward scores. Simulation-free property is all we need for scalability.
@@ -64,10 +66,10 @@ Oct, 2020. Talk at ML + X Seminar at Brown University
 
 
 
-Services
+<!-- Services
 ======
 
-Reviewers: ICML, NeurIPS, ICLR, AISTAT, AAAI, IJCAI. 
+Reviewers: ICML, NeurIPS, ICLR, AISTAT, AAAI, IJCAI.  -->
 
 
 La pensée n'est qu'un écliar au milieu d'une longue nuit. Mais c'est cet éclair qui est tout.
