@@ -30,6 +30,8 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 News
 =====
 
+Nov, 2024. Invited Talk at [Learning Meets Geometry, Graphs, and Networks
+](https://logmeetupnyc.github.io/), NY
 
 Jun, 2024. 1 JCGS is accpeted. Federated HMC can be faster than Federated Langevin dynamics.
 
