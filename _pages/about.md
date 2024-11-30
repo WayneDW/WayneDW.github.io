@@ -70,7 +70,7 @@ Oct, 2020. Talk at ML + X Seminar at Brown University
 <!-- Services
 ======
 
-Reviewers: ICML, NeurIPS, ICLR, AISTAT, AAAI, IJCAI.  -->
+Reviewers: ICML, NeurIPS, ICLR, AISTAT, AAAI, IJCAI. 
 
 
-La pensée n'est qu'un écliar au milieu d'une longue nuit. Mais c'est cet éclair qui est tout.
+La pensée n'est qu'un écliar au milieu d'une longue nuit. Mais c'est cet éclair qui est tout.-->
