@@ -287,6 +287,22 @@ $$\begin{align}
 
 where $\mathrm{\widehat P}_n$ is the empirical covariance of $$\{\mathrm{\widehat x}_{n-1}^{(i)}\}_{i=1}^{N}$$ instead of the true covariance $\mathrm{P}_n$. 
 
+
+A simpler formulation is also presented in Algorithm 1 {% cite AlJarrahJinHosseiniTaghvaei2024 %} and the Kalman gain is as simple as 
+
+$$\begin{align}
+\mathrm{x_{t|t-1}^i} &\sim \mathcal{K}(\cdot| \mathrm{x_{t-1}^i}) \text{ for } \mathrm{i \in \{1,2,..., N\}}\notag \\
+\mathrm{y_t^i} &\sim \text{ObserModel}\mathrm{(\cdot|x^i_{t|t-1})} \text{ for } \mathrm{i \in \{1,2,..., N\}} \notag \\
+\mathrm{\bar x_{t|t-1}}&=\mathrm{\frac{1}{N} \sum_{i=1}^N x^i_{t|t-1}} \notag \\
+\mathrm{\bar y_t}&=\mathrm{\frac{1}{N} \sum_{i=1}^N y^i_{t}} \notag \\
+\mathrm{\overline{C}^{xy}_t}&=\mathrm{\frac{1}{N} \sum_{i=1}^N (x^i_{t|t-1}-\bar x_{t|t-1}) \otimes (y^i_{t}-\bar y_t)} \notag \\
+\mathrm{\overline{C}^{yy}_t}&=\mathrm{\frac{1}{N} \sum_{i=1}^N (y^i_{t}-\bar y_t) \otimes (y^i_{t}-\bar y_t)} \notag \\
+\mathrm{K_t} &= \mathrm{\overline{C}^{xy}_t (\overline{C}^{yy}_t + \Gamma)^{-1}}, \notag\\
+\mathrm{x_t^i} &= \mathrm{x^i_{t|t-1} + K_t (y^i_t - \bar y_t)} \notag \\
+\end{align}$$
+
+where $\mathrm{\Gamma}$ is the observation noise. 
+
 #### Large Sample Asymptotics
 
 Intuitively, we expect EnKF will converge to KF when $\mathrm{N} \rightarrow \infty$ by invoking the law of large numbers. However, this only holds given linear state transitions with well-posed priors {% cite EnKF_sample_asymptotics %}. 
