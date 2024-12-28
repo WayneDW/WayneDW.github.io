@@ -1,6 +1,6 @@
 ---
-title: 'Ensemble Kalman Filter'
-subtitle: A scalable template for high-dimensional time series predictions
+title: 'Kalman Filter'
+subtitle: A standard template for linear state-space models
 date: 2024-04-02
 permalink: /posts/ensemble_kalman_filter/
 category: State Space Model
@@ -192,6 +192,30 @@ $$\begin{align}
 \mathrm{K_n} &= \mathrm{P_n^- H_n^\intercal S_n^{-1}}. \notag\\
 \end{align}$$
 
+### Likelihood Estimation
+
+In practice, the latent states may not be observed directly and we only have access to the measurements $$\mathrm{\{y_n\}_{n=1}^N}$$. We first estimate the likelihood at timestamp $n$ as follows:
+
+$$\begin{align}
+\mathrm{L_n}&=\mathrm{\int p(y_n | x_n) p(x_n | y_1, \cdots, t_{n-1}) d x_n=p(y_n | y_{n-1})}. \notag
+\end{align}$$
+
+Integrating all the information from $\mathrm{n=1}$ to $\mathrm{N}$, the likelihood follows that $$\mathrm{L_{1:N}=\prod_{n=1}^N p(y_n \\| y_{n-1})}$$. The estimation of the parameter is equivalent to minimizing the negative log-likelihood as follows:
+
+$$\begin{align}
+\mathrm{-\log L_{1:N}=\sum_{n=1}^N \bigg[\log|S_n| + (y_n-H_n u_n)^\intercal S_n^{-1}(y_n-H_n u_n)\bigg].}\notag
+\end{align}$$
+
+For a special time-invariant case with known $\mathrm{Q_n \equiv Q, R_n\equiv R}$, known $\mathrm{\hat u_n=\frac{1}{M}\sum_{j=1}^M x_n^{(j)}}$, and unknown $\mathrm{S_n\equiv S}$ and $\mathrm{H_n\equiv H}$, setting the derivatives w.r.t. $\mathrm{S}$ and $\mathrm{H}$ as 0, we obtain
+
+$$\begin{align}
+\mathrm{H}&=\mathrm{\bigg(\sum_{n=1}^N y_n \hat u_n^\intercal \bigg) \bigg(\sum_{n=1}^N \hat u_n \hat u_n^\intercal \bigg)^{-1} }\notag \\
+\mathrm{S}&=\mathrm{\frac{1}{N}\sum_{n=1}^N (y_n - H \hat u_n)(y_n - H \hat u_n)^\intercal}.\notag
+\end{align}$$
+
+
+For more studies on the MLE estimates of $\mathrm{A, H, Q, R}$, we refer interested readers to section 16.3.2 {% cite bayes_filtering %}.
+
 
 #### Appendix
 
@@ -266,7 +290,7 @@ $$\begin{align}
                                 &=\mathrm{E[Var[y|x]] + Var[E[y|x]]}.\notag
 \end{align}$$
 
-### Ensemble Kalman Filter
+<!-- ### Ensemble Kalman Filter
 
 Kalman filter is not very scalable to high dimensions. To tackle this issue, ensemble Kalman filter (EnKF) proposes to propagate samples through a deterministic transport instead of employing the expensive Kalman gain $\mathrm{K}_n$ in Eq.\eqref{kalman_gain}. As a derivative-free Monte Carlo filter, the ensemble of samples implicitly yields a form of dimension reduction and greatly accelerates the algorithm {% cite e_kf %}.
 
@@ -288,7 +312,7 @@ $$\begin{align}
 where $\mathrm{\widehat P}_n$ is the empirical covariance of $$\{\mathrm{\widehat x}_{n-1}^{(i)}\}_{i=1}^{N}$$ instead of the true covariance $\mathrm{P}_n$. 
 
 
-A simpler formulation is also presented in Algorithm 1 {% cite AlJarrahJinHosseiniTaghvaei2024 %} and the Kalman gain is as simple as 
+A simpler formulation is also presented in Algorithm 1 {% cite AlJarrahJinHosseiniTaghvaei2024 %} [TBD why?]
 
 $$\begin{align}
 \mathrm{x_{t|t-1}^i} &\sim \mathcal{K}(\cdot| \mathrm{x_{t-1}^i}) \text{ for } \mathrm{i \in \{1,2,..., N\}}\notag \\
@@ -310,4 +334,4 @@ Intuitively, we expect EnKF will converge to KF when $\mathrm{N} \rightarrow \in
 * For state space system with Gaussian priors, the empirical mean and covariance via EnKF converges to the exact KF in the classical order of $\frac{1}{\sqrt{\mathrm{N}}}$.
 
 * When $\mathrm{f}$ is some general nonlinear function and when the prior is not linearly initialized, EnKF doesn't converge to KF as $\mathrm{N} \rightarrow \infty$.
-
+ -->
