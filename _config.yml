@@ -1,0 +1,136 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your entire site, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `jekyll serve`. If you change this file, please restart the server process.
+
+# Site Settings
+locale                   : "en-US"
+title                    : "Wei Deng / 邓伟"
+title_separator          : "-"
+name                     : &name "Wei Deng"
+description              : &description "Ph.D. candidate in Applied Math at Purdue University"
+url                      : "https://www.weideng.org/"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
+repository               : "waynedw.github.io"
+
+
+
+
+# Site Author
+author:
+  name             : "Wei Deng"
+  avatar           : "profile4.png" # "profile5.JPG" #  "profile5.JPG" # "profile4.png"
+  bio              : "Machine Learning Researcher"
+  location         : "Weehawken, NJ"
+  employer         :
+  pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  googlescholar    : "https://scholar.google.com/citations?user=IYiyxssAAAAJ"
+  email            : #"deng106.purdue.edu"
+  github           : "WayneDW"
+  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  linkedin         : #"waynedeng"   # "https://www.linkedin.com/in/waynedeng/"
+
+
+
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+  - _posts
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - CHANGELOG
+  - Capfile
+  - Gemfile
+  - Gruntfile.js
+  - LICENSE
+  - README
+  - Rakefile
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - config
+  - gulpfile.js
+  - log
+  - node_modules
+  - package.json
+  - tmp
+  - vendor
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+
+# Collections
+collections:
+  publications:
+    output: false
+    permalink: /:collection/:path/
+  about:
+    output: false
+    permalink: /:collection/:path/
+
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: default
+      author_profile: true
+      read_time: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+      author_profile: true
+
+
+# Outputting
+highlighter: rouge
+permalink: /blog/:categories/:year/:month/:day/:title/
+# paginate: 5 # amount of posts to show
+# paginate_path: /page:num/
+timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+
+# Plugins
+plugins:
+  - jekyll-scholar
+  - jekyll-sitemap
+  - jekyll-feed
