@@ -2,7 +2,7 @@
 title: 'Kalman Filter'
 subtitle: A standard template for linear state-space models
 date: 2024-04-02
-permalink: /posts/ensemble_kalman_filter/
+permalink: /posts/kalman_filter/
 category: State Space Model
 ---
 
@@ -214,7 +214,7 @@ $$\begin{align}
 \end{align}$$
 
 
-For more studies on the MLE estimates of $\mathrm{A, H, Q, R}$, we refer interested readers to section 16.3.2 {% cite bayes_filtering %}.
+For more studies on the MLE estimates of $\mathrm{A, H, Q, R}$, we refer interested readers to section 16.3.2 and 16.3.3 in {% cite bayes_filtering %}.
 
 
 #### Appendix
