@@ -151,7 +151,7 @@ $$\begin{align*}
 \mathrm{u'}&=\begin{bmatrix}\mathrm{u_{n-1}} \\ \mathrm{A_{n-1} u_{n-1}}\end{bmatrix} \notag \\
 \mathrm{P'}&=\begin{bmatrix} \mathrm{P_{n-1}} &  \mathrm{P_{n-1} A_{n-1}^\intercal} \\  \mathrm{A_{n-1}P_{n-1}} &  \mathrm{A_{n-1} P_{n-1} A_{n-1}^\intercal+ Q_{n-1}} \end{bmatrix}\end{align*}. \notag$$
  
-By Lemma A.2, the marginal $\mathrm{x}_n$ follows that
+The marginal $\mathrm{x}_n$ follows that
 
 $$\begin{align}
 \mathrm{P(x_n|y_{1:n-1})=N(x_n|u_n^-, P_n^-),} \label{xk_given_y_past}
@@ -163,7 +163,7 @@ $$\begin{align}
 \mathrm{u_n^-=A_{n-1}u_{n-1}, \quad P_n^- = A_{n-1} P_{n-1} A_{n-1}^\intercal + Q_{n-1}. }\notag
 \end{align}$$
 
-(II) By Lemma A.2 and Eq.\eqref{xk_given_y_past}, we have 
+(II) By Lemma A.1 and Eq.\eqref{xk_given_y_past}, we have 
 
 $$\begin{align}
 \mathrm{P(x_n, y_n|y_{1:n-1})}&\mathrm{=P(y_n|x_n) P(x_n|y_{1:n-1}),} \notag\\
@@ -197,10 +197,10 @@ $$\begin{align}
 In practice, the latent states may not be observed directly and we only have access to the measurements $$\mathrm{\{y_n\}_{n=1}^N}$$. We first estimate the likelihood at timestamp $n$ as follows:
 
 $$\begin{align}
-\mathrm{L_n}&=\mathrm{\int p(y_n | x_n) p(x_n | y_1, \cdots, t_{n-1}) d x_n=p(y_n | y_{n-1})}. \notag
+\mathrm{L_n}&=\mathrm{\int p(y_n | x_n) p(x_n | y_{1:n-1}) d x_n=p(y_n | y_{1:n-1})}. \notag
 \end{align}$$
 
-Integrating all the information from $\mathrm{n=1}$ to $\mathrm{N}$, the likelihood follows that $$\mathrm{L_{1:N}=\prod_{n=1}^N p(y_n \\| y_{n-1})}$$. The estimation of the parameter is equivalent to minimizing the negative log-likelihood as follows:
+Integrating all the information from $\mathrm{n=1}$ to $\mathrm{N}$, the likelihood follows that $$\mathrm{L_{1:N}=\prod_{n=1}^N p(y_n \\| y_{1:n-1})}$$. The estimation of the parameter is equivalent to minimizing the negative log-likelihood as follows:
 
 $$\begin{align}
 \mathrm{-\log L_{1:N}=\sum_{n=1}^N \bigg[\log|S_n| + (y_n-H_n u_n)^\intercal S_n^{-1}(y_n-H_n u_n)\bigg].}\notag
@@ -234,7 +234,7 @@ $$\begin{align}
 \mathrm{y|x} &\sim \mathrm{N}(\mathrm{H}\mathrm{x}+\mathrm{u}, \mathrm{R}).\notag
 \end{align}$$
 
-**Proof** $$\mathrm{Var[y]}$$ can be solved by Lemma A.3. For another, we have
+**Proof** $$\mathrm{Var[y]}$$ can be solved by Lemma A.3. For the diagonal, we have
 
 $$\begin{align}
 \mathrm{Cov(x, y)}&=\mathrm{E[xy^\textcolor{blue}{\intercal}]-E[x]E[y]}\notag \\
@@ -278,13 +278,13 @@ $$\begin{align}
 **Proof** By the law of total expectation $$\mathrm{E[y]=E[E[y\\|x]]}$$ and $$\mathrm{E[y^2]=Var[y] + E[y]^2}$$, we have
 
 $$\begin{align}
-\mathrm{E[y^2]=E[Var[y|x] + E[y|x]^2]}\notag.
+\mathrm{E[y^2]=E\bigg[Var[y|x] + E[y|x]^2\bigg]}\notag.
 \end{align}$$
 
 We further have
 
 $$\begin{align}
-\mathrm{Var[y]=E[y^2|x] - E[y]^2}&\mathrm{=E[Var[y|x] + E[y|x]^2]-E[y]^2}\notag \\
+\mathrm{Var[y]=E[y^2] - E[y]^2}&\mathrm{=E\bigg[Var[y|x] + E[y|x]^2\bigg]-E[y]^2}\notag \\
                                 &=\mathrm{E[Var[y|x] + E[y|x]^2]-E[E[y|x]]^2}\notag \\
                                 &=\mathrm{E[Var[y|x]] + E[E[y|x]^2]-E[[y|x]]^2}\notag \\
                                 &=\mathrm{E[Var[y|x]] + Var[E[y|x]]}.\notag
