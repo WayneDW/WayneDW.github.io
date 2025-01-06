@@ -61,7 +61,7 @@ Feb, 2022. Talk at [Opt and ML Seminar at HKU](https://hkumath.hku.hk/MathWWW/ev
 
 Oct, 2021. I have defended my thesis!
 
-Oct, 2020. Talk at ML + X Seminar at Brown University
+Oct, 2020. Talk at [ML + X Seminar at Brown University](https://sites.brown.edu/crunch-group/seminars/machine-learning-x-seminars/machine-learning-x-seminars-2020-2/)
 
 
 
