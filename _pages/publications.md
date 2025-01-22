@@ -7,6 +7,10 @@ author_profile: true
 
 ### Denoising Diffusion Models
 
+* X. Liu, H. Du, **W. Deng**<sup>#</sup>, R. Zhang. [Optimal Stochastic Trace Estimation in Generative Modeling](https://arxiv.org/pdf/2405.04795). AISTAT 2025.
+
+* K. Rojas, Y. Tan, M. Tao, Yuriy, **W. Deng**<sup>#</sup>. [Variational Schrödinger Momentum Diffusion](https://arxiv.org/pdf/2405.04795). AISTAT 2025.
+
 * **W. Deng**, W. Luo, Y. Tan, M. Biloš, Yu, Yuriy, T. Q. Chen. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795). ICML 2024. 
 
 * **W. Deng**, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**) Acceptance rate **3.8%**.
