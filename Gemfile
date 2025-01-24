@@ -10,7 +10,7 @@ source "https://rubygems.org"
 # Happy Jekylling!
 
 # gem "github-pages", group: :jekyll_plugins
-gem "jekyll", "~> 4.0.0"
+gem "jekyll", "~> 4.3.4"
 
 # If you want to use Jekyll native, uncomment the line below.
 # To upgrade, run `bundle update`.
