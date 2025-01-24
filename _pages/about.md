@@ -30,7 +30,7 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 News
 =====
 
-Jan, 2025. 2 AISTATS are accpeted!
+Jan, 2025. 2 AISTATS on diffusion generative models are accpeted!
 
 Nov, 2024. Invited Talk at [Learning Meets Geometry, Graphs, and Networks
 ](https://logmeetupnyc.github.io/), NY
