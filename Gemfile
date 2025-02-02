@@ -20,7 +20,8 @@ gem "jekyll", "~> 4.3.4"
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 gem "webrick"
-
+gem "csv"
+gem "base64"
 gem "minima", "~> 2.5"
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
