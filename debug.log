@@ -1,0 +1,13 @@
+
+$ which ruby
+/opt/homebrew/opt/ruby/bin/ruby
+$ which brew
+$ which bundle
+/opt/homebrew/opt/ruby/bin/bundle
+$ which jekyll
+/usr/local/bin/jekyll
+
+
+ruby - python
+gem - pip
+bundle - library

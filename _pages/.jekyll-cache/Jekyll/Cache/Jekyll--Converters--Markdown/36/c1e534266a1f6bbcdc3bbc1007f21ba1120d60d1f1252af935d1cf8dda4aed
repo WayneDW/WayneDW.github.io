@@ -1,0 +1,81 @@
+I"�<h3 id="denoising-diffusion-models">Denoising Diffusion Models</h3>
+
+<ul>
+  <li>
+    <p>X. Liu, H. Du, W. Deng<sup>#</sup>, R. Zhang. <a href="https://arxiv.org/abs/2401.03228">Optimal Stochastic Trace Estimation in Generative Modeling</a>. AISTATS 2025.</p>
+  </li>
+  <li>
+    <p>K. Rojas, Y. Tan, M. Tao, Y. Nevmyvaka, W. Deng<sup>#</sup>. <a href="https://arxiv.org/abs/2401.03228">Variational Schrödinger Momentum Diffusion</a>. AISTATS 2025.</p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, W. Luo, Y. Tan, M. Biloš, Yu, Yuriy, T. Q. Chen. <a href="https://arxiv.org/pdf/2405.04795">Variational Schrödinger Diffusion Models</a>. ICML 2024.</p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. <a href="https://arxiv.org/abs/2401.03228">Reflected Schrödinger Bridge for Constrained Generative Modeling</a>. UAI 2024 (<strong>Oral</strong>) Acceptance rate <strong>3.8%</strong>.</p>
+  </li>
+  <li>
+    <p>Y. Chen<sup>α</sup>, <strong>W. Deng</strong><sup>α</sup><sup>#</sup>, S. Fang<sup>α</sup>, F. Li<sup>α</sup>, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. <a href="https://arxiv.org/pdf/2305.07247">Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation</a>. ICML 2023 (α: alphabetical order, #: Correspondence)</p>
+  </li>
+</ul>
+
+<h3 id="monte-carlo-methods">Monte Carlo Methods</h3>
+
+<ul>
+  <li>
+    <p>H. Zheng, H. Du, Q. Feng, <strong>W. Deng</strong><sup>#</sup>, G. Lin. <a href="https://arxiv.org/pdf/2405.07839">Constrained Exploration via Reflected Replica Exchange Stochastic Gradient Langevin Dynamics</a>. ICML 2024.</p>
+  </li>
+  <li>
+    <p>J. Liang, Q. Zhang, <strong>W. Deng</strong>, Q. Song, G. Lin. <a href="https://arxiv.org/pdf/2407.06935">Bayesian Federated Learning with Hamiltonian Monte Carlo: Algorithm and Theory</a>. Journal of Computational and Graphical Statistics. 2024</p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, Q. Zhang, Y.-A. Ma, Z. Song, G. Lin. <a href="https://arxiv.org/pdf/2112.05120.pdf">On Convergence of Federated Averaging Langevin Dynamics</a>. UAI 2024</p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, Q. Zhang, Q. Feng, F. Liang, G. Lin. <a href="https://arxiv.org/pdf/2211.10837.pdf">Non-reversible Parallel Tempering for Deep Posterior Approximation</a>. AAAI-23 (<strong>Oral</strong>)</p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, G. Lin, F. Liang. <a href="https://link.springer.com/epdf/10.1007/s11222-022-10120-3?sharing_token=3D38cUKCcTFwSnC9tCumefe4RwlQNchNByi7wbcMAY5wU6YiY0TlM_GKKke2kamOPjMBvVXx8MgkcpmS8OGmuzOCh2eHt8iYVjbUfb8rmQwWWTeCWeZPq4aH8jFXlvv6zduuChKpiW0iM9BB02fHctPD5gZFj3jBGqfPzBAyIIE%3D">An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization</a>. Statistics and Computing, (2022) 32:58 <a href="https://github.com/WayneDW/Global-optimization-via-an-adaptively-weighted-stochastic-gradient-MCMC">[code]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, S. Liang, B. Hao, G. Lin, F. Liang. <a href="https://openreview.net/forum?id=IK9ap6nxXr2">Interacting Contour Stochastic Gradient Langevin Dynamics</a>. ICLR 2022 <a href="https://github.com/WayneDW/Interacting-Contour-Stochastic-Gradient-Langevin-Dynamics">[code]</a> <a href="https://recorder-v3.slideslive.com/#/share?share=62539&amp;s=f9dd1749-50cd-4bf3-a1d8-d0ebe752bf37">[video]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong><sup>*</sup>, Q. Feng, G. Karagiannis, G. Lin, F. Liang. <a href="https://openreview.net/pdf?id=iOnhIy-a-0n">Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction</a>. ICLR 2021. <a href="https://github.com/WayneDW/Variance_Reduced_Replica_Exchange_SGMCMC">[code]</a> <a href="https://slideslive.com/38954013/accelerating-convergence-of-replica-exchange-stochastic-gradient-mcmc-via-variance-reduction?ref=speaker-30773-latest">[video]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, Q. Feng, L. Gao, F. Liang, G. Lin. <a href="https://arxiv.org/pdf/2008.05367.pdf">Non-convex Learning via Replica Exchange Stochastic Gradient MCMC</a>. ICML 2020. <a href="https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC">[code]</a> <a href="https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf">[slides]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, G. Lin, F. Liang. <a href="https://arxiv.org/pdf/2010.09800.pdf">A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions</a>. NeurIPS 2020 <a href="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics">[code]</a> <a href="https://waynedw.github.io/posts/CSGLD/">[blog]</a> <a href="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf">[slides]</a> <a href="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf">[poster]</a><a href="https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions">[video]</a> <a href="https://zhuanlan.zhihu.com/p/267633636">[知乎]</a></p>
+  </li>
+</ul>
+
+<h3 id="thompson-sampling">Thompson Sampling</h3>
+
+<ul>
+  <li>
+    <p>B. Hao, T. Lattimore, <strong>W. Deng</strong>. <a href="https://arxiv.org/abs/2105.14267">Information Directed Sampling for Sparse Linear Bandits</a>. NeurIPS 2021 <strong>Spotlight</strong> (3% acceptance rate)</p>
+  </li>
+  <li>
+    <p>H Zheng, <strong>W Deng</strong>, C Moya, G Lin. <a href="https://arxiv.org/abs/2401.11665">Accelerating Approximate Thompson Sampling with Underdamped Langevin Monte Carlo</a>. AISTAT 2024</p>
+  </li>
+</ul>
+
+<h3 id="sparse-deep-learning-and-applications">Sparse Deep Learning and Applications</h3>
+
+<ul>
+  <li>
+    <p><strong>W. Deng</strong>, X. Zhang, F. Liang, G. Lin. <a href="https://arxiv.org/pdf/1910.10791.pdf">An Adaptive Empirical Bayesian Method for Sparse Deep Learning</a>. NeurIPS 2019 <a href="https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning">[code]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, J. Pan, T. Zhou, D. Kong, A. Flores, G. Lin. <a href="https://arxiv.org/pdf/2002.06987.pdf">DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving</a>. WSDM 2021 <a href="https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions">[code]</a> <img src="https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/a-sparse-deep-factorization-machine-for/click-through-rate-prediction-on-criteo" alt="PWC" /></p>
+  </li>
+  <li>
+    <p>Y. Wang, <strong>W. Deng</strong>, G. Lin. <a href="https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor">An Adaptive Hessian Approximated Stochastic Gradient MCMC Method</a>. Journal of Computational Physics. Vol 432, 2021.</p>
+  </li>
+</ul>
+
+<p>(*): equal contribution.
+(α): alphabetical order.
+(#): correspondence</p>
+:ET
