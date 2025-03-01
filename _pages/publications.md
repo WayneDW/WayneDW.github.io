@@ -22,7 +22,7 @@ author_profile: true
 
 ### Monte Carlo Methods
 
-* H. Zheng, H. Du, Q. Feng, **W. Deng**, G. Lin. [Constrained Exploration via Reflected Replica Exchange Stochastic Gradient Langevin Dynamics](https://arxiv.org/pdf/2405.07839). ICML 2024. 
+<!-- * H. Zheng, H. Du, Q. Feng, **W. Deng**, G. Lin. [Constrained Exploration via Reflected Replica Exchange Stochastic Gradient Langevin Dynamics](https://arxiv.org/pdf/2405.07839). ICML 2024.  -->
 
 * J. Liang, Q. Zhang, **W. Deng**, Q. Song, G. Lin. [Bayesian Federated Learning with Hamiltonian Monte Carlo: Algorithm and Theory](https://arxiv.org/pdf/2407.06935). Journal of Computational and Graphical Statistics. 2024
 
@@ -33,7 +33,7 @@ author_profile: true
 * **W. Deng**, G. Lin, F. Liang. [An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization](https://link.springer.com/epdf/10.1007/s11222-022-10120-3?sharing_token=3D38cUKCcTFwSnC9tCumefe4RwlQNchNByi7wbcMAY5wU6YiY0TlM_GKKke2kamOPjMBvVXx8MgkcpmS8OGmuzOCh2eHt8iYVjbUfb8rmQwWWTeCWeZPq4aH8jFXlvv6zduuChKpiW0iM9BB02fHctPD5gZFj3jBGqfPzBAyIIE%3D). Statistics and Computing, (2022) 32:58 [\[code\]](https://github.com/WayneDW/Global-optimization-via-an-adaptively-weighted-stochastic-gradient-MCMC)
 
 
-* **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. [Interacting Contour Stochastic Gradient Langevin Dynamics](https://openreview.net/forum?id=IK9ap6nxXr2). ICLR 2022 [\[code\]](https://github.com/WayneDW/Interacting-Contour-Stochastic-Gradient-Langevin-Dynamics) [\[video\]](https://recorder-v3.slideslive.com/#/share?share=62539&s=f9dd1749-50cd-4bf3-a1d8-d0ebe752bf37)
+<!-- * **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. [Interacting Contour Stochastic Gradient Langevin Dynamics](https://openreview.net/forum?id=IK9ap6nxXr2). ICLR 2022 [\[code\]](https://github.com/WayneDW/Interacting-Contour-Stochastic-Gradient-Langevin-Dynamics) [\[video\]](https://recorder-v3.slideslive.com/#/share?share=62539&s=f9dd1749-50cd-4bf3-a1d8-d0ebe752bf37) -->
 
 
 <!-- * **W. Deng**<sup>*</sup>, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://openreview.net/pdf?id=iOnhIy-a-0n). ICLR 2021. [\[code\]](https://github.com/WayneDW/Variance_Reduced_Replica_Exchange_SGMCMC) [\[video\]](https://slideslive.com/38954013/accelerating-convergence-of-replica-exchange-stochastic-gradient-mcmc-via-variance-reduction?ref=speaker-30773-latest) -->
