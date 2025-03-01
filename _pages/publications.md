@@ -19,6 +19,11 @@ author_profile: true
 * Y. Chen<sup>α</sup>, **W. Deng**<sup>α</sup><sup>#</sup>, S. Fang<sup>α</sup>, F. Li<sup>α</sup>, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023 (α: alphabetical order, #: Correspondence)
 
 
+### Thompson Sampling
+
+* H Zheng, **W Deng**, C Moya, G Lin. [Accelerating Approximate Thompson Sampling with Underdamped Langevin Monte Carlo](https://arxiv.org/abs/2401.11665). AISTAT 2024
+
+* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). NeurIPS 2021 **Spotlight** (3% acceptance rate)
 
 ### Monte Carlo Methods
 
@@ -43,11 +48,6 @@ author_profile: true
 * **W. Deng**, G. Lin, F. Liang. [A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions](https://arxiv.org/pdf/2010.09800.pdf). NeurIPS 2020 [\[code\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics) [\[blog\]](https://waynedw.github.io/posts/CSGLD/) [\[slides\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf) [\[poster\]](https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf)[\[video\]](https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions) [\[知乎\]](https://zhuanlan.zhihu.com/p/267633636)
 
 
-### Thompson Sampling
-
-* H Zheng, **W Deng**, C Moya, G Lin. [Accelerating Approximate Thompson Sampling with Underdamped Langevin Monte Carlo](https://arxiv.org/abs/2401.11665). AISTAT 2024
-
-* B. Hao, T. Lattimore, **W. Deng**. [Information Directed Sampling for Sparse Linear Bandits](https://arxiv.org/abs/2105.14267). NeurIPS 2021 **Spotlight** (3% acceptance rate)
 
 
 <!-- ### Sparse Deep Learning and Applications
