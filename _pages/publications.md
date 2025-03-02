@@ -7,7 +7,7 @@ author_profile: true
 
 ### Denoising Diffusion Models
 
-* X. Liu, H. Du, **W. Deng**, R. Zhang. [Optimal Stochastic Trace Estimation in Generative Modeling](https://arxiv.org/abs/2401.03228). AISTATS 2025.
+* X. Liu, H. Du, **W. Deng**, R. Zhang. [Optimal Stochastic Trace Estimation in Generative Modeling](https://arxiv.org/pdf/2502.18808). AISTATS 2025.
 
 * K. Rojas, Y. Tan, M. Tao, Y. Nevmyvaka, **W. Deng**. [Variational Schrödinger Momentum Diffusion](https://arxiv.org/pdf/2501.16675). AISTATS 2025.
 
