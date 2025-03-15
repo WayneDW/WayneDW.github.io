@@ -63,7 +63,7 @@ $$\begin{align}
 \frac{\partial p_t}{\partial t} =\mathscr{L}^* p_t,\notag
 \end{align}$$
 
-which is the Fokker-Planck equation (PDE), also known as *forward Kolmogorov equation*. Analyzing the evolution of the probability densities, we have
+which is the Fokker-Planck equation (FKP), also known as *forward Kolmogorov equation*. Analyzing the evolution of the probability densities, we have
 
 $$\begin{align}
 \mathscr{L}^{*} p_t&=\nabla \cdot \bigg(-\boldsymbol{\mathrm{v}} p_t + \frac{1}{2} \nabla\cdot\big(\Sigma p_t\big)\bigg). \notag \\
@@ -71,7 +71,7 @@ $$\begin{align}
                 &=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
 \end{align}$$
 
-where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$. One can easily derive a *backward Kolmogorov equation* by invoking the integration by parts as studied in Eq.(15) of {% cite provably_schrodinger_bridge %}.
+where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$. One can easily derive a *backward Kolmogorov equation* from a *forward Kolmogorov equation* by invoking the integration by parts, e.g. Eq.(15) of {% cite provably_schrodinger_bridge %}.
 
 
 ### Probability Flow
