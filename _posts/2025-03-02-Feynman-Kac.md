@@ -118,4 +118,6 @@ where $\mathrm{Z_t=g\nabla_x \log \Psi(t, X_t)}$ and $\mathrm{\widehat Z_t=g\nab
 ### Feynman-Kac in Other Domains
 
 
-The Feynman-Kac representation involves a forward simulation followed by a backward derivation process, conceptually akin to the backpropagation training of deep neural networks. This principle also aligns in spirit with the continuous-time policy gradient {% cite williams1992simple %} and controlled sequential Monte Carlo {% cite heng2020controlled %}, making it a valuable framework for studying more efficient reasonings in language models.
+The Feynman-Kac representation involves a forward simulation followed by a backward derivation process, conceptually akin to the backpropagation training of deep neural networks. This principle also aligns in spirit with the continuous-time policy gradient {% cite williams1992simple %} and controlled sequential Monte Carlo {% cite heng2020controlled %}.
+
+<!-- , making it a valuable framework for studying more efficient reasonings in language models. -->
