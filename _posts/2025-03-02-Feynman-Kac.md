@@ -49,9 +49,7 @@ $$
 \right.
 $$
 
- <!-- and price can be derived by applying the Feynman-Kac representation -->
-
-### Feynman-Kac in finance
+### Feynman-Kac in Finance
 
 To protect stocks from unexpected losses, we consider e.g. a European call option with a stike price $\mathrm{K}$ at time $\mathrm{T}$. We denote the stock price by $\mathrm{X_t}$ and the option price at time $t$ with stock price $\mathrm{X_t}$ by $\mathrm{u(t, X_t)}$.
 
@@ -82,7 +80,7 @@ The proof is an application of Itô's lemma to show the process $$\mathrm{u(t, X
 To approximate the expectation, we can simulate sufficiently many stock price paths following the forward SDE $\mathrm{X_t}$ and compute the option price in the backward direction. 
 
 
-### Feynman-Kac in Schrödinger bridge diffusion
+### Feynman-Kac in Schrödinger Bridge Diffusion
 
 
 Schrödinger bridge diffusion {% cite DSB %} is a transport-optimized diffusion model for the forward-backward SDE (FBSDE) {% cite forward_backward_SDE %} {% cite pardoux1992backward %}
@@ -117,7 +115,7 @@ $$\begin{align}
 where $\mathrm{Z_t=g\nabla_x \log \Psi(t, X_t)}$ and $\mathrm{\widehat Z_t=g\nabla_x \log \widehat \Psi(t, X_t)}$.
 
 
-### Conclusions
+### Feynman-Kac in Other Domains
 
 
 The Feynman-Kac representation involves a forward simulation followed by a backward derivation process, conceptually akin to the backpropagation training of deep neural networks. This principle also aligns in spirit with the continuous-time policy gradient {% cite williams1992simple %} and controlled sequential Monte Carlo {% cite heng2020controlled %}, making it a valuable framework for studying more efficient reasonings in language models.
