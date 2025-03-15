@@ -82,7 +82,7 @@ The proof is an application of Itô's lemma to show the process $$\mathrm{u(t, X
 To approximate the expectation, we can simulate sufficiently many stock price paths following the forward SDE $\mathrm{X_t}$ and compute the option price in the backward direction. 
 
 
-### Applications in Schrödinger bridge diffusion
+### Feynman-Kac in Schrödinger bridge diffusion
 
 
 Schrödinger bridge diffusion {% cite DSB %} is a transport-optimized diffusion model for the forward-backward SDE (FBSDE) {% cite forward_backward_SDE %} {% cite pardoux1992backward %}
