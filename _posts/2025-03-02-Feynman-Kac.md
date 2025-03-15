@@ -38,7 +38,7 @@ $$\begin{align}
     &\quad\ =\mathrm{h(t, X_t, Y_t)dt + \Sigma(t, X_t) dW_t}. \notag \\
 \end{align}$$
 
-The terminal value admits a strong solution $\mathrm{u(t, x)=E[g(X_T)|X_t=x]}$ if we back-propagate the conditional expectation. The **nonlinear Feynman-Kac** formula {% cite Exarchos2018 %} builds a connection between the solution of PDEs and probabilistic representations of SDEs
+The terminal value admits a strong solution $$\mathrm{u(t, x)=E[g(X_T)\\|X_t=x]}$$ if we back-propagate the conditional expectation. The **nonlinear Feynman-Kac** formula {% cite Exarchos2018 %} builds a connection between the solution of PDEs and probabilistic representations of SDEs
 
 $$
 \left\{
