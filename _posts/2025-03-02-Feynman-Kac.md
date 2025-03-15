@@ -1,72 +1,122 @@
 ---
 title: 'Feynman–Kac Formula'
 subtitle: A popular tool in finance, stochastic optimal control, and mathematical physics
-date: 2025-03-02
+date: 2025-03-15
 permalink: /posts/feynman_kac/
-category: Theory
+category: State Space Model
 ---
 
 
-Feynman–Kac formula has been widely used in finance, stochastic optimal control, and mathematical physics. This blog presents a few applications of the Feynman–Kac formula in different areas. 
+Feynman–Kac formula creates an intrinsic connection between PDE and SDE, making it a popular tool in finance, stochastic optimal control (SOC), and mathematical physics. This blog presents a few applications of the Feynman–Kac formula in different areas. 
 
-<!-- Most of the knowledge can be found in Wikipedia {% cite feynman_kac_wiki  %} and course slides {% cite feynman_kac_nyu %}; I wrote this blog primarily to refresh my understanding of related techniques and applications. -->
+Assume a stochastic variable $\mathrm{X_t}$ follows a forward SDE (FSDE)
 
-<!-- Assume a stochastic variable follows an SDE 
+$$
+\left\{
+\begin{array}{l}
+    \mathrm{d X_t = \mu(t, X_t)dt + \Sigma(t, X_t)dW_t} \\
+    \ \ \mathrm{X_0=x.}
+\end{array}
+\right.
+$$
+
+Additionally, we have a backward SDE (BSDE) that satisfies a terminal condition
+
+$$
+\left\{
+\begin{array}{l}
+    \mathrm{d Y_t = h(t, X_t, Y_t)dt + \Sigma(t, X_t) dW_t} \\
+    \ \ \mathrm{Y_T=g(X_T).}
+\end{array}
+\right.
+$$
+
+Denote $\mathrm{u(t, X_t)\equiv Y_t^{x}}$ and assume its smoothness and linear growth. Applying Ito's formula, we have 
 
 $$\begin{align}
-    \mathrm{d X_t = \mu(X_t, t)dt + \sigma(X_t, t)dW_t},\notag \\
-\end{align}$$ -->
-
-### Feynman-Kac Representation
-
-Assume $\mathrm{u(t, x)}$ is smooth and satisfies some growth condition.  $\mathrm{u(t, x)}$ follows a backward PDE which dissipates at a rate of $$\mathrm{r}$$
-
-$$\begin{align}
-    \mathrm{\frac{\partial u}{\partial t}+\mu(x, t)\frac{\partial u}{\partial x} +\frac{1}{2}\sigma^2(x, t)\frac{\partial^2 u}{\partial x^2}-r u=0},\notag \\
+    &\mathrm{d u=\bigg[u_t +\nabla_x u^\intercal \mu + \frac{1}{2} Tr(u_{xx} \Sigma \Sigma^\intercal)\bigg] dt + \nabla_x u^\intercal \Sigma d W_t}\notag \\
+    &\quad\ =\mathrm{h(t, X_t, Y_t)dt + \Sigma(t, X_t) dW_t}. \notag \\
 \end{align}$$
 
-with a terminal condition $\mathrm{u(T, x)=g(x)}$.
+Taking the expectation, the **nonlinear Feynman-Kac** formula {% cite Exarchos2018 %} builds a connection between the solution of PDEs and probabilistic representations of SDEs
 
-Then $\mathrm{u(t, x)}$ yields a stochastic representation
+$$
+\left\{
+\begin{array}{l}
+    \mathrm{u_t+\nabla_x u^\intercal \mu +\frac{1}{2} Tr(u_{xx} \Sigma \Sigma^\intercal) -h(t, x, u, \Sigma^\intercal \nabla_x u)=0} \\
+    \ \ \mathrm{u(T, x)=g(x).}
+\end{array}
+\right.
+$$
+
+ <!-- and price can be derived by applying the Feynman-Kac representation -->
+
+### Feynman-Kac in finance
+
+To protect stocks from potential losses, we can consider a European call option (or others) with a stike price $\mathrm{K}$ at time $\mathrm{T}$. We denote the stock price by $\mathrm{X_t}$ and denote the option price at time $t$ with stock price $\mathrm{X_t}$ by $\mathrm{u(t, X_t)}$.
+
+Consider a univariate linear case with $\mathrm{g(x)=(x-K)^+}$, $\mathrm{h\equiv r u}$, where $\mathrm{r_t}$ denotes the risk-free interest rate, the above PDE becomes: 
+
+
+$$
+\left\{
+\begin{array}{l}
+    \mathrm{u_t+u_x \mu   +\frac{1}{2}\Sigma^2 u_{xx}-r u=0} \\
+    \ \ \mathrm{u(T, x)=(x-K)^+.}
+\end{array}
+\right.
+$$
+
+
+
+Then the option price $\mathrm{u(t, x)}$ at time $\mathrm{t}$ yields a stochastic representation
 
 $$\begin{align}
-    \mathrm{u(t, x)=E\bigg[g(X_T)exp\bigg\{-\int_t^T r(s, X_s) ds\bigg\} \bigg]}.\notag \\
+    \mathrm{u(t, x)=E\bigg[(X_T-K)^+ exp\bigg\{-\int_t^T r_s ds\bigg\} \bigg]}.\notag \\
 \end{align}$$
 
-The proof is an application of Itô's lemma to show the process $$\mathrm{u(t, X_t) exp\{-\int_{t_0}^t r(s, X_s) ds \}}$$ is a martingale subject to a stopping time {% cite BM_StochasticCalc %}.
+The proof is an application of Itô's lemma to show the process $$\mathrm{u(t, X_t) exp\{-\int_{t_0}^t r_s ds \}}$$ is a martingale subject to a stopping time {% cite BM_StochasticCalc %}.
 
 
 
+To approximate the expectation, we can simulate sufficiently many stock price paths following the forward SDE $\mathrm{X_t}$ and compute the option price in the backward direction. 
 
 
+### Applications in Schrödinger bridge diffusion
 
-### Applications in finance
+
+Schrödinger bridge diffusion {% cite DSB %} is a transport-optimized diffusion model for the forward-backward SDE (FBSDE) {% cite forward_backward_SDE %} {% cite pardoux1992backward %}
+
+$$
+\left\{
+\begin{array}{l}
+    \mathrm{d X_t = f + g^2 \nabla_x \log \Psi(t, X_t) dt + g dW_t, \ \ \ X_0 \sim p_{\text{data}}} \\
+    \mathrm{d X_t = f - g^2 \nabla_x \log \widehat \Psi(t, X_t) dt + g dW_t. \ \ \ X_T \sim p_{\text{prior}}}
+\end{array}
+\right.
+$$
+
+We observe that when $\mathrm{\nabla_x \log \Psi(t, X_t)}=0$, the equation simplifies to the standard diffusion model. The additional forward score function $\mathrm{\nabla_x \log \Psi(t, X_t)}$ is introduced to minimize a stochastic optimal control problem {% cite Chen21 %}, subject to the forward diffusion and marginal constraints. 
+
+Notably, the Hamilton–Jacobi–Bellman (HJB) PDE arises in the derivation of the SOC problems
+
+$$
+\begin{align}
+\mathrm{\frac{\partial \phi}{\partial t}+\frac{1}{2} g^2\Delta\phi + \langle \nabla \phi, f \rangle=-\frac{1}{2}\|g(t)\nabla\phi(x, t)\|^2_2}, \notag
+\end{align}$$
+
+where $\mathrm{\phi=\log \Psi}$. It serves as a continuous-time extension of the Bellman equation, which forms the foundation of reinforcement learning.
 
 
-<!-- In daily life, we use insurance to manage risks, such as car accidents or unforeseen illnesses. Similarly, in the financial markets, extreme events are inevitable, and financial derivatives serve as a form of "insurance" to hedge these risks and help investors minimize potential losses.  -->
-
-Given the risk-free interest rate $\mathrm{r_t}$, assume a stock price $\mathrm{S_t}$ follows an geometric Brownian motion 
+Applying the Feynman-Kac formula via Ito's formula to the FBSDE {% cite forward_backward_SDE %}, we obtain the likelihood estimator (instead of the stock price in the first example) for the training of score functions $\mathrm{\nabla_x \log \Psi(t, X_t)}$ and $\mathrm{\nabla_x \log \widehat \Psi(t, X_t)}$
 
 $$\begin{align}
-    \mathrm{d \log S_t = \bigg(r_t-\frac{1}{2}\sigma_t^2\bigg)dt + \sigma_t dW_t}. \label{geoBM} \\
+\mathrm{\log p_0(x_0)=E[\log p_T(X_T)]-\int_0^T E\bigg[\frac{1}{2} \|Z_t\|^2 + \frac{1}{2} \|\widehat Z_t\|^2 + \nabla_x \cdot (g \widehat Z_t -f ) + \widehat Z_t^\intercal Z_t\bigg]dt},\notag
 \end{align}$$
 
-To protect the stock from potential losses, we can consider a European call option (or others) with a stike price $\mathrm{K}$  at time $\mathrm{T}$. The option price $\mathrm{u(t, x)}$ at time $t$ with stock price $\mathrm{x}$ can be derived by applying the Feynman-Kac representation
-
-$$\begin{align}
-    \mathrm{u(t, x)=E\bigg[(S_T-K)^+ exp\bigg\{-\int_t^T r_s ds\bigg\}\bigg| \log S_t = \log x \bigg]}.\notag \\
-\end{align}$$
-
-To approximate the expectation, we can simulate sufficiently many sample paths following Eq.\eqref{geoBM} given $\mathrm{S_t=x}$ and evaluate the function at the terminal time $\mathrm{T}$.
-<!-- 
-where $\mathrm{\frac{\partial u}{\partial \log x}=r_t-\frac{\sigma_t^2}{2}}$, $\mathrm{\frac{\partial^2 u}{\partial (\log x)^2}=\frac{1}{2}\sigma_t^2}$,  is the strike price and   -->
-
-### Applications in Schrödinger bridge
+where $\mathrm{Z_t=g\nabla_x \log \Psi(t, X_t)}$ and $\mathrm{\widehat Z_t=g\nabla_x \log \widehat \Psi(t, X_t)}$.
 
 
+#### Conclusions
 
-
-### Applications in SMC
-
-
-
+The Feynman-Kac representation principle involves a forward simulation followed by a backward derivation process, conceptually akin to the backpropagation training of deep neural networks. This principle is also potentially applicable to controlled sequential Monte Carlo {% cite heng2020controlled %} and related areas, which will be explored in future updates.
