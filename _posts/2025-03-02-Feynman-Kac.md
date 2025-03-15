@@ -1,6 +1,6 @@
 ---
 title: 'Feynman–Kac Formula'
-subtitle: A popular tool in finance, stochastic optimal control, and mathematical physics
+subtitle: A popular tool in finance and stochastic optimal control
 date: 2025-03-15
 permalink: /posts/feynman_kac/
 category: State Space Model
@@ -69,7 +69,7 @@ $$
 
 
 
-Then the option price $\mathrm{u(t, x)}$ at time $\mathrm{t}$ yields a stochastic representation
+Then $\mathrm{u(t, x)}$ approximates the current price of the future protection, which yields a stochastic solution
 
 $$\begin{align}
     \mathrm{u(t, x)=E\bigg[(X_T-K)^+ exp\bigg\{-\int_t^T r_s ds\bigg\} \bigg]}.\notag \\
