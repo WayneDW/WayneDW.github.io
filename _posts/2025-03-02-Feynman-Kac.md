@@ -31,14 +31,14 @@ $$
 \right.
 $$
 
-Denote $\mathrm{u(t, X_t)\equiv Y_t^{x}}$ and assume its smoothness and linear growth. Applying Ito's formula, we have 
+Denote $\mathrm{u(t, X_t)\equiv Y_t^{x}}$. The terminal value admits a solution $$\mathrm{u(t, x)\equiv E[Y_t\\|\mathcal{F}_t]}$$ if we back-propagate the conditional expectation. Given the smoothness and linear growth condition, applying Ito's formula:
 
 $$\begin{align}
     &\mathrm{d u=\bigg[u_t +\nabla_x u^\intercal \mu + \frac{1}{2} Tr(u_{xx} \Sigma \Sigma^\intercal)\bigg] dt + \nabla_x u^\intercal \Sigma d W_t}\notag \\
     &\quad\ =\mathrm{h(t, X_t, Y_t)dt + \Sigma(t, X_t) dW_t}. \notag \\
 \end{align}$$
 
-The terminal value admits a strong solution $$\mathrm{u(t, x)=E[g(X_T)\\|X_t=x]}$$ if we back-propagate the conditional expectation. The **nonlinear Feynman-Kac** formula {% cite Exarchos2018 %} builds a connection between the solution of PDEs and probabilistic representations of SDEs
+**Nonlinear Feynman-Kac** formula {% cite Exarchos2018 %} builds a connection between the solution of PDEs and probabilistic representations of SDEs
 
 $$
 \left\{
