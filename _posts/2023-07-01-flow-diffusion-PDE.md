@@ -71,9 +71,7 @@ $$\begin{align}
                 &=\nabla \cdot \bigg(-\underbrace{\bigg(\boldsymbol{\mathrm{v}} - \frac{1}{2} \big(\nabla\cdot \Sigma\big) - \frac{1}{2} \Sigma \nabla \log p_t\bigg)}_{\boldsymbol{\nu}_t} p_t \bigg), \label{FPE} \\
 \end{align}$$
 
-where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$.
-
-
+where the last equality follows by $\nabla \log p_t = \frac{\nabla p_t}{p_t}$. One can easily derive a *backward Kolmogorov equation* by invoking the integration by parts as studied in Eq.(15) of {% cite provably_schrodinger_bridge %}.
 
 
 ### Probability Flow
