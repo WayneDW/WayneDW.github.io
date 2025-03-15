@@ -119,4 +119,4 @@ where $\mathrm{Z_t=g\nabla_x \log \Psi(t, X_t)}$ and $\mathrm{\widehat Z_t=g\nab
 
 #### Conclusions
 
-The Feynman-Kac representation principle involves a forward simulation followed by a backward derivation process, conceptually akin to the backpropagation training of deep neural networks. This principle is also potentially applicable to controlled sequential Monte Carlo {% cite heng2020controlled %} and related areas, which will be explored in future updates.
+The Feynman-Kac representation principle involves a forward simulation followed by a backward derivation process, conceptually akin to the backpropagation training of deep neural networks. This principle is in spirit similar to the continuous-time policy gradient {% cite williams1992simple %} and applicable to controlled sequential Monte Carlo {% cite heng2020controlled %}.
