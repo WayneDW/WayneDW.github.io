@@ -43,7 +43,7 @@ $$\begin{align}
 $$
 \left\{
 \begin{array}{l}
-    \mathrm{u_t+\nabla_x u^\intercal \mu +\frac{1}{2} Tr(u_{xx} \Sigma \Sigma^\intercal) -h(t, x, u, \Sigma^\intercal \nabla_x u)=0} \\
+    \mathrm{u_t+\nabla_x u^\intercal \mu +\frac{1}{2} Tr(u_{xx} \Sigma \Sigma^\intercal) -h(t, x, u)=0} \\
     \ \ \mathrm{u(T, x)=g(x).}
 \end{array}
 \right.
