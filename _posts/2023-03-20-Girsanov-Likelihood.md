@@ -17,7 +17,7 @@ $$\begin{align}
 which models the density of the random variable $X$. The maximum likelihood estimator (MLE) is given by
 
 $$\begin{align}
-\mathrm{\widehat\theta=\text{argmax} \mathcal{L}(\mathbf{x}|\theta)},\notag
+\mathrm{\widehat\theta=\text{argmax} L(\mathbf{x}|\theta)},\notag
 \end{align}$$
 
 where $\mathrm{\mathbf{x}=\\{x_i\\}_{i=1}^N}$. When $X$ is a Gaussian random variable that follows $\mathrm{X\sim \mathcal{N}(\mu, \sigma^2)}$. The likelihood function is expressed as
