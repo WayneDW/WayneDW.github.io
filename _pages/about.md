@@ -10,6 +10,9 @@ author_profile: true
 
 I am a researcher at Morgan Stanley. My interest is to study sequential sampling. The applications include, but not limited to diffusion models, Language models, and stochastic volatility models in finance. 
 
+
+Apr, 2025. I am honored to present **On the Generation of Latent Diffusion Models in the FX Market** at the [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/) in the Math Finance Program at Columbia University.
+
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
 <!---  I got my Ph.D. in applied math at Purdue University in Dec 2021 and my thesis is <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>. 
@@ -29,6 +32,8 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 
 News
 =====
+
+<!-- Apr, 2025. -->
 
 Jan, 2025. 2 AISTATS on diffusion generative models are accpeted!
 
