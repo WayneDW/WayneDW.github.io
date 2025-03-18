@@ -11,7 +11,8 @@ author_profile: true
 I am a researcher at Morgan Stanley. My interest is to study sequential sampling. The applications include, but not limited to diffusion models, Language models, and stochastic volatility models in finance. 
 
 
-Apr, 2025. I am honored to present **On the Generation of Latent Diffusion Models in the FX Market** at the [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/) in the Math Finance Program at Columbia University.
+Apr, 2025. Honored to present **On Generation of Latent Diffusion in the FX Market** at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/).
+
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
