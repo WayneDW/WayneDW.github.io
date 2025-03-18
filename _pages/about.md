@@ -8,7 +8,7 @@ author_profile: true
 
 
 
-I am a researcher at Morgan Stanley. My interest is to study (sequential) sampling and diffusion models. The applications include, but not limited to generative/ Language models, and financial time series. 
+I am a researcher at Morgan Stanley. My interest is to study sequential sampling. The applications include, but not limited to diffusion models, Language models, and financial time series. 
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
