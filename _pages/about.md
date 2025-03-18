@@ -42,7 +42,7 @@ Nov, 2024. Invited Talk at [Learning Meets Geometry, Graphs, and Networks
 
 Jun, 2024. 1 JCGS is accpeted. Federated HMC can be faster than Federated Langevin dynamics.
 
-Apr, 2024. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795) is accepted by ICML'24! Schrödinger diffusion is **scalable** now by linearizing the forward scores. Simulation-free property is all we need for scalability.
+Apr, 2024. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795) is accepted by ICML'24! Schrödinger diffusion is scalable now by linearizing the forward scores. Simulation-free property is all we need for scalability.
 
 Apr, 2024. [Reflected Schrödinger Bridge](https://arxiv.org/pdf/2401.03228) is accepted by UAI'24 as **Oral**. Reflected Schrödinger has the linear convergence of couplings via entropic optimal transport on bounded domains.
 
