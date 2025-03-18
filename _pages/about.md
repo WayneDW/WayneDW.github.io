@@ -8,7 +8,7 @@ author_profile: true
 
 
 
-I am a researcher at Morgan Stanley. My current interest is to study sequential Monte Carlo sampling. The applications include, but not limited to inference-time scaling and steering of diffusion models and Language models, and stochastic volatility models in finance. 
+I am a researcher at Morgan Stanley. My current interest is to study sequential Monte Carlo sampling. The applications include, but not limited to inference-time scaling, steering, and reasoning of diffusion models and Language models, and stochastic volatility models in finance. 
 
 
 Apr, 2025. Honored to present **On Generation of Latent Diffusion in the FX Market** at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/).
@@ -35,6 +35,9 @@ News
 =====
 
 <!-- Apr, 2025. -->
+
+Apr, 2025. Invited Talk at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/).
+
 
 Jan, 2025. 2 AISTATS on diffusion generative models are accpeted!
 
