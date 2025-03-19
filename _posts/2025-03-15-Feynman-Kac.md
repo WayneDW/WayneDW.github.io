@@ -51,10 +51,9 @@ $$
 
 ### Feynman-Kac in Finance
 
-To protect stocks from unexpected losses, we consider e.g. a European call option with a stike price $\mathrm{K}$ at time $\mathrm{T}$. We denote the stock price by $\mathrm{X_t}$ and the option price at time $t$ with stock price $\mathrm{X_t}$ by $\mathrm{u(t, X_t)}$.
+To protect stocks from unexpected losses, we consider e.g. a European call option with a stike price $\mathrm{K}$ at time $\mathrm{T}$, i.e. the terminal payoff function follows $\mathrm{g(x)=(x-K)^+}$. We denote the stock price by $\mathrm{X_t}$ and the option price at time $t$ with stock price $\mathrm{X_t}$ by $\mathrm{u(t, X_t)}$.
 
-Consider a univariate linear case with $\mathrm{g(x)=(x-K)^+}$, $\mathrm{h\equiv r u}$, where $\mathrm{r_t}$ denotes the risk-free interest rate, the above PDE becomes: 
-
+Consider a univariate linear case with  $\mathrm{h\equiv r u}$, where $\mathrm{r_t}$ denotes the risk-free interest rate, the above PDE becomes: 
 
 $$
 \left\{
