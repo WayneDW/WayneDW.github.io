@@ -36,7 +36,7 @@ News
 
 <!-- Apr, 2025. -->
 
-Apr, 2025. Invited Talk at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/).
+Apr, 2025. Invited Talk at [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/) at Columbia University.
 
 Jan, 2025. 2 AISTATS on diffusion generative models are accpeted!
 
