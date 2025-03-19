@@ -35,10 +35,10 @@ Denote $\mathrm{u(t, X_t)\equiv Y_t^{x}}$. The terminal value admits a solution 
 
 $$\begin{align}
     &\mathrm{d u=\bigg[u_t +\nabla_x u^\intercal \mu + \frac{1}{2} Tr(u_{xx} \Sigma \Sigma^\intercal)\bigg] dt + \nabla_x u^\intercal \Sigma d W_t}\notag \\
-    &\quad\ =\mathrm{h(t, X_t, Y_t)dt + \Sigma(t, X_t) dW_t}. \notag \\
+    &\quad\ =\mathrm{h(t, X_t, Y_t)dt + \Sigma(t, X_t) dW_t}, \notag \\
 \end{align}$$
 
-**Nonlinear Feynman-Kac** formula {% cite Exarchos2018 %} builds a connection between the solution of PDEs and probabilistic representations of SDEs
+which leads to the **nonlinear Feynman-Kac** formula {% cite Exarchos2018 %} builds a connection between the solution of PDEs and probabilistic representations of SDEs
 
 $$
 \left\{
