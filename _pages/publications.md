@@ -5,7 +5,7 @@ title: "Selected Publications"
 author_profile: true
 ---
 
-### Denoising Diffusion Models
+### Diffusion Models
 
 * X. Liu, H. Du, **W. Deng**, R. Zhang. [Optimal Stochastic Trace Estimation in Generative Modeling](https://arxiv.org/pdf/2502.18808). AISTATS 2025.
 
