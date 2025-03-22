@@ -11,7 +11,9 @@ author_profile: true
 
 * K. Rojas, Y. Tan, M. Tao, Y. Nevmyvaka, **W. Deng**. [Variational Schrödinger Momentum Diffusion](https://arxiv.org/pdf/2501.16675). AISTATS 2025.
 
-* **W. Deng**<sup>α</sup>, W. Luo<sup>α</sup>, Y. Tan<sup>α</sup>, M. Biloš, Yu, Yuriy, T. Q. Chen. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795). ICML 2024. 
+<!-- * **W. Deng**<sup>α</sup>, W. Luo<sup>α</sup>, Y. Tan<sup>α</sup>, M. Biloš, Yu, Yuriy, T. Q. Chen. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795). ICML 2024.  -->
+
+* **W. Deng**, W. Luo, Y. Tan, M. Biloš, Yu, Yuriy, T. Q. Chen. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795). ICML 2024. 
 
 * **W. Deng**, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**) Acceptance rate **3.8%**.
 
@@ -60,7 +62,7 @@ author_profile: true
 
 
 
-
+<!-- 
 (*): equal contribution.
 (α): alphabetical order.
-(#): correspondence
+(#): correspondence -->
