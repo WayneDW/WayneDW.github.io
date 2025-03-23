@@ -8,7 +8,7 @@ author_profile: true
 
 
 
-I am a researcher at Morgan Stanley. My current interest is to study sequential sampling and diffusion models. The applications include, but not limited to stochastic volatility models in finance and inference-time scaling, steering and reasoning of Language models. 
+I am a researcher at Morgan Stanley. My current interest is to study sequential sampling and diffusion models. The applications include, but not limited to stochastic volatility diffusion models in finance and reasoning of Language models. 
 
 
 <!-- Apr, 2025. Honored to present **On Generation of Latent Diffusion in the FX Market** at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/). -->
@@ -28,7 +28,9 @@ Interns I (* directly) work with: [Shikai Fang\*](https://users.cs.utah.edu/~shi
 Feel free to contact me at: firstnamelastname056@gmail.com
 
 
-<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li> <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li> <li> <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="_blank">Thesis</a> </li>  <li> <a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank">OpenReview</a> </li>   </ul>  
+<!-- <ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li> <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li> <li> <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="_blank">Thesis</a> </li>  <li> <a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank">OpenReview</a> </li>   </ul>   -->
+
+<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li> <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li>  </ul>  
 
 
 News
