@@ -8,7 +8,8 @@ author_profile: true
 
 
 
-I am a researcher at Morgan Stanley. My interest is to study sequential sampling and diffusion models. The applications include 1) stochastic volatility models and simulations of implied volatility surface in finance and 2) guidance, steering, and reasoning of diffusion and Language models. 
+
+I am a researcher at Morgan Stanley with a current focus on sequential sampling in stochastic volatility models, diffusion models, and language models.
 
 
 <!-- Apr, 2025. Honored to present **On Generation of Latent Diffusion in the FX Market** at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/). -->
