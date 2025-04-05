@@ -4,7 +4,7 @@ title: "Sampling is all you need."
 excerpt: "what is this?"
 author_profile: true
 ---
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/mont_tremblant.png"></p>
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city.png"></p>
 
 
 
