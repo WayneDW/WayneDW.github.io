@@ -1,14 +1,13 @@
 ---
 permalink: /
-title: "Keep Sampling"
+title: "Sampling Inside"
 excerpt: "what is this?"
 author_profile: true
 ---
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city2.png"></p>
 
 
-
-
+<!-- title: "Nothing but Sampling" -->
 I am a researcher at Morgan Stanley, currently focused on sequential sampling in volatility models, as well as the guidance and steering of diffusion models and large language models.
 
 
