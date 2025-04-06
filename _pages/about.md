@@ -8,7 +8,8 @@ author_profile: true
 
 
 <!-- title: "Nothing but Sampling" -->
-This is Wei, a researcher at Morgan Stanley. I'm currently focused on sequential sampling in volatility models, as well as the guidance and steering of diffusion models and large language models.
+This is Wei, a researcher at Morgan Stanley. I'm currently focused on sequential sampling for the guidance and control of diffusion models, language models, and volatility models.
+
 
 
 <!-- Apr, 2025. Honored to present **On Generation of Latent Diffusion in the FX Market** at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/). -->
