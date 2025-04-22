@@ -17,7 +17,7 @@ author_profile: true
 
 * **W. Deng**, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**) Acceptance rate **3.8%**.
 
-* Y. Chen, **W. Deng**, S. Fang, F. Li, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Applications to Prob. Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023.
+* Y. Chen, **W. Deng**, S. Fang, F. Li, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Appli. to Prob. Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023.
 
 <!-- * Y. Chen<sup>α</sup>, **W. Deng**<sup>α</sup><sup>#</sup>, S. Fang<sup>α</sup>, F. Li<sup>α</sup>, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023 (α: alphabetical order, #: Correspondence) -->
 
