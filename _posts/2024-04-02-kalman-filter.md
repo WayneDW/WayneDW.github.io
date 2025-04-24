@@ -3,7 +3,7 @@ title: 'Kalman Filter'
 subtitle: A standard template for linear state-space models
 date: 2024-04-02
 permalink: /posts/kalman_filter/
-category: State Space Model
+category: Sequential Sampling
 ---
 
 
