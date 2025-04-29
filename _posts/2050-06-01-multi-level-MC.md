@@ -1,8 +1,8 @@
 ---
-title: 'Twisted Sequential Monte Carlo'
+title: 'Multilevel Monte Carlo'
 subtitle: A variance-minimized proposal with lookahead strategies
-date: 2025-06-01
-permalink: /posts/twisted_sequential_monte_carlo/
+date: 2050-06-01
+permalink: /posts/multilevel_monte_carlo/
 category: State Space Model
 ---
 
