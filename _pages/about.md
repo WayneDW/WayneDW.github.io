@@ -8,7 +8,8 @@ author_profile: true
 
 
 <!-- title: "Nothing but Sampling" -->
-This is Wei Deng, a researcher at Morgan Stanley. I'm currently focused on sequential sampling for the guidance and steering of diffusion models, vision language models, and volatility models.
+
+Welcome to the sampler's blog. He is currently focused on sequential sampling for the guidance and steering of diffusion models, vision language models, and volatility models.
 
 
 
