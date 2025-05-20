@@ -11,3 +11,5 @@ category: Sequential Sampling
 $$E[\widetilde Z]=p(y_{0:k})$$
 
 Z looks like some normalization constant (NC), why NC is also ....
+
+DPO / DPOK
