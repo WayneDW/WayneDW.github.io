@@ -9,7 +9,7 @@ author_profile: true
 
 <!-- title: "Nothing but Sampling" -->
 
-Welcome to a sampler's blog. He is currently focused on sequential sampling for the guidance and steering of diffusion models, vision language models, and stochastic volatility models (AI for finance).
+Welcome to a sampler's blog. He is currently focused on sequential sampling for the guidance and steering of diffusion models, vision language models, and stochastic volatility models.
 
 
 
@@ -30,7 +30,7 @@ Interns I (* directly) work with: [Shikai Fang\*](https://users.cs.utah.edu/~shi
 Feel free to contact me at: firstnamelastname056@gmail.com
 
 
-<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li> <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li> <li> <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="_blank">Thesis</a> </li>  <li> <a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank">OpenReview</a> </li>   </ul> 
+<ul class="pub-links"> <li> <a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a> </li> <li> <a href="https://github.com/WayneDW" target="_blank">Github</a> </li> <li> <a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a> </li> <li> <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="_blank">Thesis</a> </li>  <li> <a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank">Review</a> </li>   </ul> 
 
 
 
