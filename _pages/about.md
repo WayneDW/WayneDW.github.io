@@ -9,7 +9,7 @@ author_profile: true
 
 <!-- title: "Nothing but Sampling" -->
 
-Welcome to a sampler's blog. He is currently focused on sequential sampling for the guidance and steering of diffusion models, vision language models, and stochastic volatility models.
+Welcome to a sampler's blog. He is currently focused on sequential sampling for the guidance and steering of diffusion models, vision language models, and financial market simulation.
 
 
 
