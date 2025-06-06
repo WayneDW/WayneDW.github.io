@@ -11,11 +11,11 @@ author_profile: true
 
 This space explores sequential sampling techniques with a focus on their applications in guiding diffusion models, vision-language models, and financial market simulations.
 
-Efficient Diffusion Models – Improving generation speed and controllability through principled sampling.
+**Efficient Diffusion Models** – Improving generation speed and controllability through principled sampling.
 
-Sequential Sampling – Inference-time steering for diffusion and vision-language models.
+**Sequential Sampling** – Inference-time steering for diffusion and vision-language models.
 
-Financial Market Simulation – Modeling, hedging, and risk management via advanced sampling methods.
+**Financial Market Simulation** – Modeling, hedging, and risk management via advanced sampling methods.
 
 <!-- Apr, 2025. Honored to present **On Generation of Latent Diffusion in the FX Market** at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/). -->
 
