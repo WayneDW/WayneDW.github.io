@@ -11,7 +11,7 @@ author_profile: true
 
 This space explores sequential sampling techniques with a focus on their applications in guiding diffusion models, vision-language models, and financial market simulations.
 
-**Efficient Diffusion Models** – Improving generation optimality and controllability through principled sampling.
+**Efficient Diffusion Models** – Improving the transport efficiency for diffusion generations.
 
 **Sequential Sampling** – Inference-time steering for diffusion and vision-language models.
 
