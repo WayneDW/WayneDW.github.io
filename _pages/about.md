@@ -15,7 +15,7 @@ This space explores sequential sampling techniques with a focus on their applica
 
 **Sequential Sampling** – Inference-time steering for diffusion and vision-language models.
 
-**Financial Market Simulation** – Hedging and risk management via modern generative models.
+**Market Simulation** – Modern diffusion simulators for hedging and risk control.
 
 <!-- Apr, 2025. Honored to present **On Generation of Latent Diffusion in the FX Market** at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/). -->
 
