@@ -11,7 +11,7 @@ author_profile: true
 
 This space explores sequential sampling techniques with a focus on their applications in guiding diffusion models, vision-language models, and financial market simulations.
 
-**Efficient Diffusion Models** – Improving the transport efficiency for diffusion generations.
+**Diffusion Models** – Improving the transport efficiency for diffusion generations.
 
 **Sequential Sampling** – Inference-time steering for diffusion and vision-language models.
 
@@ -34,24 +34,21 @@ Interns I (* directly) work with: [Shikai Fang\*](https://users.cs.utah.edu/~shi
 Feel free to contact me at: firstnamelastname056@gmail.com
 
 
+<style>
+  .pub-links a.deep-blue {
+    /* color: #3366cc; */
+    /* color: #205ea6; */
+    color: #1a4b8b;
+  }
+</style>
 
 <ul class="pub-links" style="list-style: none; padding: 0; display: flex; gap: 1rem;">
-  <li><a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a></li>
-  <li><a href="https://github.com/WayneDW" target="_blank">Github</a></li>
-  <li><a href="https://twitter.com/dwgreyman" target="_blank">Twitter</a></li>
-  <li><a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="_blank">Thesis</a></li>
-  <li><a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank">OpenReview</a></li>
+  <li><a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank"  class="deep-blue">Scholar</a></li>
+  <li><a href="https://github.com/WayneDW" target="_blank" class="deep-blue">Github</a></li>
+  <li><a href="https://twitter.com/dwgreyman" target="_blank" class="deep-blue">Twitter</a></li>
+  <li><a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="_blank"  class="deep-blue">Thesis</a></li>
+  <li><a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank" class="deep-blue">OpenReview</a></li>
 </ul>
-
-
-<ul class="pub-links" style="list-style: none; padding: 0; display: flex; gap: 1rem;">
-  <li><a href="https://scholar.google.com/citations?user=IYiyxssAAAAJ&hl=en" target="_blank">Scholar</a></li>
-  <li><a href="https://github.com/WayneDW" target="_blank" style="color: #003366;">Github</a></li>
-  <li><a href="https://twitter.com/dwgreyman" target="_blank" style="color: #003366;">Twitter</a></li>
-  <li><a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="_blank">Thesis</a></li>
-  <li><a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank" style="color: #003366;">OpenReview</a></li>
-</ul>
-
 
 News
 =====
