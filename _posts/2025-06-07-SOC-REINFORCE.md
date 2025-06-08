@@ -101,7 +101,7 @@ $$\begin{align}
 \right]}\notag
 \end{align}$$
 
-With this, the cost-to-go function can be reformulated as:
+With this, the cost-to-go function can be reformulated as {% cite domingo-enrich2024adjoint %}:
 
 $$\begin{align}\label{def_J_2}
     \mathrm{J^u(x, t):=\mathrm{KL}\left( \mathbb{P}^u_{t,x} \,\|\, \mathbb{P}_{t,x} \right) + \mathbb{E}\big[- r(X_1^u)\big|X_t^u = x\big]},
