@@ -6,7 +6,7 @@ permalink: /posts/soc_and_reinforce/
 category: Sequential Sampling
 ---
 
-### Preliminaries
+## Stochastic Control
 
 Consider a diffusion process described by
 
@@ -97,9 +97,8 @@ $$\begin{align}
 &= \mathbb{E}_{\mathbb{P}^u_{t,x}} \left[
     \log \left( \frac{\mathrm{d} \mathbb{P}^u_{t,x}}{\mathrm{d} \mathbb{P}_{t,x}} \right)
 \right] \notag \\
-&= \mathbb{E}_{\mathbb{P}^u_{t,x}} \left[
-    \frac{1}{2\alpha} \int_t^1 \| u(X_s, s) \|^2 \, \mathrm{d}s
-\right]\notag
+&= \mathrm{\mathbb{E}_{\mathbb{P}^u_{t,x}} \left[\frac{1}{2\alpha} \int_t^1 \| u(X_s, s) \|^2 \, \mathrm{d}s
+\right]}\notag
 \end{align}$$
 
 With this, the cost-to-go function can be reformulated as:
@@ -110,17 +109,50 @@ $$\begin{align}\label{def_J_2}
 
 
 
-### Connections to Alignment in Diffusion Models
+## Connections to Alignment in Diffusion Models
 
 Consider a discretization of the diffusion path measure such that $$\mathrm{\mathbb{P}^u_{0,x}\approx \prod_{t=T}^0 p^{\theta}_t}$$ and $$\mathrm{\mathbb{P}_{0,x}\approx \prod_{t=T}^0 p_t}$$. For consistency with the backward time indexing used in diffusion models, we also reverse the time axis.
 
 The minimization of $\mathrm{J^u(x, t)}$ in \eqref{def_J_2} is equivalent to
 
-$$\begin{align}
+$$\begin{align}\label{RL_objective}
     \mathrm{argmax_{\{p^{\theta}_t\}_{t=T}^0} E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)-\alpha \sum_{t=T}^0 KL(p^{\theta}_{t-1}(\cdot|x_t)\| p_{t-1}(\cdot|x_t))\bigg]}
 \end{align}$$
 
 which recovers a standard objective in RL-based fine-tuning for diffusion models {% cite fan2023dpok %}.
 
-By further incorporating importance sampling and clipped gradients, the method closely resembles the PPO algorithm {% cite schulman2017proximal %}, allowing for the reuse of sample trajectories and improving sample efficiency. Removing the KL regularization term from the objective recovers the classic REINFORCE algorithm.
+Taking the gradient of Eq.\eqref{RL_objective} approximately yields the following
 
+$$\begin{align}
+    \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)\sum_{t=T}^1 \nabla \log p^{\theta}_t -\alpha \sum_{t=T}^1 \nabla KL(p^{\theta}_{t-1}(\cdot|x_t)\| p_{t-1}(\cdot|x_t))\bigg]}.\label{grad_RL}\notag
+\end{align}$$
+
+The first part of gradient has also been adopted by the classic REINFORCE algorithm, which, however, suffers from the large variance issue. 
+
+#### Variance Reduction with a Value Function Baseline
+
+Motivated by the control variate method, we consider an unbiased baseline $$\mathrm{V^{\theta}(x_t):= \mathbb{E}[r(x_0) \\| x_t]}$$:
+
+$$\begin{align}
+    \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\nabla \log p^{\theta}_t(x_{t-1}|x_t)\bigg]}.\label{grad_RL_VR}\notag
+\end{align}$$
+
+Given a good approximator of $$\mathrm{V^{\theta}(x_t)}$$, the gradient variance can be reduced significantly.
+
+#### Importance Sampling and Ratio Clipping
+
+Simulating trajectories can be computationally expensive. To improve sample efficiency, we incorporate importance sampling to reuse previously collected trajectory samples:
+
+$$\begin{align}
+    &\quad \mathrm{E_{\{p^{\theta}_t\}_{t=T}^1}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\nabla \log p^{\theta}_t(x_{t-1}|x_t)\bigg]}\notag \\
+    &=\mathrm{E_{\{p^{\theta_{old}}_t\}_{t=T}^1}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\frac{p_t^{\theta}(x_{t-1}|x_t)}{p_t^{\theta_{old}}(x_{t-1}|x_t)}\nabla \log p^{\theta}_t(x_{t-1}|x_t)\bigg]}\notag \\
+    &=\mathrm{E_{\{p^{\theta_{old}}_t\}_{t=T}^1}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\nabla\frac{p_t^{\theta}(x_{t-1}|x_t)}{p_t^{\theta_{old}}(x_{t-1}|x_t)}\bigg]}.\notag \\
+\end{align}$$
+
+Inspired by the trust region approach in TRPO {% cite TRPO %}, we stabilize training by clipping the importance weight gradients within an $$\epsilon$$-bounded interval. This yields the following clipped surrogate objective:
+
+$$\begin{align}
+    \mathrm{E_{\{p^{\theta_{old}}_t\}_{t=T}^1}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\nabla Clip\bigg(\frac{p_t^{\theta}(x_{t-1}|x_t)}{p_t^{\theta_{old}}(x_{t-1}|x_t)} , 1-\epsilon, 1+\epsilon\bigg)\bigg]}.\notag \\
+\end{align}$$
+
+This procedure closely resembles the Proximal Policy Optimization (PPO) algorithm {% cite schulman2017proximal %}, which has become a standard approach in large-scale language model training.
