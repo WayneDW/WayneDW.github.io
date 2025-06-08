@@ -152,7 +152,7 @@ $$\begin{align}
     &=\mathrm{E_{\{p^{\theta_{old}}_t\}_{t=T}^1}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\nabla\frac{p_t^{\theta}(x_{t-1}|x_t)}{p_t^{\theta_{old}}(x_{t-1}|x_t)}\bigg]}.\notag \\
 \end{align}$$
 
-Inspired by the trust region approach in TRPO {% cite TRPO %}, we stabilize training by clipping the importance weight gradients within an $$\epsilon$$-bounded interval. This yields the following clipped surrogate objective:
+Inspired by the trust region approach in TRPO {% cite TRPO %}, we stabilize training by clipping the importance weight within an $$\epsilon$$-bounded interval. This yields the following clipped surrogate objective:
 
 $$\begin{align}
     \mathrm{E_{\{p^{\theta_{old}}_t\}_{t=T}^1}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\nabla Clip\bigg(\frac{p_t^{\theta}(x_{t-1}|x_t)}{p_t^{\theta_{old}}(x_{t-1}|x_t)} , 1-\epsilon, 1+\epsilon\bigg)\bigg]}.\notag \\
