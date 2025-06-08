@@ -27,7 +27,7 @@ which generates a different path measure $\mathbb{P}^u$ under control $u$.
 We also define the cost-to-go function
 
 $$\begin{align}\label{def_J}
-    \mathrm{J^u(x, t):=E\bigg[\int_t^1 \frac{1}{2\alpha}\|u(X_s^u, s)\|_2^2 ds - r(X_1^u)\bigg|X_t^u = x\bigg]},
+    \mathrm{J^u(x, t):=E\bigg[\int_t^1 \frac{1}{2\alpha}\|u(X_s^u, s)\|_2^2 ds - r(X_1^u)\bigg|X_t^u = x\bigg]},\notag
 \end{align}$$
 
 where $r(\cdot)$ is a terminal reward function.
@@ -35,19 +35,19 @@ where $r(\cdot)$ is a terminal reward function.
 Define the value function 
 
 $$\begin{align}\label{def_value_func}
-    \mathrm{v(x, t):=\inf_{u\in\mathcal{U}} J^u(x, t)}.
+    \mathrm{v(x, t):=\inf_{u\in\mathcal{U}} J^u(x, t)}.\notag
 \end{align}$$
 
 ### Bellman Equation 
 
-The dynamic programming principle yields the famous Bellman equation {% cite tzen2019theoretical %} {% cite zhang2022path %}:
+The dynamic programming principle yields the Bellman equation {% cite tzen2019theoretical %}:
 
 $$\begin{align}\label{HJB}
-    \mathrm{\partial_t v +\nabla v^\intercal b_t+\frac{1}{2} \Delta v =-\inf_{u\in\mathcal{U}} \bigg[\frac{1}{2\alpha}\|u(x, t)\|_2^2 + \nabla v^\intercal u_t\bigg]}. 
+    \mathrm{\partial_t v +\nabla v^\intercal b_t+\frac{1}{2} \Delta v =-\inf_{u\in\mathcal{U}} \bigg[\frac{1}{2\alpha}\|u(x, t)\|_2^2 + \nabla v^\intercal u_t\bigg]}\notag. 
 \end{align}$$
 
 
-Solving the optimal control $\mathrm{u^{\star}}$ and plugging the solution back into the Bellman equation \eqref{HJB} yields:
+Solving the optimal control yields:
 
 $$\begin{align}
 \mathrm{\partial_t v +\nabla v^\intercal b_t -\frac{1}{2\alpha}\|\nabla v\|^2_2 +\frac{1}{2} \Delta v=0}\notag. 
@@ -70,7 +70,7 @@ $$\begin{align}
 
 where $\mathrm{\phi(x, 1)=\exp\big(\frac{-v(x, 1)}{\alpha}\big)=\exp\big(\frac{r(x)}{\alpha}\big)}$. 
 
-By Feynman-Kac theorem, the value function follows that
+By Feynman-Kac theorem {% cite zhang2022path %}, the value function follows that
 
 $$\begin{align}
 \mathrm{v(x, t)=-\alpha\log E\bigg[\exp\bigg(\frac{r(X_1)}{\alpha}\bigg)\bigg|X_t=x\bigg]}\notag. 
@@ -104,8 +104,11 @@ $$\begin{align}
 With this, the cost-to-go function can be reformulated as:
 
 $$\begin{align}\label{def_J_2}
-    \mathrm{J^u(x, t):=\mathrm{KL}\left( \mathbb{P}^u_{t,x} \,\|\, \mathbb{P}_{t,x} \right) + \mathbb{E}\big[- r(X_1^u)\big|X_t^u = x\big]}.
+    \mathrm{J^u(x, t):=\mathrm{KL}\left( \mathbb{P}^u_{t,x} \,\|\, \mathbb{P}_{t,x} \right) + \mathbb{E}\big[- r(X_1^u)\big|X_t^u = x\big]},
 \end{align}$$
+
+where $\mathrm{X^u_t}$ is simulated from the controlled process \eqref{controlled_process}.
+
 
 
 
@@ -155,4 +158,4 @@ $$\begin{align}
     \mathrm{E_{\{p^{\theta_{old}}_t\}_{t=T}^1}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\nabla Clip\bigg(\frac{p_t^{\theta}(x_{t-1}|x_t)}{p_t^{\theta_{old}}(x_{t-1}|x_t)} , 1-\epsilon, 1+\epsilon\bigg)\bigg]}.\notag \\
 \end{align}$$
 
-This procedure closely resembles the Proximal Policy Optimization (PPO) algorithm {% cite schulman2017proximal %}, which has become a standard approach in large-scale language model training.
+This procedure closely resembles the Proximal Policy Optimization (PPO) algorithm {% cite PPO %}, which has become a standard approach in large-scale language model training.
