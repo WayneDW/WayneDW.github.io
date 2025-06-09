@@ -1,7 +1,7 @@
 ---
 title: 'Discrete Diffusion Models'
-subtitle: Multimodal Diffusion Models on Arbitrary State Spaces
-date: 2050-06-01
+subtitle: Multimodal diffusion models on arbitrary state spaces
+date: 2025-06-08
 permalink: /posts/Discrete Diffusion Models/
 category: Diffusion Model
 ---
