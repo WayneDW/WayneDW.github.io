@@ -119,7 +119,7 @@ Consider a discretization of the diffusion path measure such that $$\mathrm{\mat
 The minimization of $\mathrm{J^u(x, t)}$ in \eqref{def_J_2} is equivalent to
 
 $$\begin{align}\label{RL_objective}
-    \mathrm{argmax_{\{p^{\theta}_t\}_{t=T}^0} E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)-\alpha \sum_{t=T}^0 KL(p^{\theta}_{t-1}(\cdot|x_t)\| p_{t-1}(\cdot|x_t))\bigg]}
+    \mathrm{argmax_{\{p^{\theta}_t\}_{t=T}^0} E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)-\alpha \sum_{t=T}^1 KL(p^{\theta}_{t-1}(x_{t-1}|x_t)\| p_{t-1}(x_{t-1}|x_t))\bigg]}
 \end{align}$$
 
 which recovers a standard objective in RL-based fine-tuning for diffusion models {% cite fan2023dpok %}.
@@ -127,7 +127,7 @@ which recovers a standard objective in RL-based fine-tuning for diffusion models
 Taking the gradient of Eq.\eqref{RL_objective} approximately yields the following
 
 $$\begin{align}
-    \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)\sum_{t=T}^1 \nabla \log p^{\theta}_t(x_{t-1}|x_t) -\alpha \sum_{t=T}^1 \nabla KL(p^{\theta}_{t-1}(\cdot|x_t)\| p_{t-1}(\cdot|x_t))\bigg]}.\label{grad_RL}\notag
+    \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)\sum_{t=T}^1 \nabla \log p^{\theta}_t(x_{t-1}|x_t) -\alpha \sum_{t=T}^1 \nabla KL(p^{\theta}_{t-1}(x_{t-1}|x_t)\| p_{t-1}(x_{t-1}|x_t))\bigg]}.\label{grad_RL}\notag
 \end{align}$$
 
 The first part of gradient has also been adopted by the classic REINFORCE algorithm, which, however, suffers from the large variance issue. 
@@ -140,7 +140,7 @@ $$\begin{align}
     \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\nabla \log p^{\theta}_t(x_{t-1}|x_t)\bigg]}.\label{grad_RL_VR}\notag
 \end{align}$$
 
-Given a good approximator of $$\mathrm{V^{\theta}(x_t)}$$, the gradient variance can be reduced significantly.
+Given a good approximator of the baseline $$\mathrm{V^{\theta}(x_t)}$$, the gradient variance can be reduced significantly.
 
 #### Importance Sampling and Ratio Clipping
 
