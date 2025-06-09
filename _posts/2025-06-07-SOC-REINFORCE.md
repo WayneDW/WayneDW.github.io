@@ -127,7 +127,7 @@ which recovers a standard objective in RL-based fine-tuning for diffusion models
 Taking the gradient of Eq.\eqref{RL_objective} approximately yields the following
 
 $$\begin{align}
-    \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)\sum_{t=T}^1 \nabla \log p^{\theta}_t -\alpha \sum_{t=T}^1 \nabla KL(p^{\theta}_{t-1}(\cdot|x_t)\| p_{t-1}(\cdot|x_t))\bigg]}.\label{grad_RL}\notag
+    \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)\sum_{t=T}^1 \nabla \log p^{\theta}_t(x_{t-1}|x_t) -\alpha \sum_{t=T}^1 \nabla KL(p^{\theta}_{t-1}(\cdot|x_t)\| p_{t-1}(\cdot|x_t))\bigg]}.\label{grad_RL}\notag
 \end{align}$$
 
 The first part of gradient has also been adopted by the classic REINFORCE algorithm, which, however, suffers from the large variance issue. 
