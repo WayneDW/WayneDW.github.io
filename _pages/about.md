@@ -13,7 +13,7 @@ This space explores sequential sampling techniques with a focus on their applica
 
 <!--  **Diffusion Models** – Improving the transport efficiency for diffusion generations. -->
 
-**Sequential Sampling** – Alignment, steering, and guidance for multimodal diffusion.
+**Sequential Sampling** – Alignment and fine-tuning for multimodal diffusion.
 
 **Market Simulation** – Denosing-diffusion market simulators for hedging and risk control.
 
