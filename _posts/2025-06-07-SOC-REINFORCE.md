@@ -27,7 +27,7 @@ which generates a different path measure $\mathbb{P}^u$ under control $u$.
 We also define the cost-to-go function
 
 $$\begin{align}\label{def_J}
-    \mathrm{J^u(x, t):=E\bigg[\int_t^1 \frac{1}{2\alpha}\|u(X_s^u, s)\|_2^2 ds - r(X_1^u)\bigg|X_t^u = x\bigg]},\notag
+    \mathrm{J^u(x, t):=E\bigg[\int_t^1 \frac{\alpha}{2}\|u(X_s^u, s)\|_2^2 ds - r(X_1^u)\bigg|X_t^u = x\bigg]},\notag
 \end{align}$$
 
 where $r(\cdot)$ is a terminal reward function.
@@ -43,7 +43,7 @@ $$\begin{align}\label{def_value_func}
 The dynamic programming principle yields the Bellman equation {% cite tzen2019theoretical %}:
 
 $$\begin{align}\label{HJB}
-    \mathrm{\partial_t v +\nabla v^\intercal b_t+\frac{1}{2} \Delta v =-\inf_{u\in\mathcal{U}} \bigg[\frac{1}{2\alpha}\|u(x, t)\|_2^2 + \nabla v^\intercal u_t\bigg]}\notag. 
+    \mathrm{\partial_t v +\nabla v^\intercal b_t+\frac{1}{2} \Delta v =-\inf_{u\in\mathcal{U}} \bigg[\frac{\alpha}{2}\|u(x, t)\|_2^2 + \nabla v^\intercal u_t\bigg]}\notag. 
 \end{align}$$
 
 
@@ -97,14 +97,14 @@ $$\begin{align}
 &= \mathbb{E}_{\mathbb{P}^u_{t,x}} \left[
     \log \left( \frac{\mathrm{d} \mathbb{P}^u_{t,x}}{\mathrm{d} \mathbb{P}_{t,x}} \right)
 \right] \notag \\
-&= \mathrm{\mathbb{E}_{\mathbb{P}^u_{t,x}} \left[\frac{1}{2\alpha} \int_t^1 \| u(X_s, s) \|^2 \, \mathrm{d}s
+&= \mathrm{\mathbb{E}_{\mathbb{P}^u_{t,x}} \left[\int_t^1 \| u(X_s, s) \|^2 \, \mathrm{d}s
 \right]}\notag
 \end{align}$$
 
 With this, the cost-to-go function can be reformulated as {% cite domingo-enrich2024adjoint %}:
 
 $$\begin{align}\label{def_J_2}
-    \mathrm{J^u(x, t):=\mathrm{KL}\left( \mathbb{P}^u_{t,x} \,\|\, \mathbb{P}_{t,x} \right) + \mathbb{E}\big[- r(X_1^u)\big|X_t^u = x\big]},
+    \mathrm{J^u(x, t):=\frac{\alpha}{2}\mathrm{KL}\left( \mathbb{P}^u_{t,x} \,\|\, \mathbb{P}_{t,x} \right) + \mathbb{E}\big[- r(X_1^u)\big|X_t^u = x\big]},
 \end{align}$$
 
 where $\mathrm{X^u_t}$ is simulated from the controlled process \eqref{controlled_process}.
@@ -119,7 +119,7 @@ Consider a discretization of the diffusion path measure such that $$\mathrm{\mat
 The minimization of $\mathrm{J^u(x, t)}$ in \eqref{def_J_2} is equivalent to
 
 $$\begin{align}\label{RL_objective}
-    \mathrm{argmax_{\{p^{\theta}_t\}_{t=T}^0} E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)-\alpha \sum_{t=T}^1 KL(p^{\theta}_{t-1}(x_{t-1}|x_t)\| p_{t-1}(x_{t-1}|x_t))\bigg]}
+    \mathrm{argmax_{\{p^{\theta}_t\}_{t=T}^0} E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)-\frac{\alpha}{2} \sum_{t=T}^1 KL(p^{\theta}_{t-1}(x_{t-1}|x_t)\| p_{t-1}(x_{t-1}|x_t))\bigg]}
 \end{align}$$
 
 which recovers a standard objective in RL-based fine-tuning for diffusion models {% cite fan2023dpok %}.
@@ -127,7 +127,7 @@ which recovers a standard objective in RL-based fine-tuning for diffusion models
 Taking the gradient of Eq.\eqref{RL_objective} approximately yields the following
 
 $$\begin{align}
-    \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)\sum_{t=T}^1 \nabla \log p^{\theta}_t(x_{t-1}|x_t) -\alpha \sum_{t=T}^1 \nabla KL(p^{\theta}_{t-1}(x_{t-1}|x_t)\| p_{t-1}(x_{t-1}|x_t))\bigg]}.\label{grad_RL}\notag
+    \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[r(x_0)\sum_{t=T}^1 \nabla \log p^{\theta}_t(x_{t-1}|x_t) -\frac{\alpha}{2} \sum_{t=T}^1 \nabla KL(p^{\theta}_{t-1}(x_{t-1}|x_t)\| p_{t-1}(x_{t-1}|x_t))\bigg]}.\label{grad_RL}\notag
 \end{align}$$
 
 The first part of gradient has also been adopted by the classic REINFORCE algorithm, which, however, suffers from the large variance issue. 
