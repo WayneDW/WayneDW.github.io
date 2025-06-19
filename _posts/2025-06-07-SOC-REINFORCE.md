@@ -65,7 +65,7 @@ $$\begin{align}
 Applying this change of variable, we can obtain a linear backward Kolmogorov equation 
 
 $$\begin{align}
-\mathrm{\partial_t \phi +\nabla \cdot (b\phi)+\frac{1}{2} \Delta \phi=0}\notag, 
+\mathrm{\partial_t \phi + \nabla \phi^\intercal b_t +\frac{1}{2} \Delta \phi=0}\notag, 
 \end{align}$$
 
 where $\mathrm{\phi(x, 1)=\exp\big(\frac{-v(x, 1)}{\alpha}\big)=\exp\big(\frac{r(x)}{\alpha}\big)}$. 
