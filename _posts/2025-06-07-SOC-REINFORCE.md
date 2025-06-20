@@ -134,7 +134,7 @@ The first part of gradient has also been adopted by the classic REINFORCE algori
 
 #### Variance Reduction with a Value Function Baseline
 
-Motivated by the control variate method, we consider an unbiased baseline $$\mathrm{V^{\theta}(x_t):= \mathbb{E}[r(x_0) \\| x_t]}$$:
+Motivated by control variate/ actor-critic method, we consider a baseline $$\mathrm{V^{\theta}(x_t):= \mathbb{E}[r(x_0) \\| x_t]}$$:
 
 $$\begin{align}
     \mathrm{E_{\{p^{\theta}_t\}_{t=T}^0}\bigg[\sum_{t=T}^1 \big(r(x_0)-V^{\theta}(x_t)\big)\nabla \log p^{\theta}_t(x_{t-1}|x_t)\bigg]}.\label{grad_RL_VR}\notag
