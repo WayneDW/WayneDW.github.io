@@ -9,13 +9,13 @@ author_profile: true
 
 <!-- title: "Nothing but Sampling" -->
 
-This space explores sequential sampling techniques with a focus on their applications in guiding diffusion models, vision-language models, and financial market simulations.
+This space explores sequential sampling techniques with a focus on their applications in guiding diffusion models, vision-language models, and market simulations.
 
 <!--  **Diffusion Models** – Improving the transport efficiency for diffusion generations. -->
 
 **Sequential Sampling** – Alignment and fine-tuning for multimodal diffusion.
 
-**Market Simulation** – Denosing-diffusion market simulators for hedging and risk control.
+**Market Simulation** – Diffusion market simulators for hedging and risk control.
 
 <!-- Apr, 2025. Honored to present **On Generation of Latent Diffusion in the FX Market** at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/). -->
 
