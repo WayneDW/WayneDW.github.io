@@ -59,10 +59,10 @@ Apr, 2025. Invited Talk at [Practitioners’ Seminar 2025](https://www.math.colu
 
 Jan, 2025. 2 AISTATS on diffusion generative models are accpeted!
 
+Jan, 2025. 1 [JCGS](https://www.tandfonline.com/doi/full/10.1080/10618600.2024.2380051) is accpeted. Federated HMC can be faster than Federated Langevin dynamics.
+
 Nov, 2024. Invited Talk at [Learning Meets Geometry, Graphs, and Networks
 ](https://logmeetupnyc.github.io/), NY
-
-Jun, 2024. 1 JCGS is accpeted. Federated HMC can be faster than Federated Langevin dynamics.
 
 Apr, 2024. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795) is accepted by ICML'24! Schrödinger diffusion is scalable now by linearizing the forward scores. Simulation-free property is all we need for scalability.
 
