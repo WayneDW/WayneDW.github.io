@@ -1,6 +1,6 @@
 ---
 title: 'Discrete Diffusion Models'
-subtitle: Multimodal diffusion models for languages and arbitrary state spaces
+subtitle: Multimodal diffusion for images, languages, and general state spaces
 date: 2025-06-30
 permalink: /posts/Discrete Diffusion Models/
 category: Diffusion Model
