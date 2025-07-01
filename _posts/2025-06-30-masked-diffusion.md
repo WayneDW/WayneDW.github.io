@@ -1,6 +1,6 @@
 ---
 title: 'Discrete Diffusion Models'
-subtitle: Multimodal diffusion models on arbitrary state spaces
+subtitle: Multimodal diffusion models for languages and arbitrary state spaces
 date: 2025-06-30
 permalink: /posts/Discrete Diffusion Models/
 category: Diffusion Model
@@ -111,7 +111,7 @@ $$\begin{align}
 \mathrm{\mathcal{L}(\theta) \triangleq - \mathbb{E}_{t, x_0, x_t} \left[ \frac{1}{t} \sum_{i=1}^L \mathbf{1}[x_t^i = \text{M}] \log p_\theta(x_0^i \mid x_t) \right]} \label{AO_loss}.
 \end{align}$$
 
-This simplified loss \eqref{AO_loss} forms the core training objective in {% cite LLaDA %}, enabling scalability comparable to that of large-scale language models such as LLaMA3.
+This simplified loss \eqref{AO_loss} forms the core training objective in {% cite LLaDA %}, enabling scalability comparable to that of large-scale language models such as LLaMA3 and other multimodal applications {% cite rojas2025diffuse %}.
 
 
 <!-- ### Discrete Flows
