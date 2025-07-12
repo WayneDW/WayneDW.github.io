@@ -1,19 +1,41 @@
 ---
 title: 'Discrete Diffusion Models'
 subtitle: Multimodal diffusion for images, languages, and general state spaces
-date: 2025-06-30
+date: 2025-07-12
 permalink: /posts/Discrete Diffusion Models/
 category: Diffusion Model
 ---
 
 
-Diffusion models have gained notable attention in image generation for continuous state spaces. However, their application to discrete state spaces remains limited, restricting use in domains like text and protein structures. To tackle this issue, Discrete Diffusion Models {% cite SEDD %} propose:
+Diffusion models have gained notable attention in image generation for continuous state spaces. However, their application to discrete state spaces remains limited, restricting use in domains like text and protein structures. To tackle this issue, 
+Discrete Denoising Diffusion Probabilistic Models (D3PM) {% cite austin2021structured %} propose:
+
+$$\begin{align}
+    \mathrm{\mathbf{q}(x_t|x_{t-1})=\text{Cat}(x_t; \mathbf{q}=x_{t-1} \mathbf{T}_t)},\label{D3PM}
+\end{align}$$
+
+where $\mathrm{x_t}$ is a $\mathrm{D}$-dim one-hot row vector; $$\mathrm{[\mathbf{T}_t]_{i,j}}$$ denotes the transition probability $$\mathrm{q(x_t=j\\|x_{t-1}=i)}$$. 
+
+Iterating the transitions, we have
+
+$$\begin{align}
+    &\mathrm{\mathbf{q}(x_t|x_0)=\text{Cat}(x_t; \mathbf{q}=x_{t-1} \overline{\mathbf{T}}_t), \quad \overline{\mathbf{T}}_t=\mathbf{T}_1 \mathbf{T}_2 \dots \mathbf{T}_t},\notag\\
+    &\mathrm{\mathbf{q}(x_{t-1}|x_t, x_0)=\dfrac{\mathbf{q}(x_t|x_{t-1}) \mathbf{q}(x_{t-1}|x_0)}{\mathbf{q}(x_{t}|x_0)}=\text{Cat}(x_t; \mathbf{q}=\dfrac{x_t \mathbf{T}_t^\intercal \odot x_0 \overline{\mathbf{T}}_{t-1}}{x_0 \overline{\mathbf{T}}_t x_t^\intercal}) }.\notag
+\end{align}$$
+
+#### Continuous-Time Markov Chains (CTMC)
+
+For the continuous-time limit, Discrete Diffusion Models {% cite SEDD %} propose:
 
 $$\begin{align}
     \mathrm{\frac{d \mathbf{p}_t}{dt}=\mathbf{Q}_t \mathbf{p}_t, \ \ \mathbf{p}_0\sim \mathbf{p}_{\text{data}},\ \ \mathbf{p}_T\approx \mathbf{p}_{\text{base}}},\notag
 \end{align}$$
 
-where $\mathrm{\mathbf{p}_t} \in \mathbb{R}^d$ denotes the probability mass vector over the discrete state space $$\mathcal{X} = \{1, 2, \cdots, D\}$$, and $\mathrm{\mathbf{Q}_t \in \mathbb{R}^{d \times d}}$ is a rate matrix that governs the frequency and destination of state jumps or transitions {% cite gat2024discrete_flow_matching %}, with each column summing to zero. 
+where $\mathrm{\mathbf{p}_t} \in \mathbb{R}^d$ denotes the probability mass vector over the discrete state space $$\mathrm{\mathcal{X} = \{1, 2, \cdots, D\}}$$. 
+
+$$\begin{align}\mathrm{\mathbf{Q}_t = \lim_{\Delta t\rightarrow 0}\frac{\mathbf{T}_t-I}{\Delta t} \in \mathbb{R}^{d \times d}}\notag\end{align}$$ 
+
+is a rate matrix (generator) that governs the frequency and destination of state jumps or transitions {% cite gat2024discrete_flow_matching %}, with each column summing to zero. 
 
 
 For scalability, a common choice is $\mathrm{\mathbf{Q}_t = \sigma_t \mathbf{Q}^{\text{absorb}}}$, where the design of $\sigma_t$ is detailed in {% cite ou2025absorbingDiscrete %}, and the absorbing-type matrix $\mathrm{\mathbf{Q}^{\text{absorb}}}$ has demonstrated superior empirical performance compared to uniform alternatives {% cite austin2021structured %}.
@@ -31,10 +53,10 @@ $$\begin{align}
 
 The bottom-right **0** corresponds to the absorbing [MASK] token, which remains unchanged once reached. The diagonal entries (–1) define the rates at which non-mask tokens independently transition to [MASK].
 
-In practice, we can implement the process via Euler steps
+In practice, we can implement the process via Euler steps, which approximates Eq.\eqref{D3PM} as follows
 
 $$\begin{align}
-    \mathrm{\mathbf{p}(x_{t+\Delta t}=y|x_t=x)=\delta_{xy}+\mathbf{Q}_t(y, x)\Delta t+o(\Delta t)}.\notag
+    \mathrm{\mathbf{p}(x_{t+\Delta t}=y|x_t=x)=\delta_{xy}+\mathbf{Q}_t(y, x)\Delta t+o(\Delta t)}\notag
 \end{align}$$
 
 Invoking the Bayes rule in Lemma A {% cite shi2024simplified %}, the reverse-time process follows that
