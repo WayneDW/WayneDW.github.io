@@ -48,10 +48,10 @@ $$\begin{align}
 \vdots & \vdots & \ddots & \vdots & \vdots \notag \\
 0 & 0 & \cdots & -1 & 0 \\
 1 & 1 & \cdots & 1 & 0
-\end{bmatrix}.
+\end{bmatrix}=\mathbf{e_d\cdot 1^\intercal - I},
 \end{align}$$
 
-The bottom-right **0** corresponds to the absorbing [MASK] token, which remains unchanged once reached. The diagonal entries (–1) define the rates at which non-mask tokens independently transition to [MASK].
+where $\mathrm{\mathbf{e_d}}$ is the one-hot encoding of the [MASK] token and $\mathrm{\mathbf{1}}$ is a vector of all 1's. The bottom-right **0** corresponds to the absorbing [MASK] token, which remains unchanged once reached. The diagonal entries (–1) define the rates at which non-mask tokens independently transition to [MASK].
 
 In practice, we can implement the process via Euler steps, which approximates Eq.\eqref{D3PM} as follows
 
