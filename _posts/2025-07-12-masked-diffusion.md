@@ -14,7 +14,7 @@ $$\begin{align}
     \mathrm{\mathbf{q}(x_t|x_{t-1})=\text{Cat}(x_t; \mathbf{q}=x_{t-1} \mathbf{T}_t)},\label{D3PM}
 \end{align}$$
 
-where $\mathrm{x_t}$ is a $\mathrm{D}$-dim one-hot row vector; $$\mathrm{[\mathbf{T}_t]_{i,j}}$$ denotes the transition probability $$\mathrm{q(x_t=j\\|x_{t-1}=i)}$$. 
+where $\mathrm{x_t}$ is a $\mathrm{d}$-dim one-hot row vector; $$\mathrm{[\mathbf{T}_t]_{i,j}}$$ denotes the transition probability $$\mathrm{q(x_t=j\\|x_{t-1}=i)}$$. 
 
 Iterating the transitions, we have
 
