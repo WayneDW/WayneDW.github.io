@@ -73,11 +73,20 @@ marginal likelihood (ELBO)
 
 $$
 \begin{align}
-\mathrm{ELBO= \int_{\delta_0}^1 \frac{\alpha_t'}{1 - \alpha_t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \mathbf{1}_{x_t = m} \cdot x_0^\top \log \mu_\theta(x_t, t) \right] \, dt.}\label{shi_loss}
+&\mathrm{ELBO= \int_{\delta_0}^1 \frac{\alpha_t'}{1 - \alpha_t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \mathbf{1}_{x_t = m} \cdot x_0^\top \log \mu_\theta(x_t, t) \right] \, dt.} \notag \\
+& \mathrm{\qquad\quad\supset\int_{\delta_0}^1 \frac{1}{t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \mathbf{1}_{x_t = m} \cdot x_0^\top \log \mu_\theta(x_t, t) \right] \, dt.} \notag \\
 \end{align}
 $$
 
-where $\mathrm{\alpha_t'}$ is the time derivative of $\mathrm{\alpha_t}$.
+where $\mathrm{\alpha_t'}$ is the time derivative of $\mathrm{\alpha_t}$ and the 2nd equation holds when $\mathrm{\alpha_t=1-t}$.
+
+Rewrite the single token $\mathrm{x_t}$ to a sequence tokens $\mathrm{x_t:=(x_t^{(1)}, x_t^{(2)}, \cdots, x_t^{(n)})}$:
+
+$$
+\begin{align}
+&\mathrm{ELBO=\int_{\delta_0}^t \frac{1}{t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \sum_{n} \mathbf{1}_{x_t^{(n)} = m} \cdot (x_0^{(n)})^\top \log \mu^{(n)}_\theta(x_t, t) \right] \, dt.}\label{shi_loss}
+\end{align}
+$$
 
 
 
