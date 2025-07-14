@@ -84,9 +84,11 @@ Rewrite the single token $\mathrm{x_t}$ to a sequence tokens $\mathrm{x_t:=(x_t^
 
 $$
 \begin{align}
-&\mathrm{ELBO=\int_{\delta_0}^t \frac{1}{t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \sum_{n} \mathbf{1}_{x_t^{(n)} = m} \cdot (x_0^{(n)})^\top \log \mu^{(n)}_\theta(x_t, t) \right] \, dt.}\label{shi_loss}
+&\mathrm{ELBO=\int_{\delta_0}^t \frac{1}{t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \sum_{n} \mathbf{1}_{x_t^{(n)} = m} \cdot (x_0^{(n)})^\top \log \mu^{(n)}_\theta(x_t, t) \right] \, dt,}\label{shi_loss}
 \end{align}
 $$
+
+where $\mathrm{\mathbf{p}(x_t \mid x_0)=\Pi_{i=1}^n \mathbf{p}(x_t^{(i)} \mid x_0^{(i)})}$ and $\mathrm{\mu^{(n)}_\theta(x_t, t)}$ is the $n$-th output for the prediction of $$\mathrm{E[x_0^{(n)}\\|x_t]}$$.
 
 
 
@@ -198,7 +200,7 @@ where $\mathrm{K(a)=a(\log a -1)}$ is a normalizing constant such that $\mathrm{
 The above loss \eqref{absorb_loss} was proposed by SEDD {% cite SEDD %}, which substantially improves the training of discrete diffusion models—achieving GPT-2-level performance but at significantly higher computational cost. To improve scalability, {% cite ou2025absorbingDiscrete %} draws insightful connections between \eqref{absorb_loss} and the any-order autoregressive loss in \eqref{AO_loss} {% cite LLaDA %} {% cite pmlr-v32-uria14 %}{% cite hoogeboom2022autoregressive_diffusion %}{% cite shih2022anyorder %}.
 
 $$\begin{align}
-\mathrm{\mathcal{L}(\theta) \triangleq - \mathbb{E}_{t, x_0, x_t} \left[ \frac{1}{t} \sum_{i=1}^L \mathbf{1}[x_t^i = \text{M}] \log p_\theta(x_0^i \mid x_t) \right]} \label{AO_loss}.
+\mathrm{\mathcal{L}(\theta) \triangleq - \mathbb{E}_{t, x_0, x_t} \left[ \frac{1}{t} \sum_{i=1}^L \mathbf{1}[x_t^{(i)} = \text{m}] \log p_\theta(x_0^{(i)} \mid x_t) \right]} \label{AO_loss}.
 \end{align}$$
 
 This simplified loss \eqref{AO_loss} is in a spirit similar to the loss \eqref{shi_loss} and forms the core training objective in {% cite LLaDA %}, enabling scalability comparable to that of large-scale language models such as LLaMA3 and other multimodal applications {% cite rojas2025diffuse %}. 
