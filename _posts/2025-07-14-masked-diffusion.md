@@ -7,8 +7,7 @@ category: Diffusion Model
 ---
 
 
-Diffusion models have gained notable attention in image generation for continuous state spaces. However, their application to discrete state spaces, such as texts, remains limited. To tackle this issue, 
-Discrete Denoising Diffusion Probabilistic Models (D3PM) {% cite austin2021structured %} propose to model $\mathrm{m}$-dim tokens as follows:
+Diffusion models have gained notable attention in image generation for continuous state spaces. However, their application to discrete state spaces, such as texts, remains limited. To tackle this issue, D3PM {% cite austin2021structured %} propose to model $\mathrm{m}$-dim tokens as follows:
 
 $$\begin{align}
     \mathrm{\mathbf{q}(x_t|x_{t-1})=\text{Cat}(x_t; \mathbf{q}=x_{t-1} \mathbf{T}_t)},\label{D3PM}
@@ -23,7 +22,7 @@ $$\begin{align}
     &\mathrm{\mathbf{q}(x_{t-1}|x_t, x_0)=\dfrac{\mathbf{q}(x_t|x_{t-1}) \mathbf{q}(x_{t-1}|x_0)}{\mathbf{q}(x_{t}|x_0)}=\text{Cat}(x_t; \mathbf{q}=\dfrac{x_t \mathbf{T}_t^\intercal \odot x_0 \overline{\mathbf{T}}_{t-1}}{x_0 \overline{\mathbf{T}}_t x_t^\intercal}) },\notag
 \end{align}$$
 
-where $\alpha_t=\Pi_{i=1}^t (1-\beta_i)$. Extend the reverse transition {% cite shi2024simplified %} via Bayes rule again
+where $\alpha_t=\Pi_{i=1}^t (1-\beta_i)$, $\mathrm{\mathbf{e_m}}$ is the one-hot encoding of the [MASK] token at index $\mathrm{m}$ under zero-based indexing and $\mathrm{\mathbf{1}}$ is a vector of all 1's. Extend the reverse transition {% cite shi2024simplified %} via Bayes rule
 
 $$\begin{align}
     \mathrm{\mathbf{q}(x_s \mid x_t, x_0)} 
@@ -109,7 +108,7 @@ $$\begin{align}
 \end{bmatrix}=\mathbf{e_m\cdot 1^\intercal - I},
 \end{align}$$
 
-where $\mathrm{\mathbf{e_m}}$ is the one-hot encoding of the [MASK] token at index $\mathrm{m}$ under zero-based indexing and $\mathrm{\mathbf{1}}$ is a vector of all 1's. The bottom-right **0** corresponds to the absorbing [MASK] token, which remains unchanged once reached. The diagonal entries (–1) define the rates at which non-mask tokens independently transition to [MASK].
+where the bottom-right **0** corresponds to the absorbing [MASK] token, which remains unchanged once reached. The diagonal entries (–1) define the rates at which non-mask tokens independently transition to [MASK].
 
 In practice, we can implement the process via Euler steps, which approximates Eq.\eqref{D3PM} as follows
 
