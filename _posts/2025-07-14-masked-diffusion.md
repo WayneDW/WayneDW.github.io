@@ -38,7 +38,7 @@ $$\begin{align}
 where $\mathrm{\bar{R}^{x_0}(t, s) = \mathbf{I} + \frac{\alpha_s - \alpha_t}{1 - \alpha_t} \mathbf{e_m} (x_0 - \mathbf{e_m})^\top}$, implying $$\mathrm{p(x_s=x_0\\|x_t=m)=\frac{\alpha_s - \alpha_t}{1 - \alpha_t}}$$. 
 
 
-Next, we approximate $\mathrm{x_0}$ via a soft estimate $\mathrm{\mu_\theta(x_t, t)}$, defined as:
+Next, we approximate $\mathrm{x_0}$ via a parametrized model $\mathrm{\mu_\theta(x_t, t)}$, defined as:
 
 $$
 \begin{align}
