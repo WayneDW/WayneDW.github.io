@@ -50,7 +50,7 @@ $$
 \end{align}
 $$
 
-The reverse transition can be approximated via via Eq.\eqref{reverse_transition} and \eqref{param}
+The reverse transition from $\mathrm{t}$ to $\mathrm{s}$ can be approximated via Eq.\eqref{reverse_transition} and \eqref{param}
 
 $$\begin{equation}
 \begin{aligned}
