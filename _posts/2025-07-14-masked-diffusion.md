@@ -8,7 +8,7 @@ category: Diffusion Model
 
 
 Diffusion models have gained notable attention in image generation for continuous state spaces. However, their application to discrete state spaces, such as texts, remains limited. To tackle this issue, 
-Discrete Denoising Diffusion Probabilistic Models (D3PM) {% cite austin2021structured %} propose to model $\mathrm{d}$-dim tokens as follows:
+Discrete Denoising Diffusion Probabilistic Models (D3PM) {% cite austin2021structured %} propose to model $\mathrm{m}$-dim tokens as follows:
 
 $$\begin{align}
     \mathrm{\mathbf{q}(x_t|x_{t-1})=\text{Cat}(x_t; \mathbf{q}=x_{t-1} \mathbf{T}_t)},\label{D3PM}
