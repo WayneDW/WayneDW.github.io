@@ -15,7 +15,7 @@ $$\begin{align}
 
 where $\mathrm{x_t}$ is a $\mathrm{(m+1)}$-dim one-hot row vector, augmented with an additional mask state $\mathrm{m}$; $$\mathrm{[\mathbf{T}_t]_{i,j}}$$ denotes the transition probability $$\mathrm{q(x_t=j\\|x_{t-1}=i)}$$. 
 
-Given an absorbing matrix s.t. $\mathbf{T}_t=(1-\beta_i) \mathbf{I} + \beta_i \mathbf{e_m\cdot 1^\intercal}$, iterating the transitions {% cite shi2024simplified %}
+Given an absorbing matrix s.t. $\mathbf{T}_t=(1-\beta_t) \mathbf{I} + \beta_t \mathbf{e_m\cdot 1^\intercal}$, iterating the transitions {% cite shi2024simplified %}
 
 $$\begin{align}
     &\mathrm{\mathbf{q}(x_t|x_0)=\text{Cat}(x_t; \mathbf{q}=x_{t-1} \overline{\mathbf{T}}_t), \quad \overline{\mathbf{T}}_t=\mathbf{T}_1 \mathbf{T}_2 \dots \mathbf{T}_t=\alpha_t \mathbf{I} + (1-\alpha_t) \mathbf{e_m\cdot 1^\intercal}},\notag\\
@@ -32,7 +32,7 @@ $$\begin{align}
 \mathrm{\frac{\alpha_s - \alpha_t}{1 - \alpha_t} \, x_s^\top x_0} & \mathrm{x_s \ne m,\, x_t = m} \label{reverse_transition} \\
 \mathrm{\frac{1 - \alpha_s}{1 - \alpha_t}} & \mathrm{x_s = m,\, x_t = m} \\
 \mathrm{x_s^\top x_t} & \mathrm{x_t \ne m}
-\end{array}}=\mathrm{Cat(x_s; \bar{R}^{x_0}(t, s)^\top x_t)}\\
+\end{array}}=\mathrm{Cat(x_s; \bar{R}^{x_0}(t, s)^\top x_t)},
 \end{align}$$
 
 where $\mathrm{\bar{R}^{x_0}(t, s) = \mathbf{I} + \frac{\alpha_s - \alpha_t}{1 - \alpha_t} \mathbf{e_m} (x_0 - \mathbf{e_m})^\top}$, implying $$\mathrm{p(x_s=x_0\\|x_t=m)=\frac{\alpha_s - \alpha_t}{1 - \alpha_t}}$$. 
@@ -60,8 +60,8 @@ $$\begin{equation}
 \mathrm{\sum_{x_s=0}^m \mathbf{q}(x_s \mid x_t, x_0) \log \frac{\mathbf{q}(x_s \mid x_t, x_0)}{\mathbf{q}(x_s \mid x_t, \mu_\theta(x_t, t))}} & \mathrm{x_t = m} \\
 0 & \mathrm{x_t \ne m}
 \end{cases} \\
-&= \mathrm{\sum_{k \ne m} \frac{\alpha_s - \alpha_t}{1 - \alpha_t} x_0^\top e_k \mathbf{1}_{x_t = m}\log \frac{x_0^\top e_k}{\mu_\theta(x_t, t)^\top e_k}} \\
-&= \mathrm{- \frac{\alpha_s - \alpha_t}{1 - \alpha_t} x_0^\top \mathbf{1}_{x_t = m} \log \mu_\theta(x_t, t)},
+&= \mathrm{\sum_{k \ne m} \frac{\alpha_s - \alpha_t}{1 - \alpha_t} \mathbf{1}_{x_t = m} x_0^\top e_k \log \frac{x_0^\top e_k}{\mu_\theta(x_t, t)^\top e_k}} \\
+&= \mathrm{- \frac{\alpha_s - \alpha_t}{1 - \alpha_t} \mathbf{1}_{x_t = m} x_0^\top  \log \mu_\theta(x_t, t)},
 \end{aligned}
 \notag
 \end{equation}$$
@@ -190,7 +190,7 @@ $$\begin{align}
 \mathrm{\mathcal{L}(\theta) \triangleq - \mathbb{E}_{t, x_0, x_t} \left[ \frac{1}{t} \sum_{i=1}^L \mathbf{1}[x_t^i = \text{M}] \log p_\theta(x_0^i \mid x_t) \right]} \label{AO_loss}.
 \end{align}$$
 
-This simplified loss \eqref{AO_loss} is in a spirit similar to the loss \eqref{shi_loss} (ask Kevin ) and forms the core training objective in {% cite LLaDA %}, enabling scalability comparable to that of large-scale language models such as LLaMA3 and other multimodal applications {% cite rojas2025diffuse %}. 
+This simplified loss \eqref{AO_loss} is in a spirit similar to the loss \eqref{shi_loss} (ask Kevin?) and forms the core training objective in {% cite LLaDA %}, enabling scalability comparable to that of large-scale language models such as LLaMA3 and other multimodal applications {% cite rojas2025diffuse %}. 
 
 
 <!-- ### Discrete Flows
