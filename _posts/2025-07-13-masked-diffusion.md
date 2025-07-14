@@ -155,15 +155,17 @@ $$\begin{align}
 \end{align}$$
 
 
-Moreover, we observe that $\mathrm{\mathbf{Q}_t(\widehat{x}_t^i, x_t^i)=\sigma_t \mathbf{Q}^{absorb}(\widehat{x}_t^i, x_t^i)=0}$ for any unmasked states $x_t^i\notin [\mathbf{M}]$ and $\mathrm{\widehat{x}_t^i \neq x_t^i}$. As such, the concrete score parameterization can be significantly simplified by focusing only on $\mathrm{x_t^i= [\mathbf{M}]}$ and $\mathrm{\widehat{x}_t^i \neq [\mathbf{M}]}$. The reparameterized score can be interpreted as a **time-independent** conditional probability on clean data {% cite ou2025absorbingDiscrete %} and the network parametrization is also optimized:
+Moreover, we observe that $\mathrm{\mathbf{Q}_t(\widehat{x}_t^i, x_t^i)=\sigma_t \mathbf{Q}^{absorb}(\widehat{x}_t^i, x_t^i)=0}$ for any unmasked states $x_t^i\notin [\mathbf{M}]$ and $\mathrm{\widehat{x}_t^i \neq x_t^i}$. As such, the concrete score parameterization can be significantly simplified by focusing only on $\mathrm{x_t^i= [\mathbf{M}]}$ and $\mathrm{\widehat{x}_t^i \neq [\mathbf{M}]}$. The reparameterized score can be interpreted as a **time-independent** conditional probability on clean data {% cite ou2025absorbingDiscrete %}. 
 
+ <!-- and the network parametrization is also optimized: -->
 
+<!-- 
 <figure style="text-align: center;">
   <img src="/images/RADD_net.png" width="300" />
   <figcaption style="font-size: 0.75em; margin-top: 0.1em;">
     RADD Network {% cite ou2025absorbingDiscrete %}. The time conditions are removed from the Diffusion Transformer (DiT) {% cite SEDD %}
   </figcaption>
-</figure>
+</figure> -->
 
 
 ### Training Loss
