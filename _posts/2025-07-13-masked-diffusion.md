@@ -50,7 +50,7 @@ $$
 \end{align}
 $$
 
-We parametrize $\mathrm{\mathbf{p}(x_s \mid x_t, \mu_\theta(x_t, t)) \approx \mathbf{p}(x_s \mid x_t, x_0)}$ and approximate the loss via Eq.\eqref{reverse_transition} and \eqref{param}
+The reverse transition can be approximated via via Eq.\eqref{reverse_transition} and \eqref{param}
 
 $$\begin{equation}
 \begin{aligned}
