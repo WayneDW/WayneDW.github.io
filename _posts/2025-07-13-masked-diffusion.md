@@ -10,23 +10,23 @@ category: Diffusion Model
 Diffusion models have gained notable attention in image generation for continuous state spaces. However, their application to discrete state spaces, such as texts, remains limited. To tackle this issue, D3PM {% cite austin2021structured %} propose to model $\mathrm{m}$-dim tokens as follows:
 
 $$\begin{align}
-    \mathrm{\mathbf{q}(x_t|x_{t-1})=\text{Cat}(x_t; \mathbf{q}=x_{t-1} \mathbf{T}_t)},\label{D3PM}
+    \mathrm{\mathbf{p}(x_t|x_{t-1})=\text{Cat}(x_t; p=x_{t-1} \mathbf{T}_t)},\label{D3PM}
 \end{align}$$
 
-where $\mathrm{x_t}$ is a $\mathrm{(m+1)}$-dim one-hot row vector, augmented with an additional mask state $\mathrm{m}$; $$\mathrm{[\mathbf{T}_t]_{i,j}}$$ denotes the transition probability $$\mathrm{q(x_t=j\\|x_{t-1}=i)}$$. 
+where $\mathrm{x_t}$ is a $\mathrm{(m+1)}$-dim one-hot row vector, augmented with an additional mask state $\mathrm{m}$; $$\mathrm{[\mathbf{T}_t]_{i,j}}$$ denotes the transition probability $$\mathrm{p(x_t=j\\|x_{t-1}=i)}$$. 
 
 Given an absorbing matrix s.t. $\mathbf{T}_t=(1-\beta_t) \mathbf{I} + \beta_t \mathbf{e_m\cdot 1^\intercal}$, iterating the transitions {% cite shi2024simplified %}
 
 $$\begin{align}
-    &\mathrm{\mathbf{q}(x_t|x_0)=\text{Cat}(x_t; \mathbf{q}=x_{t-1} \overline{\mathbf{T}}_t), \quad \overline{\mathbf{T}}_t=\mathbf{T}_1 \mathbf{T}_2 \dots \mathbf{T}_t=\alpha_t \mathbf{I} + (1-\alpha_t) \mathbf{e_m\cdot 1^\intercal}},\notag\\
-    &\mathrm{\mathbf{q}(x_{t-1}|x_t, x_0)=\dfrac{\mathbf{q}(x_t|x_{t-1}) \mathbf{q}(x_{t-1}|x_0)}{\mathbf{q}(x_{t}|x_0)}=\text{Cat}(x_t; \mathbf{q}=\dfrac{x_t \mathbf{T}_t^\intercal \odot x_0 \overline{\mathbf{T}}_{t-1}}{x_0 \overline{\mathbf{T}}_t x_t^\intercal}) },\notag
+    &\mathrm{\mathbf{p}(x_t|x_0)=\text{Cat}(x_t; \mathbf{p}=x_{t-1} \overline{\mathbf{T}}_t), \quad \overline{\mathbf{T}}_t=\mathbf{T}_1 \mathbf{T}_2 \dots \mathbf{T}_t=\alpha_t \mathbf{I} + (1-\alpha_t) \mathbf{e_m\cdot 1^\intercal}},\notag\\
+    &\mathrm{\mathbf{p}(x_{t-1}|x_t, x_0)=\dfrac{\mathbf{p}(x_t|x_{t-1}) \mathbf{p}(x_{t-1}|x_0)}{\mathbf{p}(x_{t}|x_0)}=\text{Cat}(x_t; \mathbf{p}=\dfrac{x_t \mathbf{T}_t^\intercal \odot x_0 \overline{\mathbf{T}}_{t-1}}{x_0 \overline{\mathbf{T}}_t x_t^\intercal}) },\notag
 \end{align}$$
 
 where $\alpha_t=\Pi_{i=1}^t (1-\beta_i)$, $\mathrm{\mathbf{e_m}}$ is the one-hot encoding of the [MASK] token at index $\mathrm{m}$ under zero-based indexing and $\mathrm{\mathbf{1}}$ is a vector of all 1's. Extend the reverse transition {% cite shi2024simplified %} via Bayes rule
 
 $$\begin{align}
-    \mathrm{\mathbf{q}(x_s \mid x_t, x_0)} 
-&\mathrm{= \frac{\mathbf{q}(x_t \mid x_s) \mathbf{q}(x_s \mid x_0)}{\mathbf{q}(x_t \mid x_0)}
+    \mathrm{\mathbf{p}(x_s \mid x_t, x_0)} 
+&\mathrm{= \frac{\mathbf{p}(x_t \mid x_s) \mathbf{p}(x_s \mid x_0)}{\mathbf{p}(x_t \mid x_0)}
 = \Bigg\{
 \begin{array}{ll}
 \mathrm{\frac{\alpha_s - \alpha_t}{1 - \alpha_t} \, x_s^\top x_0} & \mathrm{x_s \ne m,\, x_t = m} \label{reverse_transition} \\
@@ -44,20 +44,20 @@ $$
 \begin{align}
 \mathrm{\mu_\theta(x_t, t) = 
 \begin{cases}
-\mathrm{softmax}(f_\theta(x_t, t)) & \text{if } x_t = m, \\
+\mathrm{softmax}(f_\theta(x_t, t)) & \text{if } \mathrm{x_t = m}, \\
 \mathrm{x_t} & \text{otherwise}.
 \end{cases}}\label{param}
 \end{align}
 $$
 
-We parametrize $\mathrm{\mathbf{q}(x_s \mid x_t, \mu_\theta(x_t, t)) \approx \mathbf{q}(x_s \mid x_t, x_0)}$ and approximate the loss via Eq.\eqref{reverse_transition} and \eqref{param}
+We parametrize $\mathrm{\mathbf{p}(x_s \mid x_t, \mu_\theta(x_t, t)) \approx \mathbf{p}(x_s \mid x_t, x_0)}$ and approximate the loss via Eq.\eqref{reverse_transition} and \eqref{param}
 
 $$\begin{equation}
 \begin{aligned}
-\mathrm{\mathrm{KL}(\mathbf{q}(x_s \mid x_t, x_0) \parallel \mathbf{q}(x_s \mid x_t, \mu_\theta(x_t, t)))}
+\mathrm{\mathrm{KL}(\mathbf{p}(x_s \mid x_t, x_0) \parallel \mathbf{p}(x_s \mid x_t, \mu_\theta(x_t, t)))}
 &= 
 \begin{cases}
-\mathrm{\sum_{x_s=0}^m \mathbf{q}(x_s \mid x_t, x_0) \log \frac{\mathbf{q}(x_s \mid x_t, x_0)}{\mathbf{q}(x_s \mid x_t, \mu_\theta(x_t, t))}} & \mathrm{x_t = m} \\
+\mathrm{\sum_{x_s=0}^m \mathbf{p}(x_s \mid x_t, x_0) \log \frac{\mathbf{p}(x_s \mid x_t, x_0)}{\mathbf{p}(x_s \mid x_t, \mu_\theta(x_t, t))}} & \mathrm{x_t = m} \\
 0 & \mathrm{x_t \ne m}
 \end{cases} \\
 &= \mathrm{\sum_{k \ne m} \frac{\alpha_s - \alpha_t}{1 - \alpha_t} \mathbf{1}_{x_t = m} x_0^\top e_k \log \frac{x_0^\top e_k}{\mu_\theta(x_t, t)^\top e_k}} \\
@@ -73,7 +73,7 @@ marginal likelihood (ELBO)
 
 $$
 \begin{align}
-\mathrm{ELBO= \int_{\delta_0}^1 \frac{\alpha_t'}{1 - \alpha_t} \, \mathbb{E}_{\mathbf{q}(x_t \mid x_0)} \left[ \mathbf{1}_{x_t = m} \cdot x_0^\top \log \mu_\theta(x_t, t) \right] \, dt.}\label{shi_loss}
+\mathrm{ELBO= \int_{\delta_0}^1 \frac{\alpha_t'}{1 - \alpha_t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \mathbf{1}_{x_t = m} \cdot x_0^\top \log \mu_\theta(x_t, t) \right] \, dt.}\label{shi_loss}
 \end{align}
 $$
 
@@ -83,7 +83,7 @@ where $\mathrm{\alpha_t'}$ is the time derivative of $\mathrm{\alpha_t}$.
 
 #### Continuous-Time Markov Chains (CTMC)
 
-For the continuous-time limit, Discrete Diffusion Models {% cite SEDD %} describe the evolution of the probability mass $\mathrm{\mathbf{p}_t} \in \mathbb{R}^{m+1}$:
+For the continuous-time limit, Discrete Diffusion Models {% cite SEDD %} describe the evolution of $\mathrm{\mathbf{p}_t}$:
 
 $$\begin{align}
     \mathrm{\frac{d \mathbf{p}_t}{dt}=\mathbf{Q}_t \mathbf{p}_t, \ \ \mathbf{p}_0\sim \mathbf{p}_{\text{data}},\ \ \mathbf{p}_T\approx \mathbf{p}_{\text{base}}},\notag
@@ -108,7 +108,7 @@ $$\begin{align}
 \end{bmatrix}=\mathbf{e_m\cdot 1^\intercal - I},
 \end{align}$$
 
-where the bottom-right **0** corresponds to the absorbing [MASK] token, which remains unchanged once reached. The diagonal entries (–1) define the rates at which non-mask tokens independently transition to [MASK].
+where the bottom-right 0 denotes the absorbing [MASK] token, which remains unchanged once reached, and the –1 diagonals set transition rates from non-mask tokens.
 
 In practice, we can implement the process via Euler steps, which approximates Eq.\eqref{D3PM} as follows
 
@@ -184,13 +184,13 @@ $$\begin{align}
 
 where $\mathrm{K(a)=a(\log a -1)}$ is a normalizing constant such that $\mathrm{D_F\big(\mathbf{s}_\theta, \frac{\mathbf{p}_t(y)}{\mathbf{p}_t(x)}\big)}\geq 0$ and $$\mathrm{w_{xy} \geq 0}$$. 
 
-The above loss \eqref{absorb_loss} was proposed by SEDD {% cite SEDD %}, which substantially improves the training of discrete diffusion models—achieving GPT-2-level performance but at significantly higher computational cost. To further improve scalability, {% cite ou2025absorbingDiscrete %} draws insightful connections between \eqref{absorb_loss} and the any-order autoregressive loss in \eqref{AO_loss} {% cite LLaDA %} {% cite pmlr-v32-uria14 %}{% cite hoogeboom2022autoregressive_diffusion %}{% cite shih2022anyorder %}.
+The above loss \eqref{absorb_loss} was proposed by SEDD {% cite SEDD %}, which substantially improves the training of discrete diffusion models—achieving GPT-2-level performance but at significantly higher computational cost. To improve scalability, {% cite ou2025absorbingDiscrete %} draws insightful connections between \eqref{absorb_loss} and the any-order autoregressive loss in \eqref{AO_loss} {% cite LLaDA %} {% cite pmlr-v32-uria14 %}{% cite hoogeboom2022autoregressive_diffusion %}{% cite shih2022anyorder %}.
 
 $$\begin{align}
 \mathrm{\mathcal{L}(\theta) \triangleq - \mathbb{E}_{t, x_0, x_t} \left[ \frac{1}{t} \sum_{i=1}^L \mathbf{1}[x_t^i = \text{M}] \log p_\theta(x_0^i \mid x_t) \right]} \label{AO_loss}.
 \end{align}$$
 
-This simplified loss \eqref{AO_loss} is in a spirit similar to the loss \eqref{shi_loss} (ask Kevin?) and forms the core training objective in {% cite LLaDA %}, enabling scalability comparable to that of large-scale language models such as LLaMA3 and other multimodal applications {% cite rojas2025diffuse %}. 
+This simplified loss \eqref{AO_loss} is in a spirit similar to the loss \eqref{shi_loss} and forms the core training objective in {% cite LLaDA %}, enabling scalability comparable to that of large-scale language models such as LLaMA3 and other multimodal applications {% cite rojas2025diffuse %}. 
 
 
 <!-- ### Discrete Flows
