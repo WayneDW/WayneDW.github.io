@@ -1,7 +1,7 @@
 ---
 title: 'Discrete Diffusion Models'
 subtitle: Diffusion language models for images, languages, and general state spaces
-date: 2025-07-13
+date: 2025-07-18
 permalink: /posts/Discrete Diffusion Models/
 category: Diffusion Model
 ---
@@ -21,7 +21,7 @@ $$\begin{align}
     &\mathrm{\mathbf{p}(x_t|x_0)=\text{Cat}(x_t; \mathbf{p}=x_{t-1} \overline{\mathbf{T}}_t), \quad \overline{\mathbf{T}}_t=\mathbf{T}_1 \mathbf{T}_2 \dots \mathbf{T}_t=\alpha_t \mathbf{I} + (1-\alpha_t) \mathbf{e_m\cdot 1^\intercal}},\notag\\
 \end{align}$$
 
-where $\alpha_t=\Pi_{i=1}^t (1-\beta_i)$, $\mathrm{\mathbf{e_m}}$ is the one-hot encoding of the [MASK] token at index $\mathrm{m}$ under zero-based indexing and $\mathrm{\mathbf{1}}$ is a vector of all 1's. Conduct the reverse transition {% cite shi2024simplified %} via Bayes rule
+where $\alpha_t=\Pi_{i=1}^t (1-\beta_i)$, $\mathrm{\mathbf{e_m}}$ is the one-hot encoding of the [MASK] token at index $\mathrm{m}$ under zero-based indexing and $\mathrm{\mathbf{1}=\\{1\\}^m}$. Conduct the reverse transition {% cite shi2024simplified %} via Bayes rule
 
 $$\begin{align}
 &\mathrm{\mathbf{p}(x_{t-1}|x_t, x_0)=\dfrac{\mathbf{p}(x_t|x_{t-1}) \mathbf{p}(x_{t-1}|x_0)}{\mathbf{p}(x_{t}|x_0)}=\text{Cat}(x_t; p=\dfrac{x_t \mathbf{T}_t^\intercal \odot x_0 \overline{\mathbf{T}}_{t-1}}{x_0 \overline{\mathbf{T}}_t x_t^\intercal}) },\notag\\
@@ -29,14 +29,20 @@ $$\begin{align}
 \mathrm{= \frac{\mathbf{p}(x_t \mid x_s) \mathbf{p}(x_s \mid x_0)}{\mathbf{p}(x_t \mid x_0)}
 =\mathrm{Cat(x_s; \bar{R}^{x_0}(t, s)^\top x_t)}= \Bigg\{
 \begin{array}{ll}
-\mathrm{\frac{\alpha_s - \alpha_t}{1 - \alpha_t} \, x_s^\top x_0} & \mathrm{x_s \ne m,\, x_t = m} \label{reverse_transition} \\
-\mathrm{\frac{1 - \alpha_s}{1 - \alpha_t}} & \mathrm{x_s = m,\, x_t = m} \\
-\mathrm{x_s^\top x_t} & \mathrm{x_t \ne m}
-\end{array}},
+\mathrm{\frac{\alpha_s - \alpha_t}{1 - \alpha_t} \, x_s^\top x_0} & \small{\mathrm{x_s \ne m,\, x_t = m}} \label{reverse_transition} \\
+\mathrm{\frac{1 - \alpha_s}{1 - \alpha_t}} & \small{\mathrm{x_s = m,\, x_t = m}} \\
+\mathrm{x_s^\top x_t} & \small{\mathrm{x_t \ne m}},
+\end{array}}
 \end{align}$$
 
 where $\mathrm{\bar{R}^{x_0}(t, s) = \mathbf{I} + \frac{\alpha_s - \alpha_t}{1 - \alpha_t} \mathbf{e_m} (x_0 - \mathbf{e_m})^\top}$, implying $$\mathrm{p(x_s=x_0\\|x_t=m)=\frac{\alpha_s - \alpha_t}{1 - \alpha_t}}$$. 
 
+
+#### Connections to BERT and Autoregressive Models
+
+Consider a **one-step** transition that mixes the uniform transition and an absorbing state $\mathbf{T}=(1-\alpha-\beta) \mathbf{I} +\alpha \mathbf{1\cdot 1^\intercal} + \beta \mathbf{e_m\cdot 1^\intercal}$. For example, **BERT** {% cite devlin2018pretraining %} models $\mathrm{\mathbf{p}(x_1 \mid x_0)}$ by replacing 10% of tokens with [MASK] and 5% uniformly at random. It also differs from BERT in that a **randomized** masking ratio is adopted to further enhance the performance.
+
+#### Learning Backward Transitions
 
 Next, we approximate $\mathrm{x_0}$ via a parametrized model $\mathrm{\mu_\theta(x_t, t)}$, defined as:
 
@@ -74,13 +80,13 @@ marginal likelihood (ELBO)
 $$
 \begin{align}
 &\mathrm{ELBO= \int_{\delta_0}^1 \frac{\alpha_t'}{1 - \alpha_t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \mathbf{1}_{x_t = m} \cdot x_0^\top \log \mu_\theta(x_t, t) \right] \, dt.} \notag \\
-& \mathrm{\qquad\quad\supset\int_{\delta_0}^1 \frac{1}{t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \mathbf{1}_{x_t = m} \cdot x_0^\top \log \mu_\theta(x_t, t) \right] \, dt.} \notag \\
+% & \mathrm{\qquad\quad\supset\int_{\delta_0}^1 \frac{1}{t} \, \mathbb{E}_{\mathbf{p}(x_t \mid x_0)} \left[ \mathbf{1}_{x_t = m} \cdot x_0^\top \log \mu_\theta(x_t, t) \right] \, dt.} \notag \\
 \end{align}
 $$
 
-where $\mathrm{\alpha_t'}$ is the time derivative of $\mathrm{\alpha_t}$ and the 2nd equation holds when $\mathrm{\alpha_t=1-t}$.
+where $\mathrm{\alpha_t'}$ is the derivative of $\mathrm{\alpha_t}$. Replacing $$\mathrm{\mathbf{1}_{x_t = m} \cdot x_0^\top \log \mu_\theta(x_t, t)}$$ with $$\mathrm{\log\langle \mu_\theta(x_t, t), x \rangle }$$ recovers the loss in {% cite sahoo2024simple %}.
 
-Rewrite the single token $\mathrm{x_t}$ to a sequence tokens $\mathrm{x_t:=(x_t^{(1)}, x_t^{(2)}, \cdots, x_t^{(n)})}$:
+Rewrite the single token $\mathrm{x_t}$ to a series of tokens $\mathrm{x_t:=(x_t^{(1)}, x_t^{(2)}, \cdots, x_t^{(n)})}$ with a linear $\mathrm{\alpha_t=1-t}$:
 
 $$
 \begin{align}
@@ -88,7 +94,7 @@ $$
 \end{align}
 $$
 
-where $\mathrm{\mathbf{p}(x_t \mid x_0)=\Pi_{i=1}^n \mathbf{p}(x_t^{(i)} \mid x_0^{(i)})}$ and $\mathrm{\mu^{(n)}_\theta(x_t, t)}$ is the $n$-th output for the prediction of $$\mathrm{E[x_0^{(n)}\\|x_t]}$$.
+where $\mathrm{\mathbf{p}(x_t \mid x_0)=\Pi_{i=1}^n \mathbf{p}(x_t^{(i)} \mid x_0^{(i)})}$ and $\mathrm{\mu^{(n)}_\theta(x_t, t)}$ is the $n$-th output for the prediction of $$\mathrm{E[x_0^{(n)}\\|x_t]}$$. 
 
 
 
@@ -179,7 +185,7 @@ Moreover, we observe that $\mathrm{\mathbf{Q}_t(\widehat{x}_t^i, x_t^i)=\sigma_t
 </figure> -->
 
 
-### Training Loss
+#### Another Simplified Training Loss
 
 A straightforward way to optimize the concrete score function is to use L2 loss {% cite meng2022concrete %}:
 
@@ -203,7 +209,7 @@ $$\begin{align}
 \mathrm{\mathcal{L}(\theta) \triangleq - \mathbb{E}_{t, x_0, x_t} \left[ \frac{1}{t} \sum_{i=1}^L \mathbf{1}[x_t^{(i)} = \text{m}] \log p_\theta(x_0^{(i)} \mid x_t) \right]} \label{AO_loss}.
 \end{align}$$
 
-This simplified loss \eqref{AO_loss} is in a spirit similar to the loss \eqref{shi_loss} and forms the core training objective in {% cite LLaDA %}, enabling scalability comparable to that of large-scale language models such as LLaMA3 and other multimodal applications {% cite rojas2025diffuse %}. 
+This simplified loss \eqref{AO_loss} is in a spirit similar to the loss \eqref{shi_loss} {% cite shi2024simplified %} {% cite sahoo2024simple %} and forms the core training objective in {% cite LLaDA %}, enabling scalability comparable to that of large-scale language models such as LLaMA3 and other multimodal applications {% cite rojas2025diffuse %}. 
 
 
 <!-- ### Discrete Flows
