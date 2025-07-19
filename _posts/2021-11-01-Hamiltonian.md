@@ -4,7 +4,7 @@ subtitle: An elegant sampler that utilizes Hamiltonian dynamics to propose new s
 date: 2021-11-01
 layout: default
 permalink: /posts/Hamiltonian/
-category: Monte Carlo
+category: Sampling
 ---
 
 Hamiltonian Monte Carlo {% cite Nea11 %} (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm to simulate from a probability distribution and is believed to be faster than the Metropolis Hasting algorithm {% cite MRRT53 %} and Langevin dynamics. However, the convergence properties are far less understood compared to its empirical successes. 

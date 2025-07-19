@@ -3,7 +3,7 @@ title: 'Feynman–Kac Formula'
 subtitle: A popular tool in finance and stochastic optimal control
 date: 2025-03-15
 permalink: /posts/feynman_kac/
-category: Sequential Sampling
+category: Sampling
 ---
 
 

@@ -3,7 +3,7 @@ title: 'Policy Gradients and Stochastic Control'
 subtitle: Thoughts on diffusion model alignment
 date: 2025-06-07
 permalink: /posts/soc_and_reinforce/
-category: Sequential Sampling
+category: Sampling
 ---
 
 ## Stochastic Control

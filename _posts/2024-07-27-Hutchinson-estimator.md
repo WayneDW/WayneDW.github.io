@@ -3,7 +3,7 @@ title: 'Hutchinson Estimator'
 subtitle: An unbiased Monte Carlo sampler for implicit trace estimation
 date: 2024-07-27
 permalink: /posts/hutchinson_estimator/
-category: Monte Carlo
+category: Sampling
 ---
 
 

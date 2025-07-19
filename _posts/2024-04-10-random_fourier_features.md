@@ -3,7 +3,7 @@ title: 'Random Fourier Features'
 subtitle: A Monte Carlo sampler for radial basis function kernels and positional embedding
 date: 2024-04-10
 permalink: /posts/random_fourier_features/
-category: Monte Carlo
+category: Sampling
 ---
 
 ### A Weight-space View of Linear Regression 
