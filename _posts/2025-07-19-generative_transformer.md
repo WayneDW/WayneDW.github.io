@@ -3,7 +3,7 @@ title: 'Generative Transformer'
 subtitle: TBD
 date: 2025-07-19
 permalink: /posts/generative_transformer/
-category: Empirics
+category: AI Empirics
 ---
 
 VQVAE/ Saining/ MaskGIT/ CIP
