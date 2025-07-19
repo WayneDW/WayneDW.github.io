@@ -3,7 +3,7 @@ title: 'The Triangle of Flow, Diffusion, and PDE'
 subtitle: Connections between Probability Flows, Diffusions, and PDEs.
 date: 2023-07-01
 permalink: /posts/flow_diffusion_PDE/
-category: Diffusion Model
+category: Diffusion
 ---
 
 <!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->

@@ -3,7 +3,7 @@ title: 'Discrete Diffusion Models'
 subtitle: Diffusion language models for images, languages, and general state spaces
 date: 2025-07-18
 permalink: /posts/Discrete Diffusion Models/
-category: Diffusion Model
+category: Diffusion
 ---
 
 

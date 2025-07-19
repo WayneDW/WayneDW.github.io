@@ -3,7 +3,7 @@ title: 'Girsanov and MLE'
 subtitle: An application of Girsanov theorem in parameter estimation.
 date: 2023-03-20
 permalink: /posts/Girsanov_MLE/
-category: Diffusion Model
+category: Diffusion
 ---
 
 ### Maximum likelihood estimation
