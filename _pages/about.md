@@ -9,7 +9,7 @@ author_profile: true
 
 <!-- title: "Nothing but Sampling" -->
 
-This space explores sequential sampling techniques with a focus on the understanding, scaling, effective training, and alignment of diffusion(-language) models. 
+This space explores sequential sampling techniques with a focus on the understanding, scaling, training efficiency, and alignment of diffusion(-language) models. 
 
  <!-- market simulations. -->
 
