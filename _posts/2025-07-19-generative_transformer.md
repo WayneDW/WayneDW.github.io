@@ -10,6 +10,6 @@ VQVAE/ Saining/ MaskGIT/ CIP
 
 Masked Autoencoders Are Scalable Vision Learners
 
-causal attention
+causal attention/ bidirectional transformer 
 
 ongoing blog TBD

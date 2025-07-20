@@ -9,7 +9,9 @@ author_profile: true
 
 <!-- title: "Nothing but Sampling" -->
 
-This space explores sequential sampling techniques with a focus on their applications in guiding diffusion(-language) models, and market simulations.
+This space explores sequential sampling techniques with a focus on the understanding, scaling, effective training, and alignment of diffusion(-language) models. 
+
+ <!-- market simulations. -->
 
 <!--  **Diffusion Models** – Improving the transport efficiency for diffusion generations. -->
 
