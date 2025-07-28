@@ -6,7 +6,7 @@ permalink: /posts/generative_transformer/
 category: AI Empirics
 ---
 
-ongoing blog TBD
+ongoing blog TBD to learn Generative Transformer
 
 VQVAE/ Saining/ MaskGIT/ CIP
 
