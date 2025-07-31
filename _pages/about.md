@@ -11,7 +11,7 @@ author_profile: true
 
 <!-- This space explores sequential sampling techniques with a focus on the understanding, scaling, and alignment of diffusion(-language) models.  -->
 
-This blog is dedicated to those interested in understanding, scaling, aligning, and applying diffusion(-language) models.
+This space is for those interested in understanding, scaling, aligning, and applying diffusion(-language) models.
 
  <!-- market simulations. -->
 
