@@ -62,7 +62,9 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 
 
 <!-- Services
-======
 
-Reviewers: ICML, NeurIPS, ICLR, AISTAT, AAAI, IJCAI. 
-La pensée n'est qu'un écliar au milieu d'une longue nuit. Mais c'est cet éclair qui est tout.-->
+
+Reviewers: ICML, NeurIPS, ICLR, AISTAT, AAAI, IJCAI. -->
+
+<!-- ====== -->
+La pensée n'est qu'un écliar au milieu d'une longue nuit. Mais c'est cet éclair qui est tout. - Poincaré
