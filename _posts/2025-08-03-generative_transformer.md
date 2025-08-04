@@ -9,7 +9,7 @@ category: Empirics
 
 A naïve way to process images with transformers is to flatten them into 1D token sequences and train an autoregressive model. However, this leads to long sequences — especially for high-resolution images — making it hard to capture spatial correlations and causing high computational cost and slow inference. 
 
-To learn the spacial correlations more efficiently, MaskGIT {% cite chang2022maskgit %} leverages the codebook from VQ-VAE {% cite oord2017vqvae %} and adopted a bi-direction transformer with non-autoregressive decoding to speed-up the inference.
+To learn the spacial correlations more efficiently, MaskGIT {% cite chang2022maskgit %} leverages the codebook from VQ-VAE {% cite oord2017vqvae %} and adopted a bi-direction transformer decoder with parallel non-autoregressive decoding to speed-up the inference.
 
 <figure style="text-align: center;">
     <img src="/images/maskgit.png" width="600" height="300" />
