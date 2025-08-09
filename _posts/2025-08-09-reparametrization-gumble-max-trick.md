@@ -32,7 +32,7 @@ $$
 \end{align}
 $$
 
-We observe that the first term in RHS suffers from the large variance issue and is not differentiable (?). 
+We observe that the first term in RHS suffers from the large variance issue and is not *differentiable*. 
 
 
 ### Continuous Variables
@@ -64,7 +64,9 @@ $$\begin{equation}
 \mathrm{\mathbf{z} = \mathrm{\text{one_hot}} \left( \arg\max_i \left[ g_i + \log \pi_i \right] \right)} \notag,
 \end{equation}$$
 
-where $\mathrm{g_1, \dots, g_k}$ are i.i.d. samples drawn from $\mathrm{Gumbel}(0, 1)$ with its CDF $\mathrm{F(x)=e^{-e^{-x}}}$. Invoking the inverse CDF trick, it is equivalent to drawing $\mathrm{-\log(-log(u_i))}$, where $\mathrm{u_i\sim Uniform(0, 1)}$. To enable a differentiable approximation, {% cite jang2017categorical %} proposed a softmax relaxation s.t. 
+where $\mathrm{g_1, \dots, g_k}$ are i.i.d. samples drawn from $\mathrm{Gumbel}(0, 1)$ with its CDF $\mathrm{F(x)=e^{-e^{-x}}}$. Invoking the inverse CDF trick, it is equivalent to drawing $\mathrm{-\log(-log(u_i))}$, where $\mathrm{u_i\sim Uniform(0, 1)}$. 
+
+To enable a *differentiable* approximation, {% cite jang2017categorical %} proposed a softmax relaxation s.t. 
 
 $$\begin{equation}
 \mathrm{\mathbf{z}_i \approx \frac{\exp\left((\log \pi_i + g_i)/\tau\right)}{\sum_{j=1}^k \exp\left((\log \pi_j + g_j)/\tau\right)},  \quad \text{for } i = 1, \dots, k .}\notag
