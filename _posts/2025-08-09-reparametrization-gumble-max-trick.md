@@ -1,7 +1,7 @@
 ---
 title: 'Unfied Reparametrization Tricks'
 subtitle: Backpropagation of continuous and discrete random variables
-date: 2025-08-08
+date: 2025-08-09
 permalink: /posts/reparametrization_tricks/
 category: Empirics
 ---
