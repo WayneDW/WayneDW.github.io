@@ -64,7 +64,9 @@ $$\begin{equation}
 \mathrm{\mathbf{z} = \mathrm{\text{one_hot}} \left( \arg\max_i \left[ g_i + \log \pi_i \right] \right)} \notag,
 \end{equation}$$
 
-where $\mathrm{g_1, \dots, g_k}$ are i.i.d. samples drawn from $\mathrm{Gumbel}(0, 1)$ with its CDF $\mathrm{F(x)=e^{-e^{-x}}}$. Invoking the inverse CDF trick, it is equivalent to drawing $\mathrm{-\log(-log(u_i))}$, where $\mathrm{u_i\sim Uniform(0, 1)}$. 
+where $\mathrm{g_1, \dots, g_k}$ are i.i.d. samples drawn from $\mathrm{Gumbel}(0, 1)$ [link](https://en.wikipedia.org/wiki/Gumbel_distribution). 
+
+The Gumbel distribution is commonly used to model the distribution of the maximum (or minimum) of samples, with its CDF $\mathrm{F(x)=e^{-e^{-x}}}$. Invoking the inverse CDF trick, it is equivalent to drawing $\mathrm{-\log(-log(u_i))}$, where $\mathrm{u_i\sim Uniform(0, 1)}$. 
 
 To enable a *differentiable* approximation, {% cite jang2017categorical %} proposed a softmax relaxation s.t. 
 
