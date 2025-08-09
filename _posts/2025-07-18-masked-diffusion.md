@@ -21,7 +21,7 @@ $$\begin{align}
     &\mathrm{\mathbf{p}(x_t|x_0)=\text{Cat}(x_t; \mathbf{p}=x_{t-1} \overline{\mathbf{T}}_t), \quad \overline{\mathbf{T}}_t=\mathbf{T}_1 \mathbf{T}_2 \dots \mathbf{T}_t=\alpha_t \mathbf{I} + (1-\alpha_t) \mathbf{e_m\cdot 1^\intercal}},\notag\\
 \end{align}$$
 
-where $\alpha_t=\Pi_{i=1}^t (1-\beta_i)$, $\mathrm{\mathbf{e_m}}$ is the one-hot encoding of the [MASK] token at index $\mathrm{m}$ under zero-based indexing and $\mathrm{\mathbf{1}=\\{1\\}^m}$. Conduct the reverse transition {% cite shi2024simplified %} via Bayes rule
+where $\alpha_t=\Pi_{i=1}^t (1-\beta_i)$, $\mathrm{\mathbf{e_m}}$ is the one-hot encoding of the [MASK] token at index $\mathrm{m}$ under zero-based indexing and $\mathrm{\mathbf{1}=\\{1\\}^{m+1}}$. Conduct the reverse transition {% cite shi2024simplified %} via Bayes rule
 
 $$\begin{align}
 &\mathrm{\mathbf{p}(x_{t-1}|x_t, x_0)=\dfrac{\mathbf{p}(x_t|x_{t-1}) \mathbf{p}(x_{t-1}|x_0)}{\mathbf{p}(x_{t}|x_0)}=\text{Cat}(x_t; p=\dfrac{x_t \mathbf{T}_t^\intercal \odot x_0 \overline{\mathbf{T}}_{t-1}}{x_0 \overline{\mathbf{T}}_t x_t^\intercal}) },\notag\\
