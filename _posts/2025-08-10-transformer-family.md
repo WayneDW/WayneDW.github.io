@@ -1,7 +1,7 @@
 ---
 title: 'Transformer Family'
-subtitle: Scaling the transformer family for long futures
-date: 2025-08-09
+subtitle: Scaling the transformer family for long futures (TBC)
+date: 2025-08-10
 permalink: /posts/transformer_family/
 category: Empirics
 ---

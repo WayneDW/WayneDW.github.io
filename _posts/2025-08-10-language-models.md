@@ -1,6 +1,6 @@
 ---
 title: 'Language Models'
-subtitle: Marvels of programming alchemy
+subtitle: Marvels of programming alchemy (TBC)
 date: 2025-08-10
 permalink: /posts/language_models/
 category: Empirics
