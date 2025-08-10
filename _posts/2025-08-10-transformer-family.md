@@ -1,6 +1,6 @@
 ---
 title: 'Transformer Family'
-subtitle: Scaling the transformer family for long futures (TBC)
+subtitle: Scaling laws for modeling long-range dependencies (TBC)
 date: 2025-08-10
 permalink: /posts/transformer_family/
 category: Empirics
