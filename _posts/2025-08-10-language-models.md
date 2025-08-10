@@ -12,3 +12,12 @@ This is an ongoing blog where I explore and improve my understanding of the lang
 I’ll keep sharing interesting topics I discover about language models over time.
 
 TBD
+
+
+
+### Bert
+
+### GPT
+
+
+scalability via KV caching

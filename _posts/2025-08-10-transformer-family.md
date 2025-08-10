@@ -1,5 +1,5 @@
 ---
-title: 'Transformer Family'
+title: 'Transformers'
 subtitle: Scaling laws for modeling long-range dependencies (TBC)
 date: 2025-08-10
 permalink: /posts/transformer_family/
@@ -19,7 +19,9 @@ I’ll keep sharing important things I discover about Transformers over time.
 
 #### Multi-head attention
 
+#### Masks
 
+Casual / Chunk-based Casual/ Bi-directional
 
 ### Position embedding
 
@@ -27,6 +29,3 @@ I’ll keep sharing important things I discover about Transformers over time.
 Rotary Positional Encoding
 
 
-### Bert
-
-### GPT
