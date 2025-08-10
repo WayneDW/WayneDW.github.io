@@ -1,6 +1,6 @@
 ---
 title: 'Transformer Family'
-subtitle: Scaling the Transformer Family for Long Futures
+subtitle: Scaling the transformer family for long futures
 date: 2025-08-09
 permalink: /posts/transformer_family/
 category: Empirics
@@ -8,6 +8,8 @@ category: Empirics
 
 
 This is an ongoing blog where I explore and improve my understanding of the Transformer family:
+
+I’ll keep sharing important things I discover about Transformers over time.
 
 ### Attention
 
@@ -19,7 +21,10 @@ This is an ongoing blog where I explore and improve my understanding of the Tran
 
 
 
-#### Position embedding
+### Position embedding
+
+
+Rotary Positional Encoding
 
 
 ### Bert
