@@ -1,6 +1,6 @@
 ---
 title: 'Language Models'
-subtitle: Scaling the transformer family for long contexts and futures (TBC)
+subtitle: Scaling transformers for long futures (TBC)
 date: 2025-08-10
 permalink: /posts/language_models/
 category: Empirics
