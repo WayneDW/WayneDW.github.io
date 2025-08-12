@@ -13,7 +13,7 @@ I’ll keep sharing interesting topics I discover about language models over tim
 
 TBD
 
-
+BPE tokenizen
 
 ### Bert
 
@@ -21,3 +21,7 @@ TBD
 
 
 scalability via KV caching
+
+#### Scaling laws
+
+#### The flops calculus of Language Model Training
