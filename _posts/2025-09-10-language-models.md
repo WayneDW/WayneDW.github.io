@@ -1,7 +1,7 @@
 ---
 title: 'Language Models'
 subtitle: Scaling transformers for long futures (TBC)
-date: 2025-08-10
+date: 2025-09-10
 permalink: /posts/language_models/
 category: Empirics
 ---
@@ -16,6 +16,16 @@ TBD
 BPE tokenizen
 
 ### Bert
+
+#### RoBert.
+
+#### ALBERT
+
+#### DistilBERT
+
+#### DeBERTa
+
+#### T5
 
 ### GPT
 

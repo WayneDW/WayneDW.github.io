@@ -13,11 +13,36 @@ I’ll keep sharing important things I discover about Transformers over time.
 
 ### Attention
 
+How to reduce KV cache
+
+https://www.spaces.ac.cn/archives/10091/comment-page-1
 
 #### Self-attention
 
 
 #### Multi-head attention
+
+https://arxiv.org/pdf/2002.07028
+
+https://arxiv.org/pdf/2106.09650
+
+https://medium.com/@hassaanidrees7/exploring-multi-head-attention-why-more-heads-are-better-than-one-006a5823372b
+
+https://medium.com/@nirashanelki/the-secret-of-multi-head-attention-2fdb72208b7f
+
+https://sanjayasubedi.com.np/deeplearning/multihead-attention-from-scratch/
+
+#### Linear Attention
+
+Nyströmformer/ Performer
+
+#### Flash Attention
+
+#### Multi-head Latent Attention 
+
+    DeepSeek
+
+#### Scaling laws
 
 #### Stacking of attentions to achieve better performance via @Shuangfei Zhai's tweets.
 
@@ -27,7 +52,24 @@ Casual / Chunk-based Casual/ Bi-directional
 
 ### Position embedding
 
+Sinusoidal
+
 Abs. PE/ Learnable P.E./ ALiBi/
+
+#### RePE
+
+invariant to shift
+
+1D/ 2D RoPE (ViT) / beta-base encoding
+
+RoPE is a rotary transformation applied to the Query (Q) and Key (K) in Attention.？
+
+RoPE base number LLaMA 3 choose 
+
+how to do multimodal?
+
+Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation
+
 
 Rotary Positional Encoding (RoPE has an inductive bias towards left-to-right ordering, Sitan Chen's Train for theWorst, Plan for the Best:
 Understanding Token Ordering in Masked Diffusions)
