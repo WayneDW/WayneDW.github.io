@@ -1,6 +1,6 @@
 ---
-title: 'The Transformer Primer'
-subtitle: Scaling laws for modeling long-range dependencies (TBC)
+title: 'Inside the Transformer'
+subtitle: Ongoing explorations into how Transformers really work (TBC)
 date: 2025-08-10
 permalink: /posts/transformer_family/
 category: Empirics
@@ -10,6 +10,9 @@ category: Empirics
 This is an ongoing blog where I explore and improve my understanding of the Transformer family:
 
 I’ll keep sharing important things I discover about Transformers over time.
+
+
+
 
 ### Attention
 
@@ -54,15 +57,19 @@ Casual / Chunk-based Casual/ Bi-directional
 
 Sinusoidal
 
+limited seq length; independence of PE: the difference between pos 1 and 2 is the same as position 2 and 500? (breaks if it goes beyond wavelength?)
+
 Abs. PE/ Learnable P.E./ ALiBi/
 
-#### RePE
+#### RoPE
 
 invariant to shift
 
 1D/ 2D RoPE (ViT) / beta-base encoding
 
 RoPE is a rotary transformation applied to the Query (Q) and Key (K) in Attention.？
+
+the only one that applies to linear attentions so far?
 
 RoPE base number LLaMA 3 choose 
 
