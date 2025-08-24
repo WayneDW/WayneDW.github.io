@@ -220,10 +220,10 @@ $$\begin{equation}
 {% cite su2021roformer %} proposes to point-wise rotate the Q/ K matrices inspired by complex analysis as follows
 
 $$\begin{equation}
-\mathrm{e_{ij}=\frac{(R_i Q_i)\top R_j K_j}{\sqrt{d}}=\frac{ Q_i\top R_{j-i} K_j}{\sqrt{d}}}.\notag
+\mathrm{e_{ij}=\frac{(R_i Q_i)^\top R_j K_j}{\sqrt{d}}=\frac{ Q_i\top R_{j-i} K_j}{\sqrt{d}}}.\notag
 \end{equation}$$
 
-where $\mathrm{R(\alpha)^T R(\beta)=R(\beta-\alpha)}$ is the complex inner product. Recall from $\mathrm{z = q_0 + i q_1}$, $\mathrm{e^{im\theta} = \cos(m\theta) + i \sin(m\theta)}$, we can easily verify that
+where $\mathrm{R(\alpha)^\top R(\beta)=R(\beta-\alpha)}$ is the complex inner product. Recall from $\mathrm{z = q_0 + i q_1}$, $\mathrm{e^{im\theta} = \cos(m\theta) + i \sin(m\theta)}$, we can easily verify that
 
 $$\begin{align}
 & \mathrm{z' = e^{im\theta} z  =(\cos(m\theta) + i \sin(m\theta))(q_0 + i q_1)=} \underbrace{\begin{bmatrix}
