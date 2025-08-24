@@ -38,7 +38,7 @@ $$\begin{align}
 where $\mathrm{\bar{R}^{x_0}(t, s) = \mathbf{I} + \frac{\alpha_s - \alpha_t}{1 - \alpha_t} \mathbf{e_m} (x_0 - \mathbf{e_m})^\top}$, implying $$\mathrm{p(x_s=x_0\\|x_t=m)=\frac{\alpha_s - \alpha_t}{1 - \alpha_t}}$$. 
 
 
-#### Connections to BERT and Autoregressive Models
+### Connections to BERT
 
 Consider a **one-step** transition that mixes the uniform transition and an absorbing state $\mathbf{T}=(1-\alpha-\beta) \mathbf{I} +\alpha \mathbf{1\cdot 1^\intercal} + \beta \mathbf{e_m\cdot 1^\intercal}$. For example, **BERT** {% cite devlin2018pretraining %} models $\mathrm{\mathbf{p}(x_1 \mid x_0)}$ by replacing 10% of tokens with [MASK] and 5% uniformly at random. It also differs from BERT in that a **randomized** masking ratio is adopted to further enhance the performance.
 
