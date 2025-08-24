@@ -211,7 +211,7 @@ $$\begin{equation}
 RPE augments the attention logits with terms that depend on $\mathrm{i-j}$ {% cite shaw2018self dai2019transformer %}:
 
 $$\begin{equation}
-\mathrm{e_{ij}=\frac{Q_i K_j^\top}{\sqrt{d}} + Func(i-j, Q_i, K_j)}.\notag
+\mathrm{e_{ij}=\frac{Q_i^\top K_j}{\sqrt{d}} + Func(i-j, Q_i, K_j)}.\notag
 \end{equation}$$
 
 
