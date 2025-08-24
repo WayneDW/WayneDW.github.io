@@ -214,19 +214,30 @@ $$\begin{equation}
 \mathrm{e_{ij}=\frac{Q_i^\top K_j}{\sqrt{d}} + Func(i-j, Q_i, K_j)}.\notag
 \end{equation}$$
 
+#### ALiBi (Attention with Linear Biases) 
+
+To achieve longer extrapolation length beyond the training length, {% cite press2022train %} penalizes distant key-value pairs
+
+$$\begin{equation}
+\mathrm{e_{ij} = \frac{Q_i^\top K_j}{\sqrt{d}} + m_h (i - j)}, \notag
+\end{equation}$$
+
+where $\mathrm{m_h}$ is a fixed slope constant, e.g. $\mathrm{m_h=-\frac{1}{2^{h/H}}, h\in \\\{1, 2, ...\\\}}$.
+
+
 
 #### Rotary Position Embeddings (RoPE)
 
-{% cite su2021roformer %} proposes to point-wise rotate the Q/ K matrices inspired by complex analysis as follows
+Building on insights from complex analysis, {% cite su2021roformer %} proposed a point-wise rotation of the Q/K matrices, which has since been widely adopted in state-of-the-art LLM architectures.
 
 $$\begin{equation}
 \mathrm{e_{ij}=\frac{(R_i Q_i)^\top R_j K_j}{\sqrt{d}}=\frac{ Q_i\top R_{j-i} K_j}{\sqrt{d}}}.\notag
 \end{equation}$$
 
-where $\mathrm{R(\alpha)^\top R(\beta)=R(\beta-\alpha)}$ is the complex inner product. Recall from $\mathrm{z = q_0 + i q_1}$, $\mathrm{e^{im\theta} = \cos(m\theta) + i \sin(m\theta)}$, we can easily verify that
+where $\mathrm{R(\alpha)^\top R(\beta)=R(\beta-\alpha)}$ is the complex inner product and $\mathrm{R(\alpha)}$ is defined below
 
 $$\begin{align}
-& \mathrm{z' = e^{im\theta} z  =(\cos(m\theta) + i \sin(m\theta))(q_0 + i q_1)=} \underbrace{\begin{bmatrix}
+& \mathrm{z' = e^{im\theta} z  =(\underbrace{\cos(m\theta) + i \sin(m\theta)}_{e^{im\theta}})(\underbrace{q_0 + i q_1}_{z})=} \underbrace{\begin{bmatrix}
 \mathrm{\cos(m\theta)} & -\sin(m\theta) \\
 \sin(m\theta) & \cos(m\theta)
 \end{bmatrix}}_{\mathrm{R(m\theta)}}
@@ -252,6 +263,7 @@ $$\begin{equation}
 \mathrm{q_0} \\ \mathrm{q_1} \\ \mathrm{q_2} \\ \mathrm{q_3} \\ \vdots
 \end{bmatrix}. \notag
 \end{equation}$$
+
 
 
 
