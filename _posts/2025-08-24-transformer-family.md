@@ -163,7 +163,7 @@ $$\begin{equation}
 where the key–value rank-1 pair $\mathrm{v_t k_t^\top}$ is written into the memory. Although the recurrent update lacks parallelism, this can be mitigated through chunkwise parallelism. One can further increase the expressiveness by replacing the linear inner product  $\mathrm{k^\top q}$ with a feature map $\mathrm{\phi(k)^\top \phi(q)}$:
 
 $$\begin{equation}
-\mathrm{M_t = M_{t-1} + v_t \phi(k_t)^\top ,\quad y_t = M_t \phi(q_t), }\notag
+\mathrm{S_t = S_{t-1} + v_t \phi(k_t)^\top ,\quad y_t = S_t \phi(q_t), }\notag
 \end{equation}$$
 
 where the choices of $\phi$ include $1+\mathrm{ELU}$ {% cite katharopoulos2020transformers %}, random features {% cite choromanski2021rethinking  %}, cosine functions, polynomial expansions, deterministic projections, among others.
