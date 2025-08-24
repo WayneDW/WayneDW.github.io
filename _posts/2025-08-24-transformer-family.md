@@ -144,7 +144,7 @@ Self-attention requires $\mathrm{O(L^2)}$ time and memory complexity for the len
     <figcaption>Reformer attention.</figcaption>
   </figure>
 </div>
-* **Kernelization**: The attention weight $\mathrm{P}$ can be viewed as an exponential kernel $$\mathrm{\exp(x^\intercal y)=\exp(\|x\|_2^2)K_{\text{gaussian}}(x, y) \exp(\|y\|_2^2)}$$ and a prior [random feature blog](https://www.weideng.org/posts/random_fourier_features/) has ever discussed about the Monte Carlo approximations {% cite random_features %}. Building on this idea, Performer {% cite choromanski2021rethinking %} introduces positive random features to guarantee non-negativity, thereby avoiding singularities and instabilities during normalization.
+* **Kernelization**: The attention weight $\mathrm{P}$ can be viewed as an exponential kernel $$\mathrm{\exp(x^\intercal y)=\exp(\|x\|_2^2)K_{\text{gaussian}}(x, y) \exp(\|y\|_2^2)}$$ and a prior [random feature blog](https://www.weideng.org/posts/random_fourier_features/) has ever discussed about the Monte Carlo approximations {% cite random_features %}. Building on this idea, Performer {% cite choromanski2021rethinking %} introduces non-negativity random features to avoiding singularities during normalization.
 
 ### Autoregressive Transformers v.s. RNNs
 
@@ -214,7 +214,7 @@ $$\begin{equation}
 \mathrm{e_{ij}=\frac{Q_i^\top K_j}{\sqrt{d}} + Func(i-j, Q_i, K_j)}.\notag
 \end{equation}$$
 
-#### ALiBi (Attention with Linear Biases) 
+#### Attention with Linear Biases (ALiBi)
 
 To achieve longer extrapolation length beyond the training length, {% cite press2022train %} penalizes distant key-value pairs
 
