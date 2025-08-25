@@ -13,7 +13,7 @@ author_profile: true
 
 <!-- This space is for those interested in understanding, scaling, aligning, and applying diffusion(-language) models. -->
 
-This space is for the understanding, scaling, aligning, and applications of diffusion language models.
+This space is for the understanding, scaling, aligning, and applications of diffusion language models. This blog also updates interesting topics on transformers.
 
  <!-- market simulations. -->
 
