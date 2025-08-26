@@ -4,8 +4,8 @@ title: "A Sampler’s Blog"
 excerpt: "what is this?"
 author_profile: true
 ---
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city.png"></p>
-
+<!-- <p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city.png"></p> -->
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/mount_rainer.png"></p>
 
 <!-- title: "Nothing but Sampling" -->
 
