@@ -7,7 +7,7 @@ category: Empirics
 ---
 
 
-Transformers are the building blocks of modern large language and visions models and have transformed the way we work and create. At their core is the *attention mechanism* {% cite attention_need %}, which captures complex temporal patterns and reason over them effectively.
+Transformers are the building blocks of modern large language and visions models and have transformed the way we work and create. At their core is the *attention mechanism* {% cite attention_need %}, which captures complex temporal patterns and enables reasoning across sequences.
 
 ## Softmax Attention
 
@@ -19,7 +19,7 @@ $$\begin{align}
 
 where $\mathrm{Q\in \mathbb{R}^{n\times d}}$, $\mathrm{K\in \mathbb{R}^{m\times d}}$, $\mathrm{V\in \mathbb{R}^{m\times d}}$, $\mathrm{d}$ is the hidden size. $n$ is the number of query positions and $m$ is number of KV positions. A scaling factor of $\frac{1}{\sqrt{d}}$ is employed to account for the linear variance. 
 
-In a self-attention example: "The VC will not invest money to the company" with $\mathrm{n=m=L}$, an attention head may focus on the financial relation between VC and money, the syntactic dependency between VC and invest, or other types of relationships. Because the inner product is linear and softmax overly focuses on extreme values, we can only capture a single type of relationship. 
+In a self-attention example: "The VC will not invest money to the startup" with $\mathrm{n=m=L}$, an attention head may focus on the financial relation between VC and money, the syntactic dependency between VC and invest, or other types of relationships. Because the inner product is linear and softmax overly focuses on extreme values, we can only capture a single type of relationship. 
 
 ### Masks
 
@@ -178,7 +178,7 @@ $$\begin{equation}
 
 
 <figure style="text-align: center;">
-    <img src="/images/different_gates.png" width="670" height="170" />
+    <img src="/images/different_gates.png" width="670" height="150" />
     <figcaption> Different gating formulations {% cite yang2024gated %} </figcaption>
 </figure>
 
