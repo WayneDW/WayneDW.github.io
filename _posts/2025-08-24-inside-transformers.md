@@ -2,7 +2,7 @@
 title: 'Inside the Transformers'
 subtitle: Explorations into how transformers work
 date: 2025-08-24
-permalink: /posts/transformer_family/
+permalink: /posts/inside_transformers/
 category: Empirics
 ---
 
