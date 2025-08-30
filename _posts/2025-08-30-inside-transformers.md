@@ -1,7 +1,7 @@
 ---
 title: 'Inside the Transformers'
 subtitle: Explorations into how transformers work
-date: 2025-08-24
+date: 2025-08-30
 permalink: /posts/inside_transformers/
 category: Empirics
 ---
@@ -292,9 +292,25 @@ $$\begin{equation}
 
 ### The Transformer Family
 
+
+#### Generative Pre-trained Transformer (GPT)
+
+GPT {% cite radford2018improving %} trains a unidirectional, causally masked Transformer to learn language representations. Its left-to-right (L2R) factorization is compute-friendly and scales smoothly with model size, data, and compute, aligning with empirical scaling-law behavior. However, because self-attention is causal, each token can attend only to preceding context. This L2R constraint introduces several limitations - to name a few: 1. high latency for long sequences and limited parallelism at inference; 2. exposure-bias error compounding; 3. awkward infilling/ (mid-span) editing.
+
+
+<!-- #### Bert -->
+
+**B**idirectional **E**ncoder **R**epresentations from **T**ransformer (**BERT**) 
+
+BERT {% cite devlin2019bert %} learns bidirectional representations via masked language modeling. During pretraining, 15% of tokens are randomly selected; 80% are replaced with [MASK], 10% with a random token, and 10% left unchanged. Despite the bidirectional context, MLM breaks left-to-right factorization, which makes exact sequence likelihood intractable and overlooks the higher-order dependencies in sequence modeling tasks.
+
+
+
+
+
 <!-- 
 
-### Bert
+
 
 #### RoBert.
 
