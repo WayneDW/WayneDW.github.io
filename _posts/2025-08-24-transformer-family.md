@@ -290,9 +290,21 @@ $$\begin{equation}
 <!-- Understanding Token Ordering in Masked Diffusions) -->
 
 
-<!-- ### Bert
+### The Transformer Family
 
-RoBert/ ALBERT/ DeBERT
+<!-- 
 
-### GPT -->
+### Bert
 
+#### RoBert.
+
+#### ALBERT
+
+#### DistilBERT
+
+#### DeBERTa
+
+#### T5
+
+### GPT
+ -->

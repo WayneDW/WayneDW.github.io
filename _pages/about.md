@@ -5,7 +5,7 @@ excerpt: "what is this?"
 author_profile: true
 ---
 
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/mount_rainer2.png"></p>
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/mount_rainer3.png"></p>
 
 <!-- title: "Nothing but Sampling" -->
 

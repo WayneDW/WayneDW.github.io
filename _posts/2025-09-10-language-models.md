@@ -15,23 +15,22 @@ TBD
 
 BPE tokenizen
 
-### Bert
-
-#### RoBert.
-
-#### ALBERT
-
-#### DistilBERT
-
-#### DeBERTa
-
-#### T5
-
-### GPT
-
-
-scalability via KV caching
 
 #### Scaling laws
 
-#### The flops calculus of Language Model Training
+#####  The flops calculus of Language Model Training
+
+
+Will's blog
+
+#### Distributed Training
+
+#### Prompting techniques
+
+* RAG
+
+* Context Engineering
+
+#### LLM Evaluations
+
+#### 
