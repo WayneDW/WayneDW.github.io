@@ -302,7 +302,7 @@ GPT {% cite radford2018improving %} trains a unidirectional, causally masked Tra
 
 **B**idirectional **E**ncoder **R**epresentations from **T**ransformer (**BERT**) 
 
-BERT {% cite devlin2019bert %} learns bidirectional representations via masked language modeling. During pretraining, 15% of tokens are randomly selected; 80% are replaced with [MASK], 10% with a random token, and 10% left unchanged. Despite the bidirectional context, MLM breaks left-to-right factorization, which makes exact sequence likelihood intractable and overlooks the higher-order dependencies.
+BERT {% cite devlin2019bert %} learns bidirectional representations via masked language modeling. During pretraining, 15% of tokens are randomly selected; 80% are replaced with [MASK], 10% with a random token, and 10% left unchanged. Despite the bidirectional context, MLM breaks left-to-right factorization, which makes exact sequence likelihood intractable and overlooks the higher-order dependencies. It is also harder to learn bidirectional representations.
 
 
 
