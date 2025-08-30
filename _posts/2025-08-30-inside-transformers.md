@@ -308,7 +308,14 @@ GPT {% cite radford2018improving %} trains a unidirectional, causally masked Tra
 
 GPT-2 (1.5B) {% cite radford2019language %} is 10× larger than GPT and trained on millions of WebText tokens. It can be directly applied to downstream language tasks without parameter or architecture modifications (zero-shot transfer), demonstrating log-linear improvements in performance; GPT-3 (175B) {% cite brown2020language_arxiv %} has the same architecture as GPT-2, except that the attention patterns are alternated between dense and sparse. GPT-3 shows impressive few-shot performance to many NLP tasks without any gradient-based fine-tuning.
 
+### Scaling Laws
 
+The test loss of a transformer yields a power-law with model size, dataset size, and computations {% cite kaplan2020scaling %}. These scaling laws provide concrete guidance for allocating a fixed budget.
+
+<figure style="text-align: center;">
+    <img src="/images/scaling_laws.png" width="650" height="200" />
+    <figcaption> Test Loss v.s. model size, dataset size, and computations {% cite kaplan2020scaling %} </figcaption>
+</figure>
 
 <!-- 
 
