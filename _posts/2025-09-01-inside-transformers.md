@@ -43,7 +43,7 @@ def scaled_dot_product(q, k, v, mask=None):
 
 
 
-### Multi-head attention 
+### Multi-head Attention 
 
 To integrate knowledge from different representation subspaces, multi-head attention (MHA) proposes an ensemble of locally linear projections of queries, keys and values 
 
