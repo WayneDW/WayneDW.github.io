@@ -1,7 +1,7 @@
 ---
 title: 'Inside the Transformers'
 subtitle: Explorations into how transformers work
-date: 2025-08-30
+date: 2025-09-01
 permalink: /posts/inside_transformers/
 category: Empirics
 ---
@@ -295,16 +295,16 @@ $$\begin{equation}
 
 **B**idirectional **E**ncoder **R**epresentations from **T**ransformer (**BERT**) 
 
-BERT {% cite devlin2019bert %} learns bidirectional representations via masked language modeling. During pretraining, 15% of tokens are randomly selected; 80% are replaced with [MASK], 10% with a random token, and 10% left unchanged. Despite the bidirectional context, MLM breaks left-to-right factorization, which makes exact sequence likelihood intractable and overlooks the higher-order dependencies. It is also harder to learn bidirectional representations. 
+BERT {% cite devlin2019bert %} encodes bidirectional representations via masked language modeling. During pretraining, 15% of tokens are randomly selected; 80% are replaced with [MASK], 10% with a random token, and 10% left unchanged. Despite the bidirectional context, MLM breaks left-to-right (L2R) factorization, which makes exact sequence likelihood intractable and overlooks the higher-order dependencies. It is also harder to learn bidirectional representations. 
 
 To solve the undertrained issue, Robustly optimized BERT (RoBERTa) {% cite liu2019roberta %} trains the model with larger batches, more data, longer sequences, and the mask is also updated dynamically; ALBERT {% cite lan2019albert %} is a light-weighted BERT that adopted factorized embedding and shared parameters across layers; DeBERTa {% cite he2021deberta %} improves the performance via disentangled attention mechanism and enhanced mask decoders.
 
-
+ <!-- T5 {% cite raffel2020exploring %} further incorporates the causal decoder to enhance the generation ability. -->
 
 
 #### Generative Pre-trained Transformer (GPT)
 
-GPT {% cite radford2018improving %} trains a unidirectional, causally masked Transformer to learn language representations. Its left-to-right (L2R) factorization is compute-friendly and scales smoothly with model size, data, and compute, aligning with empirical scaling-law behavior. However, because self-attention is causal, each token can attend only to preceding context. This L2R constraint introduces several limitations, e.g. high latency for long sequences and limited parallelism at inference; exposure-bias error compounding; awkward infilling/ (mid-span) editing.
+GPT {% cite radford2018improving %} trains a unidirectional, causally masked Transformer decoder to learn language representations. Its L2R factorization is compute-friendly and scales smoothly with model size, data, and compute, aligning with empirical scaling-law behavior. However, because self-attention is causal, each token can attend only to preceding context. This L2R constraint introduces several limitations, e.g. high latency for long sequences and limited parallelism at inference; exposure-bias error compounding; awkward infilling/ (mid-span) editing.
 
 GPT-2 (1.5B) {% cite radford2019language %} is 10× larger than GPT and trained on millions of WebText tokens. It can be directly applied to downstream language tasks without parameter or architecture modifications (zero-shot transfer), demonstrating log-linear improvements in performance; GPT-3 (175B) {% cite brown2020language_arxiv %} has the same architecture as GPT-2, except that the attention patterns are alternated between dense and sparse. GPT-3 shows impressive few-shot performance to many NLP tasks without any gradient-based fine-tuning.
 
@@ -322,7 +322,6 @@ The test loss of a transformer yields a power-law with model size, dataset size,
 
 #### DistilBERT
 
-#### DeBERTa
 
 #### T5
 
