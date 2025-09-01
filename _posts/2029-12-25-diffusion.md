@@ -1,7 +1,7 @@
 ---
 title: 'Diffusion Models'
 subtitle: Image generations
-date: 2025-12-25
+date: 2029-12-25
 permalink: /posts/diffusion_models/
 category: Diffusion
 ---
