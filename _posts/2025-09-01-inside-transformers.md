@@ -85,6 +85,11 @@ class MultiHeadAttention(nn.Module):
         return out, attention
 ```
 
+
+#### Grouped Query Attention
+
+TBD
+
 <!-- ### Techniques
 
 #### Teacher Forcing -->
