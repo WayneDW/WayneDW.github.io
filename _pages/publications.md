@@ -8,9 +8,9 @@ author_profile: true
 
 ### Diffusion Language Models
 
-* H. Zheng, X. Liu, X. Kong, N. Jiang, Z. Hu, W. Luo, **Wei Deng**, Guang Lin. [Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct](https://www.arxiv.org/pdf/2509.25035). 2025.
+* H. Zheng, X. Liu, X. Kong, N. Jiang, Z. Hu, W. Luo, **W. Deng**, G. Lin. [Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct](https://www.arxiv.org/pdf/2509.25035). 2025.
 
-* K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, Wei Deng. [Reasonings for Diffusion Language Models](https://www.arxiv.org/abs/2509.25035). 2025
+* K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, **W. Deng**. [Reasonings for Diffusion Language Models](https://www.arxiv.org/abs/2509.25035). 2025
 
 ### Diffusion Models
 
