@@ -5,6 +5,13 @@ title: "Selected Publications"
 author_profile: true
 ---
 
+
+### Diffusion Language Models
+
+* H. Zheng, X. Liu, X. Kong, N. Jiang, Z. Hu, W. Luo, **Wei Deng**, Guang Lin. [Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct](https://www.arxiv.org/pdf/2509.25035). 2025.
+
+* K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, Wei Deng. [Reasonings for Diffusion Language Models](https://www.arxiv.org/abs/2509.25035). 2025
+
 ### Diffusion Models
 
 * X. Liu, H. Du, **W. Deng**, R. Zhang. [Optimal Stochastic Trace Estimation in Generative Modeling](https://arxiv.org/pdf/2502.18808). AISTATS 2025.
