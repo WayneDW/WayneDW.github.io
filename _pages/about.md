@@ -57,7 +57,9 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 
 
 
-Welcome to read our paper [Didi-Instruct](https://www.arxiv.org/pdf/2509.25035) on Ultra-Fast Language Generation!
+
+🔥 Welcome! Check out [Ultra-Fast Language Generation](https://www.arxiv.org/pdf/2509.25035) — 60× faster GPT-2, same performance.
+
 
 
 <!-- <li><a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="_blank"  class="deep-blue">Thesis</a></li> -->
