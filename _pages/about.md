@@ -56,6 +56,7 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 </ul>
 
 
+🔥 Welcome! Check out [Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554) — Improving reasoning for diffusion LLM.
 
 
 🔥 Welcome! Check out [Ultra-Fast Language Generation](https://www.arxiv.org/pdf/2509.25035) — 60× faster GPT-2, same performance.
