@@ -8,9 +8,10 @@ author_profile: true
 
 ### Diffusion Language Models
 
+* K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, **W. Deng**. [Improving Reasoning for Diffusion Language Models via Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554). 2025
+
 * H. Zheng, X. Liu, X. Kong, N. Jiang, Z. Hu, W. Luo, **W. Deng**, G. Lin. [Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct](https://www.arxiv.org/pdf/2509.25035). 2025.
 
-* K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, **W. Deng**. [Reasonings for Diffusion Language Models](https://www.arxiv.org/abs/2509.25035). 2025
 
 ### Diffusion Models
 
