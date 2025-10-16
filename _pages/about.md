@@ -14,7 +14,7 @@ author_profile: true
 <!-- This space is for those interested in understanding, scaling, aligning, and applying diffusion(-language) models. -->
 
 
-I’m a fan of samplers and transformers — this space is dedicated to understanding, scaling, aligning, and applying diffusion language models. 
+I’m a fan of samplers and transformers — this space is for the understanding, scaling, and aligning diffusion LLMs. 
 
  <!-- market simulations. -->
 
