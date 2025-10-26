@@ -1,5 +1,5 @@
 ---
-title: 'Unmasking the EOT Nature of Attention'
+title: 'The Transport Nature of Attention'
 subtitle: Why attention is really solving one-sided optimal transport
 date: 2025-10-26
 permalink: /posts/attention_OT/
