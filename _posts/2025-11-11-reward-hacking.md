@@ -6,4 +6,6 @@ permalink: /posts/reward_hacking/
 category: Empirics
 ---
 
+
+sparse rewards
 TBD
