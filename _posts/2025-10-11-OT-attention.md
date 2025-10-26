@@ -63,4 +63,4 @@ $$
 
 
 
-Hence, the *attention matrix* in Transformers can be precisely viewed as the **optimal transport plan** in an entropic OT problem with cost matrix $\mathrm{C = -QK^{\intercal}}$ and the entropy regularizer $\varepsilon$.
+Hence, the *attention matrix* in Transformers can be precisely viewed as the **optimal transport plan** in an entropic OT problem with cost matrix $\mathrm{C = -QK^{\intercal}}$ and the entropy regularizer $$\mathrm{\varepsilon=\sqrt{d}}$$.
