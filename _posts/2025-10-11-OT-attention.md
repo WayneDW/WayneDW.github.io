@@ -1,5 +1,5 @@
 ---
-title: 'The Transport Nature of Attention'
+title: 'The Transport View of Attention'
 subtitle: Why attention is really solving one-sided optimal transport
 date: 2025-10-26
 permalink: /posts/attention_OT/
@@ -63,4 +63,4 @@ $$
 
 
 
-Hence, the *attention matrix* in Transformers can be precisely viewed as the **optimal transport plan** in an entropic OT problem with cost matrix $\mathrm{C = -QK^{\intercal}}$ and the entropy regularizer $$\mathrm{\varepsilon=\sqrt{d}}$$.
+Hence, the *attention matrix* in Transformers can be precisely viewed as the **optimal transport plan** in an entropic OT problem with cost matrix $\mathrm{C = -QK^{\intercal}}$ and the entropy regularizer $$\mathrm{\varepsilon=\sqrt{d}}$$. 
