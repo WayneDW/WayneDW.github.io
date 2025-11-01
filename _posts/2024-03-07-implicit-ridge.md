@@ -3,7 +3,7 @@ title: 'Implicit Ridge Regularization'
 subtitle: The optimal penalty can be zero or negative for real-world high dimensional data.
 date: 2024-03-07
 permalink: /posts/implicit_ridge_regularization/
-category: Theory
+category: Transformer
 ---
 
 
