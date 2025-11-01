@@ -3,7 +3,7 @@ title: 'Attention = Optimal Transport? Yes.'
 subtitle: And the backward pass is policy gradient
 date: 2025-10-26
 permalink: /posts/attention_OT/
-category: Diffusion
+category: Transformer
 ---
 
 The attention module {% cite attention_need %} is the computational engine behind modern LLMs, while *entropic optimal transport* (EOT) studies the optimal way to map one probability distribution to another.  At first glance, the two areas seem unrelated—but inspired by Elon’s work {% cite EOT_attention %}, it is quite remarkable to discover that these two mechanisms are, in fact, mathematically equivalent.

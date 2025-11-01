@@ -3,7 +3,7 @@ title: 'Inside the Transformers'
 subtitle: Explorations into how transformers work
 date: 2025-09-01
 permalink: /posts/inside_transformers/
-category: Empirics
+category: Transformer
 ---
 
 

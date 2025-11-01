@@ -3,7 +3,7 @@ title: 'Generative Transformer'
 subtitle: Image synthesis via transformers
 date: 2025-08-03
 permalink: /posts/generative_transformer/
-category: Empirics
+category: Transformer
 ---
 
 
