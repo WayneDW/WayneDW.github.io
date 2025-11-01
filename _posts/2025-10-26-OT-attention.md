@@ -6,7 +6,7 @@ permalink: /posts/attention_OT/
 category: Transformer
 ---
 
-The attention module {% cite attention_need %} is the computational engine behind modern LLMs, while *entropic optimal transport* (EOT) studies the optimal way to map one probability distribution to another.  At first glance, the two areas seem unrelated—but inspired by Elon’s work {% cite EOT_attention %}, it is quite remarkable to discover that these two mechanisms are, in fact, mathematically equivalent.
+The attention module {% cite attention_need %} is the computational engine behind modern LLMs, while *entropic optimal transport* (EOT) studies the efficient way to map one probability distribution to another.  At first glance, the two areas seem unrelated—but inspired by Elon’s work {% cite EOT_attention %}, it is quite remarkable to discover that these two mechanisms are, in fact, mathematically equivalent.
 
 
 In this post, we show that the optimal coupling $\mathrm{P}$ in EOT with cost matrix $\mathrm{C = -QK^{\intercal}}$ is identical to the attention matrix $\mathrm{A}$ in Transformers:
