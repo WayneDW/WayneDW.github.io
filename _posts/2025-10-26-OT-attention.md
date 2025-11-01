@@ -1,6 +1,6 @@
 ---
 title: 'Attention = Optimal Transport? Yes.'
-subtitle: And the Backward Pass Is Basically Policy Gradient
+subtitle: And the backward pass is policy gradient
 date: 2025-10-26
 permalink: /posts/attention_OT/
 category: Diffusion
