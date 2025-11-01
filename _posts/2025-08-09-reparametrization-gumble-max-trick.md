@@ -3,7 +3,7 @@ title: 'Reparametrization Tricks'
 subtitle: Backpropagation of continuous and discrete random variables
 date: 2025-08-09
 permalink: /posts/reparametrization_tricks/
-category: Empirics
+category: Transformer
 ---
 
 Suppose we are interested in the marginal likelihood $\mathrm{p_{\theta}(x)}$. Consider a latent representation via variational autoencoder (VAE) {% cite kingma2013auto %}
