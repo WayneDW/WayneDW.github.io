@@ -3,7 +3,7 @@ title: 'Coupling by Reflection (II)'
 subtitle: A general coupling technique for characterizing a broad range of diffusions.
 date: 2023-05-20 
 permalink: /posts/coupling_by_reflection/
-category: Theory
+category: Sampling
 ---
 
 ### Limitations of Synchronous Coupling
