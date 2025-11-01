@@ -1,6 +1,6 @@
 ---
-title: 'The Transport View of Attention'
-subtitle: Why attention is really solving one-sided optimal transport
+title: 'Attention = Optimal Transport? Yes.'
+subtitle: And the Backward Pass Is Basically Policy Gradient
 date: 2025-10-26
 permalink: /posts/attention_OT/
 category: Diffusion
