@@ -14,7 +14,7 @@ author_profile: true
 
 * K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, **W. Deng**. [Improving Reasoning for Diffusion Language Models via Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554). 2025
 
-* H. Zheng, X. Liu, X. Kong, N. Jiang, Z. Hu, W. Luo, **W. Deng**, G. Lin. [Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct](https://www.arxiv.org/pdf/2509.25035). 2025.  [\[机器之心\]](https://mp.weixin.qq.com/s/0mGHnVtgxmazwxeu0nPjOw)
+* H. Zheng, X. Liu, X. Kong, N. Jiang, Z. Hu, W. Luo, **W. Deng**, G. Lin. [Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct](https://www.arxiv.org/pdf/2509.25035). 2025.  [\[机器之心\]](https://mp.weixin.qq.com/s/0mGHnVtgxmazwxeu0nPjOw) [\[X\]](https://x.com/jiqizhixin/status/1984549725471691216)
 
 
 
