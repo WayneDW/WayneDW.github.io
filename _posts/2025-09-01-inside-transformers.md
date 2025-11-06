@@ -28,7 +28,7 @@ Attention masks control what tokens can “see.” A *bidirectional* mask (no ma
 
 <figure style="text-align: center;">
     <img src="/images/masks.png" width="650" height="110" />
-    <figcaption> Bidirectional mask  $\ \ $ causal mask $\quad\qquad$ padding $\quad\qquad$ random mask $\quad\qquad$ intra-doc. </figcaption>
+    <figcaption> Bidirectional mask  $\ \ $ causal mask $\quad\qquad$ padding $\qquad\qquad$ random mask $\quad\qquad$ intra-doc. </figcaption>
 </figure>
 
 ```python
