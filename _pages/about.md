@@ -8,7 +8,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/live_in_simulations.png"></p>
 
 
-In a world that feels like a simulation, I’m drawn to the sampling perspective of modern language models. My research focuses on the theoretical understanding, scaling, and alignment of test diffusion models.
+In a world that feels like a simulation, I’m drawn to the sampling perspective of modern language models. My research focuses on the understanding, scaling, and alignment of masked diffusion models.
 
  <!-- market simulations. -->
 
