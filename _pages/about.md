@@ -7,13 +7,8 @@ author_profile: true
 
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/live_in_simulations.png"></p>
 
-<!-- title: "Nothing but Sampling" -->
 
-<!-- This space explores sequential sampling techniques with a focus on the understanding, scaling, and alignment of diffusion(-language) models.  -->
-
-<!-- This space is for those interested in understanding, scaling, aligning, and applying diffusion(-language) models. -->
-
-A sampler at heart, in a world that feels like a simulation, I’m drawn to the sampling challenges in modern language models —- especially understanding, scaling, and aligning diffusion language models.
+In a world that feels like a simulation, I’m drawn to the sampling perspective of modern language models. My research focuses on the theorical understanding, scaling, and alignment of masked diffusion models.
 
  <!-- market simulations. -->
 
