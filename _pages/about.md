@@ -13,7 +13,7 @@ author_profile: true
 
 <!-- This space is for those interested in understanding, scaling, aligning, and applying diffusion(-language) models. -->
 
-A sampler at heart, in a world that feels like a simulation, I’m drawn to the sampling challenges in modern language models —- especially understanding, scaling, and aligning diffusion-driven language models.
+A sampler at heart, in a world that feels like a simulation, I’m drawn to the sampling challenges in modern language models —- especially understanding, scaling, and aligning diffusion language models.
 
  <!-- market simulations. -->
 
