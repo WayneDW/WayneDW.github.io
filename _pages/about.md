@@ -48,6 +48,7 @@ Feel free to contact me at: firstnamelastname056@gmail.com
   <li><a href="https://github.com/WayneDW" target="_blank" class="deep-blue">Github</a></li>
   <li><a href="https://twitter.com/dwgreyman" target="_blank" class="deep-blue">Twitter</a></li>
   <li><a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank" class="deep-blue">OpenReview</a></li>
+  <li><a href="https://www.weideng.org/pairs/" target="_blank" class="deep-blue">Asset</a></li>
 </ul>
 
 
