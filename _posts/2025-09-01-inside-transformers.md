@@ -1,6 +1,6 @@
 ---
 title: 'Inside the Transformers'
-subtitle: Explorations into how transformers work
+subtitle: Understanding the model architecture behind LLMs
 date: 2025-09-01
 permalink: /posts/inside_transformers/
 category: Transformer
@@ -27,8 +27,8 @@ Attention masks control what tokens can “see.” A *bidirectional* mask (no ma
 
 
 <figure style="text-align: center;">
-    <img src="/images/4_masks.png" width="550" height="120" />
-    <figcaption> Bidirectional mask  $\ \ \qquad$ causal mask $\ \ \qquad$ padding mask $\ \ \qquad$ random mask </figcaption>
+    <img src="/images/masks.png" width="650" height="110" />
+    <figcaption> Bidirectional mask  $\ \ $ causal mask $\quad\qquad$ padding $\quad\qquad$ random mask $\quad\qquad$ intra-doc. </figcaption>
 </figure>
 
 ```python
@@ -43,9 +43,9 @@ def scaled_dot_product(q, k, v, mask=None):
 
 
 
-### Multi-head Attention 
+### Multi-head Attention (MHA)
 
-To integrate knowledge from different representation subspaces, multi-head attention (MHA) proposes an ensemble of locally linear projections of queries, keys and values 
+To integrate knowledge from different representation subspaces, multi-head attention proposes an ensemble of locally linear projections of queries, keys and values 
 
 $$\begin{align}
 \mathrm{\text{MHA}(X_Q, X_K, X_V)} &= \mathrm{[\text{Head}_1; \text{Head}_2; \ldots, \text{Head}_h] W^O} \notag \\
@@ -85,10 +85,6 @@ class MultiHeadAttention(nn.Module):
         return out, attention
 ```
 
-
-#### Grouped Query Attention
-
-TBD
 
 <!-- ### Techniques
 
@@ -130,6 +126,15 @@ $$\begin{align}
 \mathrm{v_t}
 \end{bmatrix}.\notag
 \end{align}$$
+
+#### Beyond MHA
+
+To lower KV cost with minimal quality loss, grouped query attention (GQA) shares keys and values across groups of attention heads, while multi-head Latent Attention (MLA) {% cite DeepSeek_V2 %} compresses the keys and values into a latent vector. Experiments in {% cite Smol_Training %} show that this can reduce KV usage by roughly 75% without hurting performance.
+
+<figure style="text-align: center;">
+    <img src="/images/multi_head_GQA.png" width="650" height="508" />
+    <figcaption> A simplified comparison of MHA, GQA, MQA, and MLA {% cite Smol_Training %} </figcaption>
+</figure>
 
 ### Efficient Attentions
 
@@ -269,6 +274,10 @@ $$\begin{equation}
 \end{bmatrix}. \notag
 \end{equation}$$
 
+
+#### No Position Embeddings (NoPE)
+
+RoPE is the mainstream choice for positional encoding, yet its performance decays rapidly as context length grows. NOPE {% cite kazemnejad2023positional %} does not rely on any explicit positional encoding and offers a compelling way for length generalization. A hybrid strategy that alternates between RoPE and NoPE is also studied in SmolLM3.
 
 
 
