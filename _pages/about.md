@@ -5,7 +5,7 @@ excerpt: "what is this?"
 author_profile: true
 ---
 
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city.png"></p>
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/live_in_simulations.png"></p>
 
 <!-- title: "Nothing but Sampling" -->
 
@@ -13,8 +13,7 @@ author_profile: true
 
 <!-- This space is for those interested in understanding, scaling, aligning, and applying diffusion(-language) models. -->
 
-
-I'm a fan of samplers and transformers, exploring how to understand, scale, and align diffusion LLMs.
+A sampler at heart, in a world that feels like a simulation, I’m drawn to the sampling challenges in modern language models —- especially understanding, scaling, and aligning diffusion-driven language models.
 
  <!-- market simulations. -->
 
