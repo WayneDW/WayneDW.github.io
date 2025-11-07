@@ -111,7 +111,11 @@ x \,\middle|\, \alpha_{1-t} x_1,\,
 \end{equation}$$, where $$\mathrm{\alpha_t = e^{-\tfrac{1}{2}\int_0^t \beta(s)\,ds}}$$. The vector field can be derived in the same way.
 
 
-**Connections to Optimal Transport (OT)**: Consider OT displacement map: $$\mathrm{p_t=[(1-t)id+t\psi]_* p_0}$$. More specfically, define $\psi_t(x\mid x_1)=(1-t)x+tx_1$, the conditional vector field follows $$\mathrm{u_t(x\mid x_1)=\dfrac{x_1-x}{1-t}}$$. The simplified CFM loss function follows that
+**Connections to Optimal Transport (OT)**: Consider OT displacement map: 
+
+$$\begin{equation}\mathrm{p_t=[(1-t)id+t\psi]_* p_0}.\end{equation}$$
+
+More specfically, define $\psi_t(x\mid x_1)=(1-t)x+tx_1$, the conditional vector field follows $$\mathrm{u_t(x\mid x_1)=\dfrac{x_1-x}{1-t}}$$. The simplified CFM loss function follows that
 
 $$
 \begin{align}
