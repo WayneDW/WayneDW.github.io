@@ -93,7 +93,7 @@ $$
 \end{align}
 $$
 
-Replacing $\mathrm{\psi_t(x \mid x_1)}$ with $\mathrm{x}$, s.t. $$\mathrm{x:=\dfrac{x-\mu_t(x_1)}{\sigma_t(x_1)}}$$, we have
+Replacing $\mathrm{\psi_t(x \mid x_1)}$ with $\mathrm{x}$, s.t. $$\mathrm{\psi_t(x \mid x_1):=\dfrac{x-\mu_t(x_1)}{\sigma_t(x_1)}}$$, we have
 
 $$
 \begin{align}
