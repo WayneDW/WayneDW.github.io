@@ -1,6 +1,6 @@
 ---
 title: 'Flow Matching'
-subtitle: Learning vector fields in continuous and discrete Spaces
+subtitle: Learning vector fields in continuous and discrete spaces
 date: 2025-11-07
 permalink: /posts/flow_matching/
 category: Diffusion
