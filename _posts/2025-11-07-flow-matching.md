@@ -111,7 +111,7 @@ x \,\middle|\, \alpha_{1-t} x_1,\,
 \end{equation}$$, where $$\mathrm{\alpha_t = e^{-\tfrac{1}{2}\int_0^t \beta(s)\,ds}}$$. The vector field can be derived in the same way.
 
 
-**Connections to Optimal Transport (OT)**: Consider OT displacement map: 
+**Connections to Optimal Transport (OT)**: Consider the OT displacement map: 
 
 $$\begin{equation}\mathrm{p_t=[(1-t)id+t\psi]_* p_0}.\end{equation}$$
 
