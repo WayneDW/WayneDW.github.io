@@ -20,7 +20,7 @@ $$
 \end{equation}
 $$
 
-Let $$\mathrm{p_0}$$ and $$\mathrm{p_1}$$ be the prior and data distributions, respectively.  $$\mathrm{p_t:=[\phi_t]_\# p_0}$$ is defined as the **pushforward** of $$\mathrm{p_0}$$ under $$\mathrm{\phi_t}$$. Equivalently, by the change-of-variables formula [\[Link\]](https://www.cs.ubc.ca/~murphyk/Teaching/Stat406-Spring08/homework/changeOfVariablesHandout.pdf): 
+Let $$\mathrm{p_0}$$ and $$\mathrm{p_1}$$ be the prior and data distributions, respectively. The marginal probability $$\mathrm{p_t:=[\phi_t]_\# p_0}$$ is defined as the **pushforward** of $$\mathrm{p_0}$$ under $$\mathrm{\phi_t}$$. Equivalently, by change-of-variables [\[Link\]](https://www.cs.ubc.ca/~murphyk/Teaching/Stat406-Spring08/homework/changeOfVariablesHandout.pdf): 
 
 $$
 \begin{equation}
@@ -28,11 +28,11 @@ $$
 \end{equation}
 $$
 
-The probability $$\mathrm{p_t}$$ satisfies the **continuity equation** (see Theorem 1 {% cite neural_ode %}):
+The marginal probability $$\mathrm{p_t}$$ satisfies the **continuity equation** (see Theorem 1 {% cite neural_ode %}):
 
 $$
 \begin{equation}
-\mathrm{\frac{\partial}{\partial t} p_t(x)
+\mathrm{\frac{d}{d t} p_t(x)
 = - \nabla_x \cdot \big( u_t(x)\, p_t(x) \big).}\notag
 \end{equation}
 $$
@@ -113,9 +113,9 @@ x \,\middle|\, \alpha_{1-t} x_1,\,
 
 **Connections to Optimal Transport (OT)**: Consider the OT displacement map: 
 
-$$\begin{equation}\mathrm{p_t=[(1-t)id+t\psi]_* p_0}.\end{equation}$$
+$$\begin{equation}\mathrm{p_t=[(1-t)id+t\psi]_* p_0}.\notag\end{equation}$$
 
-More specfically, define $\psi_t(x\mid x_1)=(1-t)x+tx_1$, the conditional vector field follows $$\mathrm{u_t(x\mid x_1)=\dfrac{x_1-x}{1-t}}$$. The simplified CFM loss function follows that
+More specfically, define $$\mathrm{\psi_t(x\mid x_1)=(1-t)x+tx_1}$$, the conditional vector field follows $$\mathrm{u_t(x\mid x_1)=\dfrac{x_1-x}{1-t}}$$. The simplified CFM loss function follows that
 
 $$
 \begin{align}
@@ -130,3 +130,5 @@ In diffusion models, noise prediction {% cite song2021scorebased %} learns to pr
 
 
 ## Discrete State Spaces
+
+{% cite Gat2024DiscreteFlowMatching %}
