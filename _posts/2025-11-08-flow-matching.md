@@ -249,7 +249,7 @@ $$
 \end{align}
 $$
 
-However, finding probability preserving velocities is challenging and requires extra efforts to learn $$\mathrm{p_{0\mid t}^i}$$ {% cite Lipman2024FlowMatchingGuideCode %}.
+However, **finding probability preserving velocities is challenging** and requires extra efforts to learn $$\mathrm{p_{0\mid t}^i}$$ {% cite Lipman2024FlowMatchingGuideCode %}.
 
 #### Velocity Parameterization
 
