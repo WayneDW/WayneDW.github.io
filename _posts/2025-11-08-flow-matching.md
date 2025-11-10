@@ -115,11 +115,11 @@ x \,\middle|\, \alpha_{1-t} x_1,\,
 \end{equation}$$, where $$\mathrm{\alpha_t = e^{-\tfrac{1}{2}\int_0^t \beta(s)\,ds}}$$. The vector field can be derived in the same way.
 
 
-**Connections to Optimal Transport (OT)**: Consider the OT displacement map: 
+**Connections to Optimal Transport (OT)**: Consider the OT flow map:
 
-$$\begin{equation}\mathrm{p_t=[(1-t)id+t\psi]_* p_0}.\notag\end{equation}$$
+$$\begin{equation}\boxed{\mathrm{\psi_t(x\mid x_1)=(1-t)x+tx_1}}.\notag\end{equation}$$
 
-More specfically, define $$\mathrm{\psi_t(x\mid x_1)=(1-t)x+tx_1}$$, the conditional vector field follows $$\mathrm{u_t(x\mid x_1)=\dfrac{x_1-x}{1-t}}$$. The simplified CFM loss function follows that
+which corresponds to a displacement map $$\mathrm{p_t=[(1-t)id+t\psi]_* p_0}$$. The conditional vector field follows $$\mathrm{u_t(x\mid x_1)=\dfrac{x_1-x}{1-t}}$$. The simplified CFM loss function follows that
 
 $$
 \begin{align}
@@ -164,17 +164,17 @@ The marginal probability $$\mathrm{p_t}$$ for the random variable $$\mathrm{(X_t
 $$
 \begin{align}
 \mathrm{\dfrac{d}{dt}p_t(y)}&\mathrm{=\sum_x u_t(y, x)p_t(x)} \notag \\
-&\mathrm{\overset{\eqref{u_limit}}{=}\underbrace{\sum_{x\neq y} u_t(y, x)p_t(x)}_{\text{incoming flux}}-\underbrace{\sum_{x\neq y} u_t(x, y)p_t(y)}_{\text{outgoing flux}}} \notag \\
-&\mathrm{=-\sum_{x, y}\bigg(v_t(x, y)-v_t(y, x)\bigg)}, \notag
+&\mathrm{\overset{\eqref{u_limit}}{=}\underbrace{\sum_{x\neq y} u_t(y, x)p_t(x)}_{\text{incoming flux}}-\underbrace{\sum_{x\neq y} u_t(x, y)p_t(y)}_{\text{outgoing flux}}}. \notag
+% &\mathrm{=-\sum_{x, y}\bigg(v_t(x, y)-v_t(y, x)\bigg)}, \notag
 \end{align}
 $$
 
-where $$\mathrm{v_t(y, x)}$$ denotes the probability flux from a state $$\mathrm{x}$$ to $$\mathrm{y}$$.
+<!-- where $$\mathrm{v_t(y, x)}$$ denotes the probability flux from a state $$\mathrm{x}$$ to $$\mathrm{y}$$. -->
 
 
 #### State Transitions with At-most One Token
 
-Note that naïve transitions to all possible states $$\mathrm{y\in \mathcal{S}}$$ results in a huge output dimension $${\mathrm{\textbf{V}^d}}$$. To alleviate the cost, consider factorized velocities that only model state transitions with **at-most one token**
+Note that naïve transitions from $$\mathrm{x}$$  to all possible states $$\mathrm{y}$$ results in a huge output dimension $${\mathrm{\textbf{V}^d}}$$. To alleviate the cost, consider factorized velocities that only model state transitions with **at-most one token**
 
 $$
 \begin{align}
@@ -226,7 +226,7 @@ where $$\mathrm{p_{t\mid 0, 1}^i (x^i \mid x_0, x_1)}$$ is a mixture with schedu
 
 $$
 \begin{align}
-&\mathrm{p_{t\mid 0, 1}^i (x^i \mid x_0, x_1)=\kappa_t \delta(x^i, x_1^i) + (1-\kappa_t)\delta(x^i, x_0^i)}. \label{mixture_entry}
+&\boxed{\mathrm{p_{t\mid 0, 1}^i (x^i \mid x_0, x_1)=\kappa_t \delta(x^i, x_1^i) + (1-\kappa_t)\delta(x^i, x_0^i)}}. \label{mixture_entry}
 \end{align}
 $$
 
@@ -237,7 +237,7 @@ $$
 \mathrm{\dfrac{d}{dt} p_{t\mid 0, 1}^i(y^i\mid x_0, x_1)}&\overset{\eqref{mixture_entry}}{=}\mathrm{\dot{\kappa_t}\bigg[\delta(y^i, x_1^i)-\delta(y^i, x_0^i)\bigg]} \notag \\
 &\overset{\eqref{mixture_entry}}{=}\mathrm{\dot{\kappa_t}\bigg[\delta(y^i, x_1^i)-\dfrac{p_{t\mid 0, 1}^i(y^i\mid x_0, x_1)-\kappa_t\delta(y^i, x_1^i)}{1-\kappa_t}\bigg]} \notag \\
 &=\mathrm{\frac{\dot{\kappa_t}}{1-\kappa_t}\bigg[\delta(y^i, x_1^i)-p_{t\mid 0, 1}^i(y^i\mid x_0, x_1)\bigg]} \notag \\
-&=\mathrm{\sum_{x^i}\frac{\dot{\kappa_t}}{1-\kappa_t}\bigg[\delta(y^i, x_1^i)-\delta(y^i, x^i)\bigg]p_{t\mid 0,1}^i(y^i\mid x_0, x_1)} \notag \\
+&=\mathrm{\sum_{x^i}\frac{\dot{\kappa_t}}{1-\kappa_t}\bigg[\delta(y^i, x_1^i)-\delta(y^i, x^i)\bigg]p_{t\mid 0,1}^i(y^i\mid x_0, x_1)}. \notag \\
 \end{align}
 $$
 
@@ -245,11 +245,11 @@ Therefore, the conditional velocity follows
 
 $$
 \begin{align}
-\boxed{\mathrm{u_t^i(y^i, x^i\mid x_0, x_1)=\frac{\dot{\kappa_t}}{1-\kappa_t}\bigg[\delta(y^i, x_1^i)-\delta(y^i, x^i)\bigg]}.} \notag \\
+\boxed{\mathrm{u_t^i(y^i, x^i\mid x_0, x_1)=\frac{\dot{\kappa_t}}{1-\kappa_t}\bigg[\delta(y^i, x_1^i)-\delta(y^i, x^i)\bigg]}}. \notag \\
 \end{align}
 $$
 
-However, **finding probability preserving velocities is challenging** and requires extra efforts to learn $$\mathrm{p_{0\mid t}^i}$$ {% cite Lipman2024FlowMatchingGuideCode %}.
+However, finding **probability preserving velocities** is challenging and requires extra efforts to learn $$\mathrm{p_{0\mid t}^i}$$ {% cite Lipman2024FlowMatchingGuideCode %}.
 
 #### Velocity Parameterization
 
