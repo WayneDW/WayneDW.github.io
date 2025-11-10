@@ -1,6 +1,6 @@
 ---
 title: 'The Triangle of Flow, Diffusion, and PDE'
-subtitle: Connections between Probability Flows, Diffusions, and PDEs.
+subtitle: Connections between probability flows, diffusions, and PDEs.
 date: 2023-07-01
 permalink: /posts/flow_diffusion_PDE/
 category: Diffusion

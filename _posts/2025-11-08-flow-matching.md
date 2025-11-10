@@ -16,11 +16,11 @@ Flow Matching (FM) {% cite flow_match %} has seen impressive success in image an
 ## Continuous State Space
 
 ### Problem setup
-Consider a **vector field** $$\mathrm{u_t : \mathbb{R}^d \to \mathbb{R}^d}$$ and define its **flow map** $$\mathrm{\phi_t}$$ as the solution of the ODE
+Consider a **vector field** $$\mathrm{v_t : \mathbb{R}^d \to \mathbb{R}^d}$$ and define its **flow map** $$\mathrm{\phi_t}$$ as the solution of the ODE
 
 $$
 \begin{equation}
-\mathrm{\frac{d}{dt}\phi_t(x) = u_t(\phi_t(x)), \quad \phi_0(x) = x}.\notag
+\mathrm{\frac{d}{dt}\phi_t(x) = v_t(\phi_t(x)), \quad \phi_0(x) = x}.\notag
 \end{equation}
 $$
 
@@ -37,30 +37,30 @@ The marginal probability $$\mathrm{p_t}$$ satisfies the **continuity equation** 
 $$
 \begin{equation}
 \mathrm{\frac{d}{d t} p_t(x)
-= - \nabla_x \cdot \big( u_t(x)\, p_t(x) \big).}\notag
+= - \nabla_x \cdot \big( v_t(x)\, p_t(x) \big).}\notag
 \end{equation}
 $$
 
-To approximate the true vector field $$\mathrm{u_t(x)}$$ via a parameterize $$\mathrm{u_{\theta}(t, x)}$$, the ideal regression loss is:
+To approximate the true vector field $$\mathrm{v_t(x)}$$ via a parameterize $$\mathrm{v_{\theta}(t, x)}$$, the ideal regression loss is:
 
 $$
 \begin{equation}
-\mathrm{\mathcal{L}_{\mathrm{FM}}(\theta)= \mathbb{E}_{t \sim \mathcal{U}[0,1],\, x \sim p_t}\big[ \| u_\theta(t,x) - u_t(x) \|^2 \big]}.\notag
+\mathrm{\mathcal{L}_{\mathrm{FM}}(\theta)= \mathbb{E}_{t \sim \mathcal{U}[0,1],\, x \sim p_t}\big[ \| v_\theta(t,x) - v_t(x) \|^2 \big]}.\notag
 \end{equation}
 $$
 
-This is, however, **intractable**, since both $$\mathrm{p_t}$$ and $$\mathrm{u_t}$$ are unknown.
+This is, however, **intractable**, since both $$\mathrm{p_t}$$ and $$\mathrm{v_t}$$ are unknown.
 
 ### Conditional Flow Matching (CFM)
 
-To make the loss more tractable, we introduce a conditioning variable $$\mathrm{x_1\sim p_1}$$ and define a **conditional flow map** $$\mathrm{\psi_t(\cdot \mid x_1)}$$ along with a **conditional vector field** $$\mathrm{u_t(x \mid x_1)}$$  satisfying
+To make the loss more tractable, we introduce a conditioning variable $$\mathrm{x_1\sim p_1}$$ and define a **conditional flow map** $$\mathrm{\psi_t(\cdot \mid x_1)}$$ along with a **conditional vector field** $$\mathrm{v_t(x \mid x_1)}$$  satisfying
 
 $$
 \begin{align}
 \mathrm{p_t(\cdot\mid x_1)} &\mathrm{= [\psi_t]_\# p_0(\cdot|x_1)=(\psi_t)_\# p_0.}\label{map_psi} \\
-\mathrm{\frac{\mathrm{d}}{\mathrm{d}t} \psi_t(x \mid x_1)} &\mathrm{= u_t\big( \psi_t(x \mid x_1) \mid x_1 \big),
+\mathrm{\frac{\mathrm{d}}{\mathrm{d}t} \psi_t(x \mid x_1)} &\mathrm{= v_t\big( \psi_t(x \mid x_1) \mid x_1 \big)},
 \quad 
-\psi_0(x \mid x_1) = x.}\label{flow_eqn}\\
+\psi_0(x \mid x_1) = x.\label{flow_eqn}\\
 \end{align}
 $$
 
@@ -68,7 +68,7 @@ The unconditional velocity field can then be expressed as a conditional expectat
 
 $$
 \begin{equation}
-\mathrm{u_t(x)=\int u_t(x \mid x_1) \dfrac{p_t(x\mid x_1) q(x_1)}{p_t(x)}dx_1}.\notag
+\mathrm{v_t(x)=\int v_t(x \mid x_1) \dfrac{p_t(x\mid x_1) q(x_1)}{p_t(x)}dx_1}.\notag
 \end{equation}
 $$
 
@@ -76,16 +76,16 @@ Recall that $$\mathrm{\psi_t}$$ pushes the prior distribution from $\mathrm{p_0}
 
 $$
 \begin{align}
-\mathrm{\mathcal{L}_{\mathrm{CFM}}(\theta)}&\ = \ \ \ \mathrm{\mathbb{E}_{t,\, x_1\sim p_1,\ x \sim p_t(\cdot|x_1)}\big[ \| u_\theta(t,x) - u_t(x\mid x_1) \|^2 \big]} \notag\\
-                                  &\mathrm{\overset{\text{Eq.}\eqref{map_psi}}{=}\mathbb{E}_{t,\, x_1\sim p_1,\, x_0 \sim p_0}\Big[\big\|u_\theta\big(t, \psi_t(x_0 \mid x_1)\big)-
-u_t\big( \psi_t(x \mid x_1) \mid x_1 \big)\big\|^2\Big]}\notag \\
-                                  &\mathrm{\overset{\text{Eq.}\eqref{flow_eqn}}{=}\mathbb{E}_{t,\, x_1\sim p_1,\, x_0 \sim p_0}\Big[\big\|u_\theta\big(t, \psi_t(x_0 \mid x_1)\big)-
+\mathrm{\mathcal{L}_{\mathrm{CFM}}(\theta)}&\ = \ \ \ \mathrm{\mathbb{E}_{t,\, x_1\sim p_1,\ x \sim p_t(\cdot|x_1)}\big[ \| v_\theta(t,x) - v_t(x\mid x_1) \|^2 \big]} \notag\\
+                                  &\mathrm{\overset{\text{Eq.}\eqref{map_psi}}{=}\mathbb{E}_{t,\, x_1\sim p_1,\, x_0 \sim p_0}\Big[\big\|v_\theta\big(t, \psi_t(x_0 \mid x_1)\big)-
+v_t\big( \psi_t(x \mid x_1) \mid x_1 \big)\big\|^2\Big]}\notag \\
+                                  &\mathrm{\overset{\text{Eq.}\eqref{flow_eqn}}{=}\mathbb{E}_{t,\, x_1\sim p_1,\, x_0 \sim p_0}\Big[\big\|v_\theta\big(t, \psi_t(x_0 \mid x_1)\big)-
 \frac{\mathrm{d}}{\mathrm{d}t} \psi_t(x_0 \mid x_1)\big\|^2\Big].} \notag \\
 \end{align}
 $$
 
 
-By regressing $$\mathrm{u_{\theta}}$$ to match the conditional vector field, we obtain an unbiased estimator of the FM loss.
+By regressing $$\mathrm{v_{\theta}}$$ to match the conditional vector field, we obtain an unbiased estimator of the FM loss.
 
 ### Special Flow Maps
 
@@ -93,7 +93,7 @@ Consider a map $$\mathrm{\psi_t(x\mid x_1)} \mathrm{=\sigma_t(x_1) x + \mu_t(x_1
 
 $$
 \begin{align}
-\mathrm{\dfrac{d }{dt}\psi_t(x\mid x_1)} &\mathrm{=\sigma_t'(x_1) x + \mu_t'(x_1)=u_t\big( \psi_t(x \mid x_1) \mid x_1 \big)}. \notag \\
+\mathrm{\dfrac{d }{dt}\psi_t(x\mid x_1)} &\mathrm{=\sigma_t'(x_1) x + \mu_t'(x_1)=v_t\big( \psi_t(x \mid x_1) \mid x_1 \big)}. \notag \\
 \end{align}
 $$
 
@@ -101,11 +101,11 @@ Replacing $\mathrm{\psi_t(x \mid x_1)}$ with $\mathrm{x}$, s.t. $$\mathrm{\psi_t
 
 $$
 \begin{align}
-\mathrm{u_t\big(x \mid x_1 \big)} &\mathrm{=\sigma_t'(x_1) \bigg(\dfrac{x-\mu_t(x_1)}{\sigma_t(x_1)}\bigg) + \mu_t'(x_1)}. \label{vector_field_formula} \\
+\mathrm{v_t\big(x \mid x_1 \big)} &\mathrm{=\sigma_t'(x_1) \bigg(\dfrac{x-\mu_t(x_1)}{\sigma_t(x_1)}\bigg) + \mu_t'(x_1)}. \label{vector_field_formula} \\
 \end{align}
 $$
 
-**Connections to Diffusion Models**: For VE-SDE {% cite song2021scorebased %}, we have $$\mathrm{p_t(x)=N(x\mid x_1, \sigma_{1-t}^2I)},$$ the conditional vector field follows $$\mathrm{u_t(x\mid x_1)=-\frac{\sigma_{1-t}'}{\sigma_{1-t}}(x-x_1)}$$ via Eq.\eqref{vector_field_formula}. For VP-SDE, the conditional probability follows
+**Connections to Diffusion Models**: For VE-SDE {% cite song2021scorebased %}, we have $$\mathrm{p_t(x)=N(x\mid x_1, \sigma_{1-t}^2I)},$$ the conditional vector field follows $$\mathrm{v_t(x\mid x_1)=-\frac{\sigma_{1-t}'}{\sigma_{1-t}}(x-x_1)}$$ via Eq.\eqref{vector_field_formula}. For VP-SDE, the conditional probability follows
 $$\begin{equation}
 \mathrm{p_t(x \mid x_1)
 = N\!\left(
@@ -119,18 +119,18 @@ x \,\middle|\, \alpha_{1-t} x_1,\,
 
 $$\begin{equation}\boxed{\mathrm{\psi_t(x\mid x_1)=(1-t)x+tx_1}}.\notag\end{equation}$$
 
-which corresponds to a displacement map $$\mathrm{p_t=[(1-t)id+t\psi]_* p_0}$$. The conditional vector field follows $$\mathrm{u_t(x\mid x_1)=\dfrac{x_1-x}{1-t}}$$. The simplified CFM loss function follows that
+which corresponds to a displacement map $$\mathrm{p_t=[(1-t)id+t\psi]_* p_0}$$. The conditional vector field follows $$\mathrm{v_t(x\mid x_1)=\dfrac{x_1-x}{1-t}}$$. The simplified CFM loss function follows that
 
 $$
 \begin{align}
-\boxed{\mathrm{\mathcal{L}_{\mathrm{CFM-OT}}(\theta)=\mathbb{E}_{t,\, x_1\sim p_1,\, x_0 \sim p_0}\Big[\big\|u_\theta\big(t, \psi_t(x_0 \mid x_1)\big)-
+\boxed{\mathrm{\mathcal{L}_{\mathrm{CFM-OT}}(\theta)=\mathbb{E}_{t,\, x_1\sim p_1,\, x_0 \sim p_0}\Big[\big\|v_\theta\big(t, \psi_t(x_0 \mid x_1)\big)-
 (x_1-x_0)\big\|^2\Big]}}. \notag \\
 \end{align}
 $$
 
 #### Network Parameterization
 
-In diffusion models, noise prediction {% cite song2021scorebased %} learns to predict the added noise $$\mathrm{u_t(x \mid x_0)=p_t(x\mid x_0)}$$, while data prediction {% cite karras2022elucidating %} learns to recover the clean data $$\mathrm{u_t(x \mid x_1)=p_t(x\mid x_1)}$$ directly. They’re mathematically equivalent, but the denoiser view often makes training more stable and easier to control.
+In diffusion models, noise prediction {% cite song2021scorebased %} learns to predict the added noise $$\mathrm{v_t(x \mid x_0)=p_t(x\mid x_0)}$$, while data prediction {% cite karras2022elucidating %} learns to recover the clean data $$\mathrm{v_t(x \mid x_1)=p_t(x\mid x_1)}$$ directly. They’re mathematically equivalent, but the denoiser view often makes training more stable and easier to control.
 
 
 ## Discrete State Spaces
@@ -146,15 +146,15 @@ For a CTMC, a random variable $$\mathrm{(X_t)_{0\leq t\leq 1}}$$ induces a trans
 
 $$
 \begin{align}
-&\mathrm{p_{t+h\mid t}(y\mid x):=\mathbb{P}(X_{t+h}=y\mid X_t=x)=\delta(y, x)+h u_t(y, x)+o(h), \quad \mathbb{P}(X_0=x)=p(x)}, \notag
+&\mathrm{p_{t+h\mid t}(y\mid x):=\mathbb{P}(X_{t+h}=y\mid X_t=x)=\delta(y, x)+h v_t(y, x)+o(h), \quad \mathbb{P}(X_0=x)=p(x)}, \notag
 \end{align}
 $$
 
-where $\mathrm{u_t(y, x)}$ denotes the transition rate or velocity field from state $$\mathrm{x\in \mathcal{S}}$$ to $$\mathrm{y\in \mathcal{S}}$$:
+where $\mathrm{v_t(y, x)}$ denotes the transition rate or velocity field from state $$\mathrm{x\in \mathcal{S}}$$ to $$\mathrm{y\in \mathcal{S}}$$:
 
 $$
 \begin{align}
-&\mathrm{u_t(y, x)\geq 0 \text{ for all } y\neq x, \text{  and  } \sum_y u_t(y, x)=0.} \label{u_limit} 
+&\mathrm{v_t(y, x)\geq 0 \text{ for all } y\neq x, \text{  and  } \sum_y v_t(y, x)=0.} \label{u_limit} 
 \end{align}
 $$
 
@@ -163,26 +163,25 @@ The marginal probability $$\mathrm{p_t}$$ for the random variable $$\mathrm{(X_t
 
 $$
 \begin{align}
-\mathrm{\dfrac{d}{dt}p_t(y)}&\mathrm{=\sum_x u_t(y, x)p_t(x)} \notag \\
-&\mathrm{\overset{\eqref{u_limit}}{=}\underbrace{\sum_{x\neq y} u_t(y, x)p_t(x)}_{\text{incoming flux}}-\underbrace{\sum_{x\neq y} u_t(x, y)p_t(y)}_{\text{outgoing flux}}}. \notag
-% &\mathrm{=-\sum_{x, y}\bigg(v_t(x, y)-v_t(y, x)\bigg)}, \notag
+\mathrm{\dfrac{d}{dt}p_t(y)}&\mathrm{=\sum_x v_t(y, x)p_t(x)} \notag \\
+&\mathrm{=\sum_{x\neq y} v_t(y, x)p_t(x) + v_t(y, y)p_t(y)} \notag \\
+&\mathrm{\overset{\eqref{u_limit}}{=}\underbrace{\sum_{x\neq y} v_t(y, x)p_t(x)}_{\text{incoming flux}}-\underbrace{\sum_{x\neq y} v_t(x, y)p_t(y)}_{\text{outgoing flux}}}. \notag
 \end{align}
 $$
 
-<!-- where $$\mathrm{v_t(y, x)}$$ denotes the probability flux from a state $$\mathrm{x}$$ to $$\mathrm{y}$$. -->
 
 
 #### State Transitions with At-most One Token
 
-Note that naïve transitions from $$\mathrm{x}$$  to all possible states $$\mathrm{y}$$ results in a huge output dimension $${\mathrm{\textbf{V}^d}}$$. To alleviate the cost, consider factorized velocities that only model state transitions with **at-most one token**
+Note that naïve transitions from $$\mathrm{x}$$  to all possible states $$\mathrm{y}$$ results in a huge output dimension $${\mathrm{\textbf{V}^d}}$$. we introduce **factorized velocities** that only allow transitions affecting **at most one token**:
 
 $$
 \begin{align}
-&\mathrm{u_t(y, x)=\sum_i \delta(y^{\bar i}, x^{\bar i}) u_t^i(y^i, x)}, \label{factor_u} 
+&\mathrm{v_t(y, x)=\sum_i \delta(y^{\bar i}, x^{\bar i}) v_t^i(y^i, x)}, \label{factor_u} 
 \end{align}
 $$
 
-where $$\mathrm{\bar i=(1, \cdots, i-1, i+1, \cdots, d)}$$. It is hence sufficient to model $$\mathrm{u_t^i(y^i, x)}$$ instead of $$\mathrm{u_t(y, x)}$$ and the modeling complexity is significantly reduced from $${\mathrm{\textbf{V}^d}}$$ to $${\mathrm{\textbf{V}d}}$$.
+where $$\mathrm{\bar i=(1, \cdots, i-1, i+1, \cdots, d)}$$. It thus suffices to model $$\mathrm{v_t^i(y^i, x)}$$ instead of $$\mathrm{v_t(y, x)}$$ and the modeling complexity is significantly reduced from $${\mathrm{\textbf{V}^d}}$$ to $${\mathrm{\textbf{V}d}}$$.
 
 
 <figure style="text-align: center;">
@@ -194,27 +193,27 @@ Given  $$\mathrm{X_0\sim p_0}$$ and the factorized paths and velocities, we can 
 
 $$
 \begin{align}
-\mathrm{\mathbb{P}(X_{t+h}=y\mid X_t=x)}&=\mathrm{\delta(y, x)+h u_t(y, x) +o(h)} \notag \\
-&\overset{\eqref{factor_u}}{=}\mathrm{\delta(y, x)+h \sum_i \delta(y^{\bar i}, x^{\bar i}) u_t^i(y^i, x) + o(h)} \notag \\
-&=\prod_i \bigg[\mathrm{\delta(y^i, x^i)+u_t^i(y^i, x) + o(h)}\bigg], \notag
+\mathrm{\mathbb{P}(X_{t+h}=y\mid X_t=x)}&=\mathrm{\delta(y, x)+h v_t(y, x) +o(h)} \notag \\
+&\overset{\eqref{factor_u}}{=}\mathrm{\delta(y, x)+h \sum_i \delta(y^{\bar i}, x^{\bar i}) v_t^i(y^i, x) + o(h)} \notag \\
+&=\prod_i \bigg[\mathrm{\delta(y^i, x^i)+v_t^i(y^i, x) + o(h)}\bigg], \notag
 \end{align}
 $$
 
-where the third equality follows by $$\mathrm{\prod_i (a^i + hb^i)=\prod_i a^i + h\sum_i \big(\prod_{j\neq i} a^j\big)b^i + o(h)}$$.
+where the last equality follows from $$\mathrm{\prod_i (a^i + hb^i)=\prod_i a^i + h\sum_i \big(\prod_{j\neq i} a^j\big)b^i + o(h)}$$.
 
 ### Conditional Velocity
 
-Similar as the continuous case, {% cite Gat2024DiscreteFlowMatching %} introduced the **conditional** velocity field s.t. 
+Analogous to the continuous case, {% cite Gat2024DiscreteFlowMatching %} introduced the **conditional** velocity field s.t. 
 
 $$
 \begin{align}
-\mathrm{u_t(y, x)=\sum_{x_0,x_1} u_t(y, x\mid x_0, x_1)p_{0, 1\mid t}(x_0, x_1 \mid x)=\mathbb{E}[u_t(y, X_t\mid X_0, X_1)\mid X_t=x]}, \notag \\
+\mathrm{v_t(y, x)=\sum_{x_0,x_1} v_t(y, x\mid x_0, x_1)p_{0, 1\mid t}(x_0, x_1 \mid x)=\mathbb{E}[v_t(y, X_t\mid X_0, X_1)\mid X_t=x]}, \notag \\
 \end{align}
 $$
 
 where $$\mathrm{p_{0, 1\mid t}(x_0, x_1\mid x)=\dfrac{p_{t\mid 0, 1}(x\mid x_0, x_1) p_{X_0, X_1}(x_0, x_1)}{p_t(x)}}$$.
 
-The factorized conditional path follows that
+The **factorized conditional path** assumes that
 
 $$
 \begin{align}
@@ -222,15 +221,27 @@ $$
 \end{align}
 $$
 
-where $$\mathrm{p_{t\mid 0, 1}^i (x^i \mid x_0, x_1)}$$ is a mixture with schedules $$\mathrm{(\kappa_t)_{t\in[0, 1]}}$$ and $$\mathrm{\kappa_0=0, \kappa_1=1}$$ 
+where each $$\mathrm{p_{t\mid 0, 1}^i (x^i \mid x_0, x_1)}$$ follows an interpolation schedule $$\mathrm{(\kappa_t)_{t\in[0, 1]}}$$ and $$\mathrm{\kappa_0=0, \kappa_1=1}$$ 
 
 $$
 \begin{align}
-&\boxed{\mathrm{p_{t\mid 0, 1}^i (x^i \mid x_0, x_1)=\kappa_t \delta(x^i, x_1^i) + (1-\kappa_t)\delta(x^i, x_0^i)}}. \label{mixture_entry}
+&\boxed{\mathrm{p_{t\mid 0, 1}^i (x^i \mid x_0, x_1)=(1-\kappa_t)\delta(x^i, x_0^i)+\kappa_t \delta(x^i, x_1^i)}}. \label{mixture_entry}
 \end{align}
 $$
 
-The dynamics of each component of the conditional marginal probability $$\mathrm{p_t}$$ follows 
+A random variable $$\mathrm{X_t^i\sim p_{t\mid 0, 1}^i}$$ follows
+
+$$
+\begin{align}
+\boxed{
+\mathrm{
+X_t^i = (1 - B_t)\,x_0^i + B_t\,x_1^i, \qquad B_t \sim \mathrm{Bernoulli}(\kappa_t).
+}
+}
+\end{align}$$
+
+
+The dynamics of the conditional marginal probability $$\mathrm{p_t^i}$$ then satisfies {% cite Lipman2024FlowMatchingGuideCode %}
 
 $$
 \begin{align}
@@ -241,28 +252,29 @@ $$
 \end{align}
 $$
 
-Therefore, the conditional velocity follows
+Thus, the conditional velocity follows
 
 $$
 \begin{align}
-\boxed{\mathrm{u_t^i(y^i, x^i\mid x_0, x_1)=\frac{\dot{\kappa_t}}{1-\kappa_t}\bigg[\delta(y^i, x_1^i)-\delta(y^i, x^i)\bigg]}}. \notag \\
+\boxed{\mathrm{v_t^i(y^i, x^i\mid x_0, x_1)=\frac{\dot{\kappa_t}}{1-\kappa_t}\bigg[\delta(y^i, x_1^i)-\delta(y^i, x^i)\bigg]}}. \notag \\
 \end{align}
 $$
 
-However, finding **probability preserving velocities** is challenging and requires extra efforts to learn $$\mathrm{p_{0\mid t}^i}$$ {% cite Lipman2024FlowMatchingGuideCode %}.
+However, constructing **probability-preserving velocities** remains challenging and typically requires additional learning of $$\mathrm{p_{0\mid t}^i}$$ {% cite Lipman2024FlowMatchingGuideCode %}.
 
 #### Velocity Parameterization
 
 $$
 \begin{align}
-\mathrm{u_t(y, x)}&=\mathrm{\sum_{x_0,x_1} u_t(y, x\mid x_0, x_1)p_{0, 1\mid t}(x_0, x_1 \mid x)} \notag \\
-&=\mathrm{\sum_{x_1^i} u_t(y, x\mid x_0, x_1)p^i_{1\mid t}(x_1^i \mid x)}, \notag \\
+\mathrm{v_t(y, x)}&=\mathrm{\sum_{x_0,x_1} v_t(y, x\mid x_0, x_1)p_{0, 1\mid t}(x_0, x_1 \mid x)} \notag \\
+&=\mathrm{\sum_{x_1^i} v_t(y, x\mid x_0, x_1)p^i_{1\mid t}(x_1^i \mid x)}, \notag \\
 \end{align}
 $$
 
 where $$\mathrm{p^i_{1\mid t}(x_1 \mid x)=\sum_{x_0, x_1^{\bar i}} p_{0, 1\mid t}(x_0, x_1 \mid x)=\mathbb{E}\big[\delta(x_1^i, X_1^i)\mid X_t=x\big]}$$.
 
-As such, one can learn $$\mathrm{u_t^i(y^i, x)}$$ via a parametrized model $$\mathrm{p_{1\mid t}^{\theta, i}(x_1^i\mid x)}$$ as the data prediction. One conditional matching loss can be 
+Hence, one may learn $$\mathrm{v_t^i(y^i, x)}$$ via a parametrized model $$\mathrm{p_{1\mid t}^{\theta, i}(x_1^i\mid x)}$$ as the data prediction.
+A suitable **conditional matching loss** is
 
 $$
 \begin{align}
