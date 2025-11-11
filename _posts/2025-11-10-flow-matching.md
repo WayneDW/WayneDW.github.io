@@ -163,7 +163,7 @@ The marginal probability $$\mathrm{p_t}$$ for the random variable $$\mathrm{(X_t
 
 $$
 \begin{align}
-\mathrm{\dfrac{d}{dt}p_t(y)}&\mathrm{=\sum_x v_t(y, x)p_t(x)} \notag \\
+\mathrm{\dfrac{d}{dt}p_t(y)}&\mathrm{=\sum_x v_t(y, x)p_t(x)} \label{v_def} \\
 &\mathrm{=\sum_{x\neq y} v_t(y, x)p_t(x) + v_t(y, y)p_t(y)} \notag \\
 &\mathrm{\overset{\eqref{u_limit}}{=}\underbrace{\sum_{x\neq y} v_t(y, x)p_t(x)}_{\text{incoming flux}}-\underbrace{\sum_{x\neq y} v_t(x, y)p_t(y)}_{\text{outgoing flux}}}. \notag
 \end{align}
@@ -252,7 +252,7 @@ $$
 \end{align}
 $$
 
-Thus, the conditional velocity follows
+Thus, the conditional velocity follows by Eq.\eqref{v_def}
 
 $$
 \begin{align}
