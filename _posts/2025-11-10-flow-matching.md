@@ -137,7 +137,7 @@ In diffusion models, noise prediction {% cite song2021scorebased %} learns to pr
 
 ### Problem setup
 
-Consider a sequence $$\mathrm{x=\{x^1, \cdots, x^d\}\in \mathcal{S}}$$, where $\mathcal{S}$ is the discrete state space, $\mathrm{x^i\in \mathcal{V}}$ is a **token** or coordiante and $$\mathcal{V}$$ is a **vocabulary** $$\mathrm{\{1, 2, \cdots, V\}}$$. We define the sequence-level $$\mathrm{\delta(x,y)=1}$$ if $$\mathrm{x=y}$$ and 0 otherwise. It is also used in token-level s.t. $$\mathrm{\delta(x^i, y^i)}$$ for some $$\mathrm{x^i, y^i\in \mathcal{V}}$$.
+Consider a sequence $$\mathrm{x=\{x^1, \cdots, x^d\}\in \mathcal{S}}$$, where $\mathcal{S}$ is the discrete state space, $\mathrm{x^i\in \mathcal{V}}$ is a **token** or coordinate and $$\mathcal{V}$$ is a **vocabulary** $$\mathrm{\{1, 2, \cdots, V\}}$$. We define the sequence-level $$\mathrm{\delta(x,y)=1}$$ if $$\mathrm{x=y}$$ and 0 otherwise. It is also used in token-level s.t. $$\mathrm{\delta(x^i, y^i)}$$ for some $$\mathrm{x^i, y^i\in \mathcal{V}}$$.
 
 
 ### Continuous-time Markov Chain (CTMC)
