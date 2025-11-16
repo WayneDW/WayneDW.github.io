@@ -199,12 +199,12 @@ It can be shown that such a discretized HMC requires O($\mathrm{d^{\frac{1}{4}} 
 
 Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity {% cite HG14 %}. 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2021_hmc,
   title   ={{Understanding Hamiltonian Monte Caro}},
   author  ={Wei Deng},
@@ -213,3 +213,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/Hamiltonian/"
 }
 ```
+{% endraw %}

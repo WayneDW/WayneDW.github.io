@@ -153,12 +153,12 @@ Big thanks to my friend Jiang Nan for helping build this website!
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2023_flow_diffusion_pde,
   title   ={{The Triangle of Flow, Diffusion, and PDE}},
   author  ={Wei Deng},
@@ -167,3 +167,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/flow_diffusion_PDE/"
 }
 ```
+{% endraw %}

@@ -75,12 +75,12 @@ muse -->
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2025_generative_transformer,
   title   ={{Generative Transformer with Enigmatic Orders}},
   author  ={Wei Deng},
@@ -89,3 +89,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/generative_transformer/"
 }
 ```
+{% endraw %}

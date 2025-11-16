@@ -115,12 +115,12 @@ The term $\mathrm{g_j   - E[g]}$ denotes the advantage function of choosing toke
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2025ot_attention,
   title   ={{Attention = Optimal Transport? Yes.}},
   author  ={Wei Deng},
@@ -129,3 +129,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/attention_OT/"
 }
 ```
+{% endraw %}

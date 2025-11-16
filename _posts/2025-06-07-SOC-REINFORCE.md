@@ -164,12 +164,12 @@ This procedure closely resembles the Proximal Policy Optimization (PPO) algorith
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2025_soc_reinforce,
   title   ={{Policy Gradients and Stochastic Control}},
   author  ={Wei Deng},
@@ -178,3 +178,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/soc_and_reinforce/"
 }
 ```
+{% endraw %}

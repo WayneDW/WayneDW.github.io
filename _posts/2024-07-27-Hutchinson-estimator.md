@@ -67,12 +67,12 @@ The nice computational properties are suggested by {% cite race_est %} to make t
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2024_hutchinson,
   title   ={{Hutchinson Estimator, Explained}},
   author  ={Wei Deng},
@@ -81,3 +81,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/hutchinson_estimator/"
 }
 ```
+{% endraw %}

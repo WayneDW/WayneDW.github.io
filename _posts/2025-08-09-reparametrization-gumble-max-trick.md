@@ -82,12 +82,12 @@ $$\begin{equation}
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2025_preparmetrization_tricks,
   title   ={{Generalized Reparametrization Tricks}},
   author  ={Wei Deng},
@@ -96,3 +96,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/reparametrization_tricks/"
 }
 ```
+{% endraw %}

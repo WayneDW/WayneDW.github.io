@@ -115,12 +115,12 @@ For the details, we refer interested readers to the study in {% cite fit_without
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2024_implicit_ridge,
   title   ={{Implicit Ridge Regularization}},
   author  ={Wei Deng},
@@ -129,3 +129,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/implicit_ridge_regularization/"
 }
 ```
+{% endraw %}

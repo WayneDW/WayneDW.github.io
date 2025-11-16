@@ -124,12 +124,12 @@ The Feynman-Kac representation involves a forward simulation followed by a backw
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2025_feyman_kac,
   title   ={{Feynman–Kac Formula Without the Mystery}},
   author  ={Wei Deng},
@@ -138,3 +138,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/feynman_kac/"
 }
 ```
+{% endraw %}

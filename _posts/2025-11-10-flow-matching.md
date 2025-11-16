@@ -285,12 +285,13 @@ $$
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2025flowmatching,
   title   ={{Flow Matching: A Minimal Guide}},
   author  ={Wei Deng},
@@ -299,3 +300,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/flow_matching/"
 }
 ```
+{% endraw %}

@@ -235,12 +235,12 @@ Discrete flow model
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2025_dllm,
   title   ={{Discrete Diffusion Models: The Modern BERT}},
   author  ={Wei Deng},
@@ -249,3 +249,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/dLLM/"
 }
 ```
+{% endraw %}

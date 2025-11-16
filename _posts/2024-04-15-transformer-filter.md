@@ -153,12 +153,12 @@ the state estimates from transformer filters are $$\mathrm{\varepsilon}$$-close 
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2024_transformer_filter,
   title   ={{Transformer Filter}},
   author  ={Wei Deng},
@@ -167,3 +167,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/transformer_filter/"
 }
 ```
+{% endraw %}

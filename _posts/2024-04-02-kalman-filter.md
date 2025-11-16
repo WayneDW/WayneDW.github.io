@@ -338,12 +338,12 @@ Intuitively, we expect EnKF will converge to KF when $\mathrm{N} \rightarrow \in
 
 
 
-$$\newline$$
-$$\newline$$
-$$\newline$$
+<br><br><br>
+
 ### Citation
 
-```
+{% raw %}
+```bibtex
 @article{deng2024_kf,
   title   ={{Kalman Filter: The Core Ideas}},
   author  ={Wei Deng},
@@ -352,3 +352,4 @@ $$\newline$$
   url     ="https://www.weideng.org/posts/kalman_filter/"
 }
 ```
+{% endraw %}
