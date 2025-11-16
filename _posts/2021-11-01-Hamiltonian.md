@@ -1,5 +1,5 @@
 ---
-title: 'Hamiltonian Monte Caro'
+title: 'Understanding Hamiltonian Monte Caro'
 subtitle: An elegant sampler that utilizes Hamiltonian dynamics to propose new states in simulations.
 date: 2021-11-01
 layout: default
@@ -199,4 +199,17 @@ It can be shown that such a discretized HMC requires O($\mathrm{d^{\frac{1}{4}} 
 
 Properly tuning the number of leapfrog steps is important for maximizing the contraction to accelerate convergence. From the perspective of methodology, the no-U-turn sampler proposes to automatically adjust the number of leapfrog steps and potentially exploits this idea by checking the inner product of postion and velocity {% cite HG14 %}. 
 
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
 
+```
+@article{deng2021_hmc,
+  title   ={{Understanding Hamiltonian Monte Caro}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2021},
+  url     ="https://www.weideng.org/posts/Hamiltonian/"
+}
+```

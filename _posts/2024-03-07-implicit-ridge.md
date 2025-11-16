@@ -112,3 +112,20 @@ Why does deep neural networks generalize so well? The following figure [credit t
 </p>
 
 For the details, we refer interested readers to the study in {% cite fit_without_fear %}.
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2024_implicit_ridge,
+  title   ={{Implicit Ridge Regularization}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2024},
+  url     ="https://www.weideng.org/posts/implicit_ridge_regularization/"
+}
+```

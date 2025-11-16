@@ -1,5 +1,5 @@
 ---
-title: 'Feynman–Kac Formula'
+title: 'Feynman–Kac Formula Without the Mystery'
 subtitle: A popular tool in finance and stochastic optimal control
 date: 2025-03-15
 permalink: /posts/feynman_kac/
@@ -121,3 +121,20 @@ The Feynman-Kac representation involves a forward simulation followed by a backw
  <!-- and finds interesting applications in language models {% cite language_tsmc %}. -->
 
 <!-- , making it a valuable framework for studying more efficient reasonings in language models. -->
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2025_feyman_kac,
+  title   ={{Feynman–Kac Formula Without the Mystery}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2025},
+  url     ="https://www.weideng.org/posts/feynman_kac/"
+}
+```

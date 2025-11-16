@@ -341,3 +341,19 @@ The test loss of a transformer yields a power-law with model size, dataset size,
 
 ### GPT
  -->
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2025_inside_transformers,
+  title   ={{Inside the Transformers}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2025},
+  url     ="https://www.weideng.org/posts/inside_transformers/"
+}
+```

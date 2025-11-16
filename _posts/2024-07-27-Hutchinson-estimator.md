@@ -1,5 +1,5 @@
 ---
-title: 'Hutchinson Estimator'
+title: 'Hutchinson Estimator, Explained'
 subtitle: An unbiased Monte Carlo sampler for implicit trace estimation
 date: 2024-07-27
 permalink: /posts/hutchinson_estimator/
@@ -64,3 +64,20 @@ The nice computational properties are suggested by {% cite race_est %} to make t
 
 
 <!-- included complexity analysis https://arxiv.org/pdf/2012.12895 -->
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2024_hutchinson,
+  title   ={{Hutchinson Estimator, Explained}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2024},
+  url     ="https://www.weideng.org/posts/hutchinson_estimator/"
+}
+```

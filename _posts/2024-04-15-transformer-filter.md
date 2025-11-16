@@ -151,3 +151,19 @@ the state estimates from transformer filters are $$\mathrm{\varepsilon}$$-close 
 * The predictions are not affected given permuted historical state and observation estimates (TBD).
 * What is the motivation of the multi-head mechanism in attention layers?
 
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2024_transformer_filter,
+  title   ={{Transformer Filter}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2024},
+  url     ="https://www.weideng.org/posts/transformer_filter/"
+}
+```

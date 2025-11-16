@@ -149,3 +149,21 @@ The following is a demo that describes the connections:
 #### Acknowledge
 
 Big thanks to my friend Jiang Nan for helping build this website!
+
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2023_flow_diffusion_pde,
+  title   ={{The Triangle of Flow, Diffusion, and PDE}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2023},
+  url     ="https://www.weideng.org/posts/flow_diffusion_PDE/"
+}
+```

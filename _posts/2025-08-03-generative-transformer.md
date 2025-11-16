@@ -1,5 +1,5 @@
 ---
-title: 'Generative Transformer'
+title: 'Generative Transformer with Enigmatic Orders'
 subtitle: Image synthesis via transformers
 date: 2025-08-03
 permalink: /posts/generative_transformer/
@@ -74,3 +74,18 @@ causal attention/ bidirectional transformer
 muse -->
 
 
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2025_generative_transformer,
+  title   ={{Generative Transformer with Enigmatic Orders}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2025},
+  url     ="https://www.weideng.org/posts/generative_transformer/"
+}
+```

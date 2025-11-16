@@ -97,3 +97,20 @@ We aim to obtain the following dimension-independent bound in $R, L\in [0, \inft
 The general idea is to permit strong convexity outside of a ball with a given radius, within which local non-convexity is allowed.
 
 $\mathrm{-\mathbb{I}\_{[\\|X_t-Y_t\\|< R]} L{\\|X_t-Y_t\\|^2}\leq \langle U(X_t)-U(Y_t), X_t-Y_t\rangle \leq \mathbb{I}\_{[\\|X_t-Y_t\\|\geq R]} K{\\|X_t-Y_t\\|^2}.}$
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2023_coupling_reflection,
+  title   ={{Coupling by Reflection (II)}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2023},
+  url     ="https://www.weideng.org/posts/coupling_by_reflection/"
+}
+```

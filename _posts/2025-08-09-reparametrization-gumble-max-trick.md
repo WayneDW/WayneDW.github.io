@@ -1,5 +1,5 @@
 ---
-title: 'Reparametrization Tricks'
+title: 'Generalized Reparametrization Tricks'
 subtitle: Backpropagation of continuous and discrete random variables
 date: 2025-08-09
 permalink: /posts/reparametrization_tricks/
@@ -79,3 +79,20 @@ $$\begin{equation}
     <img src="/images/gumbel_max.png" width="600" height="210" />
     <figcaption> The Gumbel–Softmax distribution provides a continuous relaxation of discrete one-hot categorical variables {% cite jang2017categorical %}.  </figcaption>
 </figure>
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2025_preparmetrization_tricks,
+  title   ={{Generalized Reparametrization Tricks}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2025},
+  url     ="https://www.weideng.org/posts/reparametrization_tricks/"
+}
+```

@@ -1,5 +1,5 @@
 ---
-title: 'Flow Matching'
+title: 'Flow Matching: A Minimal Guide'
 subtitle: Learning vector fields in continuous and discrete spaces
 date: 2025-11-10
 permalink: /posts/flow_matching/
@@ -281,3 +281,21 @@ $$
 \mathrm{\mathcal{L}_{CM}(\theta)=\mathbb{E}_{t, X_0, X_1, X_t} D_{X_t}\bigg(\delta(\cdot, X_1^i), p_{1\mid t}^{\theta, i}(\cdot \mid X_t)\bigg)}. \notag \\
 \end{align}
 $$
+
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2025flowmatching,
+  title   ={{Flow Matching: A Minimal Guide}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2025},
+  url     ="https://www.weideng.org/posts/flow_matching/"
+}
+```

@@ -160,3 +160,21 @@ $$\begin{align}
 \end{align}$$
 
 This procedure closely resembles the Proximal Policy Optimization (PPO) algorithm {% cite PPO %}, which has become a standard approach in the alignment of large-scale language models.
+
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2025_soc_reinforce,
+  title   ={{Policy Gradients and Stochastic Control}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2025},
+  url     ="https://www.weideng.org/posts/soc_and_reinforce/"
+}
+```

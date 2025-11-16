@@ -123,3 +123,21 @@ $$\begin{align}
 
 An alternative of numerical feature based on $\mathrm{\sqrt{2}cos(wx+b)}$, where $$b\sim \text{Uniform}(0, 2\pi)$$, is studied in [Greg's blog](https://gregorygundersen.com/blog/2019/12/23/random-fourier-features/#sutherland2015error). The binning approach also has shown reasonable improvement on the performance and is studied in {% cite num_embed %}.
 
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2024_rff,
+  title   ={{Random Fourier Features}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2024},
+  url     ="https://www.weideng.org/posts/random_fourier_features/"
+}
+```
+

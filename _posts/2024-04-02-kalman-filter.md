@@ -1,5 +1,5 @@
 ---
-title: 'Kalman Filter'
+title: 'Kalman Filter: The Core Ideas'
 subtitle: A standard template for linear state-space models
 date: 2024-04-02
 permalink: /posts/kalman_filter/
@@ -335,3 +335,20 @@ Intuitively, we expect EnKF will converge to KF when $\mathrm{N} \rightarrow \in
 
 * When $\mathrm{f}$ is some general nonlinear function and when the prior is not linearly initialized, EnKF doesn't converge to KF as $\mathrm{N} \rightarrow \infty$.
  -->
+
+
+
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2024_kf,
+  title   ={{Kalman Filter: The Core Ideas}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2024},
+  url     ="https://www.weideng.org/posts/kalman_filter/"
+}
+```

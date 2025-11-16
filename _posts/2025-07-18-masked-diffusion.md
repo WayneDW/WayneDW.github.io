@@ -1,8 +1,8 @@
 ---
-title: 'Discrete Diffusion Models'
+title: 'Discrete Diffusion Models: The Modern BERT'
 subtitle: Diffusion language models for images, languages, and general state spaces
 date: 2025-07-18
-permalink: /posts/Discrete Diffusion Models/
+permalink: /posts/dLLM/
 category: Diffusion
 ---
 
@@ -235,3 +235,17 @@ Discrete flow model
 
 
 
+$$\newline$$
+$$\newline$$
+$$\newline$$
+### Citation
+
+```
+@article{deng2025_dllm,
+  title   ={{Discrete Diffusion Models: The Modern BERT}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2025},
+  url     ="https://www.weideng.org/posts/dLLM/"
+}
+```
