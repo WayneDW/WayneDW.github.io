@@ -3,7 +3,7 @@ title: 'Understanding Hamiltonian Monte Caro'
 subtitle: An elegant sampler that utilizes Hamiltonian dynamics to propose new states in simulations.
 date: 2021-11-01
 layout: default
-permalink: /posts/Hamiltonian/
+permalink: /posts/hmc/
 category: Sampling
 ---
 
@@ -210,7 +210,7 @@ Properly tuning the number of leapfrog steps is important for maximizing the con
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2021},
-  howpublished = {\url{https://www.weideng.org/posts/Hamiltonian/}}
+  howpublished = {\url{https://www.weideng.org/posts/hmc/}}
 }
 ```
 {% endraw %}

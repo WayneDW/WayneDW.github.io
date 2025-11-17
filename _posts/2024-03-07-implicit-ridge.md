@@ -2,7 +2,7 @@
 title: 'Implicit Ridge Regularization'
 subtitle: The optimal penalty can be zero or negative for real-world high dimensional data.
 date: 2024-03-07
-permalink: /posts/implicit_ridge_regularization/
+permalink: /posts/implicit_ridge/
 category: Transformer
 ---
 
@@ -126,7 +126,7 @@ For the details, we refer interested readers to the study in {% cite fit_without
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2024},
-  howpublished = {\url{https://www.weideng.org/posts/implicit_ridge_regularization/}}
+  howpublished = {\url{https://www.weideng.org/posts/implicit_ridge/}}
 }
 ```
 {% endraw %}

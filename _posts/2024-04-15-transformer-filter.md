@@ -2,7 +2,7 @@
 title: 'Transformer Filter'
 subtitle: Can a Transformer represent a Kalman filter?
 date: 2024-04-15
-permalink: /posts/transformer_filter/
+permalink: /posts/trans_filter/
 category: Transformer
 ---
 
@@ -164,7 +164,7 @@ the state estimates from transformer filters are $$\mathrm{\varepsilon}$$-close 
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2024},
-  howpublished = {\url{https://www.weideng.org/posts/transformer_filter/}}
+  howpublished = {\url{https://www.weideng.org/posts/trans_filter/}}
 }
 ```
 {% endraw %}

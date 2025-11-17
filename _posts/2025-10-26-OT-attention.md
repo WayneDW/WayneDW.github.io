@@ -2,7 +2,7 @@
 title: 'Attention = Optimal Transport? Yes.'
 subtitle: The backward pass is policy gradient
 date: 2025-10-26
-permalink: /posts/attention_OT/
+permalink: /posts/attention_ot/
 category: Transformer
 ---
 
@@ -126,7 +126,7 @@ The term $\mathrm{g_j   - E[g]}$ denotes the advantage function of choosing toke
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  howpublished = {\url{https://www.weideng.org/posts/attention_OT/}}
+  howpublished = {\url{https://www.weideng.org/posts/attention_ot/}}
 }
 ```
 {% endraw %}

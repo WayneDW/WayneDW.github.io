@@ -2,7 +2,7 @@
 title: 'Random Fourier Features'
 subtitle: A Monte Carlo sampler for radial basis function kernels and positional embedding
 date: 2024-04-10
-permalink: /posts/random_fourier_features/
+permalink: /posts/rff/
 category: Sampling
 ---
 
@@ -137,7 +137,7 @@ An alternative of numerical feature based on $\mathrm{\sqrt{2}cos(wx+b)}$, where
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2024},
-  howpublished = {\url{https://www.weideng.org/posts/random_fourier_features/}}
+  howpublished = {\url{https://www.weideng.org/posts/rff/}}
 }
 ```
 {% endraw %}

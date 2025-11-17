@@ -2,7 +2,7 @@
 title: 'Generalized Reparametrization Tricks'
 subtitle: Backpropagation of continuous and discrete random variables
 date: 2025-08-09
-permalink: /posts/reparametrization_tricks/
+permalink: /posts/reparamet_tricks/
 category: Transformer
 ---
 
@@ -93,7 +93,7 @@ $$\begin{equation}
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  howpublished = {\url{https://www.weideng.org/posts/reparametrization_tricks/}}
+  howpublished = {\url{https://www.weideng.org/posts/reparamet_tricks/}}
 }
 ```
 {% endraw %}

@@ -2,7 +2,7 @@
 title: 'Coupling by Reflection (II)'
 subtitle: A general coupling technique for characterizing a broad range of diffusions.
 date: 2023-05-20 
-permalink: /posts/coupling_by_reflection/
+permalink: /posts/coupling2/
 category: Sampling
 ---
 
@@ -111,7 +111,7 @@ $\mathrm{-\mathbb{I}\_{[\\|X_t-Y_t\\|< R]} L{\\|X_t-Y_t\\|^2}\leq \langle U(X_t)
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2023},
-  howpublished = {\url{https://www.weideng.org/posts/coupling_by_reflection/}}
+  howpublished = {\url{https://www.weideng.org/posts/coupling2/}}
 }
 ```
 {% endraw %}

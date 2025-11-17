@@ -2,7 +2,7 @@
 title: 'The Triangle of Flow, Diffusion, and PDE'
 subtitle: Connections between probability flows, diffusions, and PDEs.
 date: 2023-07-01
-permalink: /posts/flow_diffusion_PDE/
+permalink: /posts/flow_diffusion/
 category: Diffusion
 ---
 
@@ -164,7 +164,7 @@ Big thanks to my friend Jiang Nan for helping build this website!
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2023},
-  howpublished = {\url{https://www.weideng.org/posts/flow_diffusion_PDE/}}
+  howpublished = {\url{https://www.weideng.org/posts/flow_diffusion/}}
 }
 ```
 {% endraw %}
