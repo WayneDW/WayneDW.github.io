@@ -86,7 +86,7 @@ muse -->
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  url     ="https://www.weideng.org/posts/generative_transformer/"
+  howpublished = {\url{https://www.weideng.org/posts/generative_transformer/}}
 }
 ```
 {% endraw %}

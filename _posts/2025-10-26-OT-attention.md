@@ -126,7 +126,7 @@ The term $\mathrm{g_j   - E[g]}$ denotes the advantage function of choosing toke
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  url     ="https://www.weideng.org/posts/attention_OT/"
+  howpublished = {\url{https://www.weideng.org/posts/attention_OT/}}
 }
 ```
 {% endraw %}

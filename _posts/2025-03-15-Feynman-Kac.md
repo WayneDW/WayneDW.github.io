@@ -135,7 +135,7 @@ The Feynman-Kac representation involves a forward simulation followed by a backw
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  url     ="https://www.weideng.org/posts/feynman_kac/"
+  howpublished = {\url{https://www.weideng.org/posts/feynman_kac/}}
 }
 ```
 {% endraw %}

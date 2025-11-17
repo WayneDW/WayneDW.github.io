@@ -78,7 +78,7 @@ The nice computational properties are suggested by {% cite race_est %} to make t
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2024},
-  url     ="https://www.weideng.org/posts/hutchinson_estimator/"
+  howpublished = {\url{https://www.weideng.org/posts/hutchinson_estimator/}}
 }
 ```
 {% endraw %}

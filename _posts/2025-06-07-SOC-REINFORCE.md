@@ -175,7 +175,7 @@ This procedure closely resembles the Proximal Policy Optimization (PPO) algorith
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  url     ="https://www.weideng.org/posts/soc_and_reinforce/"
+  howpublished = {\url{https://www.weideng.org/posts/soc_and_reinforce/}}
 }
 ```
 {% endraw %}

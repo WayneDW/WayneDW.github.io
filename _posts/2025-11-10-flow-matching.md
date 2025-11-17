@@ -297,7 +297,7 @@ $$
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  url     ="https://www.weideng.org/posts/flow_matching/"
+  howpublished = {\url{https://www.weideng.org/posts/flow_matching/}}
 }
 ```
 {% endraw %}

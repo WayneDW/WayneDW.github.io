@@ -210,7 +210,7 @@ Properly tuning the number of leapfrog steps is important for maximizing the con
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2021},
-  url     ="https://www.weideng.org/posts/Hamiltonian/"
+  howpublished = {\url{https://www.weideng.org/posts/Hamiltonian/}}
 }
 ```
 {% endraw %}

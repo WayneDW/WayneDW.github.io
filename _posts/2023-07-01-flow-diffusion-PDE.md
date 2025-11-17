@@ -164,7 +164,7 @@ Big thanks to my friend Jiang Nan for helping build this website!
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2023},
-  url     ="https://www.weideng.org/posts/flow_diffusion_PDE/"
+  howpublished = {\url{https://www.weideng.org/posts/flow_diffusion_PDE/}}
 }
 ```
 {% endraw %}

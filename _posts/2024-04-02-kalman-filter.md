@@ -349,7 +349,7 @@ Intuitively, we expect EnKF will converge to KF when $\mathrm{N} \rightarrow \in
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2024},
-  url     ="https://www.weideng.org/posts/kalman_filter/"
+  howpublished = {\url{https://www.weideng.org/posts/kalman_filter/}}
 }
 ```
 {% endraw %}

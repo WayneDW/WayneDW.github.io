@@ -126,7 +126,7 @@ For the details, we refer interested readers to the study in {% cite fit_without
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2024},
-  url     ="https://www.weideng.org/posts/implicit_ridge_regularization/"
+  howpublished = {\url{https://www.weideng.org/posts/implicit_ridge_regularization/}}
 }
 ```
 {% endraw %}

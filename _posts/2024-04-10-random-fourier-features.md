@@ -137,7 +137,7 @@ An alternative of numerical feature based on $\mathrm{\sqrt{2}cos(wx+b)}$, where
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2024},
-  url     ="https://www.weideng.org/posts/random_fourier_features/"
+  howpublished = {\url{https://www.weideng.org/posts/random_fourier_features/}}
 }
 ```
 {% endraw %}

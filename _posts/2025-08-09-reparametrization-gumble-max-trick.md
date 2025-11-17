@@ -93,7 +93,7 @@ $$\begin{equation}
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  url     ="https://www.weideng.org/posts/reparametrization_tricks/"
+  howpublished = {\url{https://www.weideng.org/posts/reparametrization_tricks/}}
 }
 ```
 {% endraw %}
