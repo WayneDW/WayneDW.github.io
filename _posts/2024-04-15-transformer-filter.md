@@ -159,7 +159,7 @@ the state estimates from transformer filters are $$\mathrm{\varepsilon}$$-close 
 
 {% raw %}
 ```bibtex
-@article{deng2024_transformer_filter,
+@misc{deng2024_transformer_filter,
   title   ={{Transformer Filter}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},

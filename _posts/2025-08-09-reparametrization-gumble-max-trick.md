@@ -88,7 +88,7 @@ $$\begin{equation}
 
 {% raw %}
 ```bibtex
-@article{deng2025_preparmetrization_tricks,
+@misc{deng2025_preparmetrization_tricks,
   title   ={{Generalized Reparametrization Tricks}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},

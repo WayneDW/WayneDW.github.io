@@ -121,7 +121,7 @@ For the details, we refer interested readers to the study in {% cite fit_without
 
 {% raw %}
 ```bibtex
-@article{deng2024_implicit_ridge,
+@misc{deng2024_implicit_ridge,
   title   ={{Implicit Ridge Regularization}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},

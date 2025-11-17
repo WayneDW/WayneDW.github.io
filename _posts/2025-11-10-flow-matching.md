@@ -292,7 +292,7 @@ $$
 
 {% raw %}
 ```bibtex
-@article{deng2025flowmatching,
+@misc{deng2025flowmatching,
   title   ={{Flow Matching: A Minimal Guide}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},

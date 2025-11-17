@@ -241,7 +241,7 @@ Discrete flow model
 
 {% raw %}
 ```bibtex
-@article{deng2025_dllm,
+@misc{deng2025_dllm,
   title   ={{Discrete Diffusion Models: The Modern BERT}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},

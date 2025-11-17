@@ -170,7 +170,7 @@ This procedure closely resembles the Proximal Policy Optimization (PPO) algorith
 
 {% raw %}
 ```bibtex
-@article{deng2025_soc_reinforce,
+@misc{deng2025_soc_reinforce,
   title   ={{Policy Gradients and Stochastic Control}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},

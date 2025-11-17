@@ -349,7 +349,7 @@ The test loss of a transformer yields a power-law with model size, dataset size,
 
 {% raw %}
 ```bibtex
-@article{deng2025_inside_transformers,
+@misc{deng2025_inside_transformers,
   title   ={{Inside the Transformers}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},

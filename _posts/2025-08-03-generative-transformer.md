@@ -81,7 +81,7 @@ muse -->
 
 {% raw %}
 ```bibtex
-@article{deng2025_generative_transformer,
+@misc{deng2025_generative_transformer,
   title   ={{Generative Transformer with Enigmatic Orders}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},

@@ -73,7 +73,7 @@ The nice computational properties are suggested by {% cite race_est %} to make t
 
 {% raw %}
 ```bibtex
-@article{deng2024_hutchinson,
+@misc{deng2024_hutchinson,
   title   ={{Hutchinson Estimator, Explained}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},
