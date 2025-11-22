@@ -17,7 +17,7 @@ TBD
 
 {% raw %}
 ```bibtex
-@misc{deng2025nanochat,
+@misc{deng2025distill,
   title   ={{Adversarial On Policy Distillation}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},
