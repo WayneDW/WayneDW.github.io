@@ -18,7 +18,7 @@ TBD
 {% raw %}
 ```bibtex
 @misc{deng2025distill,
-  title   ={{Adversarial On Policy Distillation}},
+  title   ={{Adversarial On-Policy Distillation}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
