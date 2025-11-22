@@ -18,11 +18,11 @@ TBD
 {% raw %}
 ```bibtex
 @misc{deng2025nanochat,
-  title   ={{Practical Notes on Training NanoChat}},
+  title   ={{Adversarial On Policy Distillation}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  howpublished = {\url{https://weideng.org/posts/nanochat}}
+  howpublished = {\url{https://weideng.org/posts/on_policy_distillation}}
 }
 ```
 {% endraw %}
