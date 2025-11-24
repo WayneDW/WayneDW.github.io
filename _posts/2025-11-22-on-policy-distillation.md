@@ -1,6 +1,6 @@
 ---
 title: 'Adversarial Distillation'
-subtitle: On-policy distillation for personalized or fast expert models
+subtitle: On-policy distillation for personalized or fast experts
 date: 2025-11-22
 permalink: /posts/on_policy_distillation/
 category: Transformers
