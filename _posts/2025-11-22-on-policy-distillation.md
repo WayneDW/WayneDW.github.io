@@ -3,11 +3,16 @@ title: 'Adversarial Distillation'
 subtitle: On-policy distillation for personalized or fast experts
 date: 2025-11-22
 permalink: /posts/adversarial_distillation/
-category: Transformers
+category: Transformer
 ---
 
 
 TBD
+
+On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes
+
+One-step Diffusion with Distribution Matching Distillation 
+https://arxiv.org/pdf/2311.18828
 
 
 
