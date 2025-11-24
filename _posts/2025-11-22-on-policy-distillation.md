@@ -1,6 +1,6 @@
 ---
-title: 'Adversarial On Policy Distillation'
-subtitle: A recipe for learning personalized or fast expert models
+title: 'Adversarial Distillation'
+subtitle: On-policy distillation for personalized or fast expert models
 date: 2025-11-22
 permalink: /posts/on_policy_distillation/
 category: Transformers
@@ -18,7 +18,7 @@ TBD
 {% raw %}
 ```bibtex
 @misc{deng2025distill,
-  title   ={{Adversarial On-Policy Distillation}},
+  title   ={{Adversarial Distillation}},
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
