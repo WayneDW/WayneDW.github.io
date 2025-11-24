@@ -2,7 +2,7 @@
 title: 'Adversarial Distillation'
 subtitle: On-policy distillation for personalized or fast experts
 date: 2025-11-22
-permalink: /posts/on_policy_distillation/
+permalink: /posts/adversarial_distillation/
 category: Transformers
 ---
 
@@ -22,7 +22,7 @@ TBD
   author  ={Wei Deng},
   journal ={waynedw.github.io},
   year    ={2025},
-  howpublished = {\url{https://weideng.org/posts/on_policy_distillation}}
+  howpublished = {\url{https://weideng.org/posts/adversarial_distillation}}
 }
 ```
 {% endraw %}
