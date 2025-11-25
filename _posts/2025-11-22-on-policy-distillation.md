@@ -9,12 +9,12 @@ category: Transformer
 
 TBD
 
-On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes
+<!-- On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes
 
 One-step Diffusion with Distribution Matching Distillation 
-https://arxiv.org/pdf/2311.18828
+https://arxiv.org/pdf/2311.18828 -->
 
-
+<!-- SeqGAN: Sequence Generative Adversarial Nets with Policy Gradient -->
 
 <br><br><br>
 
