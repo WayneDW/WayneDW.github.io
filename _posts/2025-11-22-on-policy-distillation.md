@@ -7,6 +7,8 @@ category: Transformer
 ---
 
 
+### Sequence Generative Adversarial Nets (GAN)
+
 TBD
 
 <!-- On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes
