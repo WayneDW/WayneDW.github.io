@@ -1,5 +1,5 @@
 ---
-title: 'Adversarial Distillation'
+title: 'Generative Adversarial Distillation'
 subtitle: On-policy distillation for personalized or fast experts
 date: 2025-11-22
 permalink: /posts/adversarial_distillation/
