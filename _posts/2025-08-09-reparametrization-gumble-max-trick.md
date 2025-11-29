@@ -74,7 +74,7 @@ $$\begin{equation}
 \mathrm{\mathbf{z}_i \approx \frac{\exp\left((\log \pi_i + g_i)/\tau\right)}{\sum_{j=1}^k \exp\left((\log \pi_j + g_j)/\tau\right)},  \quad \text{for } i = 1, \dots, k .}\notag
 \end{equation}$$
 
-Despite its simplicity and the absence of high-variance gradients, Gumbel–Softmax introduces a nontrivial bias. To further mitigate this issue, one can instead follow Williams (1992) {% cite williams1992simple %} and differentiate through the underlying probability distribution directly. We discuss this perspective in more detail in this [\[Blog\]](https://www.weideng.org/posts/adversarial_distillation/).
+Despite its simplicity and the absence of high-variance gradients, Gumbel–Softmax introduces a nontrivial bias. To further mitigate this issue, one can instead follow REINFORCE {% cite williams1992simple %} and differentiate through the underlying probability distribution directly. We discuss this perspective in more detail in this [\[Blog\]](https://www.weideng.org/posts/adversarial_distillation/).
 
 
 <figure style="text-align: center;">
