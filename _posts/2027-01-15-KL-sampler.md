@@ -1,7 +1,7 @@
 ---
 title: 'KL Divergence Sampler'
 subtitle: xxx
-date: 2025-11-30
+date: 2027-11-30
 permalink: /posts/kl_sampling/
 category: Sampling
 ---
