@@ -1,8 +1,8 @@
 ---
 title: 'KL Divergence Sampler'
-subtitle: An unbiased estimator for KL divergence
-date: 2026-01-15
-permalink: /posts/kl_sampler/
+subtitle: xxx
+date: 2025-11-30
+permalink: /posts/kl_sampling/
 category: Sampling
 ---
 
