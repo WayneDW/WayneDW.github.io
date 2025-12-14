@@ -1,9 +1,11 @@
 ---
-title: 'Context Engineering'
-subtitle: A variance-minimized proposal with lookahead strategies
+title: 'Finance is a Continuous Low Dimensional LLMs'
+subtitle: xxx
 date: 2026-06-01
-permalink: /posts/context_engineering/
+permalink: /posts/finance_llms/
 category: Empirics
 ---
 
-prompt engineering
+Market simulator...
+
+LLM...
