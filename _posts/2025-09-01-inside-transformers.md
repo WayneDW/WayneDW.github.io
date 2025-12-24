@@ -138,25 +138,10 @@ To lower KV cost with minimal quality loss, grouped query attention (GQA) shares
 
 ### Efficient Attentions
 
-Self-attention requires $\mathrm{O(L^2)}$ time and memory complexity for the length-$\mathrm{L}$ sequence generation. To mitigate the cost, one can exploit structural properties of the attention weight $\mathrm{P}$, such as low-rankness {% cite wang2020linformer %}, sparsity {% cite child2019generating %} {% cite beltagy2020longformer %}, and Kernelization {% cite choromanski2021rethinking %}, among others {% cite tay2022efficient %}.
+Self-attention requires $\mathrm{O(L^2)}$ time and memory complexity for the length-$\mathrm{L}$ sequence generation. To mitigate the cost, one can exploit structural properties of the attention weight $\mathrm{P}$, such as linear attention {% cite katharopoulos2020transformers %}, sliding window attention (SWA) {% cite jiang2023mistral %}, sparsity {% cite child2019generating %} {% cite beltagy2020longformer %}, low-rankness {% cite wang2020linformer %}, and Kernelization {% cite choromanski2021rethinking %}, among others {% cite tay2022efficient %}:
 
-* **Low-rank**: The query-key inner product acts as a rank-1 approximation to captur one *similarity* pattern. Although softmax relaxes this rank-1 constraint, the attention weight $\mathrm{P}$ remain approximately low-rank in practice (see Theorem 1 in {% cite wang2020linformer %}), yielding $O(L)$ complexity.
-* **Sparsity**: Longformer {% cite beltagy2020longformer %} leverages a (dilated) sliding window to capture local dependencies and assigns global attention to pre-specified tokens, enhancing modeling flexibility with $O(L)$ complexity. Reformer {% cite kitaev2020reformer %} employs Locality-Sensitive Hashing (LSH) to group similar items into the same buckets, and each query attends only to tokens within its bucket, resulting $O(L\log L)$ complexity.
 
-<div style="display: flex; justify-content: center; gap: -50px;">
-  <figure style="text-align: center;">
-    <img src="/images/longformer_d.png" width="120" height="120" />
-    <figcaption>Longformer attention.</figcaption>
-  </figure>
-
-  <figure style="text-align: center;">
-    <img src="/images/reformer_d.png" width="120" height="120" />
-    <figcaption>Reformer attention.</figcaption>
-  </figure>
-</div>
-* **Kernelization**: The attention weight $\mathrm{P}$ can be viewed as an exponential kernel $$\mathrm{\exp(x^\intercal y)=\exp(\|x\|_2^2)K_{\text{gaussian}}(x, y) \exp(\|y\|_2^2)}$$ and a prior [random feature blog](https://www.weideng.org/posts/random_fourier_features/) has ever discussed about the Monte Carlo approximations {% cite random_features %}. Building on this idea, Performer {% cite choromanski2021rethinking %} introduces non-negativity random features to avoiding singularities during normalization.
-
-### Autoregressive Transformers v.s. RNNs
+#### Linear Attention: Autoregressive Transformers v.s. RNNs
 
 Consider a linear relaxation of the exponential linear product {% cite katharopoulos2020transformers %}:
 
@@ -178,9 +163,7 @@ $$\begin{equation}
 
 where the choices of $\phi$ include $1+\mathrm{ELU}$ {% cite katharopoulos2020transformers %}, random features {% cite choromanski2021rethinking  %}, cosine functions, polynomial expansions, deterministic projections, among others.
 
-#### Gated Linear Attention
-
-Compressing all past pairs equally tends to degrade performance as sequence length grows. To solve this issue, a forgetting gate $\mathrm{G_t\in (0,1)^{d\times d}}$ proposes to learn a $\mathrm{x_t}$-dependent decaying matrix and may result in more hardware-efficient training:
+**Gated Linear Attention**: Compressing all past pairs equally tends to degrade performance as sequence length grows. To solve this issue, a forgetting gate $\mathrm{G_t\in (0,1)^{d\times d}}$ proposes to learn a $\mathrm{x_t}$-dependent decaying matrix and may result in more hardware-efficient training:
 
 $$\begin{equation}
 \mathrm{S_t = G_t \odot S_{t-1} + v_t k_t^\top , \qquad y_t = S_t q_t .}\notag
@@ -192,8 +175,29 @@ $$\begin{equation}
     <figcaption> Different gating formulations {% cite yang2024gated %} </figcaption>
 </figure>
 
-<!-- 
-#### Flash Attention -->
+
+* **Sliding Window Attention** Each token only attends to a local window of **nearby** tokens instead of the full sequence {% cite jiang2023mistral %} to preverse local context information and scale to long sequences.
+
+
+* **Sparsity**: Longformer {% cite beltagy2020longformer %} leverages a (dilated) sliding window to capture local dependencies and assigns global attention to pre-specified tokens, enhancing modeling flexibility with $O(L)$ complexity. Reformer {% cite kitaev2020reformer %} employs Locality-Sensitive Hashing (LSH) to group similar items into the same buckets, and each query attends only to tokens within its bucket, resulting $O(L\log L)$ complexity.
+
+
+* **Low-rank**: The query-key inner product acts as a rank-1 approximation to captur one *similarity* pattern. Although softmax relaxes this rank-1 constraint, the attention weight $\mathrm{P}$ remain approximately low-rank in practice (see Theorem 1 in {% cite wang2020linformer %}), yielding $O(L)$ complexity.
+
+<div style="display: flex; justify-content: center; gap: -50px;">
+  <figure style="text-align: center;">
+    <img src="/images/longformer_d.png" width="120" height="120" />
+    <figcaption>Longformer attention.</figcaption>
+  </figure>
+
+  <figure style="text-align: center;">
+    <img src="/images/reformer_d.png" width="120" height="120" />
+    <figcaption>Reformer attention.</figcaption>
+  </figure>
+</div>
+
+* **Kernelization**: The attention weight $\mathrm{P}$ can be viewed as an exponential kernel $$\mathrm{\exp(x^\intercal y)=\exp(\|x\|_2^2)K_{\text{gaussian}}(x, y) \exp(\|y\|_2^2)}$$ and a prior [random feature blog](https://www.weideng.org/posts/random_fourier_features/) has ever discussed about the Monte Carlo approximations {% cite random_features %}. Building on this idea, Performer {% cite choromanski2021rethinking %} introduces non-negativity random features to avoiding singularities during normalization.
+
 
 
 ### Position Embeddings
