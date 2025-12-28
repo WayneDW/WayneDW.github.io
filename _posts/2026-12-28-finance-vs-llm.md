@@ -1,18 +1,20 @@
 ---
-title: 'Finance is a Continuous LLM'
+title: 'Finance is a Latent LLM'
 subtitle: How market simulators connect to LLMs
-date: 2025-12-27
+date: 2026-12-28
 permalink: /posts/finance_llms/
-category: Others
+category: Ideas
 ---
 
-This is a **running blog** collecting observations on the structural similarities between modern financial systems and large language models.
+As a practitioner in finance, who is also an active researcher in large language models (LLMs), I've found that finance and LLMs are closely intertwined. In a sense, the finance system can be seen as a latent large language models in the following aspects: 
+
 
 ---
 
-#### Continuous Market Simulators vs. Discrete Token Simulators
+#### Environment: Market Simulators vs. Token Simulators
 
-Finance simulates **continuous prices, volatility, and indices** to model bull and bear markets.
+In finance, a market simulator is a synthetic finance world model that generates prices, order flows, volatility, and liquidity and indices to test your strategies and models. 
+
 
 LLMs simulate **discrete token sequences** to model language and reasoning trajectories.
 
@@ -79,6 +81,14 @@ Control without retraining.
 - **LLMs**: minimize harmful outputs by filtering toxicity, hallucination, and misuse  
 
 In both systems, tail risk matters more than average performance.
+
+
+#### Fundamental analysis v.s. pretraining
+
+#### model training
+
+
+pretraining + fine-tuning.
 
 <!-- 
 continuous Market simulator of continuous prices, index.
