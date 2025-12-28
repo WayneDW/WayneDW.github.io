@@ -1,62 +1,84 @@
 ---
-title: 'Finance is a Continuous LLMs'
-subtitle: How market simulator is connected to LLMs
+title: 'Finance is a Continuous LLM'
+subtitle: How market simulators connect to LLMs
 date: 2025-12-27
 permalink: /posts/finance_llms/
 category: Others
 ---
 
-This is a running blog collecting observations on the structural similarities between modern financial systems and large language models.
+This is a **running blog** collecting observations on the structural similarities between modern financial systems and large language models.
 
-* Continuous Market Simulators v.s. Discrete Token Simulators
+---
 
-** Finance simulates continuous prices, volatility, and indices
+#### Continuous Market Simulators vs. Discrete Token Simulators
 
-** LLMs simulate discrete token sequences
-→ Both are world models rolling forward an uncertain state.
+Finance simulates **continuous prices, volatility, and indices** to model bull and bear markets.
 
-* Reinforcement Learning
+LLMs simulate **discrete token sequences** to model language and reasoning trajectories.
 
-Finance: option pricing, hedging, insurance → minimize tail risk
+---
 
-LLMs: RLHF / RLVR → align behavior with preferences
-→ RL as risk control vs. behavior alignment
+#### Reinforcement Learning
 
-* Optimization & Allocation
+- **Finance**: option pricing, hedging, and insurance → minimize tail risk  
+- **LLMs**: RLHF / RLVR → align behavior with user preferences  
 
-Portfolio optimization balances return, risk, and correlation
+RL functions as **risk control** in finance versus **behavior alignment** in LLMs.
 
-Recommendation systems allocate similar items to similar users.
+---
 
+#### Optimization & Allocation
 
-* Scale & Infrastructure
+- **Finance**: portfolio optimization hedges risk across dissimilar (anti-correlated) assets  
+- **LLMs / Tech**: recommendation systems allocate similar items to similar users  
 
-HFT: nanoseconds, latency, hardware dominance
+Both are constrained allocation problems under uncertainty.
 
-LLMs: tokens/sec, pipeline parallelism, bandwidth limits
-→ At scale, systems engineering dominates algorithms
+---
 
-* Alpha–Beta vs. Scaling Laws
+#### Scale & Infrastructure
 
-Finance separates skill from market exposure
+- **HFT**: nanoseconds, latency, hardware dominance  
+- **LLMs**: tokens/sec, pipeline parallelism, bandwidth limits  
 
-LLMs use scaling laws to predict final loss and stop training
-→ Both guide capital / compute allocation
+At scale, systems engineering dominates algorithmic details.
 
-* State & Control
+---
 
-Finance: hidden latent state inferred from noisy prices
+#### Alpha–Beta vs. Scaling Laws
 
-LLMs: hidden activations are the state
+Finance uses **alpha** for excess returns and **beta** to model market exposure.
 
-* Prompt engineering ↔ technical analysis: control without retraining
+LLMs rely on **scaling laws** to predict final loss and determine when to stop training.
 
-* Safety
+Both guide **capital and compute allocation**.
 
-Finance: drawdowns, VaR, stress tests
+---
 
-LLMs: toxicity, hallucination, misuse
-→ Preventing catastrophic failure matters more than average performance
+#### State & Control
+
+- **Finance**: hidden latent state inferred from noisy prices  
+- **LLMs**: hidden activations inside deep neural networks  
+
+Finance infers the state; LLMs *are* the state.
+
+---
+
+#### Prompt Engineering vs. Technical Analysis
+
+- **Finance (technical analysis)**: conditioning trades via patterns in past prices  
+- **LLMs (prompting)**: conditioning behavior via input structure  
+
+Control without retraining.
+
+---
+
+#### Safety
+
+- **Finance**: minimize catastrophic loss via VaR, stress tests, and drawdown limits  
+- **LLMs**: minimize harmful outputs by filtering toxicity, hallucination, and misuse  
+
+In both systems, tail risk matters more than average performance.
 
 <!-- 
 continuous Market simulator of continuous prices, index.
