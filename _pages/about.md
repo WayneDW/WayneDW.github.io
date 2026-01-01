@@ -8,7 +8,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/live_in_simulations.png"></p>
 
 
-In a world that feels like a simulation, I’m drawn to the sampling perspective of modern language models. My research focuses on the understanding, scaling, and alignment of masked diffusion language models.
+In a world that feels like a simulation, I’m drawn to the sampling perspective of modern language models. My research focuses on the ultra-fast reasoning of masked diffusion language models.
 
  <!-- market simulations. -->
 
@@ -64,10 +64,10 @@ Feel free to contact me at: firstnamelastname056@gmail.com
 
 
 
-<!-- Services
+Services: Area Chair ICLR.
 
 
-Reviewers: ICML, NeurIPS, ICLR, AISTAT, AAAI, IJCAI. -->
+<!--  Reviewers: ICML, NeurIPS, ICLR, AISTAT, AAAI, IJCAI. -->
 
 <!-- ====== -->
 La pensée n'est qu'un écliar au milieu d'une longue nuit. Mais c'est cet éclair qui est tout. - Poincaré
