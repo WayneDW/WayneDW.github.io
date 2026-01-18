@@ -9,18 +9,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small8.PNG"></p>
 
 
-In a world that feels like a simulation, I’m drawn to the sampling perspective of modern language models. My research focuses on the ultra-fast, multi-turn, and long-context reasoning of (diffusion) language models.
-
- <!-- market simulations. -->
-
-<!--  **Diffusion Models** – Improving the transport efficiency for diffusion generations. -->
-
-<!-- **Sequential Sampling** – Alignment and fine-tuning for diffusion Language model.
-
-**Market Simulation** – Diffusion market simulators for hedging and risk control. -->
-
-<!-- Apr, 2025. Honored to present **On Generation of Latent Diffusion in the FX Market** at Columbia's [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/). -->
-
+Welcome to Wei Deng's Sampler homepage. I’m interested in how (diffusion) language models reason over long horizons and ultra-fast speeds. This blog is a running sampler of ideas, results, and open questions. Here I share papers I find insightful, ideas worth exploring, and updates on my own work.
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
@@ -29,8 +18,6 @@ In a world that feels like a simulation, I’m drawn to the sampling perspective
 Interns I (* directly) work with: [Shikai Fang\*](https://users.cs.utah.edu/~shikai/), [Yixin Tan\*](https://scholar.google.com/citations?user=3AGaybIAAAAJ&hl=zh-CN), [Kevin Rojas\*](https://kevinrojas1499.github.io/), [Marin Biloš](https://scholar.google.com/citations?user=2WDzslAAAAAJ&hl=en), [Sarthak Mittal](https://sarthmit.github.io/).  -->
 
 
-
-<!--- a I got my Ph.D. at Purdue University in 2021, where I was advised by Prof. [Guang Lin](https://www.math.purdue.edu/~lin491/) and <a href="https://www.stat.purdue.edu/~fmliang/" target="_blank">Faming Liang</a>. -->
 
 
 Feel free to contact me at: firstnamelastname056@gmail.com
