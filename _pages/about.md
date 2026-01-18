@@ -9,7 +9,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small8.PNG"></p>
 
 
-Welcome to Wei Deng's homepage. I’m interested in how (diffusion) language models reason over long horizons and ultra-fast speeds. Here I share papers I find insightful, ideas worth exploring, and updates on my own work.
+Welcome to Wei Deng's homepage. I’m interested in how (diffusion) language models reason over long horizons and ultra-fast speeds. Here I share ideas I find insightful and updates on my own work.
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
