@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 <!--  <p align="center"> <img class="img-circle img-200" width="100%" src="images/live_in_simulations.png"></p>  -->
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small7.PNG"></p>
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small6.PNG"></p>
 
 
 In a world that feels like a simulation, I’m drawn to the sampling perspective of modern language models. My research focuses on the ultra-fast, multi-turn, and long-context reasoning of (diffusion) language models.
