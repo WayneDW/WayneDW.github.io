@@ -8,6 +8,8 @@ author_profile: true
 
 <!-- Apr, 2025. -->
 
+Jan, 2026. 2 ICLRs on diffusion Language models (ultra-fast generation & better reasoning) are accpeted!
+
 Dec, 2025. Invited Area Chair for [ICLR 2026](https://iclr.cc/).
 
 Apr, 2025. Invited Talk at [Practitioners’ Seminar 2025](https://www.math.columbia.edu/mafn/practitioners-seminar-2025/) at Columbia University, hosted by Dr. [Jae. Choi](https://www.linkedin.com/posts/jaehyukchoi_columbiamafn-ai-finance-activity-7321219854013771777-D4-R?utm_source=share&utm_medium=member_desktop&rcm=ACoAABKzGL4B8FfIjDA0z1I1nRH9z0QifCSygNQ)
