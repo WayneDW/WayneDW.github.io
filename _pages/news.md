@@ -8,7 +8,7 @@ author_profile: true
 
 <!-- Apr, 2025. -->
 
-Jan, 2026. 2 ICLRs on diffusion Language models (ultra-fast generation & better reasoning) are accpeted!
+Jan, 2026. 2 ICLRs on diffusion LLMs (ultra-fast generation & better reasoning) are accpeted!
 
 Dec, 2025. Invited Area Chair for [ICLR 2026](https://iclr.cc/).
 
