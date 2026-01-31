@@ -9,7 +9,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small8.PNG"></p>
 
 
-Welcome to Wei Deng's homepage. My current research focuses on long-horizon reasoning and ultra-fast inference in diffusion-based language models. In addition, I study generative methods for deep hedging, including delta and vega hedging and market simulation. Here I share ideas I find insightful and updates on my own works.
+Welcome to Wei Deng's homepage. My research focuses on long-horizon and ultra-fast reasoning in (diffusion) LLMs. I also study generative methods for deep hedging, including delta and vega hedging and market simulation. Here I share ideas I find insightful and updates on my own works.
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
