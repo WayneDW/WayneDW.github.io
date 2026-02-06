@@ -9,7 +9,9 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small8.PNG"></p>
 
 
-Welcome to Wei Deng's homepage. My research focuses on long-horizon and ultra-fast reasoning in (diffusion) LLMs. I also study generative methods for deep hedging. Here I share ideas I find insightful and updates on my own works.
+Welcome to Wei Deng's homepage. My research focuses on long-horizon and ultra-fast reasoning in (diffusion) LLMs. I also study generative methods for deep hedging. 
+
+Here I share ideas I find insightful and updates on my own works.
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
@@ -20,7 +22,7 @@ Interns I (* directly) work with: [Shikai Fang\*](https://users.cs.utah.edu/~shi
 
 
 
-Feel free to contact me at: firstnamelastname056@gmail.com
+Feel free to contact me at: firstnamelastname056@gmail.com. Also looking for 2.5-3.5 tennis players in NJ.
 
 
 <style>
