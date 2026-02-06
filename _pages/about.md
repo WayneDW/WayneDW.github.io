@@ -20,7 +20,7 @@ Interns I (* directly) work with: [Shikai Fang\*](https://users.cs.utah.edu/~shi
 
 
 
-Contact me at: firstnamelastname056@gmail.com. Also looking for 2.5-3.5 tennis players in NJ.
+Contact me at: firstnamelastname056@gmail.com. Also looking for tennis enthusiast in NJ.
 
 
 <style>
