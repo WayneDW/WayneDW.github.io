@@ -5,8 +5,8 @@ excerpt: "what is this?"
 author_profile: true
 ---
 
-<!--  <p align="center"> <img class="img-circle img-200" width="100%" src="images/live_in_simulations.png"></p>  -->
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small8.PNG"></p>
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city.png"></p>
+<!-- <p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small8.PNG"></p> -->
 
 
 Welcome to Wei Deng's homepage. My research focuses on long-horizon and ultra-fast reasoning in (diffusion) LLMs. I also study generative methods for deep hedging. Here I share ideas I find insightful and updates on my own works.
