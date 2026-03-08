@@ -9,7 +9,7 @@ author_profile: true
 <!-- <p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small8.PNG"></p> -->
 
 
-Welcome to Wei Deng's homepage. My research focuses on fast reasonings in (diffusion) LLMs. I also study generative methods for deep hedging. Here I share ideas I find insightful and updates on my own works.
+Welcome to Wei Deng's homepage. My research focuses on fast reasonings in (diffusion) LLMs. I also study generative methods for deep hedging. Here I share ideas I find insightful on my own works.
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
@@ -38,6 +38,8 @@ Contact me at: firstnamelastname056@gmail.com. Also looking for tennis enthusias
   <li><a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank" class="deep-blue">OpenReview</a></li>
   <li><a href="https://www.weideng.org/pairs/" target="_blank" class="deep-blue">.</a></li>
 </ul>
+
+🔥 Welcome! [Self-Correcting Discrete Diffusion](https://arxiv.org/pdf/2603.02230) — Faster parallel sampling via self-correction without ReMask.
 
 
 🔥 Welcome! [Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554) — dLLM reasoning in math and coding. ICLR'26 [\[Link\]](https://gdpo.github.io/)
