@@ -39,7 +39,7 @@ Contact me at: firstnamelastname056@gmail.com. Also looking for tennis enthusias
   <li><a href="https://www.weideng.org/pairs/" target="_blank" class="deep-blue">.</a></li>
 </ul>
 
-🔥 Welcome! [Self-Correcting Discrete Diffusion](https://arxiv.org/pdf/2603.02230) — Faster parallel sampling via self-correction without ReMask.
+🔥 Welcome! [Self-Correcting Discrete Diffusion](https://arxiv.org/pdf/2603.02230) — The 1st self-correction w/o ReMask.
 
 
 🔥 Welcome! [Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554) — dLLM reasoning in math and coding. ICLR'26 [\[Link\]](https://gdpo.github.io/)
