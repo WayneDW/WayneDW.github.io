@@ -23,7 +23,7 @@ $$\begin{align}
 
 where $\alpha_t=\Pi_{i=1}^t (1-\beta_i)$, $\mathrm{\mathbf{e_m}}$ is the one-hot encoding of the [MASK] token at index $\mathrm{m}$ under zero-based indexing and $\mathrm{\mathbf{1}=\\{1\\}^{m+1}}$. Conduct the reverse transition {% cite shi2024simplified %} via Bayes rule
 
-$$\begin{align}
+<!-- $$\begin{align}
 &\mathrm{\mathbf{p}(x_{t-1}|x_t, x_0)=\dfrac{\mathbf{p}(x_t|x_{t-1}) \mathbf{p}(x_{t-1}|x_0)}{\mathbf{p}(x_{t}|x_0)}=\text{Cat}(x_t; p=\dfrac{x_t \mathbf{T}_t^\intercal \odot x_0 \overline{\mathbf{T}}_{t-1}}{x_0 \overline{\mathbf{T}}_t x_t^\intercal}) },\notag\\
     &\mathrm{\mathbf{p}(x_s \mid x_t, x_0)} 
 \mathrm{= \frac{\mathbf{p}(x_t \mid x_s) \mathbf{p}(x_s \mid x_0)}{\mathbf{p}(x_t \mid x_0)}
@@ -31,6 +31,19 @@ $$\begin{align}
 \begin{array}{ll}
 \mathrm{\frac{\alpha_s - \alpha_t}{1 - \alpha_t} \, x_s^\top x_0} & \small{\mathrm{x_s \ne m,\, x_t = m}} \label{reverse_transition} \\
 \mathrm{\frac{1 - \alpha_s}{1 - \alpha_t}} & \small{\mathrm{x_s = m,\, x_t = m}} \\
+\mathrm{x_s^\top x_t} & \small{\mathrm{x_t \ne m}},
+\end{array}}
+\end{align}$$ -->
+
+$$\begin{align}
+% &\mathrm{\mathbf{p}(x_{t-1}|x_t, x_0)=\dfrac{\mathbf{p}(x_t|x_{t-1}) \mathbf{p}(x_{t-1}|x_0)}{\mathbf{p}(x_{t}|x_0)}=\text{Cat}(x_t; p=\dfrac{x_t \mathbf{T}_t^\intercal \odot x_0 \overline{\mathbf{T}}_{t-1}}{x_0 \overline{\mathbf{T}}_t x_t^\intercal}) },\notag\\
+
+&\mathrm{\mathbf{p}(x_s \mid x_t, x_0)} 
+\mathrm{= \frac{\mathbf{p}(x_t \mid x_s) \mathbf{p}(x_s \mid x_0)}{\mathbf{p}(x_t \mid x_0)}
+=\mathrm{Cat(x_s; \bar{R}^{x_0}(t, s)^\top x_t)} = \Bigg\{
+\begin{array}{ll}
+\mathrm{\frac{(1-\alpha_s)x_s^\intercal m + (\alpha_s - \alpha_t) x_s^\intercal x_0}{1 - \alpha_t}} & \small{\mathrm{x_t = m}} \label{reverse_transition} \\
+% \mathrm{\frac{1 - \alpha_s}{1 - \alpha_t}} & \small{\mathrm{x_s = m,\, x_t = m}} \\
 \mathrm{x_s^\top x_t} & \small{\mathrm{x_t \ne m}},
 \end{array}}
 \end{align}$$
