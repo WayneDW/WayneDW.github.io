@@ -101,7 +101,7 @@ $$
 </div>
 
 
-The following shows the impact of $\mathrm{\alpha>1}$ where $\mathrm{\alpha, N_{\text{MCMC}>1}}$ significantly improves the performance.
+The following shows the impact of $\mathrm{\alpha, N_{\text{MCMC}}}$ where $\mathrm{\alpha, N_{\text{MCMC}>1}}$ significantly improves the performance.
 
 <div style="display: flex; justify-content: center; align-items: flex-start; gap: 24px;">
   <figure style="text-align: center; margin: 0;">
