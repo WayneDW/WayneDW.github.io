@@ -1,5 +1,5 @@
 ---
-title: 'Power Sampling'
+title: 'Power Sampling in LLMs'
 subtitle: How a training/verifier/data-free sampler outperforms GRPO
 date: 2026-03-15
 permalink: /posts/power_samplers/
@@ -9,9 +9,7 @@ category: Sampling
 
 
 
-GRPO {% cite shao2024deepseekmath %} has become a dominant RL method for improving reasoning in LLMs. However, it requires expensive training, hyperparameter tuning, and building ad-hoc reward functions, which often reduces sample diversity and generalization ability. A natural question is: 
-
-$$\textbf{Can we unlock the same reasoning performance without costly RL training?}$$
+GRPO {% cite shao2024deepseekmath %} has become a dominant RL method for improving reasoning in LLMs. However, it requires expensive training, hyperparameter tuning, and building ad-hoc reward functions, which often reduces sample diversity and generalization ability. A natural question is: Can we unlock the same reasoning performance without costly RL training?
 
 
 #### Sub-Optimal Sampling
@@ -110,3 +108,20 @@ The following shows the impact of $\mathrm{\alpha, N_{\text{MCMC}}}$ where $\mat
   </figure>
 </div>
 
+
+
+<br><br><br>
+
+### Citation
+
+{% raw %}
+```bibtex
+@misc{deng2026_power,
+  title   ={{Power Sampling in LLMs}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2026},
+  howpublished = {\url{https://www.weideng.org/posts/power_samplers/}}
+}
+```
+{% endraw %}
