@@ -26,7 +26,7 @@ $$
 \end{equation}
 $$
 
-where we know that $$\mathrm{p(x_0=a)=0.45, p(x_0=b)=0.55}.$$ In this example, decoding the token $$\mathrm{b}$$ looks like the optimal solution, which seems unreasonable since $$\mathrm{p(ab)}$$ has the highest probability.
+where we know that $$\mathrm{p(x_0=a)=0.45, p(x_0=b)=0.55}.$$ In this example, decoding the token $$\mathrm{b}$$ looks like the optimal solution, which is actually unreasonable since $$\mathrm{p(ab)}$$ has the highest probability.
 
 
 ### Power Sampling
