@@ -51,7 +51,7 @@ $$
 
 
 
-The sub-optimal decoding issue is easily solved by sampling from a sharpening distribution $$\mathrm{p^2}$$. By contrast, the well-known low-temperature strategy fails in this case
+The sub-optimal decoding issue is easily solved by sampling from a sharpening distribution $$\mathrm{p^2}$$. By contrast, the well-known low-temperature sampling simulates $$\mathrm{p(x_t\mid x_{<t})^{\alpha}}$$ and fails in this case
 
 $$
 \begin{equation}
@@ -59,7 +59,7 @@ $$
 \end{equation}
 $$
 
-The above example shows that $$\mathrm{p^{\alpha}}$$ motivates future high-likelihood trajectories. 
+The above example shows that $$\mathrm{p^{\alpha}}$$ motivates future high-likelihood trajectories, while low-temperature sampling only focuses on the current token.
 
 
 #### Metropolis-Hastings
