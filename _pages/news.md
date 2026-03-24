@@ -8,6 +8,8 @@ author_profile: true
 
 <!-- Apr, 2025. -->
 
+Mar, 2026. Invited Area Chair for [NeurIPS 2026](https://neurips.cc/).
+
 Jan, 2026. 2 ICLRs on diffusion LLMs (ultra-fast generation & better reasoning) are accpeted!
 
 Dec, 2025. Invited Area Chair for [ICLR 2026](https://iclr.cc/).
