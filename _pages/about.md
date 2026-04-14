@@ -5,8 +5,8 @@ excerpt: "what is this?"
 author_profile: true
 ---
 
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city.png"></p>
-<!-- <p align="center"> <img class="img-circle img-200" width="100%" src="images/savannah_small8.PNG"></p> -->
+<!---  <p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city.png"></p> -->
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v1.gif"></p>
 
 
 Welcome to Wei Deng's homepage. My research focuses on look-ahead sampling, ultra-fast reasonings and self-evolution in LLMs. Here I share ideas I find insightful and update progress on my own works.
