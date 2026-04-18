@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 <!---  <p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city.png"></p> -->
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v1.gif"></p>
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v2.gif"></p>
 
 
 Welcome to the sampler's homepage. He is now focusing on multi-modal sampling, ultra-fast reasonings and self-evolution in LLMs. He also shares ideas I find insightful and update progress on my own works.
