@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 <!---  <p align="center"> <img class="img-circle img-200" width="100%" src="images/monte_carlo_city.png"></p> -->
-<p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v2.gif"></p>
+<p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v3.gif"></p>
 
 
 The blogger is focusing on exploratory sampling, fast reasonings and self-evolution in LLMs. He also shares ideas he find insightful and update progress on his own works.
