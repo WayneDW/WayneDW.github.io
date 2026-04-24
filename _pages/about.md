@@ -9,7 +9,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v3.gif"></p>
 
 
-The blogger is focusing on exploratory sampling, fast agentic reasonings, and self-evolution in LLMs. He also shares ideas he find insightful and update progress on his own works.
+The blogger is focusing on exploratory sampling, agentic reasonings, and self-evolution in LLMs. He also shares ideas he find insightful and update progress on his own works.
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
