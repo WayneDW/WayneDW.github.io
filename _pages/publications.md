@@ -13,7 +13,7 @@ author_profile: true
 ### Diffusion (Language) Models
 
 
-* L. Wang, Z. Wang, Y. Bai, **W. Deng**, G. Lin, Q. Song. [Self-Correcting Discrete Diffusion](https://arxiv.org/pdf/2603.02230). ICML'26
+* L. Wang, Z. Wang, Y. Bai, **W. Deng**, G. Lin, Q. Song. [Generalized Discrete Diffusion with Self-Correction](https://arxiv.org/pdf/2603.02230). ICML'26
 
 * K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, **W. Deng**. [Improving Reasoning for Diffusion Language Models via Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554). ICLR 2026 [\[Link\]](https://gdpo.github.io/)
 
