@@ -12,6 +12,9 @@ author_profile: true
 
 ### Diffusion (Language) Models
 
+
+* L. Wang, Z. Wang, Y. Bai, **W. Deng**, G. Lin, Q. Song. [Self-Correcting Discrete Diffusion](https://arxiv.org/pdf/2603.02230). ICML'26
+
 * K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, **W. Deng**. [Improving Reasoning for Diffusion Language Models via Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554). ICLR 2026 [\[Link\]](https://gdpo.github.io/)
 
 * H. Zheng, X. Liu, X. Kong, N. Jiang, Z. Hu, W. Luo, **W. Deng**, G. Lin. [Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct](https://www.arxiv.org/pdf/2509.25035). ICLR 2026.  [\[机器之心\]](https://mp.weixin.qq.com/s/0mGHnVtgxmazwxeu0nPjOw) [\[X\]](https://x.com/jiqizhixin/status/1984549725471691216)
@@ -26,7 +29,7 @@ author_profile: true
 
 * **W. Deng**, W. Luo, Y. Tan, M. Biloš, Yu, Yuriy, T. Q. Chen. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795). ICML 2024. 
 
-* **W. Deng**, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**) Acceptance rate **3.8%**.
+<!-- * **W. Deng**, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**) Acceptance rate **3.8%**.  -->
 
 * Y. Chen, **W. Deng**, S. Fang, F. Li, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Appli. to Prob. Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023.
 
