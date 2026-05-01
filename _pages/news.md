@@ -8,6 +8,10 @@ author_profile: true
 
 <!-- Apr, 2025. -->
 
+
+
+<!-- Apr, 2026. Invited Talk at [SUNY Albany](https://albanymath.github.io/adss/AnalysisSeminar2026April28.pdf) -->
+
 Mar, 2026. Invited Area Chair for [NeurIPS 2026](https://neurips.cc/).
 
 Jan, 2026. 2 ICLRs on diffusion LLMs (ultra-fast generation & better reasoning) are accpeted!
