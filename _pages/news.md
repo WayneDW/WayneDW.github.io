@@ -10,7 +10,7 @@ author_profile: true
 
 
 
-<!-- Apr, 2026. Invited Talk at [SUNY Albany](https://albanymath.github.io/adss/AnalysisSeminar2026April28.pdf) -->
+Apr, 2026. Invited Talk at [SUNY Albany](https://albanymath.github.io/adss/AnalysisSeminar2026April28.pdf)
 
 Mar, 2026. Invited Area Chair for [NeurIPS 2026](https://neurips.cc/).
 
