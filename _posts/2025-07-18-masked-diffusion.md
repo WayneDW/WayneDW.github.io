@@ -42,7 +42,7 @@ $$\begin{align}
 \mathrm{= \frac{\mathbf{p}(x_t \mid x_s) \mathbf{p}(x_s \mid x_0)}{\mathbf{p}(x_t \mid x_0)}
 =\mathrm{Cat(x_s; \bar{R}^{x_0}(t, s)^\top x_t)} = \Bigg\{
 \begin{array}{ll}
-\mathrm{\frac{(1-\alpha_s)x_s^\intercal m + (\alpha_s - \alpha_t)(1-x_s^\intercal m) x_s^\intercal x_0}{1 - \alpha_t}} & \small{\mathrm{x_t = m}} \label{reverse_transition} \\
+\mathrm{\frac{(1-\alpha_s)x_s^\intercal m + (\alpha_s - \alpha_t) x_s^\intercal x_0}{1 - \alpha_t}} & \small{\mathrm{x_t = m}} \label{reverse_transition} \\
 % \mathrm{\frac{1 - \alpha_s}{1 - \alpha_t}} & \small{\mathrm{x_s = m,\, x_t = m}} \\
 \mathrm{x_s^\top x_t} & \small{\mathrm{x_t \ne m}},
 \end{array}}
