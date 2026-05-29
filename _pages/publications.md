@@ -12,6 +12,7 @@ author_profile: true
 
 ### Diffusion (Language) Models
 
+* W. Wang, Y. Yang, **W. Deng**, Pan Xu. [Inference-Time Alignment of Diffusion Models via Trust-Region Iterative Twisted Sequential Monte Carlo](https://arxiv.org/abs/2605.25123). 2026
 
 * L. Wang, Z. Wang, Y. Bai, **W. Deng**, G. Lin, Q. Song. [Generalized Discrete Diffusion with Self-Correction](https://arxiv.org/pdf/2603.02230). ICML'26
 

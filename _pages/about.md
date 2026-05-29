@@ -39,6 +39,9 @@ Contact me at: firstnamelastname056@gmail.com. Also looking for tennis enthusias
   <li><a href="https://www.weideng.org/pairs/" target="_blank" class="deep-blue">.</a></li>
 </ul>
 
+🔥 Welcome! [Trust-Region Iterative Twisted SMC](https://arxiv.org/pdf/2605.25123) — Inference-Time Alignment of Diffusion Models. 
+
+
 🔥 Welcome! [Self-Correcting Discrete Diffusion](https://arxiv.org/pdf/2603.02230) — Faster parallel decoding w/o remasks. ICML'26
 
 
