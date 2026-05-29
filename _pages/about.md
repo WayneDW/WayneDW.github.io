@@ -39,7 +39,7 @@ Contact me at: firstnamelastname056@gmail.com. Also looking for tennis enthusias
   <li><a href="https://www.weideng.org/pairs/" target="_blank" class="deep-blue">.</a></li>
 </ul>
 
-🔥 Welcome! [Diffusion Alignment via Twisted SMC](https://arxiv.org/pdf/2605.25123) — Iteratively updating the twisting policy within a trust region.
+🔥 Welcome! [Diffusion Alignment via Twisted SMC](https://arxiv.org/pdf/2605.25123) — Trust-region updates for twisting policies
 
 
 🔥 Welcome! [Self-Correcting Discrete Diffusion](https://arxiv.org/pdf/2603.02230) — Faster parallel decoding w/o remasks. ICML'26
