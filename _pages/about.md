@@ -42,7 +42,7 @@ Contact me at: firstnamelastname056@gmail.com. Also looking for tennis enthusias
 🔥 Welcome! [Diffusion Alignment via Twisted SMC](https://arxiv.org/pdf/2605.25123) — Trust-region updates for twisting policy
 
 
-🔥 Welcome! [Self-Correcting Discrete Diffusion](https://arxiv.org/pdf/2603.02230) — A clean multi-step BERT w/o remasks. ICML'26
+🔥 Welcome! [Self-Correcting Discrete Diffusion](https://arxiv.org/pdf/2603.02230) — A clean multi-step BERT w/o remasks. ICML'26 [\[Link\]](https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/)
 
 
 🔥 Welcome! [Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554) — dLLM reasoning in math and coding. ICLR'26 [\[Link\]](https://gdpo.github.io/)

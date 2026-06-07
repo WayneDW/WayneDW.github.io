@@ -14,7 +14,7 @@ author_profile: true
 
 * W. Wang, Y. Yang, **W. Deng**, Pan Xu. [Inference-Time Alignment of Diffusion Models via Trust-Region Iterative Twisted Sequential Monte Carlo](https://arxiv.org/pdf/2605.25123). 2026
 
-* L. Wang, Z. Wang, Y. Bai, **W. Deng**, G. Lin, Q. Song. [Generalized Discrete Diffusion with Self-Correction](https://arxiv.org/pdf/2603.02230). ICML'26
+* L. Wang, Z. Wang, Y. Bai, **W. Deng**, G. Lin, Q. Song. [Generalized Discrete Diffusion with Self-Correction](https://arxiv.org/pdf/2603.02230). ICML'26 [\[Link\]](https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/)
 
 * K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, **W. Deng**. [Improving Reasoning for Diffusion Language Models via Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554). ICLR 2026 [\[Link\]](https://gdpo.github.io/)
 
