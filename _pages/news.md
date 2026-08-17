@@ -8,6 +8,7 @@ author_profile: true
 
 <!-- Apr, 2025. -->
 
+Aug, 2026. Invited Area Chair for [ICLR 2027](https://iclr.cc/).
 
 
 Apr, 2026. Invited Talk at [SUNY Albany](https://albanymath.github.io/adss/AnalysisSeminar2026April28.pdf) hosted by [P. Yin](https://yin-penghang.github.io/)
