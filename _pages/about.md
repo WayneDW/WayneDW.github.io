@@ -38,6 +38,7 @@ Contact me at: firstnamelastname056@gmail.com. Also looking for tennis enthusias
   <li><a href="https://openreview.net/profile?id=~Wei_Deng1" target="_blank" class="deep-blue">OpenReview</a></li>
 </ul>
 
+<!--
 🔥 Welcome! [Diffusion Alignment via Twisted SMC](https://arxiv.org/pdf/2605.25123) — Trust-region updates for twisting policy
 
 
@@ -47,7 +48,7 @@ Contact me at: firstnamelastname056@gmail.com. Also looking for tennis enthusias
 🔥 Welcome! [Group Diffusion Policy Optimization](https://arxiv.org/pdf/2510.08554) — dLLM reasoning in math and coding. ICLR'26 [\[Link\]](https://gdpo.github.io/)
 
 
-🔥 Welcome! [Ultra-Fast Language Generation](https://www.arxiv.org/pdf/2509.25035) — 60× faster than GPT-2, same quality. ICLR'26 [\[X\]](https://x.com/jiqizhixin/status/1984549725471691216)
+🔥 Welcome! [Ultra-Fast Language Generation](https://www.arxiv.org/pdf/2509.25035) — 60× faster than GPT-2, same quality. ICLR'26 [\[X\]](https://x.com/jiqizhixin/status/1984549725471691216)  -->
 
 
 
