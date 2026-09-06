@@ -9,7 +9,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v3.gif"></p>
 
 
-The blogger is focusing on exploratory sampling, latent reasoning, and agents (coding+alpha) in LLMs. He also shares ideas he finds insightful and provides updates on his own work.
+The blogger is focusing on exploratory sampling, latent reasoning, and agents (coding+alpha) in LLMs. He also shares ideas he finds insightful and provides updates on his own work. His recent works include discrete diffusion ([GDPO](https://gdpo.github.io/), [Didi Instruct](https://haoyangzheng.github.io/research/didi-instruct/), [SCDD](https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/)), continuous diffusion ([VSDM](https://arxiv.org/pdf/2405.04795), [VSMD](https://arxiv.org/pdf/2501.16675), [SB-TS](https://arxiv.org/pdf/2305.07247)), multi-modal samplers ([DeepPT](https://arxiv.org/pdf/2008.05367) and [Contour Samplers](https://arxiv.org/pdf/2010.09800)).
 
 <!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
