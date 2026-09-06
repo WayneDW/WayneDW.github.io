@@ -9,7 +9,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v3.gif"></p>
 
 
-The blogger is focusing on exploratory sampling, latent reasoning, and agents (coding+alpha) in LLMs. He also shares ideas he finds insightful and provides updates on his own work. His recent works include discrete diffusion (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>,
+The blogger is an ML researcher at Morgan Stanley, working on ML-driven options trading and hedging. His research focuses on exploratory sampling and latent reasoning for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work. His research focusing on exploratory sampling, latent reasoning, and agents (coding+alpha) in LLMs. He also shares ideas he finds insightful and provides updates on his own work. His recent works include discrete diffusion (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>,
 <a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>,
 <a href="https://haoyangzheng.github.io/research/didi-instruct/" style="color: #1a4b8b;">DiDi Instruct</a>), continuous diffusion (<a href="https://arxiv.org/pdf/2405.04795" style="color: #1a4b8b;">VSDM</a>,
 <a href="https://arxiv.org/pdf/2501.16675" style="color: #1a4b8b;">VSMD</a>,
