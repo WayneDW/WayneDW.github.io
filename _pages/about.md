@@ -9,7 +9,7 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v3.gif"></p>
 
 
-The blogger is an ML researcher at Morgan Stanley, working on ML-driven options trading and hedging. His research focuses on exploratory sampling and latent reasoning for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work. 
+The blogger is an ML researcher at Morgan Stanley, applying transformer models to options trading and hedging. His research focuses on exploratory sampling and latent reasoning for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work. 
 
 His recent works include reasoning (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>), test-time alignment (<a href="https://arxiv.org/pdf/2605.25123" style="color: #1a4b8b;">TRI-TSMC</a>), discrete diffusion (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>,
 <a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>,
