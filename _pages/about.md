@@ -10,7 +10,7 @@ author_profile: true
 
 
 The blogger is focusing on exploratory sampling, latent reasoning, and agents (coding+alpha) in LLMs. He also shares ideas he finds insightful and provides updates on his own work. His recent works include discrete diffusion (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>,
-<a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>),
+<a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>,
 <a href="https://haoyangzheng.github.io/research/didi-instruct/" style="color: #1a4b8b;">Didi Instruct</a>), continuous diffusion (<a href="https://arxiv.org/pdf/2405.04795" style="color: #1a4b8b;">VSDM</a>,
 <a href="https://arxiv.org/pdf/2501.16675" style="color: #1a4b8b;">VSMD</a>,
 <a href="https://arxiv.org/pdf/2305.07247" style="color: #1a4b8b;">SB-TS</a>), multi-modal samplers (<a href="https://arxiv.org/pdf/2008.05367" style="color: #1a4b8b;">DeepPT</a>, <a href="https://arxiv.org/pdf/2010.09800" style="color: #1a4b8b;">Contour Samplers</a>).
