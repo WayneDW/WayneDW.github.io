@@ -8,6 +8,8 @@ author_profile: true
 
 <!-- Apr, 2025. -->
 
+Aug, 2026. [SCDD](https://arxiv.org/pdf/2603.02230) was merged into NVIDIA's [Automodel](https://github.com/NVIDIA-NeMo/Automodel/blob/main/docs/guides/dllm/finetune.mdx)'s model classes.
+
 Aug, 2026. Invited Area Chair for [ICLR 2027](https://iclr.cc/).
 
 
