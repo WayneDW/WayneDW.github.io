@@ -9,14 +9,15 @@ author_profile: true
 <p align="center"> <img class="img-circle img-200" width="100%" src="images/scatter_v3.gif"></p>
 
 
-The blogger is an ML researcher at Morgan Stanley, dedicated to transformer-based options trading and hedging. His research focuses on exploratory sampling and latent reasoning for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work. 
+<!---   The blogger is dedicated to transformer-based options trading and hedging.  -->
+
+The blogger is interested in exploratory sampling and latent reasoning for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work. 
 
 His recent works include mdm reasoning (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>), test-time alignment (<a href="https://arxiv.org/pdf/2605.25123" style="color: #1a4b8b;">TRI-TSMC</a>), discrete diffusion (<a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>,
 <a href="https://haoyangzheng.github.io/research/didi-instruct/" style="color: #1a4b8b;">DiDi Instruct</a>), continuous diffusion (<a href="https://arxiv.org/pdf/2405.04795" style="color: #1a4b8b;">VSDM</a>,
-<a href="https://arxiv.org/pdf/2305.07247" style="color: #1a4b8b;">SB-TS</a>), and sampling (<a href="https://arxiv.org/pdf/2008.05367" style="color: #1a4b8b;">DeepPT</a>, <a href="https://arxiv.org/pdf/2010.09800" style="color: #1a4b8b;">Contour</a>). He earned his Ph.D. in 2021 from Purdue and previously worked at Baidu 12-15.
+<a href="https://arxiv.org/pdf/2305.07247" style="color: #1a4b8b;">SB-TS</a>), and sampling (<a href="https://arxiv.org/pdf/2008.05367" style="color: #1a4b8b;">DeepPT</a>, <a href="https://arxiv.org/pdf/2010.09800" style="color: #1a4b8b;">Contour</a>). 
 
-
-<!---  I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
+<!--- He earned his Ph.D. in 2021 from Purdue and previously worked at Baidu 12-15. I actively contribute to open-source projects such as [Contour Sampler in JAX](https://github.com/blackjax-devs/blackjax) and [NLP in Finance](https://github.com/WayneDW/Sentiment-Analysis-in-Event-Driven-Stock-Price-Movement-Prediction). -->
 
 <!---  I got my Ph.D. in applied math at Purdue University in Dec 2021 and my thesis is <a href="https://hammer.purdue.edu/articles/thesis/Non-convex_Bayesian_Learning_via_Stochastic_Gradient_Markov_Chain_Monte_Carlo/17161718" target="">Non-convex Bayesian Learning via Stochastic Gradient MCMC</a>. 
 
