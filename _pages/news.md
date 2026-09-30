@@ -8,7 +8,7 @@ author_profile: true
 
 <!-- Apr, 2025. -->
 
-Sep, 2026. Congrats to [Haoyang](https://haoyangzheng.github.io/), a student co-mentored by Dr.Lin and me, on receiving an RS offer from Google AI!
+Sep, 2026. Congrats to [Haoyang](https://haoyangzheng.github.io/), co-mentored with Lin, on the Google AI RS offer!
 
 Sep, 2026. 🔥 [PPT](https://arxiv.org/pdf/2609.38104) — A 9B model can be comparable to GPT5/ Opus 4.5/ GLM4.7.
 
