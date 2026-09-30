@@ -23,7 +23,7 @@ His recent works include mdm reasoning (<a href="https://gdpo.github.io/" style=
 
 Interns I (* directly) work with: [Shikai Fang\*](https://users.cs.utah.edu/~shikai/), [Yixin Tan\*](https://scholar.google.com/citations?user=3AGaybIAAAAJ&hl=zh-CN), [Kevin Rojas\*](https://kevinrojas1499.github.io/), [Marin Biloš](https://scholar.google.com/citations?user=2WDzslAAAAAJ&hl=en), [Sarthak Mittal](https://sarthmit.github.io/).  -->
 
-🔥 Welcome! [Explore Broadly, Reason Sharply](https://arxiv.org/pdf/2609.38104) — A 9B model can be comparable to GPT5/ Opus 4.5/ GLM4.7.
+🔥 Welcome! [Parallel Power Tempering](https://arxiv.org/pdf/2609.38104) — A 9B model can be comparable to GPT5/ Opus 4.5/ GLM4.7.
 
 
 
