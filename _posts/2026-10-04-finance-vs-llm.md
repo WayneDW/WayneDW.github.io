@@ -32,12 +32,14 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
 }
 .similarity-table th:first-child,
 .similarity-table td:first-child {
-  width: 1%;
-  max-width: 7.5rem;
-  padding-left: 0.65rem;
-  padding-right: 0.65rem;
+  width: 5.5rem;
+  max-width: 5.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   font-weight: 600;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
   background: #f6f8fa;
 }
 .similarity-table th:not(:first-child),
@@ -85,7 +87,7 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
   <tbody>
     <tr>
       <td>Simulator</td>
-      <td>Options: Heston, etc; HFT/ market making: order book/ flow, queue dynamics.</td>
+      <td>Options: Heston, local vol; HFT/ market making: order book/ flow, queue dynamics.</td>
       <td>A pretrained language model generates possible future token sequences.</td>
     </tr>
     <tr>
