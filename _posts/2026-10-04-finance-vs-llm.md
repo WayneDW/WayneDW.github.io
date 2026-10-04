@@ -113,6 +113,11 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
       <td>Control tail risk through stress tests, risk limits, and drawdown constraints.</td>
       <td>Control harmful behavior through evaluations, guardrails, and monitoring.</td>
     </tr>
+    <tr>
+      <td>Data</td>
+      <td>Massive market data, but rare regimes and high-value signals remain scarce.</td>
+      <td>Massive training data, but rare, specialized, and high-quality data remain scarce.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -151,11 +156,6 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
       <td>Applications</td>
       <td>Pricing, trading, hedging, and risk management</td>
       <td>Reasoning, coding, and personal AI</td>
-    </tr>
-    <tr>
-      <td>Data Scale</td>
-      <td>Limited and noisy financial data; rare regimes and crises are especially scarce</td>
-      <td>Massive datasets, but rare, specialized, and high-quality data remain scarce. </td>
     </tr>
   </tbody>
 </table>
