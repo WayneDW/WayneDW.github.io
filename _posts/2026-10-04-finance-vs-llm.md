@@ -8,6 +8,13 @@ category: Ideas
 
 As a practitioner in finance, who is also an active researcher in large language models (LLMs), I've found that finance and LLMs are closely intertwined. In a sense, the finance system can be seen as a latent large language models in the following aspects: 
 
+#### Key Similarity
+
+| Option Pricing | LLMs |
+| --- | --- |
+| A stochastic market simulator generates possible future price paths. | A pretrained language model generates possible future token sequences. |
+| Monte Carlo samples many possible market trajectories. | Inference / rollout samples many possible reasoning trajectories. |
+| A payoff function assigns value to each simulated path. | A reward or verifier assigns value to each generated trajectory. |
 
 ---
 
