@@ -1,7 +1,7 @@
 ---
 title: 'Recurrent Transformers'
 subtitle: TBD
-date: 2026-10-01
+date: 2030-10-01
 permalink: /posts/recurrent_transformers/
 category: Transformer
 ---
