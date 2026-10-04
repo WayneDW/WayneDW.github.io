@@ -32,8 +32,8 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
 }
 .similarity-table th:first-child,
 .similarity-table td:first-child {
-  width: 5.5rem;
-  max-width: 5.5rem;
+  width: 6rem;
+  max-width: 6rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   font-weight: 600;
