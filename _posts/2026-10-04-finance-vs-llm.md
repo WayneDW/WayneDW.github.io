@@ -1,6 +1,6 @@
 ---
 title: 'Finance and LLMs'
-subtitle: What They Can Learn from Each Other
+subtitle: What they can learn from each other
 date: 2026-10-04
 permalink: /posts/finance_llms/
 category: Ideas
