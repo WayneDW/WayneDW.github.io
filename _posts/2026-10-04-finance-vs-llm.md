@@ -1,8 +1,8 @@
 ---
-title: 'Finance is a Latent LLM'
-subtitle: How market simulators connect to LLMs
-date: 2026-12-28
-permalink: /posts/finance_llms/
+title: 'Option Pricing and LLMs'
+subtitle: What They Can Learn from Each Other
+date: 2026-10-04
+permalink: /posts/option_pricing_llms/
 category: Ideas
 ---
 
