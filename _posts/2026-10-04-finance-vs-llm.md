@@ -136,18 +136,18 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
   <tbody>
     <tr>
       <td>Dimensionality</td>
-      <td>Traditionally low- to medium-dimensional; increasingly high-dimensional</td>
+      <td>Traditionally low- to medium-dimensional.</td>
       <td>Extremely high-dimensional</td>
     </tr>
     <tr>
       <td>State space</td>
-      <td>Continuous in option pricing; discrete / event-driven in HFT</td>
+      <td>Continuous in option; discrete / event-driven in HFT.</td>
       <td>Discrete token space</td>
     </tr>
     <tr>
       <td>Dynamics</td>
-      <td>Stochastic price dynamics or discrete market events</td>
-      <td>Discrete autoregressive sampling</td>
+      <td>Stochastic price dynamics or discrete market events.</td>
+      <td>Discrete autoregressive</td>
     </tr>
     <!-- <tr>
       <td>Methods</td>
@@ -164,8 +164,6 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
 
 
 ### What They Can Learn from Each Other
-
-These similarities and differences suggest that the two fields can learn from each other.
 
 Finance can learn from LLMs by moving beyond individually calibrated, low-dimensional models toward high-dimensional, multimodal market simulators learned jointly across assets, signals, and market states.
 
