@@ -102,7 +102,7 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
     </tr>
     <tr>
       <td>Scale & Infra</td>
-      <td>Options: pricing speed, Greeks, etc / HFT: latency, networking, co-location.</td>
+      <td>Options: pricing speed, Greeks, etc; HFT: latency, networking, co-location.</td>
       <td>Inference: throughput, bandwidth, parallelism, serving.</td>
     </tr>
     <tr>
