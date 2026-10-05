@@ -10,7 +10,7 @@ author_profile: true
 
 <!-- Sep, 2026. Congrats to [Haoyang](https://haoyangzheng.github.io/), co-mentored with [Dr.Lin](https://scholar.google.com/citations?user=7lWVV2IAAAAJ&hl=en), on the Google AI Research Scientist offer! -->
 
-Sep, 2026. 🔥 [PPT](https://arxiv.org/pdf/2609.38104) — A 9B model can be comparable to GPT5/ Opus 4.5/ GLM4.7.
+Sep, 2026. 🔥 [PPT](https://arxiv.org/pdf/2609.38104) — 9B model ≈ GPT5/ Opus 4.5, no post-train, free on local desktop
 
 
 Aug, 2026. [SCDD](https://arxiv.org/pdf/2603.02230) was merged into NVIDIA's [Automodel](https://github.com/NVIDIA-NeMo/Automodel/blob/main/docs/guides/dllm/finetune.mdx)'s model classes.
