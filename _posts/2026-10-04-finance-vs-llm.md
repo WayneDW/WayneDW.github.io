@@ -101,6 +101,11 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
       <td>A reward or verifier assigns value to each generated trajectory.</td>
     </tr>
     <tr>
+      <td>Correlation</td>
+      <td>Asset correlations help manage risk and detect mispricing.</td>
+      <td>Attention captures relationships between tokens to identify relevant information.</td>
+    </tr>
+    <tr>
       <td>Scale & Infra</td>
       <td>Options: pricing speed, Greeks, etc; HFT: latency, networking, co-location.</td>
       <td>Inference: throughput, bandwidth, parallelism, serving.</td>
