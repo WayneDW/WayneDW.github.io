@@ -87,7 +87,7 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
   <tbody>
     <tr>
       <td>Simulator</td>
-      <td>Options: Heston, local vol; HFT/ market making: order book/ flow, queue dynamics.</td>
+      <td>Options: Heston, local vol, VolGAN; HFT/ market making: order book/ flow, queue dynamics.</td>
       <td>A pretrained language model generates possible future token sequences.</td>
     </tr>
     <tr>
