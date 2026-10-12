@@ -112,7 +112,7 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
     </tr>
     <tr>
       <td>Correlation</td>
-      <td>Manage asset risk and detect mispricing.</td>
+      <td>Asset diversification.</td>
       <td>Attention is all you need.</td>
     </tr>
     <tr>
