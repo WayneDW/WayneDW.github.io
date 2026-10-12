@@ -101,6 +101,16 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
       <td>A reward or verifier assigns value to each generated trajectory.</td>
     </tr>
     <tr>
+      <td>Data</td>
+      <td>Massive market data, but rare regimes and high-value signals remain scarce.</td>
+      <td>Massive training data, but specialized, high-quality data remain scarce.</td>
+    </tr>
+    <tr>
+      <td>Empirical Laws</td>
+      <td>Alpha and beta.</td>
+      <td>Scaling laws guide compute and data allocation.</td>
+    </tr>
+    <tr>
       <td>Correlation</td>
       <td>Manage asset risk and detect mispricing.</td>
       <td>Attention is all you need.</td>
@@ -111,24 +121,14 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
       <td>Loops refine hidden states for reasoning.</td>
     </tr>
     <tr>
-      <td>Scale & Infra</td>
-      <td>Options: pricing speed, Greeks, etc; HFT: latency, networking, co-location.</td>
-      <td>Inference: throughput, bandwidth, parallelism, serving.</td>
-    </tr>
-    <tr>
-      <td>Resource Allocation</td>
-      <td>Expected return, risk, alpha, and correlations guide capital allocation.</td>
-      <td>Scaling laws guide compute, data, and model-size allocation.</td>
-    </tr>
-    <tr>
       <td>Safety</td>
       <td>Control tail risk through stress tests, risk limits, and drawdown constraints.</td>
       <td>Control harmful behavior through evaluations, guardrails, and monitoring.</td>
     </tr>
     <tr>
-      <td>Data</td>
-      <td>Massive market data, but rare regimes and high-value signals remain scarce.</td>
-      <td>Massive training data, but specialized, high-quality data remain scarce.</td>
+      <td>Scale & Infra</td>
+      <td>Options: pricing speed, Greeks, etc; HFT: latency, networking, co-location.</td>
+      <td>Inference: throughput, bandwidth, parallelism, serving.</td>
     </tr>
   </tbody>
 </table>
