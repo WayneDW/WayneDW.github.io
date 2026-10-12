@@ -102,8 +102,13 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
     </tr>
     <tr>
       <td>Correlation</td>
-      <td>Asset correlations help manage risk and detect mispricing.</td>
-      <td>Attention captures relationships between tokens to identify relevant information.</td>
+      <td>Manage asset risk and detect mispricing.</td>
+      <td>Attention is all you need.</td>
+    </tr>
+    <tr>
+      <td>Residual</td>
+      <td>Signals unexplained by factors.</td>
+      <td>Loops refine hidden states for reasoning.</td>
     </tr>
     <tr>
       <td>Scale & Infra</td>
@@ -123,7 +128,7 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
     <tr>
       <td>Data</td>
       <td>Massive market data, but rare regimes and high-value signals remain scarce.</td>
-      <td>Massive training data, but rare, specialized, and high-quality data remain scarce.</td>
+      <td>Massive training data, but specialized, high-quality data remain scarce.</td>
     </tr>
   </tbody>
 </table>
