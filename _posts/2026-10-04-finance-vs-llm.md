@@ -106,9 +106,9 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
       <td>Massive training data, but specialized, high-quality data remain scarce.</td>
     </tr>
     <tr>
-      <td>Empirical Laws</td>
+      <td>Scaling Laws</td>
       <td>Alpha and beta.</td>
-      <td>Scaling laws guide compute and data allocation.</td>
+      <td>Compute, model, and data allocation.</td>
     </tr>
     <tr>
       <td>Correlation</td>
