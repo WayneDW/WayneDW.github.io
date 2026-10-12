@@ -107,8 +107,8 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
     </tr>
     <tr>
       <td>Scaling Laws</td>
-      <td>Alpha and beta.</td>
-      <td>Compute, model, and data allocation.</td>
+      <td>Excess Return vs market, size, value. </td>
+      <td>Intelligence vs compute, model size, data.</td>
     </tr>
     <tr>
       <td>Correlation</td>
