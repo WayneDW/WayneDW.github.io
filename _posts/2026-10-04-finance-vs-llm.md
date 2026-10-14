@@ -107,7 +107,7 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
     </tr>
     <tr>
       <td>Scaling Laws</td>
-      <td>Excess Return: market, size, value.</td>
+      <td>Excess Return: market, size, value, etc.</td>
       <td>Intelligence: compute, model size, data.</td>
     </tr>
     <tr>
