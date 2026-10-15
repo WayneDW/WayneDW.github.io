@@ -187,6 +187,10 @@ In short, LLMs can help finance model a larger world, while finance can help LLM
 Thanks to ChatGPT for helping refine the ideas and wording in this post.
 
 
+### Citation
+
+{% raw %}
+```bibtex
 @misc{deng2026_finance_LLM,
   title   ={{Finance Meets LLMs}},
   author  ={Wei Deng},
@@ -194,6 +198,8 @@ Thanks to ChatGPT for helping refine the ideas and wording in this post.
   year    ={2026},
   howpublished = {\url{https://www.weideng.org/posts/finance_llms/}}
 }
+```
+{% endraw %}
 
 <!-- 
 ---
