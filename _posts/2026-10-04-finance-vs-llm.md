@@ -1,5 +1,5 @@
 ---
-title: 'Finance and LLMs'
+title: 'Finance Meets LLMs'
 subtitle: What they can learn from each other
 date: 2026-10-04
 permalink: /posts/finance_llms/
@@ -32,8 +32,8 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
 }
 .similarity-table th:first-child,
 .similarity-table td:first-child {
-  width: 6rem;
-  max-width: 6rem;
+  width: 5.2rem;
+  max-width: 5.2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   font-weight: 600;
@@ -122,8 +122,8 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
     </tr>
     <tr>
       <td>Safety</td>
-      <td>Control tail risk through stress tests, risk limits, and drawdown constraints.</td>
-      <td>Control harmful behavior through evaluations, guardrails, and monitoring.</td>
+      <td>Control tail risk through stress tests and risk limits.</td>
+      <td>Control harmful behavior.</td>
     </tr>
     <tr>
       <td>Scale & Infra</td>
@@ -145,7 +145,7 @@ As a finance practitioner, and also an active researcher in LLMs, I’ve found m
   </thead>
   <tbody>
     <tr>
-      <td>Dimensionality</td>
+      <td>Dimension</td>
       <td>Traditionally low- to medium-dimensional.</td>
       <td>Extremely high-dimensional</td>
     </tr>
@@ -185,6 +185,15 @@ In short, LLMs can help finance model a larger world, while finance can help LLM
 #### Acknowledgment
 
 Thanks to ChatGPT for helping refine the ideas and wording in this post.
+
+
+@misc{deng2026_finance_LLM,
+  title   ={{Finance Meets LLMs}},
+  author  ={Wei Deng},
+  journal ={waynedw.github.io},
+  year    ={2026},
+  howpublished = {\url{https://www.weideng.org/posts/finance_llms/}}
+}
 
 <!-- 
 ---
