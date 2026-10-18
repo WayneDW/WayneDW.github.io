@@ -135,7 +135,7 @@ An alternative of numerical feature based on $\mathrm{\sqrt{2}cos(wx+b)}$, where
 @misc{deng2024_rff,
   title   ={{Random Fourier Features}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2024},
   howpublished = {\url{https://www.weideng.org/posts/rff/}}
 }

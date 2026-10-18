@@ -124,7 +124,7 @@ The term $\mathrm{g_j   - E[g]}$ denotes the advantage function of choosing toke
 @misc{deng2025ot_attention,
   title   ={{Attention = Optimal Transport? Yes.}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2025},
   howpublished = {\url{https://www.weideng.org/posts/attention_ot/}}
 }

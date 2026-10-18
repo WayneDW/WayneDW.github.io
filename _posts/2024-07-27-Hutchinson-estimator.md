@@ -76,7 +76,7 @@ The nice computational properties are suggested by {% cite race_est %} to make t
 @misc{deng2024_hutchinson,
   title   ={{Hutchinson Estimator, Explained}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2024},
   howpublished = {\url{https://www.weideng.org/posts/hutchinson_est/}}
 }

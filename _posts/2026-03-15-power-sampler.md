@@ -119,7 +119,7 @@ The following shows the impact of $\mathrm{\alpha, N_{\text{MCMC}}}$ where $\mat
 @misc{deng2026_power,
   title   ={{Power Sampling in LLMs}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2026},
   howpublished = {\url{https://www.weideng.org/posts/power_samplers/}}
 }

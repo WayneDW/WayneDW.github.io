@@ -162,7 +162,7 @@ Big thanks to my friend Jiang Nan for helping build this website!
 @misc{deng2023_flow_diffusion_pde,
   title   ={{The Triangle of Flow, Diffusion, and PDE}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2023},
   howpublished = {\url{https://www.weideng.org/posts/flow_diffusion/}}
 }

@@ -257,7 +257,7 @@ Discrete flow model
 @misc{deng2025_dllm,
   title   ={{Discrete Diffusion Models: The Modern BERT}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2025},
   howpublished = {\url{https://www.weideng.org/posts/dLLM/}}
 }

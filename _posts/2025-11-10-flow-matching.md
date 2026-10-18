@@ -295,7 +295,7 @@ $$
 @misc{deng2025flowmatching,
   title   ={{Flow Matching: A Minimal Guide}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2025},
   howpublished = {\url{https://www.weideng.org/posts/flow_matching/}}
 }

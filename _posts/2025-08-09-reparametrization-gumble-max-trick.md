@@ -93,7 +93,7 @@ Despite its simplicity and the absence of high-variance gradients, Gumbel–Soft
 @misc{deng2025_preparmetrization_tricks,
   title   ={{Generalized Reparametrization Tricks}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2025},
   howpublished = {\url{https://www.weideng.org/posts/reparamet_tricks/}}
 }

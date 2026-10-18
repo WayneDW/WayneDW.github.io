@@ -124,7 +124,7 @@ For the details, we refer interested readers to the study in {% cite fit_without
 @misc{deng2024_implicit_ridge,
   title   ={{Implicit Ridge Regularization}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2024},
   howpublished = {\url{https://www.weideng.org/posts/implicit_ridge/}}
 }

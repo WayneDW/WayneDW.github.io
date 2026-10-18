@@ -208,7 +208,7 @@ Properly tuning the number of leapfrog steps is important for maximizing the con
 @misc{deng2021_hmc,
   title   ={{Understanding Hamiltonian Monte Caro}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2021},
   howpublished = {\url{https://www.weideng.org/posts/hmc/}}
 }

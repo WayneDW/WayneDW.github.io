@@ -84,7 +84,7 @@ muse -->
 @misc{deng2025_generative_transformer,
   title   ={{Generative Transformer with Enigmatic Orders}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2025},
   howpublished = {\url{https://www.weideng.org/posts/generative_transformer/}}
 }

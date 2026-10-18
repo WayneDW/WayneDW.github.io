@@ -194,7 +194,7 @@ Thanks to ChatGPT for helping refine the ideas and wording in this post.
 @misc{deng2026_finance_LLM,
   title   ={{Finance Meets LLMs}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2026},
   howpublished = {\url{https://www.weideng.org/posts/finance_llms/}}
 }

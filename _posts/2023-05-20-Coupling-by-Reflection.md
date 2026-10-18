@@ -109,7 +109,7 @@ $\mathrm{-\mathbb{I}\_{[\\|X_t-Y_t\\|< R]} L{\\|X_t-Y_t\\|^2}\leq \langle U(X_t)
 @misc{deng2023_coupling_reflection,
   title   ={{Coupling by Reflection (II)}},
   author  ={Wei Deng},
-  journal ={waynedw.github.io},
+  journal ={A Sampler's Blog},
   year    ={2023},
   howpublished = {\url{https://www.weideng.org/posts/coupling2/}}
 }
