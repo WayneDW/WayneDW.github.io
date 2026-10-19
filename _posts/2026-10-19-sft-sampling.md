@@ -31,7 +31,7 @@ Interestingly, this optimization problem has a simple solution:
 {\sum_{x'}p(x')\mathbf 1[x'\in\mathcal C]}.
 }
 $$
-
+<!-- 
 In other words, the optimal training distribution is simply the base model distribution conditioned on preserving the expert information.
 
 To see this, denote $Z=p(\mathcal C)$. For any distribution $\pi$ supported on $\mathcal C$,
@@ -197,7 +197,7 @@ An interesting open question is whether expert-conditioned suffix proposals can 
 
 Nevertheless, the results suggest a promising perspective: sampling can be used not only to improve inference, but also to transform training data into a distribution that is easier for a model to learn.
 
-
+ -->
 
 <br><br><br>
 
