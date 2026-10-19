@@ -1,7 +1,7 @@
 ---
 title: 'Finetuning with Sampling'
 subtitle: How MCMC turns off-policy expert demonstrations into on-policy training data
-date: 2026-03-15
+date: 2026-10-19
 permalink: /posts/sft-sampling/
 category: Sampling
 ---
