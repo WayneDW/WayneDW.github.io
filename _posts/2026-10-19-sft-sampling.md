@@ -1,6 +1,6 @@
 ---
 title: 'Finetuning with Sampling'
-subtitle: How MCMC turns off-policy expert demonstrations into on-policy training data
+subtitle: How MCMC turns off-policy expert demos into on-policy training data
 date: 2026-10-19
 permalink: /posts/sft-sampling/
 category: Sampling
@@ -11,15 +11,14 @@ Supervised Fine-Tuning (SFT) is widely used to teach LLMs new knowledge and reas
 
 A natural question is: Can we combine the expert knowledge available to SFT with the on-policy advantages of RL?
 
-In Finetuning with Sampling: SFT Learns Better Than You Think, Karan et al. propose a simple recipe: rather than directly training on off-policy expert demonstrations, sample new training trajectories that preserve expert knowledge while remaining close to the base model's distribution.
+In Finetuning with Sampling: SFT Learns Better Than You Think, {% cite karan2026reasoning %} propose a simple recipe: rather than directly training on off-policy expert demonstrations, sample new training trajectories that preserve expert knowledge while remaining close to the base model's distribution.
 
 On-Policy vs. Off-Policy Data
 
 Given an expert dataset $$\mathcal D$$, standard SFT minimizes
 
--\mathbb E_{(q,x)\sim\mathcal D}
-\left[\log p_\theta(x\mid q)\right].
-$$
+
+$$-\mathbb E_{(q,x)\sim\mathcal D}\left[\log p_\theta(x\mid q)\right].$$
 
 However, expert trajectories may have very low likelihood under the base model. Learning from these off-policy demonstrations can require substantial changes to the model's distribution, potentially causing catastrophic forgetting.
 
@@ -33,42 +32,26 @@ Let $$\mathrm{p(x)}$$ denote the base model distribution over trajectories for a
 
 Ideally, we want to sample trajectories that satisfy the correctness constraints while remaining as close as possible to the base model:
 
-\arg\min_{\pi:,\operatorname{supp}(\pi)\subseteq C}
-D_{\mathrm{KL}}(\pi|p).
-}
-}
-$$
+$$\arg\min_{\pi:,\operatorname{supp}(\pi)\subseteq C}
+D_{\mathrm{KL}}(\pi|p).$$
 
 Interestingly, the optimal distribution has a simple closed-form solution:
 
-\frac{p(x)\mathbf{1}[x\in C]}
-{\sum_{x'}p(x')\mathbf{1}[x'\in C]}.
-}
-}
+$$
+\frac{p(x)\mathbf{1}[x\in C]}{\sum_{x'}p(x')\mathbf{1}[x'\in C]}.
 $$
 
 In other words, the ideal training distribution is the base model distribution conditioned on generating correct, information-preserving solutions.
 
 Consider a simple example where the base model assigns probabilities
 
-$$
-\mathrm{
-p(a)=0.02,\quad p(b)=0.06,\quad
-p(c)=0.12,\quad p(d)=0.80,
-}
-$$
+$$\mathrm{p(a)=0.02,\quad p(b)=0.06,\quad p(c)=0.12,\quad p(d)=0.80,}$$
 
 where $$\mathrm{a,b,c}$$ are correct trajectories and $$\mathrm{d}$$ is incorrect.
 
 Conditioning on correctness gives
 
-$$
-\mathrm{
-p_C(a)=0.1,\quad
-p_C(b)=0.3,\quad
-p_C(c)=0.6.
-}
-$$
+$$\mathrm{p_C(a)=0.1,\quad p_C(b)=0.3,\quad p_C(c)=0.6.}$$
 
 Instead of directly imitating an arbitrary expert trajectory, the projected distribution favors correct trajectories that are already more natural for the base model.
 
