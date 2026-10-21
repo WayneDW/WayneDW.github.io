@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "A Sampler’s Blog: Every Sample Has a Role to Play."
+title: "A Sampler’s Blog."
 excerpt: "what is this?"
 author_profile: true
 ---
@@ -13,8 +13,7 @@ author_profile: true
 
 <!---   The blogger is interested in inference-time reasoning and agents for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work.--> 
 
-The blogger designs principled sampling algorithms that harness the complementary strengths of diverse samples to unlock stronger reasoning and more capable agents through deeper, more effective computation.
-
+The blogger designs principled sampling algorithms that harness the complementary strengths of diverse samples to enable stronger reasoning and more capable agents. After all, every sample has a role to play.
 
 
 His recent works include mdm reasoning (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>), test-time alignment (<a href="https://arxiv.org/pdf/2605.25123" style="color: #1a4b8b;">TRI-TSMC</a>), discrete diffusion (<a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>,
