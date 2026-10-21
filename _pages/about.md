@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "A Sampler’s Blog"
+title: "A Sampler’s Blog: Every Sample Has a Role to Play."
 excerpt: "what is this?"
 author_profile: true
 ---
@@ -11,7 +11,11 @@ author_profile: true
 
 <!---   The blogger is dedicated to transformer-based options trading and hedging.  -->
 
-The blogger is interested in inference-time reasoning and agents for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work. 
+<!---   The blogger is interested in inference-time reasoning and agents for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work.--> 
+
+The blogger is interested in designing principled sampling algorithms that harness the complementary strengths of diverse samples to unlock stronger reasoning and more capable agents through deeper, more effective computation.
+
+
 
 His recent works include mdm reasoning (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>), test-time alignment (<a href="https://arxiv.org/pdf/2605.25123" style="color: #1a4b8b;">TRI-TSMC</a>), discrete diffusion (<a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>,
 <a href="https://haoyangzheng.github.io/research/didi-instruct/" style="color: #1a4b8b;">DiDi Instruct</a>), continuous diffusion (<a href="https://arxiv.org/pdf/2405.04795" style="color: #1a4b8b;">VSDM</a>,
