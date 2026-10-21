@@ -1,0 +1,88 @@
+I"�<!-- ### Diffusion  Models -->
+
+<h3 id="diffusion-language-models">Diffusion (Language) Models</h3>
+
+<ul>
+  <li>
+    <p>W. Wang, Y. Yang, <strong>W. Deng</strong>, Pan Xu. <a href="https://arxiv.org/pdf/2605.25123">Inference-Time Alignment of Diffusion Models via Trust-Region Iterative Twisted Sequential Monte Carlo</a>. 2026</p>
+  </li>
+  <li>
+    <p>L. Wang, Z. Wang, Y. Bai, <strong>W. Deng</strong>, G. Lin, Q. Song. <a href="https://arxiv.org/pdf/2603.02230">Generalized Discrete Diffusion with Self-Correction</a>. ICML’26 <a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/">[Link]</a> <a href="https://github.com/NVIDIA-NeMo/Automodel/blob/main/docs/guides/dllm/finetune.mdx">[Automodel]</a></p>
+  </li>
+  <li>
+    <p>K. Rojas, J. Lin, K. Rasul, A. Schneider, Y. Nevmyvaka, M. Tao, <strong>W. Deng</strong>. <a href="https://arxiv.org/pdf/2510.08554">Improving Reasoning for Diffusion Language Models via Group Diffusion Policy Optimization</a>. ICLR 2026 <a href="https://gdpo.github.io/">[Link]</a></p>
+  </li>
+  <li>
+    <p>H. Zheng, X. Liu, X. Kong, N. Jiang, Z. Hu, W. Luo, <strong>W. Deng</strong>, G. Lin. <a href="https://www.arxiv.org/pdf/2509.25035">Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct</a>. ICLR 2026.  <a href="https://mp.weixin.qq.com/s/0mGHnVtgxmazwxeu0nPjOw">[机器之心]</a> <a href="https://x.com/jiqizhixin/status/1984549725471691216">[X]</a></p>
+  </li>
+</ul>
+
+<!-- * X. Liu, H. Du, **W. Deng**, R. Zhang. [Optimal Stochastic Trace Estimation in Generative Modeling](https://arxiv.org/pdf/2502.18808). AISTATS 2025. -->
+
+<!-- * K. Rojas, Y. Tan, M. Tao, Y. Nevmyvaka, **W. Deng**. [Variational Schrödinger Momentum Diffusion](https://arxiv.org/pdf/2501.16675). AISTATS 2025. -->
+
+<!-- * **W. Deng**<sup>α</sup>, W. Luo<sup>α</sup>, Y. Tan<sup>α</sup>, M. Biloš, Yu, Yuriy, T. Q. Chen. [Variational Schrödinger Diffusion Models](https://arxiv.org/pdf/2405.04795). ICML 2024.  -->
+
+<ul>
+  <li><strong>W. Deng</strong>, W. Luo, Y. Tan, M. Biloš, Yu, Yuriy, T. Q. Chen. <a href="https://arxiv.org/pdf/2405.04795">Variational Schrödinger Diffusion Models</a>. ICML 2024.</li>
+</ul>
+
+<!-- * **W. Deng**, Y. Chen, T. Yang, H. Du, Q. Feng, T. Q. Chen. [Reflected Schrödinger Bridge for Constrained Generative Modeling](https://arxiv.org/abs/2401.03228). UAI 2024 (**Oral**) Acceptance rate **3.8%**.  -->
+
+<!-- * Y. Chen, **W. Deng**, S. Fang, F. Li, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Appli. to Prob. Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023.  -->
+
+<!-- * Y. Chen<sup>α</sup>, **W. Deng**<sup>α</sup><sup>#</sup>, S. Fang<sup>α</sup>, F. Li<sup>α</sup>, T. Yang, Y. Zhang, K. Rasul, S. Zhe, A. Schneider, Y. Nevmyvaka. [Provably Convergent Schrödinger Bridge with Applications to Probabilistic Time Series Imputation](https://arxiv.org/pdf/2305.07247). ICML 2023 (α: alphabetical order, #: Correspondence) -->
+
+<!--  ### Thompson Sampling
+
+* H Zheng, **W Deng**, C Moya, G Lin. [Accelerating Approximate Thompson Sampling with Underdamped Langevin Monte Carlo](https://arxiv.org/abs/2401.11665). AISTAT 2024
+
+ -->
+
+<h3 id="sampling">Sampling</h3>
+
+<!-- * H. Zheng, H. Du, Q. Feng, **W. Deng**, G. Lin. [Constrained Exploration via Reflected Replica Exchange Stochastic Gradient Langevin Dynamics](https://arxiv.org/pdf/2405.07839). ICML 2024.  -->
+
+<ul>
+  <li>
+    <p>J. Liang, Q. Zhang, <strong>W. Deng</strong>, Q. Song, G. Lin. <a href="https://arxiv.org/pdf/2407.06935">Bayesian Federated Learning with Hamiltonian Monte Carlo: Algorithm and Theory</a>. Journal of Computational and Graphical Statistics. 2024</p>
+  </li>
+  <li>
+    <p>B. Hao, T. Lattimore, <strong>W. Deng</strong>. <a href="https://arxiv.org/abs/2105.14267">Information Directed Sampling for Sparse Linear Bandits</a>. NeurIPS 2021 <strong>Spotlight</strong> (3% acceptance rate)</p>
+  </li>
+</ul>
+
+<!-- * **W. Deng**, Q. Zhang, Y.-A. Ma, Z. Song, G. Lin. [On Convergence of Federated Averaging Langevin Dynamics](https://arxiv.org/pdf/2112.05120.pdf). UAI 2024 -->
+
+<!-- * **W. Deng**, Q. Zhang, Q. Feng, F. Liang, G. Lin. [Non-reversible Parallel Tempering for Deep Posterior Approximation](https://arxiv.org/pdf/2211.10837.pdf). AAAI-23 (**Oral**) -->
+
+<ul>
+  <li><strong>W. Deng</strong>, G. Lin, F. Liang. <a href="https://link.springer.com/epdf/10.1007/s11222-022-10120-3?sharing_token=3D38cUKCcTFwSnC9tCumefe4RwlQNchNByi7wbcMAY5wU6YiY0TlM_GKKke2kamOPjMBvVXx8MgkcpmS8OGmuzOCh2eHt8iYVjbUfb8rmQwWWTeCWeZPq4aH8jFXlvv6zduuChKpiW0iM9BB02fHctPD5gZFj3jBGqfPzBAyIIE%3D">An Adaptively Weighted Stochastic Gradient MCMC Algorithm for Monte Carlo simulation and Global Optimization</a>. Statistics and Computing, (2022) 32:58 <a href="https://github.com/WayneDW/Global-optimization-via-an-adaptively-weighted-stochastic-gradient-MCMC">[code]</a></li>
+</ul>
+
+<!-- * **W. Deng**, S. Liang, B. Hao, G. Lin, F. Liang. [Interacting Contour Stochastic Gradient Langevin Dynamics](https://openreview.net/forum?id=IK9ap6nxXr2). ICLR 2022 [\[code\]](https://github.com/WayneDW/Interacting-Contour-Stochastic-Gradient-Langevin-Dynamics) [\[video\]](https://recorder-v3.slideslive.com/#/share?share=62539&s=f9dd1749-50cd-4bf3-a1d8-d0ebe752bf37) -->
+
+<!-- * **W. Deng**<sup>*</sup>, Q. Feng, G. Karagiannis, G. Lin, F. Liang. [Accelerating Convergence of Replica Exchange Stochastic Gradient MCMC via Variance Reduction](https://openreview.net/pdf?id=iOnhIy-a-0n). ICLR 2021. [\[code\]](https://github.com/WayneDW/Variance_Reduced_Replica_Exchange_SGMCMC) [\[video\]](https://slideslive.com/38954013/accelerating-convergence-of-replica-exchange-stochastic-gradient-mcmc-via-variance-reduction?ref=speaker-30773-latest) -->
+
+<ul>
+  <li>
+    <p><strong>W. Deng</strong>, Q. Feng, L. Gao, F. Liang, G. Lin. <a href="https://arxiv.org/pdf/2008.05367.pdf">Non-convex Learning via Replica Exchange Stochastic Gradient MCMC</a>. ICML 2020. <a href="https://github.com/gaoliyao/Replica_Exchange_Stochastic_Gradient_MCMC">[code]</a> <a href="https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-15-00UTC-6023-non-convex_lear.pdf">[slides]</a></p>
+  </li>
+  <li>
+    <p><strong>W. Deng</strong>, G. Lin, F. Liang. <a href="https://arxiv.org/pdf/2010.09800.pdf">A Contour Stochastic Gradient Langevin Dynamics Algorithm for Simulations of Multi-modal Distributions</a>. NeurIPS 2020 <a href="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics">[code]</a> <a href="https://waynedw.github.io/posts/CSGLD/">[blog]</a> <a href="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/slides.pdf">[slides]</a> <a href="https://github.com/WayneDW/Contour-Stochastic-Gradient-Langevin-Dynamics/blob/master/figures/CSGLD_poster.pdf">[poster]</a><a href="https://slideslive.com/38936402/a-contour-stochastic-gradient-langevin-dynamics-algorithm-for-simulations-of-multimodal-distributions">[video]</a> <a href="https://zhuanlan.zhihu.com/p/267633636">[知乎]</a></p>
+  </li>
+</ul>
+
+<!-- ### Sparse Deep Learning and Applications
+
+* **W. Deng**, X. Zhang, F. Liang, G. Lin. [An Adaptive Empirical Bayesian Method for Sparse Deep Learning](https://arxiv.org/pdf/1910.10791.pdf). NeurIPS 2019 [\[code\]](https://github.com/WayneDW/Bayesian-Sparse-Deep-Learning)
+
+* **W. Deng**, J. Pan, T. Zhou, D. Kong, A. Flores, G. Lin. [DeepLight: Deep Lightweight Feature Interactions for Accelerating CTR Predictions in Ad Serving](https://arxiv.org/pdf/2002.06987.pdf). WSDM 2021 [\[code\]](https://github.com/WayneDW/DeepLight_Deep-Lightweight-Feature-Interactions) ![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/a-sparse-deep-factorization-machine-for/click-through-rate-prediction-on-criteo)
+
+* Y. Wang, **W. Deng**, G. Lin. [An Adaptive Hessian Approximated Stochastic Gradient MCMC Method](https://www.sciencedirect.com/science/article/pii/S0021999121000425?dgcid=coauthor). Journal of Computational Physics. Vol 432, 2021. -->
+
+<!-- 
+(*): equal contribution.
+(α): alphabetical order.
+(#): correspondence -->
+:ET

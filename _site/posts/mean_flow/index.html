@@ -1,0 +1,180 @@
+<html>
+<head>
+    <title>Mean Flow: A Brief Introduction</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/blog/'>Blog</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+        <li><a href='/news/'>News</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Mean Flow: A Brief Introduction</h1>
+            <h4>One-step ultra-fast generations for images and videos</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>31 May 2025</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>Diffusion models <a class="citation" href="#song2021scorebased">(Song et al., 2021)</a> and flow matching <a class="citation" href="#LipmanChenBenHamuNKLe22">(Lipman et al., 2023)</a> have become the dominant paradigm for image and video generation. Although iterative refinement eases the optimization challenge, it results in slow sampling. A common acceleration approach is progressive distillation <a class="citation" href="#SalimansH22">(Salimans &amp; Ho, 2022)</a> <a class="citation" href="#LuoH0SZL23">(Luo et al., 2023)</a> <a class="citation" href="#YinG0SDFP24">(Yin et al., 2024)</a>, but it requires a pretrained teacher and offers limited flexibility.</p>
+
+<h3 id="consisteny-models">Consisteny Models</h3>
+
+<p>Consistency models <a class="citation" href="#SongDCS23">(Song et al., 2023)</a> <a class="citation" href="#SongDhariwal24">(Song &amp; Dhariwal, 2024)</a> address this by learning a direct mapping from noisy samples to clean data, enforcing self-consistency across noise levels. This enables training from scratch and supports one-step generation without iterative refinement or teacher distillation.</p>
+
+<figure style="text-align: center;">
+    <img src="/images/consistency_model.png" width="329" height="231" />
+    <!-- <figcaption> Bidirectional mask  $\ \ \qquad$ causal mask $\ \ \qquad$ padding mask $\ \ \qquad$ random mask </figcaption> -->
+</figure>
+
+<p>However, consistency models remain heuristic, constraining model outputs rather than a ground-truth field, which often leads to training instability and requires curriculum learning over time discretization.</p>
+
+<h3 id="mean-flows">Mean Flows</h3>
+
+<p><strong>MeanFlow</strong> <a class="citation" href="#GengD0BKH25">(Geng et al., 2025)</a> avoids both distillation and ad-hoc curriculum learning by modeling the <em>average velocity field</em> directly, providing a principled and stable one-step training framework from scratch.</p>
+
+<p>Denote $\mathrm{x \sim p_{\text{data}}}$ and $\mathrm{\epsilon \sim p_{\text{prior}}}$. Consider the linear interpolation $\mathrm{z_t = (1 - t)x + t\epsilon}$. The flow of particles follow $\mathrm{\nu_t \equiv z_t’ = \epsilon - x}$ (<a href="https://www.weideng.org/posts/flow_diffusion_PDE/">link</a>) <a class="citation" href="#neural_ode">(Chen et al., 2018)</a>, where \(\mathrm{\nu_t \equiv \nu_t(z_t \mid x)}\) is the conditional velocity. The authors introduce the elegant concept of the <strong>average velocity</strong>:</p>
+
+\[\begin{align}
+\mathrm{u(z_t, r, t) \triangleq \frac{1}{t - r} \int_{r}^{t} v(z_{\tau}, \tau) \, d\tau.}\label{def_mf}
+\end{align}\]
+
+<p>The above equality reduces to flow matching when $\mathrm{r=t}$ and the visualization is shown below.</p>
+
+<figure style="text-align: center;">
+    <img src="/images/mean_flow.png" width="605" height="205" />
+    <!-- <figcaption> Bidirectional mask  $\ \ \qquad$ causal mask $\ \ \qquad$ padding mask $\ \ \qquad$ random mask </figcaption> -->
+</figure>
+
+<p>Taking the derivative w.r.t. $\mathrm{t}$ on both sides of \eqref{def_mf}, we have</p>
+
+\[\begin{align}
+\mathrm{(\text{LHS})\quad \dfrac{d z_t}{d t}\partial_z u+\partial_t u} 
+&amp;= \mathrm{\frac{\partial}{\partial t} \left( \frac{1}{t-r} \int_{r}^{t} v(z_{\tau}, \tau)\, d\tau \right)}  \notag  \qquad (\text{RHS}) \\[6pt] 
+\mathrm{\nu_t\partial_z u+\partial_t u}  &amp;= \mathrm{\frac{1}{t-r} \cdot v(z_t, t) \;-\; \frac{1}{(t-r)^2} \int_{r}^{t} v(z_{\tau}, \tau)\, d\tau} \notag \\[6pt]
+\mathrm{\nu_t\partial_z u+\partial_t u}  &amp;= \mathrm{\frac{v(z_t, t)(t-r) - \int_{r}^{t} v(z_{\tau}, \tau)\, d\tau}{(t-r)^2}} \notag \\[6pt]
+\mathrm{\nu_t\partial_z u + 0 \cdot \partial_r u +1 \cdot \partial_t u}  &amp;= \mathrm{\frac{v(z_t, t) - u(z_t, r, t)}{t-r}}. \label{eq_} 
+\end{align}\]
+
+<p>The derivatives $\mathrm{[\partial_z u, \partial_r u, \partial_t u]}$ on the LHS can be computed via a Jacobian–vector product (JVP) along the tangent vector $\mathrm{[\nu, 0, 1]}$. Let $\mathrm{u_{\theta}}$ parameterize the mean velocity $\mathrm{u}$. The training loss becomes:</p>
+
+\[\begin{align}
+\mathrm{E_{t, r}[\|u_{\theta}(z_t, r, t) - sg\big[v(z_t, t) - (t-r)(\nu_t\partial_z u + 0 \cdot \partial_r u +1 \cdot \partial_t u)\big]\|^2_2]},\notag
+\end{align}\]
+
+<p>where $\mathrm{sg\big[\cdot\big]}$ denotes the stop-gradient operator.</p>
+
+<p>After optimizing $\mathrm{u_{\theta}}$, using the probability flow ODE $\mathrm{\nu_t \equiv z_t’}$, sampling is simply:</p>
+
+\[\begin{align}
+\mathrm{z_0=z_1 - \int_0^1 \nu_t dt=z_1-u_{\theta}(z_1, 0, 1)}.\notag
+\end{align}\]
+
+<h4 id="core-code-snippet">Core Code Snippet</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># -----------------------------------------------------------------
+# Instantaneous velocity
+</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">sample_tr</span><span class="p">(</span><span class="n">bz</span><span class="p">)</span>
+
+<span class="n">e</span>   <span class="o">=</span> <span class="n">jax</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">normal</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="nf">make_rng</span><span class="p">(</span><span class="sh">'</span><span class="s">gen</span><span class="sh">'</span><span class="p">),</span> <span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">z_t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">e</span>
+<span class="n">v</span>   <span class="o">=</span> <span class="n">e</span> <span class="o">-</span> <span class="n">x</span>
+
+<span class="c1"># Guided velocity
+</span><span class="n">v_g</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">guidance_fn</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">z_t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">guidance_eq</span> <span class="k">else</span> <span class="n">v</span>
+
+<span class="c1"># Cond dropout (dropout class labels)
+</span><span class="n">y_inp</span><span class="p">,</span> <span class="n">v_g</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">cond_drop</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v_g</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------------------------------------------
+# Compute u_tr (average velocity) and du_dt using jvp
+</span><span class="k">def</span> <span class="nf">u_fn</span><span class="p">(</span><span class="n">z_t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">u_fn</span><span class="p">(</span><span class="n">z_t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_inp</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="n">train</span><span class="p">)</span>
+
+<span class="n">dt_dt</span> <span class="o">=</span> <span class="n">jnp</span><span class="p">.</span><span class="nf">ones_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">dr_dt</span> <span class="o">=</span> <span class="n">jnp</span><span class="p">.</span><span class="nf">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">du_dt</span> <span class="o">=</span> <span class="n">jax</span><span class="p">.</span><span class="nf">jvp</span><span class="p">(</span><span class="n">u_fn</span><span class="p">,</span> <span class="p">(</span><span class="n">z_t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">),</span> <span class="p">(</span><span class="n">v_g</span><span class="p">,</span> <span class="n">dt_dt</span><span class="p">,</span> <span class="n">dr_dt</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------------------------------------------
+# Compute loss
+</span><span class="n">u_tgt</span> <span class="o">=</span> <span class="n">v_g</span> <span class="o">-</span> <span class="n">jnp</span><span class="p">.</span><span class="nf">clip</span><span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">du_dt</span>
+<span class="n">u_tgt</span> <span class="o">=</span> <span class="n">jax</span><span class="p">.</span><span class="n">lax</span><span class="p">.</span><span class="nf">stop_gradient</span><span class="p">(</span><span class="n">u_tgt</span><span class="p">)</span>
+
+<span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">u_tgt</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">jnp</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="c1"># sum over pixels
+</span>
+<span class="c1"># Adaptive weighting
+</span><span class="n">adp_wt</span> <span class="o">=</span> <span class="p">(</span><span class="n">loss</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">norm_eps</span><span class="p">)</span> <span class="o">**</span> <span class="n">self</span><span class="p">.</span><span class="n">norm_p</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span> <span class="o">/</span> <span class="n">jax</span><span class="p">.</span><span class="n">lax</span><span class="p">.</span><span class="nf">stop_gradient</span><span class="p">(</span><span class="n">adp_wt</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------------------------------------------
+</span><span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span><span class="p">.</span><span class="nf">mean</span><span class="p">()</span>  <span class="c1"># mean over batch
+</span></code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<h3 id="citation">Citation</h3>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">deng2025_mf</span><span class="p">,</span>
+  <span class="na">title</span>   <span class="p">=</span><span class="s">{{Mean Flow: A Brief Introduction}}</span><span class="p">,</span>
+  <span class="na">author</span>  <span class="p">=</span><span class="s">{Wei Deng}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span><span class="s">{A Sampler's Blog}</span><span class="p">,</span>
+  <span class="na">year</span>    <span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
+  <span class="na">howpublished</span> <span class="p">=</span> <span class="s">{\url{https://www.weideng.org/posts/mean_flow/}}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="song2021scorebased">Song, Y., Sohl-Dickstein, J., P. Kingma, D., Kumar, A., Ermon, S., &amp; Poole, B. (2021). Score-Based Generative Modeling through Stochastic Differential Equations. <i>International Conference on Learning Representations (ICLR)</i>.</span></li>
+<li><span id="LipmanChenBenHamuNKLe22">Lipman, Y., Chen, R. T. Q., Ben-Hamu, H., Nickel, M., &amp; Le, M. (2023). Flow Matching for Generative Modeling. <i>ICLR</i>.</span></li>
+<li><span id="SalimansH22">Salimans, T., &amp; Ho, J. (2022). Progressive Distillation for Fast Sampling of Diffusion Models. <i>ICLR</i>.</span></li>
+<li><span id="LuoH0SZL23">Luo, W., Hu, T., Zhang, S., Sun, J., Li, Z., &amp; Zhang, Z. (2023). Diff-Instruct: A Universal Approach for Transferring Knowledge From Pre-trained Diffusion Models. <i>NeurIPS</i>.</span></li>
+<li><span id="YinG0SDFP24">Yin, T., Gharbi, M., Zhang, R., Shechtman, E., Durand, F., Freeman, W. T., &amp; Park, T. (2024). One-Step Diffusion with Distribution Matching Distillation. <i>CVPR</i>.</span></li>
+<li><span id="SongDCS23">Song, Y., Dhariwal, P., Chen, M., &amp; Sutskever, I. (2023). Consistency Models. <i>ICML</i>.</span></li>
+<li><span id="SongDhariwal24">Song, Y., &amp; Dhariwal, P. (2024). Improved Techniques for Training Consistency Models. <i>ICLR</i>.</span></li>
+<li><span id="GengD0BKH25">Geng, Z., Deng, M., Bai, X., Kolter, J. Z., &amp; He, K. (2025). Mean Flows for One-step Generative Modeling. <i>NeurIPS</i>.</span></li>
+<li><span id="neural_ode">Chen, R. T. Q., Rubanova, Y., Bettencourt, J., &amp; Duvenaud, D. (2018). Neural Ordinary Differential Equations. <i>NeurIPS</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

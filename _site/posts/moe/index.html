@@ -1,0 +1,222 @@
+<html>
+<head>
+    <title>Mixture of Experts: Essentials</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/blog/'>Blog</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+        <li><a href='/news/'>News</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Mixture of Experts: Essentials</h1>
+            <h4>A sparse routing for scalable Transformers</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>23 December 2025</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p><strong>Mixture of experts (MoE)</strong> scales model parameters and improves generation quality without increasing <strong>per-token FLOPs</strong>. Despite the name, MoE doesn’t mean assembling human-like experts (e.g., finance or medicine). Instead, it replaces a big feedforward network (FFN) <a class="citation" href="#shazeer2017outrageously">(Shazeer et al., 2017)</a> <a class="citation" href="#fedus2022switch">(Fedus et al., 2022)</a> <a class="citation" href="#deepseekv3_2024">(Team, 2024)</a> <a class="citation" href="#openai_gptoss_github">(OpenAI, 2025)</a> with many smaller blocks, where only a subset is activated for each token.</p>
+
+<!-- <figure style="text-align: center;">
+    <img src="/images/DeepSeekMOE.png" width="434" height="244" />
+    <figcaption> MoE architecture of DeepSeek-V3 <a class="citation" href="#deepseekv3_2024">(Team, 2024)</a>. </figcaption>
+</figure> -->
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 24px;">
+  <!-- <figure style="text-align: center; margin: 0;">
+    <img src="/images/moe_switch_transformer.png" width="347" height="195" />
+    <figcaption>MoE in Switch Transformer <a class="citation" href="#fedus2022switch">(Fedus et al., 2022)</a>.</figcaption>
+  </figure> -->
+
+  <!-- <figure style="text-align: center; margin: 0;">
+    <img src="/images/DeepSeekMOE2.png" width="325" height="195" />
+    <figcaption>MoE in DeepSeek-V3 <a class="citation" href="#deepseekv3_2024">(Team, 2024)</a>.</figcaption>
+  </figure> -->
+  <figure style="text-align: center; margin: 0;">
+    <img src="/images/deepseekmoe2.png" width="549" height="233" />
+    <figcaption>MoE in DeepSeek-V3 <a class="citation" href="#deepseekv3_2024">(Team, 2024)</a>.</figcaption>
+  </figure>
+</div>
+
+<p>This sparsity significantly increases model capacity while keeping computation efficient. It enables faster and more scalable training, improves utilization of available FLOPs, and supports efficient parallelism by distributing experts across different devices.</p>
+
+<h3 id="routing">Routing</h3>
+
+<p>DeepSeekMoE introduces a hybrid design that combines shared experts with a gated mixture of routed experts:</p>
+
+\[\begin{align}
+\mathbf{h}'_t
+&amp;= \mathbf{u}_t
++ \sum_{i=1}^{N_s} \mathrm{FFN}^{(s)}_i(\mathbf{u}_t)
++ \sum_{i=1}^{N_r} g_{i,t}\,\mathrm{FFN}^{(r)}_i(\mathbf{u}_t), \notag \\[6pt]
+g_{i,t}
+&amp;= \mathrm{Softmax}\!\left(\mathbf{u}_t^{\top} \mathbf{e}_i \mathrm{ \ with\ topK \ masking} \right), \notag \\
+% s_{i,t}
+% &amp;= \mathrm{Sigmoid}\!\left(\mathbf{u}_t^{\top} \mathbf{e}_i\right). \notag
+\end{align}\]
+
+<p>where $\mathbf{u_t}$ is the post-attention hidden state of the $t$-th token.</p>
+
+<p>Similarly, GPT-OSS <a class="citation" href="#openai_gptoss_github">(OpenAI, 2025)</a> adopts a closely related routing mechanism:</p>
+
+\[\begin{align}
+g_{i,t}
+&amp;= \mathrm{Softmax}\!\left(z_{i,t} \mathrm{ \ with\ topK \ masking} \right) \notag \\
+z_{i,t}
+&amp;= \mathbf{w}_i^{\top}\,\mathrm{RMSNorm}(\mathbf{x}_t) + b_i. \notag \\
+\end{align}\]
+
+<h3 id="moe-in-gpt-oss">MoE in GPT-OSS</h3>
+
+<p>In GPT-OSS, the MoE module is embedded directly inside the MLP block of each Transformer layer:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">TransformerBlock</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="p">...):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">layer_idx</span> <span class="o">=</span> <span class="n">layer_idx</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">attn</span> <span class="o">=</span> <span class="nc">AttentionBlock</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">layer_idx</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">mlp</span> <span class="o">=</span> <span class="nc">MLPBlock</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">attn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">mlp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># Pre-normalization (RMSNorm)
+# Note: normalization adds &lt;0.2% FLOPs but can reduce runtime by &gt;20%;
+# bias is omitted for improved stability, consistent with modern Transformers.
+</span><span class="k">class</span> <span class="nc">RMSNorm</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">eps</span> <span class="o">=</span> <span class="n">eps</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="nf">ones</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="c1"># Root Mean Square normalization
+</span>        <span class="n">rms</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nf">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">torch</span><span class="p">.</span><span class="nf">rsqrt</span><span class="p">(</span><span class="n">rms</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">eps</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">x</span>
+</code></pre></div></div>
+
+<p>Below is a simplified version of GPT-OSS MoE in the MLPBlock, focusing on core routing and expert computations:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MLPBlock</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">intermediate_size</span><span class="p">,</span> <span class="n">num_experts</span><span class="p">,</span> <span class="n">experts_per_token</span><span class="p">,</span> <span class="n">swiglu_limit</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">num_experts</span> <span class="o">=</span> <span class="n">num_experts</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">experts_per_token</span> <span class="o">=</span> <span class="n">experts_per_token</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">swiglu_limit</span> <span class="o">=</span> <span class="n">swiglu_limit</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">norm</span> <span class="o">=</span> <span class="nc">RMSNorm</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">)</span> 
+        <span class="n">self</span><span class="p">.</span><span class="n">gate</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">num_experts</span><span class="p">)</span>
+
+        <span class="c1"># Expert parameters (maybe loaded from checkpoint)
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">mlp1_weight</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="nf">empty</span><span class="p">(</span><span class="n">num_experts</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">intermediate_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">))</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">mlp1_bias</span>   <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="nf">empty</span><span class="p">(</span><span class="n">num_experts</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">intermediate_size</span><span class="p">))</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">mlp2_weight</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="nf">empty</span><span class="p">(</span><span class="n">num_experts</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">intermediate_size</span><span class="p">))</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">mlp2_bias</span>   <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="nf">empty</span><span class="p">(</span><span class="n">num_experts</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">))</span>
+
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                              
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">gate</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>                          
+
+        <span class="n">topk</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">topk</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">experts_per_token</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">sorted</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">expert_idx</span> <span class="o">=</span> <span class="n">topk</span><span class="p">.</span><span class="n">indices</span>                         
+        <span class="n">expert_w</span>   <span class="o">=</span> <span class="n">F</span><span class="p">.</span><span class="nf">softmax</span><span class="p">(</span><span class="n">topk</span><span class="p">.</span><span class="n">values</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>       
+
+        <span class="n">W1</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">mlp1_weight</span><span class="p">[</span><span class="n">expert_idx</span><span class="p">]</span>                 <span class="c1"># [B, K, 2M, H]
+</span>        <span class="n">b1</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">mlp1_bias</span><span class="p">[</span><span class="n">expert_idx</span><span class="p">]</span>                   <span class="c1"># [B, K, 2M]
+</span>        <span class="n">h</span>  <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">einsum</span><span class="p">(</span><span class="sh">"</span><span class="s">bekh,bh-&gt;bek</span><span class="sh">"</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="n">b1</span>     <span class="c1"># [B, K, 2M]
+</span>        <span class="n">h</span>  <span class="o">=</span> <span class="nf">swiglu</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">swiglu_limit</span><span class="p">)</span>           <span class="c1"># [B, K, M]
+</span>
+        <span class="n">W2</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">mlp2_weight</span><span class="p">[</span><span class="n">expert_idx</span><span class="p">]</span>                 <span class="c1"># [B, K, H, M]
+</span>        <span class="n">b2</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">mlp2_bias</span><span class="p">[</span><span class="n">expert_idx</span><span class="p">]</span>                   <span class="c1"># [B, K, H]
+</span>        <span class="n">y</span>  <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">einsum</span><span class="p">(</span><span class="sh">"</span><span class="s">bekhm,bekm-&gt;bekh</span><span class="sh">"</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span> <span class="c1"># [B, K, H]
+</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">einsum</span><span class="p">(</span><span class="sh">"</span><span class="s">bekh,bek-&gt;bh</span><span class="sh">"</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">expert_w</span><span class="p">)</span>   <span class="c1"># [B, H]
+</span>        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">out</span>
+</code></pre></div></div>
+
+<h3 id="routing-with-reinforce">Routing with REINFORCE</h3>
+
+<p>The routing decision in MoE models can be formulated as a reinforcement learning (RL) problem, where the router acts as a policy that selects a subset of experts for each token based on its hidden representation, and downstream task performance provides the reward signal <a class="citation" href="#clark2022unified">(Clark et al., 2022)</a>. While policy-gradient methods such as REINFORCE offer a principled formulation, they suffer from high variance, slow convergence, and poor scalability in large language models.</p>
+
+<p>Alternative approaches include formulating routing as an optimal transport problem to achieve balanced expert assignment, or introducing stochastic perturbations <a class="citation" href="#shazeer2017outrageously">(Shazeer et al., 2017)</a> to the gating mechanism to improve load balance and training stability.</p>
+
+<h3 id="load-balancing">Load Balancing</h3>
+
+<p>A key challenge in MoE models is the load imbalance, where a few experts receive most tokens. To avoid mitigate this issue, a differentiable load-balancing loss is commonly added to encourage uniform utilization and stable training <a class="citation" href="#fedus2022switch">(Fedus et al., 2022)</a>.</p>
+
+\[\mathrm{\mathcal{L}_{\text{lb}}
+= \alpha K \sum_{k=1}^K \langle f_k, P_j \rangle,}\]
+
+<p>where $\mathrm{f_k=\mathrm{Avg}(\mathbb{1}(\text{Argmax}(p(x))=k))}$ is the fraction of tokens routed to expert $k$ and $\mathrm{P_j=\mathrm{Avg}(p_k(x))}$ is the average fraction for expert $k$ in a batch.</p>
+
+<h3 id="fine-tuning">Fine-Tuning</h3>
+
+<p>During RL fine-tuning, MoE models can exhibit poor generalization due to over-specialized routing, policy collapse, or distribution shift amplified by sparse activation. Preventing overfitting in this regime remains an open problem. In practice, effective strategies include using more diverse fine-tuning data, constraining routing dynamics, and maintaining shared expert capacity.</p>
+
+<h3 id="citation">Citation</h3>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">deng2025MoE</span><span class="p">,</span>
+  <span class="na">title</span>   <span class="p">=</span><span class="s">{{Mixture of Experts: Essentials}}</span><span class="p">,</span>
+  <span class="na">author</span>  <span class="p">=</span><span class="s">{Wei Deng}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span><span class="s">{A Sampler's Blog}</span><span class="p">,</span>
+  <span class="na">year</span>    <span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
+  <span class="na">howpublished</span> <span class="p">=</span> <span class="s">{\url{https://weideng.org/posts/moe}}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="shazeer2017outrageously">Shazeer, N., Mirhoseini, A., Maziarz, K., Davis, A., Le, Q., Hinton, G., &amp; Dean, J. (2017). Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer. <i>International Conference on Learning Representations (ICLR)</i>.</span></li>
+<li><span id="fedus2022switch">Fedus, W., Zoph, B., &amp; Shazeer, N. (2022). Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity. <i>Journal of Machine Learning Research</i>, <i>23</i>(120), 1–39. https://jmlr.org/papers/v23/21-0998.html</span></li>
+<li><span id="deepseekv3_2024">Team, D. S.-A. I. (2024). <i>DeepSeek-V3 Technical Report</i>. arXiv preprint arXiv:2412.19437. https://arxiv.org/abs/2412.19437</span></li>
+<li><span id="openai_gptoss_github">OpenAI. (2025). <i>openai/gpt-oss: Open-Weight GPT-OSS Models</i>. https://github.com/openai/gpt-oss</span></li>
+<li><span id="clark2022unified">Clark, A., de las Casas, D., Guy, A., Mensch, A., Paganini, M., Hoffmann, J., Damoc, B., Hechtman, B., Cai, T., Borgeaud, S., van den Driessche, G., Rutherford, E., Hennigan, T., Johnson, M., Millican, K., Cassirer, A., Jones, C., Buchatskaya, E., Budden, D., … Simonyan, K. (2022). Unified Scaling Laws for Routed Language Models. <i>ICML</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

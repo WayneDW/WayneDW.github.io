@@ -1,0 +1,180 @@
+<html>
+<head>
+    <title>Feynman–Kac Formula Without the Mystery</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/blog/'>Blog</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+        <li><a href='/news/'>News</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Feynman–Kac Formula Without the Mystery</h1>
+            <h4>A popular tool in finance and stochastic optimal control</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>15 March 2025</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>Feynman–Kac formula creates an intrinsic connection between PDE and SDE, making it a popular tool in finance, stochastic optimal control (SOC), and mathematical physics. This blog presents a few applications of the Feynman–Kac formula in different areas.</p>
+
+<p>Assume a stochastic variable $\mathrm{X_t}$ follows a forward SDE (FSDE)</p>
+
+\[\left\{
+\begin{array}{l}
+    \mathrm{d X_t = \mu(t, X_t)dt + \Sigma(t, X_t)dW_t} \\
+    \ \ \mathrm{X_0=x.}
+\end{array}
+\right.\]
+
+<p>Additionally, we have a backward SDE (BSDE) that satisfies a terminal condition</p>
+
+\[\left\{
+\begin{array}{l}
+    \mathrm{d Y_t = h(t, X_t, Y_t)dt + \Sigma(t, X_t) dW_t} \\
+    \ \ \mathrm{Y_T=g(X_T).}
+\end{array}
+\right.\]
+
+<p>Denote $\mathrm{u(t, X_t)\equiv Y_t^{x}}$. The terminal value admits a solution \(\mathrm{u(t, x)\equiv E[Y_t\\|\mathcal{F}_t]}\) if we back-propagate the conditional expectation. Given the smoothness and linear growth condition, applying Ito’s formula:</p>
+
+\[\begin{align}
+    &amp;\mathrm{d u=\bigg[u_t +\nabla_x u^\intercal \mu + \frac{1}{2} Tr(u_{xx} \Sigma \Sigma^\intercal)\bigg] dt + \nabla_x u^\intercal \Sigma d W_t}\notag \\
+    &amp;\quad\ =\mathrm{h(t, X_t, Y_t)dt + \Sigma(t, X_t) dW_t}, \notag \\
+\end{align}\]
+
+<p>which leads to the <strong>nonlinear Feynman-Kac</strong> formula <a class="citation" href="#Exarchos2018">(Exarchos &amp; Theodorou, 2018)</a> builds a connection between the solution of PDEs and probabilistic representations of SDEs</p>
+
+\[\left\{
+\begin{array}{l}
+    \mathrm{u_t+\nabla_x u^\intercal \mu +\frac{1}{2} Tr(u_{xx} \Sigma \Sigma^\intercal) -h(t, x, u)=0} \\
+    \ \ \mathrm{u(T, x)=g(x).}
+\end{array}
+\right.\]
+
+<h3 id="feynman-kac-in-finance">Feynman-Kac in Finance</h3>
+
+<p>To protect stocks from unexpected losses, we consider e.g. a European call option with a stike price $\mathrm{K}$ at time $\mathrm{T}$, i.e. the terminal payoff function follows $\mathrm{g(x)=(x-K)^+}$. We denote the stock price by $\mathrm{X_t}$ and the option price at time $t$ with stock price $\mathrm{X_t}$ by $\mathrm{u(t, X_t)}$.</p>
+
+<p>Consider a univariate linear case with  $\mathrm{h\equiv r u}$, where $\mathrm{r_t}$ denotes the risk-free interest rate, the above PDE becomes:</p>
+
+\[\left\{
+\begin{array}{l}
+    \mathrm{u_t+u_x \mu   +\frac{1}{2}\Sigma^2 u_{xx}-r u=0} \\
+    \ \ \mathrm{u(T, x)=(x-K)^+.}
+\end{array}
+\right.\]
+
+<p>Then $\mathrm{u(t, x)}$ approximates the current price of the future protection, which yields a stochastic solution</p>
+
+\[\begin{align}
+    \mathrm{u(t, x)=E\bigg[(X_T-K)^+ exp\bigg\{-\int_t^T r_s ds\bigg\} \bigg]}.\notag \\
+\end{align}\]
+
+<p>The proof is an application of Itô’s lemma to show the process \(\mathrm{u(t, X_t) exp\{-\int_{t_0}^t r_s ds \}}\) is a martingale subject to a stopping time <a class="citation" href="#BM_StochasticCalc">(Karatzas &amp; Shreve, 2019)</a>.</p>
+
+<p>To approximate the expectation, we can simulate sufficiently many stock price paths following the forward SDE $\mathrm{X_t}$ and compute the option price in the backward direction.</p>
+
+<h3 id="feynman-kac-in-schrödinger-bridge-diffusion">Feynman-Kac in Schrödinger Bridge Diffusion</h3>
+
+<p>Schrödinger bridge diffusion <a class="citation" href="#DSB">(De Bortoli et al., 2021)</a> is a transport-optimized diffusion model for the forward-backward SDE (FBSDE) <a class="citation" href="#forward_backward_SDE">(Chen et al., 2022)</a> <a class="citation" href="#pardoux1992backward">(Pardoux &amp; Peng, 1992)</a></p>
+
+\[\left\{
+\begin{array}{l}
+    \mathrm{d X_t = f + g^2 \nabla_x \log \Psi(t, X_t) dt + g dW_t, \ \ \ X_0 \sim p_{\text{data}}} \\
+    \mathrm{d X_t = f - g^2 \nabla_x \log \widehat \Psi(t, X_t) dt + g dW_t. \ \ \ X_T \sim p_{\text{prior}}}
+\end{array}
+\right.\]
+
+<p>We observe that when $\mathrm{\nabla_x \log \Psi(t, X_t)}=0$, the equation simplifies to the standard diffusion model. The additional forward score function $\mathrm{\nabla_x \log \Psi(t, X_t)}$ is introduced to minimize a stochastic optimal control problem <a class="citation" href="#Chen21">(Chen et al., 2021)</a>, subject to the forward diffusion and marginal constraints.</p>
+
+<p>Notably, the Hamilton–Jacobi–Bellman (HJB) PDE arises in the derivation of the SOC problems</p>
+
+\[\begin{align}
+\mathrm{\frac{\partial \phi}{\partial t}+\frac{1}{2} g^2\Delta\phi + \langle \nabla \phi, f \rangle=-\frac{1}{2}\|g(t)\nabla\phi(x, t)\|^2_2}, \notag
+\end{align}\]
+
+<p>where $\mathrm{\phi=\log \Psi}$. It serves as a continuous-time extension of the Bellman equation, which forms the foundation of reinforcement learning.</p>
+
+<p>Applying the Feynman-Kac formula via Ito’s formula to the FBSDE <a class="citation" href="#forward_backward_SDE">(Chen et al., 2022)</a>, we obtain the likelihood estimator (instead of the stock price in the first example) for the training of score functions $\mathrm{\nabla_x \log \Psi(t, X_t)}$ and $\mathrm{\nabla_x \log \widehat \Psi(t, X_t)}$</p>
+
+\[\begin{align}
+\mathrm{\log p_0(x_0)=E[\log p_T(X_T)]-\int_0^T E\bigg[\frac{1}{2} \|Z_t\|^2 + \frac{1}{2} \|\widehat Z_t\|^2 + \nabla_x \cdot (g \widehat Z_t -f ) + \widehat Z_t^\intercal Z_t\bigg]dt},\notag
+\end{align}\]
+
+<p>where $\mathrm{Z_t=g\nabla_x \log \Psi(t, X_t)}$ and $\mathrm{\widehat Z_t=g\nabla_x \log \widehat \Psi(t, X_t)}$.</p>
+
+<h3 id="feynman-kac-in-other-domains">Feynman-Kac in Other Domains</h3>
+
+<p>The Feynman-Kac representation involves a forward simulation followed by a backward derivation process, conceptually akin to the backpropagation training of deep neural networks. This principle also aligns in spirit with the continuous-time policy gradient <a class="citation" href="#williams1992simple">(Williams, 1992)</a> and controlled sequential Monte Carlo <a class="citation" href="#heng2020controlled">(Heng et al., 2020)</a>. 
+ <!-- and finds interesting applications in language models <a class="citation" href="#language_tsmc">(Zhao et al., 2024)</a>. --></p>
+
+<!-- , making it a valuable framework for studying more efficient reasonings in language models. -->
+
+<p><br /><br /><br /></p>
+
+<h3 id="citation">Citation</h3>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">deng2025_feyman_kac</span><span class="p">,</span>
+  <span class="na">title</span>   <span class="p">=</span><span class="s">{{Feynman–Kac Formula Without the Mystery}}</span><span class="p">,</span>
+  <span class="na">author</span>  <span class="p">=</span><span class="s">{Wei Deng}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span><span class="s">{A Sampler's Blog}</span><span class="p">,</span>
+  <span class="na">year</span>    <span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
+  <span class="na">howpublished</span> <span class="p">=</span> <span class="s">{\url{https://www.weideng.org/posts/feynman_kac/}}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="Exarchos2018">Exarchos, I., &amp; Theodorou, E. A. (2018). Stochastic optimal control via forward and backward stochastic differential equations and importance sampling. <i>Automatica</i>, <i>87</i>, 159–165.</span></li>
+<li><span id="BM_StochasticCalc">Karatzas, I., &amp; Shreve, S. E. (2019). <i>Brownian Motion and Stochastic Calculus</i>. Springer.</span></li>
+<li><span id="DSB">De Bortoli, V., Thornton, J., Heng, J., &amp; Doucet, A. (2021). Diffusion Schrödinger Bridge with Applications to Score-Based Generative Modeling. <i>NeurIPS</i>.</span></li>
+<li><span id="forward_backward_SDE">Chen, T., Liu, G.-H., &amp; Theodorou, E. A. (2022). Likelihood Training of Schrödinger Bridge using Forward-Backward SDEs Theory. <i>ICLR</i>.</span></li>
+<li><span id="pardoux1992backward">Pardoux, E., &amp; Peng, S. (1992). Backward Stochastic Differential Equations and Quasilinear Parabolic Partial Differential Equations. In <i>Stochastic Partial Differential Equations and Their Applications</i> (pp. 200–217).</span></li>
+<li><span id="Chen21">Chen, Y., Georgiou, T. T., &amp; Pavon, M. (2021). Stochastic Control Liaisons: Richard Sinkhorn Meets Gaspard Monge on a Schrödinger Bridge. <i>SIAM Review</i>, <i>63</i>(2), 249–313.</span></li>
+<li><span id="williams1992simple">Williams, R. J. (1992). Simple statistical gradient-following algorithms for connectionist reinforcement learning. <i>Machine Learning</i>, <i>8</i>(3–4), 229–256.</span></li>
+<li><span id="heng2020controlled">Heng, J., Bishop, A. N., Deligiannidis, G., &amp; Doucet, A. (2020). Controlled Sequential Monte Carlo. <i>The Annals of Statistics</i>, <i>48</i>(5), 2904–2929.</span></li>
+<li><span id="language_tsmc">Zhao, S., Brekelmans, R., Makhzani, A., &amp; Grosse, R. (2024). Probabilistic Inference in Language Models via Twisted Sequential Monte Carlo. <i>ICML</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<html>
+<head>
+    <title>Random Fourier Features</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/blog/'>Blog</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+        <li><a href='/news/'>News</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Random Fourier Features</h1>
+            <h4>A Monte Carlo sampler for radial basis function kernels and positional embedding</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>10 April 2024</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <h3 id="a-weight-space-view-of-linear-regression">A Weight-space View of Linear Regression</h3>
+
+<p>Bayesian linear regression <a class="citation" href="#GP_ML">(Rasmussen &amp; Williams, 2006)</a> is a linear model with Gaussian noise</p>
+
+\[\begin{align}
+\mathrm{f(x)=x^\intercal w, \quad y=f(x)+\varepsilon},\notag
+\end{align}\]
+
+<p>where $\mathrm{\varepsilon\sim N(0, \sigma^2)}$. Given a Gaussian prior following $\mathrm{w \sim N(0, \Sigma)}$, the posterior follows</p>
+
+<p>$\begin{align}
+\mathrm{p(w|X,y)\sim N\bigg(\sigma^{-2} A^{-1}X Y, A^{-1}\bigg)}, \label{linear_posterior}
+\end{align}$</p>
+
+<p>where \(\mathrm{X}=\begin{bmatrix} \mathrm{x_1} \\ \mathrm{x_2} \\ \cdots \\ \mathrm{x_n} \end{bmatrix}\)  and  \(\mathrm{Y}=\begin{bmatrix} \mathrm{y_1} \\ \mathrm{y_2} \\ \cdots \\ \mathrm{y_n} \end{bmatrix}\) are the training data and label; $\mathrm{A=\sigma^{-2} X X^\intercal + \Sigma^{-1}}$.</p>
+
+<p><strong>Projection of Features</strong> Linear model is known to suffer from limited modeling capacity. To tackle this issue, we may project the features using proper basis functions, such as  $\mathrm{\phi(x)=(1, x, x^2, x^3, \cdots)}$. In other words, we map a nonlinear model into higher-dimensional linear space.</p>
+
+<p>Now we study the map function $\phi(x)$ in an $N$ dimensional feature space and consider the model</p>
+
+\[\begin{align}
+\mathrm{f(x)=\phi(x)^\intercal w, \quad y=f(x)+\varepsilon},\notag
+\end{align}\]
+
+<p>The posterior distribution in Eq.\eqref{linear_posterior} is mapped to a higher feature space such that</p>
+
+<p>$\begin{align}
+\mathrm{p(\bar w|X,y)\sim N\bigg(\sigma^{-2} A^{-1}\Phi y, A^{-1} \bigg),}\label{post_v1}
+\end{align}$</p>
+
+<p>where \(\mathrm{\Phi\equiv \Phi(X)}=\begin{bmatrix} \mathrm{\phi_1(x_1)} &amp; \cdots &amp; \mathrm{\phi_1(x_n)} \\ 
+                                     \cdots &amp; \cdots &amp; \cdots \\  
+                                     \mathrm{\phi_N(x_1)} &amp; \cdots &amp; \mathrm{\phi_N(x_n)} \end{bmatrix}\) is a $\mathrm{N\times n}$ matrix and $\mathrm{A=\sigma_n^{-2} \Phi \Phi^\intercal + \Sigma^{-1}}$.</p>
+
+<p>The distribution of the predictions given a test set $\mathrm{X}_{*}$ follows that</p>
+
+\[\begin{align}
+\mathrm{f}_{\star}|\mathrm{X}_{\star}\mathrm{, X,y\sim N\bigg(\sigma^{-2}\Phi_{\star}^\intercal A^{-1}\Phi y, \Phi_{\star}^\intercal A^{-1}\Phi_{\star} \bigg),}\label{dist_y}
+\end{align}\]
+
+<p>where $\mathrm{\Phi_{\star}=\Phi(X_{\star})}$. Note that  $\mathrm{A}$ is a $\mathrm{N}$-dimensional matrix and inverting the matrix is too expensive if $\mathrm{N}$ is large or infinite.  Define $\mathrm{K=\Phi^\intercal \Sigma \Phi}$ to be a $n$-dimensional matrix. By the definition of $\mathrm{A}$, we know that</p>
+
+\[\begin{align}
+&amp;\mathrm{\underbrace{A\Sigma \Phi}_{:=Q}=\sigma_n^{-2} \Phi \Phi^\intercal \Sigma \Phi + \Sigma^{-1} \Sigma \Phi=\sigma_n^{-2} \Phi(K+\sigma^2 I)} \notag \\
+&amp;\mathrm{\Sigma \Phi (K+\sigma^2 I)^{-1}=A^{-1} \underbrace{A\Sigma \Phi}_{:=Q}  (K+\sigma^2 I)^{-1}=\sigma_n^{-2} A^{-1}\Phi}. \notag
+\end{align}\]
+
+<p>Now the posterior and the predictive distribution \eqref{dist_y} is reduced to</p>
+
+<p>$\begin{align}
+\mathrm{p(\bar w|X,y)\sim N\bigg(\Sigma \Phi (K+\sigma^2 I)^{-1} y, A^{-1} \bigg)}.\label{post_v2}
+\end{align}$</p>
+
+\[\begin{align}
+\mathrm{f}_{\star}|\mathrm{X}_{\star}\mathrm{, X,y\sim N\bigg(\Phi_{\star}^\intercal\Sigma \Phi (K+\sigma^2 I)^{-1} y, \Phi_{\star}^\intercal \Sigma \Phi_{\star} - \Phi_{\star}^\intercal \Sigma \Phi (K+\sigma^2 I)^{-1} \Phi^\intercal \Sigma \Phi_{\star} \bigg),}\label{dist_y_v2}
+\end{align}\]
+
+<p>where the covariance term follows by invoking the matrix inversion lemma. Note that \(\mathrm{\Phi_{\star}^\intercal \Sigma \Phi_{\star}}\), \(\mathrm{\Phi_{\star}^\intercal \Sigma \Phi}\), \(\mathrm{\Phi^\intercal \Sigma \Phi}\) are all matrices of dimension $n$ instead of $N$ and we expect a significant savings when $n\ll N$.</p>
+
+<p><strong>Covariance/ Kernel</strong> Define $\mathrm{k(x, x’)=\phi(x)^\intercal \Sigma \phi(x’)}$ and $\mathrm{\psi(x)=\Sigma^{1/2} \phi(x)}$, we can write $\mathrm{k(x, x’)}$ as an inner product $\mathrm{k(x, x’)=\psi(x)^\intercal \psi(x’)}$, which is known to be a kernel or covariance. The most popular one is the radial basis function (RBF) kernel:</p>
+
+\[\begin{align}
+\mathrm{k_\sigma(x, x')=\exp\bigg\{\frac{|x-x'|^2}{2 \sigma^2}\bigg\}}.
+\end{align}\]
+
+<p>which has an infinite number of basis functions and is widely used in nonlinear support vector machines (SVMs). Now we can write \(\begin{align}\mathrm{K}_\sigma
+=\begin{bmatrix} \mathrm{k_\sigma(x_1, x_1)} &amp; \cdots &amp; \mathrm{k_\sigma(x_1, x_n)} \\ 
+                \cdots &amp; \cdots &amp; \cdots \\  
+                \mathrm{k_\sigma(x_n, x_1)} &amp; \cdots &amp; \mathrm{k_\sigma(x_n, x_n)} \end{bmatrix}\end{align}.\)</p>
+
+<p>However, for large datasets, computing and inverting the kernel matrix still scales poorly w.r.t. $n$.</p>
+
+\[\textcolor{blue}{\text{Can we do better?}}\]
+
+<h3 id="random-fourier-features">Random Fourier Features</h3>
+
+<p>To tackle this issue, random Fourier features <a class="citation" href="#random_features">(Rahimi &amp; Recht, 2007)</a> propose a Monte Carlo approximation of the radial basis function (RBF) kernel. Such transformations have widely been used in the sinusoidal/ positional embeddings of <a href="https://github.com/facebookresearch/fairseq/blob/bedb259bf34a9fc22073c13a1cee23192fa70ef3/fairseq/modules/sinusoidal_positional_embedding.py#L15">attentions</a> <a class="citation" href="#attention_need">(Vaswani et al., 2017)</a>, and also used to demonstrate DNN are faster than trees <a class="citation" href="#num_embed">(Gorishniy et al., 2022)</a> in tabular data.</p>
+
+<p>Define \(\mathrm{f(x):= \exp\{i w^\intercal x\}}\). Given a Gaussian vector $\mathrm{w\sim N(0, c I)}$, we have that</p>
+
+\[\begin{align}
+\mathrm{E[f(x) f(y)^*]} &amp;= \mathrm{E\big[\exp\big(iw^\intercal (x-y) \big)\big]} \notag \\
+               &amp;= \mathrm{(2\pi \sqrt{c})^{-D/2}\int \exp\bigg(-\frac{1}{2c} w^\intercal w\bigg)\exp(i w^\intercal \underbrace{(x-y)}_{:=\delta}) dw} \notag \\
+               &amp;= \mathrm{(2\pi \sqrt{c})^{-D/2}\int \exp\bigg(-\frac{1}{2c}\big(w^\intercal w - 2i c w^\intercal \delta - c^2\delta^\intercal \delta\big) - \frac{c}{2}\delta^\intercal \delta \bigg) dw} \notag \\
+               &amp;= \mathrm{(2\pi \sqrt{c})^{-D/2}\exp\bigg(-\frac{c}{2}\delta^\intercal \delta\bigg)\int \exp\bigg(-\frac{1}{2c}\|w-i c\delta\|^2_2 \bigg) dw} \notag\\
+               &amp;= \mathrm{\exp\bigg(-\frac{c}{2}(x-y)^\intercal (x-y)\bigg):=k_{c^{-1/2}}(x, y),}\notag
+\end{align}\]
+
+<p>where $*$ denotes the conjugate transpose.</p>
+
+<h4 id="empirical-approximations">Empirical Approximations</h4>
+
+<p>Define \(\mathrm{\tilde z^\intercal=\begin{bmatrix} \mathrm{\cos(w^\intercal x)} \\ \mathrm{\sin(w^\intercal x)} \end{bmatrix}}\), where $\mathrm{w\sim N(0, c)}$. In practice, we want to approximate</p>
+
+\[\begin{align} 
+\mathrm{\exp\big(iw^\intercal (x-y) \big)} &amp;\mathrm{=\cos(w^\intercal (x-y) ) - i \sin(w^\intercal (x-y))} \notag \\
+                                  &amp;\mathrm{\approx \cos(w^\intercal (x-y) )} \notag \\
+                                  &amp;\mathrm{=\cos(w^\intercal x)\cos(w^\intercal y) + \sin(w^\intercal x) \sin(w^\intercal y)} \notag \\
+                                  &amp;=\begin{bmatrix} \mathrm{\cos(w^\intercal x)} \\ \mathrm{\sin(w^\intercal x)} \end{bmatrix}^\intercal \begin{bmatrix} \mathrm{\cos(w^\intercal y)} \notag\\ \mathrm{\sin(w^\intercal y)} \end{bmatrix} \notag \\
+                                  &amp;\mathrm{=\tilde z^\intercal \tilde z},\notag
+\end{align}\]
+
+<p>This implies that given sufficiently many samples of \(\mathrm{\{w_i\}_{i=1}^R}\), we use random samples to approximate the kernel</p>
+
+\[\begin{align} 
+\mathrm{k_{c^{-1/2}}(x, y) \approx E[\cos(w^\intercal (x-y) )] \approx \frac{1}{R} \sum_{i=1}^R \tilde z_i^\intercal \tilde z_i}. \notag  
+\end{align}\]
+
+<p>An alternative of numerical feature based on $\mathrm{\sqrt{2}cos(wx+b)}$, where \(b\sim \text{Uniform}(0, 2\pi)\), is studied in <a href="https://gregorygundersen.com/blog/2019/12/23/random-fourier-features/#sutherland2015error">Greg’s blog</a>. The binning approach also has shown reasonable improvement on the performance and is studied in <a class="citation" href="#num_embed">(Gorishniy et al., 2022)</a>.</p>
+
+<p><br /><br /><br /></p>
+
+<h3 id="citation">Citation</h3>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">deng2024_rff</span><span class="p">,</span>
+  <span class="na">title</span>   <span class="p">=</span><span class="s">{{Random Fourier Features}}</span><span class="p">,</span>
+  <span class="na">author</span>  <span class="p">=</span><span class="s">{Wei Deng}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span><span class="s">{A Sampler's Blog}</span><span class="p">,</span>
+  <span class="na">year</span>    <span class="p">=</span><span class="s">{2024}</span><span class="p">,</span>
+  <span class="na">howpublished</span> <span class="p">=</span> <span class="s">{\url{https://www.weideng.org/posts/rff/}}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="GP_ML">Rasmussen, C. E., &amp; Williams, C. K. I. (2006). Gaussian Processes for Machine Learning. <i>The MIT Press</i>.</span></li>
+<li><span id="random_features">Rahimi, A., &amp; Recht, B. (2007). Random Features for Large-Scale Kernel Machines. <i>NIPS</i>.</span></li>
+<li><span id="attention_need">Vaswani, A., S., N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., &amp; Polosukhin, I. (2017). Attention Is All You Need. <i>NIPS</i>.</span></li>
+<li><span id="num_embed">Gorishniy, Y., Rubachev, I., &amp; Babenko, A. (2022). On Embeddings for Numerical Features in Tabular Deep Learning. <i>NeurIPS</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

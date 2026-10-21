@@ -1,0 +1,432 @@
+<html>
+<head>
+    <title>Inside the Transformers</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/blog/'>Blog</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+        <li><a href='/news/'>News</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Inside the Transformers</h1>
+            <h4>Understanding the model architecture behind LLMs</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>01 September 2025</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>Transformers are the building blocks of modern large language and visions models and have transformed the way we work and create. At their core is the <em>attention mechanism</em> <a class="citation" href="#attention_need">(Vaswani et al., 2017)</a>, which captures complex temporal patterns and enables reasoning across sequences.</p>
+
+<h2 id="softmax-attention">Softmax Attention</h2>
+
+<p>Attention computes weighted combinations of input tokens so that the model can focus on the most relevant parts of the sequence when producing each output.</p>
+
+\[\begin{align}
+\mathrm{\text{Attention}(Q, K, V)=\underbrace{\text{Softmax}\bigg(\frac{Q K^{\intercal}}{\sqrt{d}}\bigg)}_{\text{Attention weight} \ P} V} \notag
+\end{align}\]
+
+<p>where $\mathrm{Q\in \mathbb{R}^{n\times d}}$, $\mathrm{K\in \mathbb{R}^{m\times d}}$, $\mathrm{V\in \mathbb{R}^{m\times d}}$, $\mathrm{d}$ is the hidden size. $n$ is the number of query positions and $m$ is number of KV positions. A scaling factor of $\frac{1}{\sqrt{d}}$ is employed to account for the linear variance.</p>
+
+<p>In a self-attention example: “The VC will not invest money to the startup” with $\mathrm{n=m=L}$, an attention head may focus on the financial relation between VC and money, the syntactic dependency between VC and invest, or other types of relationships. Because the inner product is linear and softmax overly focuses on extreme values, we can only capture a single type of relationship.</p>
+
+<h3 id="masks">Masks</h3>
+
+<p>Attention masks control what tokens can “see.” A <em>bidirectional</em> mask (no mask) lets tokens attend to all others (BERT <a class="citation" href="#devlin2019bert">(Devlin et al., 2019)</a>), while a <em>causal</em> mask enforces left-to-right attention for generation (GPT). A padding mask ignores [PAD] tokens in batching, and an MLM mask randomly hides tokens (BERT’s [MASK]) for prediction from context.</p>
+
+<figure style="text-align: center;">
+    <img src="/images/masks.png" width="650" height="110" />
+    <figcaption> Bidirectional mask  $\ \ \ $ causal mask $\quad\qquad$ padding $\qquad\qquad$ random mask $\qquad$ intra-doc. </figcaption>
+</figure>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scaled_dot_product</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="nf">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span> <span class="o">@</span> <span class="n">k</span><span class="p">.</span><span class="nf">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">d</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span><span class="p">.</span><span class="nf">masked_fill</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="nf">float</span><span class="p">(</span><span class="sh">'</span><span class="s">-inf</span><span class="sh">'</span><span class="p">))</span>
+    <span class="n">attn</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">softmax</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">attn</span> <span class="o">@</span> <span class="n">v</span><span class="p">,</span> <span class="n">attn</span>
+</code></pre></div></div>
+
+<h3 id="multi-head-attention-mha">Multi-head Attention (MHA)</h3>
+
+<p>To integrate knowledge from different representation subspaces, multi-head attention proposes an ensemble of locally linear projections of queries, keys and values</p>
+
+\[\begin{align}
+\mathrm{\text{MHA}(X_Q, X_K, X_V)} &amp;= \mathrm{[\text{Head}_1; \text{Head}_2; \ldots, \text{Head}_h] W^O} \notag \\
+\mathrm{\text{Head}_i} &amp;=  \mathrm{\text{Attention}(X_Q W_i^Q, X_K W_i^K, X_V W_i^V)}, \notag
+\end{align}\]
+
+<p>where $\mathrm{W_i^Q, W_i^K , W_i^V \in \mathbb{R}^{d\times d_{\text{embed}}/h}}$ and  $\mathrm{W^O \in \mathbb{R}^{d_{\text{embed}}\times d}}$ are the model parameters. Increasing the number of heads $\mathrm{h}$ enhances representational diversity, but also introduces a low-rank bottleneck within each head <a class="citation" href="#pmlr-v119-bhojanapalli20a">(Bhojanapalli et al., 2020)</a>. The model architecture is listed below:</p>
+
+<figure style="text-align: center;">
+    <img src="/images/multihead_attention.png" width="200" height="250" />
+    <figcaption> Multi-head attention <a class="citation" href="#attention_need">(Vaswani et al., 2017)</a> </figcaption>
+</figure>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MultiHeadAttention</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">embed_dim</span> <span class="o">%</span> <span class="n">num_heads</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="sh">"</span><span class="s">embed_dim must be divisible by num_heads</span><span class="sh">"</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">embed_dim</span> <span class="o">=</span> <span class="n">embed_dim</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">num_heads</span> <span class="o">=</span> <span class="n">num_heads</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">head_dim</span> <span class="o">=</span> <span class="n">embed_dim</span> <span class="o">//</span> <span class="n">num_heads</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">qkv_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">bias</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">o_proj</span>  <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="n">embed_dim</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">bias</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">B</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span>
+        <span class="n">qkv</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">qkv_proj</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># (B,L,3*E)
+</span>        <span class="n">qkv</span> <span class="o">=</span> <span class="n">qkv</span><span class="p">.</span><span class="nf">view</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">num_heads</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">head_dim</span><span class="p">).</span><span class="nf">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">qkv</span><span class="p">.</span><span class="nf">chunk</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># each (B,H,L,D)
+</span>
+        <span class="n">values</span><span class="p">,</span> <span class="n">attention</span> <span class="o">=</span> <span class="nf">scaled_dot_product</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="p">.</span><span class="nf">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="nf">reshape</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">embed_dim</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">o_proj</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="n">attention</span>
+</code></pre></div></div>
+
+<!-- ### Techniques
+
+#### Teacher Forcing -->
+
+<h4 id="kv-cache-in-inference">KV Cache in Inference</h4>
+
+<p>Let $\mathrm{x_{1:t}=(x_1, x_2, …, x_t)}$ denote the token sequence up to step $\mathrm{t}$. Each transformer layer computes the query/ key/ value vectors $\mathrm{q_i=x_i W^Q, k_i=x_i W^K, v_i=x_i W^V}$ for $\mathrm{i\in\{1, …, t\}}$. In the inference of autoregressive transformers, the attention output at position $\mathrm{t}$ is</p>
+
+<!-- $$\begin{equation}
+\mathrm{11}. \notag
+\end{equation}$$ -->
+
+\[\begin{align}
+\mathrm{H_t= \text{Softmax}\bigg(\frac{q_t K_{1:t}^{\intercal}}{\sqrt{d}}\bigg) V_{1:t}}, \notag \\
+\mathrm{K_{1:t}} = \begin{bmatrix}
+\mathrm{k_1} \\ 
+\vdots \\ 
+\mathrm{k_t}
+\end{bmatrix}, 
+\quad 
+\mathrm{V_{1:t}} = \begin{bmatrix}
+\mathrm{v_1} \\ 
+\vdots \\ 
+\mathrm{v_t}
+\end{bmatrix}.\notag
+\end{align}\]
+
+<p>To avoid the quadratic cost of repeatly computing all key value vectors $\mathrm{k_{1:t}}$ and $\mathrm{v_{1:t}}$ at each timestamp $\mathrm{t}$. We only need to compute the key-value pair $\mathrm{k_t, v_t}$ and update the cache as follows</p>
+
+\[\begin{align}
+\mathrm{K_{1:t}} = \begin{bmatrix}
+\mathrm{K_{1:t-1}} \\ 
+\mathrm{k_t}
+\end{bmatrix}, 
+\quad 
+\mathrm{V_{1:t}} = \begin{bmatrix}
+\mathrm{V_{1:t-1}} \\ 
+\mathrm{v_t}
+\end{bmatrix}.\notag
+\end{align}\]
+
+<h4 id="beyond-mha">Beyond MHA</h4>
+
+<p>To lower KV cost with minimal quality loss, grouped query attention (GQA) shares keys and values across groups of attention heads, while multi-head Latent Attention (MLA) <a class="citation" href="#DeepSeek_V2">(Authors, 2024)</a> compresses the keys and values into a latent vector. Experiments in <a class="citation" href="#Smol_Training">(Allal et al., 2025)</a> show that this can reduce KV usage by roughly 75% without hurting performance.</p>
+
+<figure style="text-align: center;">
+    <img src="/images/multi_head_GQA.png" width="650" height="508" />
+    <figcaption> A simplified comparison of MHA, GQA, MQA, and MLA <a class="citation" href="#Smol_Training">(Allal et al., 2025)</a> </figcaption>
+</figure>
+
+<h3 id="efficient-attentions">Efficient Attentions</h3>
+
+<p>Self-attention requires $\mathrm{O(L^2)}$ time and memory complexity for the length-$\mathrm{L}$ sequence generation. To mitigate the cost, one can exploit structural properties of the attention weight $\mathrm{P}$, such as linear attention <a class="citation" href="#katharopoulos2020transformers">(Katharopoulos et al., 2020)</a>, sliding window attention (SWA) <a class="citation" href="#jiang2023mistral">(Jiang &amp; Team, 2023)</a>, sparsity <a class="citation" href="#child2019generating">(Child et al., 2019)</a> <a class="citation" href="#beltagy2020longformer">(Beltagy et al., 2020)</a>, low-rankness <a class="citation" href="#wang2020linformer">(Wang et al., 2020)</a>, and Kernelization <a class="citation" href="#choromanski2021rethinking">(Choromanski et al., 2021)</a>, among others <a class="citation" href="#tay2022efficient">(Tay et al., 2022)</a>:</p>
+
+<ul>
+  <li><strong>1. Linear Attention (Autoregressive Transformers v.s. RNNs)</strong>: Consider a linear relaxation of the exponential linear product <a class="citation" href="#katharopoulos2020transformers">(Katharopoulos et al., 2020)</a>:</li>
+</ul>
+
+\[\begin{equation}
+\mathrm{y_t\propto \sum_{i=1}^t v_i \exp\bigg(\frac{k_i^\intercal q_t}{\sqrt{d}}\bigg) \quad \overset{\text{linearization}}{\Rightarrow} \quad  y_t\propto \sum_{i=1}^t v_i  k_i^\intercal q_t }. \notag
+\end{equation}\]
+
+<p>Exploit the <em>recurrency</em> property and ignore the normalizing constant <a class="citation" href="#wang2025testtime">(Wang et al., 2025)</a>:</p>
+
+\[\begin{equation}
+\mathrm{S_t = S_{t-1} + v_t k_t^\top, \quad y_t = S_t q_t = \sum_{i=1}^t v_i k_i^\intercal q_t,} \notag
+\end{equation}\]
+
+<p>where the key–value rank-1 pair $\mathrm{v_t k_t^\top}$ is written into the memory. Although the recurrent update lacks parallelism, this can be mitigated through chunkwise parallelism. One can further increase the expressiveness by replacing the linear inner product  $\mathrm{k^\top q}$ with a feature map $\mathrm{\phi(k)^\top \phi(q)}$:</p>
+
+\[\begin{equation}
+\mathrm{S_t = S_{t-1} + v_t \phi(k_t)^\top ,\quad y_t = S_t \phi(q_t), }\notag
+\end{equation}\]
+
+<p>where the choices of $\phi$ include $1+\mathrm{ELU}$ <a class="citation" href="#katharopoulos2020transformers">(Katharopoulos et al., 2020)</a>, random features <a class="citation" href="#choromanski2021rethinking">(Choromanski et al., 2021)</a>, cosine functions, polynomial expansions, deterministic projections, among others.</p>
+
+<p><strong>Gated Linear Attention</strong>: Compressing all past pairs equally tends to degrade performance as sequence length grows. To solve this issue, a forgetting gate $\mathrm{G_t\in (0,1)^{d\times d}}$ proposes to learn a $\mathrm{x_t}$-dependent decaying matrix and may result in more hardware-efficient training:</p>
+
+\[\begin{equation}
+\mathrm{S_t = G_t \odot S_{t-1} + v_t k_t^\top , \qquad y_t = S_t q_t .}\notag
+\end{equation}\]
+
+<figure style="text-align: center;">
+    <img src="/images/different_gates.png" width="670" height="150" />
+    <figcaption> Different gating formulations <a class="citation" href="#yang2024gated">(Yang et al., 2024)</a> </figcaption>
+</figure>
+
+<ul>
+  <li>
+    <p><strong>2. Sliding Window Attention</strong> Each token only attends to a local window of <strong>nearby</strong> tokens instead of the full sequence <a class="citation" href="#jiang2023mistral">(Jiang &amp; Team, 2023)</a> to preverse local context information and scale to long sequences.</p>
+  </li>
+  <li>
+    <p><strong>3. Sparse Attention</strong>: Longformer <a class="citation" href="#beltagy2020longformer">(Beltagy et al., 2020)</a> leverages a (dilated) sliding window to capture local dependencies and assigns global attention to pre-specified tokens, enhancing modeling flexibility with $O(L)$ complexity. Reformer <a class="citation" href="#kitaev2020reformer">(Kitaev et al., 2020)</a> employs Locality-Sensitive Hashing (LSH) to group similar items into the same buckets, and each query attends only to tokens within its bucket, resulting $O(L\log L)$ complexity.</p>
+  </li>
+  <li>
+    <p><strong>4. Low-rank Attention</strong>: The query-key inner product acts as a rank-1 approximation to captur one <em>similarity</em> pattern. Although softmax relaxes this rank-1 constraint, the attention weight $\mathrm{P}$ remain approximately low-rank in practice (see Theorem 1 in <a class="citation" href="#wang2020linformer">(Wang et al., 2020)</a>), yielding $O(L)$ complexity.</p>
+  </li>
+</ul>
+
+<div style="display: flex; justify-content: center; gap: -50px;">
+  <figure style="text-align: center;">
+    <img src="/images/longformer_d.png" width="120" height="120" />
+    <figcaption>Longformer attention.</figcaption>
+  </figure>
+
+  <figure style="text-align: center;">
+    <img src="/images/reformer_d.png" width="120" height="120" />
+    <figcaption>Reformer attention.</figcaption>
+  </figure>
+</div>
+
+<ul>
+  <li><strong>5. Kernelized Attention</strong>: The attention weight $\mathrm{P}$ can be viewed as an exponential kernel \(\mathrm{\exp(x^\intercal y)=\exp(\|x\|_2^2)K_{\text{gaussian}}(x, y) \exp(\|y\|_2^2)}\) and a prior <a href="https://www.weideng.org/posts/random_fourier_features/">random feature blog</a> has ever discussed about the Monte Carlo approximations <a class="citation" href="#random_features">(Rahimi &amp; Recht, 2007)</a>. Building on this idea, Performer <a class="citation" href="#choromanski2021rethinking">(Choromanski et al., 2021)</a> introduces non-negativity random features to avoiding singularities during normalization.</li>
+</ul>
+
+<h3 id="position-embeddings">Position Embeddings</h3>
+<!-- 
+#### Scaling laws
+
+#### Stacking of attentions to achieve better performance via @Shuangfei Zhai's tweets. -->
+
+<h4 id="absolute-positional-embedding">Absolute Positional Embedding</h4>
+
+<ul>
+  <li>
+    <p>Learnable: A common approach is to use nn.Embedding for positional encodings, as in BERT <a class="citation" href="#devlin2019bert">(Devlin et al., 2019)</a> and GPT-2, which is effective but limited by the training sequence length.</p>
+  </li>
+  <li>
+    <p>Sinusoidal: <a class="citation" href="#attention_need">(Vaswani et al., 2017)</a> proposes a deterministic, non-trainable encoding and is in spirit similar to random features <a class="citation" href="#random_features">(Rahimi &amp; Recht, 2007)</a>.</p>
+  </li>
+</ul>
+
+<!-- One may increase the base 10000 to support longer sequence length. -->
+
+\[\begin{equation}
+\mathrm{PE_{(pos,2i)} = \sin\!\left(\frac{pos}{10000^{2i/d_{\text{model}}}}\right),  \qquad PE_{(pos,2i+1)} = \cos\!\left(\frac{pos}{10000^{2i/d_{\text{model}}}}\right)}.\notag
+\end{equation}\]
+
+<!-- limited seq length; independence of PE: the difference between pos 1 and 2 is the same as position 2 and 500? (breaks if it goes beyond wavelength?) -->
+
+<h4 id="relative-position-encodings-rpe">Relative Position Encodings (RPE)</h4>
+
+<p>RPE augments the attention logits with terms that depend on $\mathrm{i-j}$ <a class="citation" href="#shaw2018self">(Shaw et al., 2018; Dai et al., 2019)</a>:</p>
+
+\[\begin{equation}
+\mathrm{e_{ij}=\frac{Q_i^\top K_j}{\sqrt{d}} + Func(i-j, Q_i, K_j)}.\notag
+\end{equation}\]
+
+<h4 id="attention-with-linear-biases-alibi">Attention with Linear Biases (ALiBi)</h4>
+
+<p>To achieve longer extrapolation length beyond the training length, <a class="citation" href="#press2022train">(Press et al., 2022)</a> penalizes distant key-value pairs</p>
+
+\[\begin{equation}
+\mathrm{e_{ij} = \frac{Q_i^\top K_j}{\sqrt{d}} + m_h (i - j)}, \notag
+\end{equation}\]
+
+<p>where $\mathrm{m_h}$ is a fixed slope constant, e.g. $\mathrm{m_h=-\frac{1}{2^{h/H}}, h\in \{1, 2, …\}}$.</p>
+
+<h4 id="rotary-position-embeddings-rope">Rotary Position Embeddings (RoPE)</h4>
+
+<p>Building on insights from complex analysis, <a class="citation" href="#su2021roformer">(Su et al., 2021)</a> proposed a point-wise rotation of the Q/K matrices, which has since been widely adopted in state-of-the-art LLM architectures.</p>
+
+\[\begin{equation}
+\mathrm{e_{ij}=\frac{(R_i Q_i)^\top R_j K_j}{\sqrt{d}}=\frac{ Q_i\top R_{j-i} K_j}{\sqrt{d}}}.\notag
+\end{equation}\]
+
+<p>where $\mathrm{R(\alpha)^\top R(\beta)=R(\beta-\alpha)}$ is the complex inner product and $\mathrm{R(\alpha)}$ is defined below</p>
+
+\[\begin{align}
+&amp; \mathrm{z' = e^{im\theta} z  =(\underbrace{\cos(m\theta) + i \sin(m\theta)}_{e^{im\theta}})(\underbrace{q_0 + i q_1}_{z})=} \underbrace{\begin{bmatrix}
+\mathrm{\cos(m\theta)} &amp; -\sin(m\theta) \\
+\sin(m\theta) &amp; \cos(m\theta)
+\end{bmatrix}}_{\mathrm{R(m\theta)}}
+\begin{bmatrix}
+\mathrm{q_0} \\ \mathrm{q_1}
+\end{bmatrix}.\notag
+\end{align}\]
+
+<!-- where the 2nd row represents the imaginary axis. -->
+
+<p>For higher dimensions, <a class="citation" href="#su2021roformer">(Su et al., 2021)</a> proposes the 2-by-2 block-wise rotation matrix</p>
+
+\[\begin{equation}
+\mathrm{R_m} =
+\begin{bmatrix}
+\mathrm{\cos(m\theta_0)} &amp; -\mathrm{\sin(m\theta_0)} &amp; 0 &amp; 0 &amp; \cdots   \\
+\mathrm{\sin(m\theta_0)} &amp; \;\cos(m\theta_0) &amp; 0 &amp; 0 &amp; \cdots    \\
+0 &amp; 0 &amp; \mathrm{\cos(m\theta_1)} &amp; \mathrm{-\sin(m\theta_1)} &amp; \cdots    \\
+0 &amp; 0 &amp; \mathrm{\sin(m\theta_1)} &amp; \;\cos(m\theta_1) &amp; \cdots   \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots   \\
+\end{bmatrix}
+\begin{bmatrix}
+\mathrm{q_0} \\ \mathrm{q_1} \\ \mathrm{q_2} \\ \mathrm{q_3} \\ \vdots
+\end{bmatrix}. \notag
+\end{equation}\]
+
+<h4 id="no-position-embeddings-nope">No Position Embeddings (NoPE)</h4>
+
+<p>RoPE is the mainstream choice for positional encoding, yet its performance decays rapidly as context length grows. NOPE <a class="citation" href="#kazemnejad2023positional">(Kazemnejad et al., 2023)</a> does not rely on any explicit positional encoding and offers a compelling way for length generalization. A hybrid strategy that alternates between RoPE and NoPE is also studied in SmolLM3.</p>
+
+<!-- 1D/ 2D RoPE (ViT) / beta-base encoding -->
+
+<!-- RoPE is a rotary transformation applied to the Query (Q) and Key (K) in Attention.？ -->
+
+<!-- the only one that applies to linear attentions so far? -->
+
+<!-- RoPE base number LLaMA 3 choose  -->
+
+<!-- #### ALiBi (Attention with Linear Biases) -->
+
+<!-- Abs. PE/ Learnable P.E./ ALiBi/ -->
+
+<!-- how to do multimodal? -->
+
+<!-- Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation -->
+
+<!-- Rotary Positional Encoding (RoPE has an inductive bias towards left-to-right ordering, Sitan Chen's Train for theWorst, Plan for the Best: -->
+<!-- Understanding Token Ordering in Masked Diffusions) -->
+
+<h3 id="the-transformer-family">The Transformer Family</h3>
+
+<p><strong>B</strong>idirectional <strong>E</strong>ncoder <strong>R</strong>epresentations from <strong>T</strong>ransformer (<strong>BERT</strong>)</p>
+
+<p>BERT <a class="citation" href="#devlin2019bert">(Devlin et al., 2019)</a> encodes bidirectional representations via masked language modeling. During pretraining, 15% of tokens are randomly selected; 80% are replaced with [MASK], 10% with a random token, and 10% left unchanged. Despite the bidirectional context, MLM breaks left-to-right (L2R) factorization, which makes exact sequence likelihood intractable and overlooks the higher-order dependencies. It is also harder to learn bidirectional representations.</p>
+
+<p>To solve the undertrained issue, Robustly optimized BERT (RoBERTa) <a class="citation" href="#liu2019roberta">(Liu et al., 2019)</a> trains the model with larger batches, more data, longer sequences, and the mask is also updated dynamically; ALBERT <a class="citation" href="#lan2019albert">(Lan et al., 2019)</a> is a light-weighted BERT that adopted factorized embedding and shared parameters across layers; DeBERTa <a class="citation" href="#he2021deberta">(He et al., 2021)</a> improves the performance via disentangled attention mechanism and enhanced mask decoders.</p>
+
+<p><!-- T5 <a class="citation" href="#raffel2020exploring">(Raffel et al., 2020)</a> further incorporates the causal decoder to enhance the generation ability. --></p>
+
+<h4 id="generative-pre-trained-transformer-gpt">Generative Pre-trained Transformer (GPT)</h4>
+
+<p>GPT <a class="citation" href="#radford2018improving">(Radford et al., 2018)</a> trains a unidirectional, causally masked Transformer decoder to learn language representations. Its L2R factorization is compute-friendly and scales smoothly with model size, data, and compute, aligning with empirical scaling-law behavior. However, because self-attention is causal, each token can attend only to preceding context. This L2R constraint introduces several limitations, e.g. high latency for long sequences and limited parallelism at inference; exposure-bias error compounding; awkward infilling/ (mid-span) editing.</p>
+
+<p>GPT-2 (1.5B) <a class="citation" href="#radford2019language">(Radford et al., 2019)</a> is 10× larger than GPT and trained on millions of WebText tokens. It can be directly applied to downstream language tasks without parameter or architecture modifications (zero-shot transfer), demonstrating log-linear improvements in performance; GPT-3 (175B) <a class="citation" href="#brown2020language_arxiv">(Brown et al., 2020)</a> has the same architecture as GPT-2, except that the attention patterns are alternated between dense and sparse. GPT-3 shows impressive few-shot performance to many NLP tasks without any gradient-based fine-tuning.</p>
+
+<h3 id="scaling-laws">Scaling Laws</h3>
+
+<p>The test loss of a transformer yields a power-law with model size, dataset size, and computations <a class="citation" href="#kaplan2020scaling">(Kaplan et al., 2020)</a>. These scaling laws provide concrete guidance for allocating a fixed budget.</p>
+
+<figure style="text-align: center;">
+    <img src="/images/scaling_laws.png" width="650" height="200" />
+    <figcaption> Test Loss v.s. model size, dataset size, and computations <a class="citation" href="#kaplan2020scaling">(Kaplan et al., 2020)</a> </figcaption>
+</figure>
+
+<!-- 
+
+
+#### DistilBERT
+
+
+#### T5
+
+### GPT
+ -->
+
+<p><br /><br /><br /></p>
+
+<h3 id="citation">Citation</h3>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">deng2025_inside_transformers</span><span class="p">,</span>
+  <span class="na">title</span>   <span class="p">=</span><span class="s">{{Inside the Transformers}}</span><span class="p">,</span>
+  <span class="na">author</span>  <span class="p">=</span><span class="s">{Wei Deng}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span><span class="s">{A Sampler's Blog}</span><span class="p">,</span>
+  <span class="na">year</span>    <span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
+  <span class="na">howpublished</span> <span class="p">=</span> <span class="s">{\url{https://www.weideng.org/posts/inside_transformers/}}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="attention_need">Vaswani, A., S., N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., &amp; Polosukhin, I. (2017). Attention Is All You Need. <i>NIPS</i>.</span></li>
+<li><span id="devlin2019bert">Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. <i>NAACL-HLT</i>.</span></li>
+<li><span id="pmlr-v119-bhojanapalli20a">Bhojanapalli, S., Yun, C., Rawat, A. S., Reddi, S., &amp; Kumar, S. (2020). Low-Rank Bottleneck in Multi-head Attention Models. <i>ICML</i>.</span></li>
+<li><span id="DeepSeek_V2">Authors, D. S. (2024). DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model. <i>DeepSeek</i>.</span></li>
+<li><span id="Smol_Training">Allal, L. B., Tunstall, L., Tazi, N., Bakouch, E., Beeching, E., Patiño, C. M., Fourrier, C., Frere, T., Lozhkov, A., Raffel, C., von Werra, L., &amp; Wolf, T. (2025). The Smol Training Playbook: The Secrets to Building World-Class LLMs. <i>Hugging Face</i>.</span></li>
+<li><span id="katharopoulos2020transformers">Katharopoulos, A., Vyas, A., Pappas, N., &amp; Fleuret, F. (2020). Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention. <i>ICML</i>.</span></li>
+<li><span id="jiang2023mistral">Jiang, A. Q., &amp; Team, M. A. I. (2023). Mistral 7B. <i>ArXiv Preprint ArXiv:2310.06825</i>.</span></li>
+<li><span id="child2019generating">Child, R., Gray, S., Radford, A., &amp; Sutskever, I. (2019). Generating Long Sequences with Sparse Transformers. <i>ArXiv Preprint ArXiv:1904.10509</i>.</span></li>
+<li><span id="beltagy2020longformer">Beltagy, I., Peters, M. E., &amp; Cohan, A. (2020). Longformer: The Long-Document Transformer. <i>ArXiv:2004.05150</i>.</span></li>
+<li><span id="wang2020linformer">Wang, S., Li, B. Z., Khabsa, M., Fang, H., &amp; Ma, H. (2020). <i>Linformer: Self-Attention with Linear Complexity</i>.</span></li>
+<li><span id="choromanski2021rethinking">Choromanski, K., Likhosherstov, V., Dohan, D., Song, X., Gane, A., Sarlos, T., Hawkins, P., Davis, J., Mohiuddin, A., Kaiser, L., Belanger, D., Colwell, L., &amp; Weller, A. (2021). Rethinking Attention with Performers. <i>ICLR</i>.</span></li>
+<li><span id="tay2022efficient">Tay, Y., Dehghani, M., Bahri, D., &amp; Metzler, D. (2022). Efficient Transformers: A Survey. <i>ACM Computing Surveys (CSUR)</i>.</span></li>
+<li><span id="wang2025testtime">Wang, K. A., Shi, J., &amp; Fox, E. B. (2025). <i>Test-time regression: a unifying framework for designing sequence models with associative memory</i>.</span></li>
+<li><span id="yang2024gated">Yang, S., Wang, B., Shen, Y., Panda, R., &amp; Kim, Y. (2024). Gated Linear Attention Transformers with Hardware-Efficient Training. <i>ICML</i>.</span></li>
+<li><span id="kitaev2020reformer">Kitaev, N., Kaiser, L., &amp; Levskaya, A. (2020). Reformer: The Efficient Transformer. <i>International Conference on Learning Representations</i>. https://openreview.net/forum?id=rkgNKkHtvB</span></li>
+<li><span id="random_features">Rahimi, A., &amp; Recht, B. (2007). Random Features for Large-Scale Kernel Machines. <i>NIPS</i>.</span></li>
+<li><span id="shaw2018self">Shaw, P., Uszkoreit, J., &amp; Vaswani, A. (2018). Self-Attention with Relative Position Representations. <i>NAACL HLT</i>.</span></li>
+<li><span id="dai2019transformer">Dai, Z., Yang, Z., Yang, Y., Carbonell, J., Le, Q. V., &amp; Salakhutdinov, R. (2019). Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context. <i>ACL</i>.</span></li>
+<li><span id="press2022train">Press, O., Smith, N. A., &amp; Lewis, M. (2022). Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation. <i>ICLR</i>.</span></li>
+<li><span id="su2021roformer">Su, J., Lu, Y., Pan, S., Wen, B., &amp; Liu, Y. (2021). RoFormer: Enhanced Transformer with Rotary Position Embedding. <i>ArXiv Preprint ArXiv:2104.09864</i>.</span></li>
+<li><span id="kazemnejad2023positional">Kazemnejad, A., Padhi, I., Natesan Ramamurthy, K., Das, P., &amp; Reddy, S. (2023). The Impact of Positional Encoding on Length Generalization in Transformers. <i>NeurIPS</i>.</span></li>
+<li><span id="liu2019roberta">Liu, Y., Ott, M., Goyal, N., Du, J., Joshi, M., Chen, D., Levy, O., Lewis, M., Zettlemoyer, L., &amp; Stoyanov, V. (2019). RoBERTa: A Robustly Optimized BERT Pretraining Approach. <i>ArXiv Preprint ArXiv:1907.11692</i>.</span></li>
+<li><span id="lan2019albert">Lan, Z., Chen, M., Goodman, S., Gimpel, K., Sharma, P., &amp; Soricut, R. (2019). ALBERT: A Lite BERT for Self-supervised Learning of Language Representations. <i>ArXiv Preprint ArXiv:1909.11942</i>. https://arxiv.org/abs/1909.11942</span></li>
+<li><span id="he2021deberta">He, P., Liu, X., Gao, J., &amp; Chen, W. (2021). DeBERTa: Decoding-enhanced BERT with Disentangled Attention. <i>International Conference on Learning Representations (ICLR)</i>.</span></li>
+<li><span id="raffel2020exploring">Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., Zhou, Y., Li, W., &amp; Liu, P. J. (2020). Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer. <i>Journal of Machine Learning Research</i>, <i>21</i>(140), 1–67.</span></li>
+<li><span id="radford2018improving">Radford, A., Narasimhan, K., Salimans, T., &amp; Sutskever, I. (2018). <i>Improving Language Understanding with Unsupervised Learning</i>. OpenAI.</span></li>
+<li><span id="radford2019language">Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., &amp; Sutskever, I. (2019). <i>Language Models are Unsupervised Multitask Learners</i>. OpenAI.</span></li>
+<li><span id="brown2020language_arxiv">Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D. M., Wu, J., Winter, C., … Amodei, D. (2020). Language Models are Few-Shot Learners. <i>ArXiv Preprint ArXiv:2005.14165</i>.</span></li>
+<li><span id="kaplan2020scaling">Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., &amp; Amodei, D. (2020). Scaling Laws for Neural Language Models. <i>ArXiv Preprint ArXiv:2001.08361</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

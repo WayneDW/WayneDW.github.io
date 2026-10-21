@@ -1,0 +1,159 @@
+<html>
+<head>
+    <title>Power Sampling in LLMs</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Wei Deng is a machine learning researcher and applied mathematician.'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Wei Deng'>
+
+    <link href='/css/blog.css' rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [ ['$$', '$$'], ["\\[","\\]"]],
+      tags: 'ams',
+      displayAlign: "center"
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/blog/'>Blog</a></li>
+        <li><a href='/publications/'>Publications</a></li>
+        <li><a href='/news/'>News</a></li>
+    </ul>
+</div>
+
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Power Sampling in LLMs</h1>
+            <h4>How a training/verifier/data-free sampler outperforms GRPO</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <!-- <h3>Published</h3> -->
+                    <p>15 March 2026</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>GRPO <a class="citation" href="#shao2024deepseekmath">(Shao et al., 2024)</a> has become a dominant RL method for improving reasoning in LLMs. However, it requires expensive training, hyperparameter tuning, and building ad-hoc reward functions, which often reduces sample diversity and generalization ability. A natural question is: Can we unlock the same reasoning performance without costly RL training?</p>
+
+<h4 id="sub-optimal-sampling">Sub-Optimal Sampling</h4>
+
+<p>Our goal is to sample high-likelihood trajectories \(\mathrm{p(x_{0:T})}\). Since we don’t have look-ahead oracles, the likelihood is often approximated by <strong>autoregressive property</strong>:</p>
+
+\[\mathrm{p(x_{0:T})=\Pi_{t=0}^T p(x_t\mid x_{&lt;t})}.\]
+
+<p>Despite the simplicity, decoding locally may be only sub-optimal. Consider a simple example of a length-2 sentence with the token vocabulary of \(\{a, b\}\). The sequence probabilies become</p>
+
+\[\begin{equation}
+\mathrm{p(aa)=0, \ \ p(ab)=0.45, \ \ p(ba)=0.25, \ \ p(bb)=0.3},\notag
+\end{equation}\]
+
+<p>where we know that \(\mathrm{p(x_0=a)=0.45, p(x_0=b)=0.55}.\) In this example, decoding the token \(\mathrm{b}\) looks like the optimal solution, which is actually unreasonable since \(\mathrm{p(ab)}\) has the highest probability.</p>
+
+<h3 id="power-sampling">Power Sampling</h3>
+
+<p>To sample \(\mathrm{p(ab)}\), <a class="citation" href="#karan2026reasoning">(Karan &amp; Du, 2026)</a> proposed a simple recipe by sampling the power distribution \(\mathrm{p^{\alpha}}\):</p>
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 24px;">
+  <figure style="text-align: center; margin: 0;">
+    <img src="/images/sharpening_distribution_power_sample.png" width="424" height="287" />
+    <figcaption> A baby example for sharpened distribution <a class="citation" href="#karan2026reasoning">(Karan &amp; Du, 2026)</a>.</figcaption>
+  </figure>
+</div>
+
+<p>Take the above example, if we choose \(\mathrm{\alpha=2.0}\), we have</p>
+
+\[\begin{equation}
+\mathrm{p_{\text{power}}(x_0=a)\propto 0.45^2=0.2025 &gt; p_{\text{power}}(x_0=b)\propto 0.25^2 + 0.3^2=0.1525}.\notag
+\end{equation}\]
+
+<p>The sub-optimal decoding issue is easily solved by sampling from a sharpening distribution \(\mathrm{p^2}\). By contrast, the well-known low-temperature sampling simulates \(\mathrm{p(x_t\mid x_{&lt;t})^{\alpha}}\) and fails in this case</p>
+
+\[\begin{equation}
+\mathrm{p_{\text{low-temperature}}(x_0=a)\propto (0+0.45)^2=0.2025 &lt; p_{\text{power}}(x_0=b)\propto (0.25 + 0.3)^2=0.3025}.\notag
+\end{equation}\]
+
+<p>The above example shows that \(\mathrm{p^{\alpha}}\) motivates future high-likelihood trajectories, while low-temperature sampling only focuses on the current token.</p>
+
+<h4 id="metropolis-hastings">Metropolis-Hastings</h4>
+
+<p>For a general length, we first set a block size \(\mathrm{B}\), e.g. 192, to save computations and denote \(\mathrm{\pi_k(x_{0:kB})\propto p(x_{0:kB})^\alpha}\). To sample from \(\mathrm{\pi_{k+1}}\), <a class="citation" href="#karan2026reasoning">(Karan &amp; Du, 2026)</a> proposed to first initialize a base sample \(\mathrm{x^{(0)}\rightarrow x}\):</p>
+
+\[\mathrm{x_t^{(0)}\sim p_{\text{proposal}}(x_t\mid x_{&lt;t})} \quad \text{for} \ \ \mathrm{kB+1\leq t \leq (k+1)B}\]
+
+<p>where \(\mathrm{p_{\text{proposal}}}\) is a temperature-\(\mathrm{1/\alpha}\) sampler from the base model.</p>
+
+<p>Next for a random \(\mathrm{m\in \{1, 2, \cdots, (k+1)B\}}\), we accept the new sample \(\mathrm{x'}\)</p>
+
+\[\mathrm{x_t'\sim p_{\text{proposal}}(x_t\mid x_{&lt;t})} \quad \text{for} \ \ \mathrm{m\leq t \leq (k+1)B}\]
+
+<p>with a probability \(\mathrm{1\wedge A(x', x)}\) via the Metropolis-Hastings algorithm and repeat \(\mathrm{N_{\text{MCMC}}}\) times</p>
+
+<h3 id="reasoning-performance-on-math500">Reasoning Performance on Math500</h3>
+
+<p>Empirically, power sampling significantly improves over the base model and achieves single-shot reasoning performance comparable to GRPO, without any post-training. Moreover, because it preserves sampling diversity, it delivers stronger Pass@k performance across multiple samples.</p>
+
+\[\mathrm{A(x', x) \leftarrow \min \left\{ 1,\,
+\frac{\pi_k(x')}{\pi_k(x)} \cdot
+\frac{p_{\mathrm{proposal}}(x \mid x')}{p_{\mathrm{proposal}}(x' \mid x)}
+\right\}.}\]
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 24px;">
+  <figure style="text-align: center; margin: 0;">
+    <img src="/images/power_sampling_multi_shot.png" width="477" height="302" />
+    <figcaption> Multi-shot (Pass@k) reasoning on MATH500 <a class="citation" href="#karan2026reasoning">(Karan &amp; Du, 2026)</a>.</figcaption>
+  </figure>
+</div>
+
+<p>The following shows the impact of $\mathrm{\alpha, N_{\text{MCMC}}}$ where $\mathrm{\alpha, N_{\text{MCMC}&gt;1}}$ significantly improves the performance.</p>
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 24px;">
+  <figure style="text-align: center; margin: 0;">
+    <img src="/images/power_sampling_hp.png" width="626" height="237" />
+    <figcaption> Impact of $\alpha$ and $N_{\text{MCMC}}$ <a class="citation" href="#karan2026reasoning">(Karan &amp; Du, 2026)</a>.</figcaption>
+  </figure>
+</div>
+
+<p><br /><br /><br /></p>
+
+<h3 id="citation">Citation</h3>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">deng2026_power</span><span class="p">,</span>
+  <span class="na">title</span>   <span class="p">=</span><span class="s">{{Power Sampling in LLMs}}</span><span class="p">,</span>
+  <span class="na">author</span>  <span class="p">=</span><span class="s">{Wei Deng}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span><span class="s">{A Sampler's Blog}</span><span class="p">,</span>
+  <span class="na">year</span>    <span class="p">=</span><span class="s">{2026}</span><span class="p">,</span>
+  <span class="na">howpublished</span> <span class="p">=</span> <span class="s">{\url{https://www.weideng.org/posts/power_samplers/}}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"><li><span id="shao2024deepseekmath">Shao, Z., Wang, P., Zhu, Q., Xu, R., Song, J., Bi, X., Zhang, H., Zhang, M., Li, Y. K., Wu, Y., &amp; others. (2024). DeepseekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models. <i>ArXiv Preprint ArXiv:2402.03300</i>.</span></li>
+<li><span id="karan2026reasoning">Karan, A., &amp; Du, Y. (2026). Reasoning with Sampling: Your Base Model is Smarter Than You Think. <i>ICLR</i>.</span></li></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>
