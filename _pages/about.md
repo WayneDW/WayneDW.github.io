@@ -13,10 +13,12 @@ author_profile: true
 
 <!---   The blogger is interested in inference-time reasoning and agents for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work.--> 
 
-The blogger designs principled sampling algorithms that harness the complementary strengths of diverse samples to enable stronger reasoning and more capable agents. After all, every sample has a role to play.
+
+The blogger designs principled sampling algorithms that harness the complementary strengths of diverse samples, exploring how their collective potential can unlock stronger reasoning and more capable agents.
 
 
-His recent works include mdm reasoning (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>), test-time alignment (<a href="https://arxiv.org/pdf/2605.25123" style="color: #1a4b8b;">TRI-TSMC</a>), discrete diffusion (<a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>,
+His recent works include test-time sampling (<a href="https://arxiv.org/pdf/2609.38104" style="color: #1a4b8b;">PPT</a>,
+<a href="https://arxiv.org/pdf/2610.20483" style="color: #1a4b8b;">DMS</a>, <a href="https://arxiv.org/pdf/2605.25123" style="color: #1a4b8b;">TRI-TSMC</a>), discrete diffusion (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>, <a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>,
 <a href="https://haoyangzheng.github.io/research/didi-instruct/" style="color: #1a4b8b;">DiDi Instruct</a>), continuous diffusion (<a href="https://arxiv.org/pdf/2405.04795" style="color: #1a4b8b;">VSDM</a>,
 <a href="https://arxiv.org/pdf/2305.07247" style="color: #1a4b8b;">SB-TS</a>), and sampling (<a href="https://arxiv.org/pdf/2008.05367" style="color: #1a4b8b;">DeepPT</a>, <a href="https://arxiv.org/pdf/2010.09800" style="color: #1a4b8b;">Contour</a>). 
 
