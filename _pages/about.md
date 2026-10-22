@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "A Sampler’s Blog."
+title: "A Sampler’s Blog"
 excerpt: "what is this?"
 author_profile: true
 ---
