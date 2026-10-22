@@ -1,11 +1,13 @@
 ---
-title: 'Finetuning with Sampling'
+title: 'Finetuning with Sampling (TBD)'
 subtitle: How MCMC turns off-policy expert demos into on-policy training data
 date: 2026-10-19
 permalink: /posts/sft-sampling/
 category: Sampling
 ---
 
+
+TBD......
 
 Supervised Fine-Tuning (SFT) is widely used to teach LLMs new knowledge and reasoning capabilities. However, SFT often suffers from catastrophic forgetting, where learning new tasks degrades previously acquired capabilities. By contrast, Reinforcement Learning (RL), such as GRPO {% cite shao2024deepseekmath %}, often generalizes better but relies on the model's ability to discover correct solutions through exploration.
 
