@@ -17,9 +17,9 @@ author_profile: true
 The blogger designs principled sampling algorithms that harness the complementary strengths of diverse samples, exploring how their collective potential can unlock stronger reasoning and more capable agents.
 
 
-His recent works include test-time sampling (<a href="https://arxiv.org/pdf/2609.38104" style="color: #1a4b8b;">PPT</a>,
+His works include test-time sampling (<a href="https://arxiv.org/pdf/2609.38104" style="color: #1a4b8b;">PPT</a>,
 <a href="https://arxiv.org/pdf/2610.20483" style="color: #1a4b8b;">DMS</a>, <a href="https://arxiv.org/pdf/2605.25123" style="color: #1a4b8b;">TRI-TSMC</a>), diffusion-discrete (<a href="https://gdpo.github.io/" style="color: #1a4b8b;">GDPO</a>, <a href="https://laaaarrywang.github.io/Self-Correcting-Discrete-Diffusion/" style="color: #1a4b8b;">SCDD</a>,
-<a href="https://haoyangzheng.github.io/research/didi-instruct/" style="color: #1a4b8b;">DiDi Instruct</a>)/ continuous (<a href="https://arxiv.org/pdf/2405.04795" style="color: #1a4b8b;">VSDM</a>,
+<a href="https://haoyangzheng.github.io/research/didi-instruct/" style="color: #1a4b8b;">DiDi Inst.</a>)/ continuous (<a href="https://arxiv.org/pdf/2405.04795" style="color: #1a4b8b;">VSDM</a>,
 <a href="https://arxiv.org/pdf/2305.07247" style="color: #1a4b8b;">SB-TS</a>), and samplers (<a href="https://arxiv.org/pdf/2008.05367" style="color: #1a4b8b;">DeepPT I</a><a href="https://arxiv.org/pdf/2010.01084" style="color: #1a4b8b;">/II</a><a href="https://arxiv.org/pdf/2211.10837" style="color: #1a4b8b;">/III</a>, 
 <!--- <a href="https://link.springer.com/article/10.1007/s11222-022-10120-3" style="color: #1a4b8b;">AWSGLD</a>,  -->
 <a href="https://arxiv.org/pdf/2202.09867" style="color: #1a4b8b;">i</a> <a href="https://arxiv.org/pdf/2010.09800" style="color: #1a4b8b;">Contour</a>, <a href="https://openreview.net/pdf?id=EmQGdBsOPx" style="color: #1a4b8b;">FA-LD</a><a href="https://www.tandfonline.com/doi/full/10.1080/10618600.2024.2380051" style="color: #1a4b8b;">/HMC</a>, <a href="https://proceedings.neurips.cc/paper_files/paper/2021/file/8ba6c657b03fc7c8dd4dff8e45defcd2-Paper.pdf" style="color: #1a4b8b;">Sparse IDS</a>). 
