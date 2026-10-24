@@ -13,7 +13,7 @@ author_profile: true
 
 <!---   The blogger is interested in inference-time reasoning and agents for LLMs. He also shares research ideas he finds insightful and occasional updates on his own work.--> 
 
-The blogger designs principled sampling algorithms that leverage sample diversity to unlock stronger reasoning and more capable agents.
+The blogger designs principled sampling algorithms that harness sample diversity and complementarity to unlock stronger reasoning and more capable agents.
 
 
 
