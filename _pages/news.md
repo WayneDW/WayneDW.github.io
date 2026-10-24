@@ -8,7 +8,7 @@ author_profile: true
 
 <!-- Apr, 2025. -->
 
-Oct, 2026. Congrats to [Haoyang](https://haoyangzheng.github.io/), co-mentored with [Dr. Lin](https://scholar.google.com/citations?user=7lWVV2IAAAAJ&hl=en), on joining Google as an AI Research Scientist! 
+Oct, 2026. Congrats to [Haoyang](https://haoyangzheng.github.io/), co-mentored with [Dr.Lin](https://scholar.google.com/citations?user=7lWVV2IAAAAJ&hl=en), on joining Google as an AI Research Scientist! 
 
 Oct, 2026. Invited Area Chair for [ICML 2027](https://icml.cc/).
 
