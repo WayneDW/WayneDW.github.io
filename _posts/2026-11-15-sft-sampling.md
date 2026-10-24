@@ -1,7 +1,7 @@
 ---
 title: 'Finetuning with Sampling'
 subtitle: MCMC avoids catastrophic forgetting in SFT
-date: 2026-10-24
+date: 2026-11-15
 permalink: /posts/sft-sampling/
 category: Sampling
 ---
